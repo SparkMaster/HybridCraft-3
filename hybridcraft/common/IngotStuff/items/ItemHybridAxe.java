@@ -1,4 +1,4 @@
-package hybridcraft.common.IngotStuff;
+package hybridcraft.common.IngotStuff.items;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.EnumToolMaterial;
@@ -11,7 +11,7 @@ public class ItemHybridAxe extends ItemTool
     /** an array of the blocks this axe is effective against */
     public static final Block[] blocksEffectiveAgainst = new Block[] {Block.planks, Block.bookShelf, Block.wood, Block.chest, Block.stoneDoubleSlab, Block.stoneSingleSlab, Block.pumpkin, Block.pumpkinLantern};
 
-    protected ItemHybridAxe(int par1, EnumToolMaterial par2EnumToolMaterial)
+    public ItemHybridAxe(int par1, EnumToolMaterial par2EnumToolMaterial)
     {
         super(par1, 3, par2EnumToolMaterial, blocksEffectiveAgainst);
     }

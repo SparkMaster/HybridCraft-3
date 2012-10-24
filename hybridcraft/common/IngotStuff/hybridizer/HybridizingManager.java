@@ -1,7 +1,7 @@
 package hybridcraft.common.IngotStuff.hybridizer;
 
 import net.minecraft.src.*;
-import hybridcraft.common.IngotStuff.Ingot;
+import hybridcraft.common.IngotStuff.items.Ingot;
 import hybridcraft.common.core.AbstractCraftingManager;
 import cpw.mods.fml.common.registry.*;
 

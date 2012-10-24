@@ -7,10 +7,14 @@
 package hybridcraft.common.IngotStuff;
 
 import java.util.Random;
+
+import hybridcraft.common.IngoStuff.handler.CraftingHandler;
 import hybridcraft.common.IngotStuff.armor.*;
 import hybridcraft.common.IngotStuff.hybridizer.BlockHybridizer;
 import hybridcraft.common.IngotStuff.hybridizer.GuiHandler;
 import hybridcraft.common.IngotStuff.hybridizer.HybridizingManager;
+import hybridcraft.common.IngotStuff.items.Ingot;
+import hybridcraft.common.IngotStuff.items.ItemBlockFlowers;
 import hybridcraft.common.IngotStuff.lib.Reference;
 import hybridcraft.common.core.*;
 import net.minecraft.src.Block;
@@ -43,7 +47,8 @@ import net.minecraft.src.AchievementList;
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 
 @NetworkMod(clientSideRequired = true, serverSideRequired = true)
-public class HybridModIngotStuff implements ICraftingHandler {
+public class HybridModIngotStuff
+{
 
 	// Instance
 	@Instance("HybridCraft 2 Materials")
@@ -55,6 +60,9 @@ public class HybridModIngotStuff implements ICraftingHandler {
 	
 	// Combiner GUI
 	private GuiHandler guiHandler = new GuiHandler();
+	
+	//Crafting handler
+	private CraftingHandler craftingHandler = new CraftingHandler();
 
 	// Tool Materials
 	static EnumToolMaterial dirt = EnumHelper.addToolMaterial("dirt", 0, 30, 1.0F, 0, 15);
@@ -259,13 +267,13 @@ public class HybridModIngotStuff implements ICraftingHandler {
 	public static Block done;
 
 	// Flowers
-	public static BlockFlower dirtFlower;
-	public static BlockFlower stoneFlower;
-	public static BlockFlower ironFlower;
-	public static BlockFlower goldFlower;
-	public static BlockFlower diamondFlower;
-	public static BlockFlower obsidianFlower;
-	public static BlockFlower emeraldFlower;
+	public static Block oreFlower;
+	public static Block stoneFlower;
+	public static Block ironFlower;
+	public static Block goldFlower;
+	public static Block diamondFlower;
+	public static Block obsidianFlower;
+	public static Block emeraldFlower;
 	
 	// Achievement
 	public static final Achievement DirtAchieve = new Achievement(2000, "DirtAchieve", 0, 0, Block.dirt, null).setIndependent().registerAchievement();
@@ -273,7 +281,7 @@ public class HybridModIngotStuff implements ICraftingHandler {
 	public static AchievementPage HC1 = new AchievementPage("HybridCraft2", DirtAchieve);
 	
 	// Crafting
-	public static BlockHybridizer blockHybridizer;
+	public static Block blockHybridizer;
 	
 	// Config
 	public static final String CATEGORY_TOOL = "tools";
@@ -625,81 +633,81 @@ public class HybridModIngotStuff implements ICraftingHandler {
 		AchievementPage.registerAchievementPage(HC1);
 		
 		// Tools
-		dirtsword = new hybridcraft.common.IngotStuff.ItemHybridSword(dirtswordID, dirt).setIconIndex(0).setItemName("dirtsword");
-		dirtpick = new hybridcraft.common.IngotStuff.ItemHybridPickaxe(dirtpickID, dirt).setIconIndex(1).setItemName("dirtpick");
-		dirtaxe = new hybridcraft.common.IngotStuff.ItemHybridAxe(dirtaxeID, dirt).setIconIndex(2).setItemName("dirtaxe");
-		dirtshovel = new hybridcraft.common.IngotStuff.ItemHybridSpade(dirtshovelID, dirt).setIconIndex(3).setItemName("dirtshovel");
-		dirthoe = new hybridcraft.common.IngotStuff.ItemHybridHoe(dirthoeID, dirt).setIconIndex(4).setItemName("dirthoe");
-		dirtonesword = new hybridcraft.common.IngotStuff.ItemHybridSword(dirtoneswordID, dirtone).setIconIndex(5).setItemName("dirtonesword");
-		dirtonepick = new hybridcraft.common.IngotStuff.ItemHybridPickaxe(dirtonepickID, dirtone).setIconIndex(6).setItemName("dirtonepick");
-		dirtoneaxe = new hybridcraft.common.IngotStuff.ItemHybridAxe(dirtoneaxeID, dirtone).setIconIndex(7).setItemName("dirtoneaxe");
-		dirtoneshovel = new hybridcraft.common.IngotStuff.ItemHybridSpade(dirtoneshovelID, dirtone).setIconIndex(8).setItemName("dirtoneshovel");
-		dirtonehoe = new hybridcraft.common.IngotStuff.ItemHybridHoe(dirtonehoeID, dirtone).setIconIndex(9).setItemName("dirtonehoe");
-		dironsword = new hybridcraft.common.IngotStuff.ItemHybridSword(dironswordID, dirtone).setIconIndex(10).setItemName("dironsword");
-		dironpick = new hybridcraft.common.IngotStuff.ItemHybridPickaxe(dironpickID, diron).setIconIndex(11).setItemName("dironpick");
-		dironaxe = new hybridcraft.common.IngotStuff.ItemHybridAxe(dironaxeID, diron).setIconIndex(12).setItemName("dironaxe");
-		dironshovel = new hybridcraft.common.IngotStuff.ItemHybridSpade(dironshovelID, diron).setIconIndex(13).setItemName("dironshovel");
-		dironhoe = new hybridcraft.common.IngotStuff.ItemHybridHoe(dironhoeID, diron).setIconIndex(14).setItemName("dironhoe");
-		diroldsword = new hybridcraft.common.IngotStuff.ItemHybridSword(diroldswordID, dirold).setIconIndex(15).setItemName("diroldsword");
-		diroldpick = new hybridcraft.common.IngotStuff.ItemHybridPickaxe(diroldpickID, dirold).setIconIndex(16).setItemName("diroldpick");
-		diroldaxe = new hybridcraft.common.IngotStuff.ItemHybridAxe(diroldaxeID, dirold).setIconIndex(17).setItemName("diroldaxe");
-		diroldshovel = new hybridcraft.common.IngotStuff.ItemHybridSpade(diroldshovelID, dirold).setIconIndex(18).setItemName("diroldshovel");
-		diroldhoe = new hybridcraft.common.IngotStuff.ItemHybridHoe(diroldhoeID, dirold).setIconIndex(19).setItemName("diroldhoe");
-		dirmendsword = new hybridcraft.common.IngotStuff.ItemHybridSword(dirmendswordID, dirmend).setIconIndex(20).setItemName("dirmendsword");
-		dirmendpick = new hybridcraft.common.IngotStuff.ItemHybridPickaxe(dirmendpickID, dirmend).setIconIndex(21).setItemName("dirmendpick");
-		dirmendaxe = new hybridcraft.common.IngotStuff.ItemHybridAxe(dirmendaxeID, dirmend).setIconIndex(22).setItemName("dirmendaxe");
-		dirmendshovel = new hybridcraft.common.IngotStuff.ItemHybridSpade(dirmendshovelID, dirmend).setIconIndex(23).setItemName("dirmendshovel");
-		dirmendhoe = new hybridcraft.common.IngotStuff.ItemHybridHoe(dirmendhoeID, dirmend).setIconIndex(24).setItemName("dirmendhoe");
-		stornsword = new hybridcraft.common.IngotStuff.ItemHybridSword(stornswordID, storn).setIconIndex(25).setItemName("stornsword");
-		stornpick = new hybridcraft.common.IngotStuff.ItemHybridPickaxe(stornpickID, storn).setIconIndex(26).setItemName("stornpick");
-		stornaxe = new hybridcraft.common.IngotStuff.ItemHybridAxe(stornaxeID, storn).setIconIndex(27).setItemName("stornaxe");
-		stornshovel = new hybridcraft.common.IngotStuff.ItemHybridSpade(stornshovelID, storn).setIconIndex(28).setItemName("stornshovel");
-		stornhoe = new hybridcraft.common.IngotStuff.ItemHybridHoe(stornhoeID, storn).setIconIndex(29).setItemName("stornhoe");
-		stoldsword = new hybridcraft.common.IngotStuff.ItemHybridSword(stoldswordID, stold).setIconIndex(30).setItemName("stoldsword");
-		stoldpick = new hybridcraft.common.IngotStuff.ItemHybridPickaxe(stoldpickID, stold).setIconIndex(31).setItemName("stoldpick");
-		stoldaxe = new hybridcraft.common.IngotStuff.ItemHybridAxe(stoldaxeID, stold).setIconIndex(32).setItemName("stoldaxe");
-		stoldshovel = new hybridcraft.common.IngotStuff.ItemHybridSpade(stoldshovelID, stold).setIconIndex(33).setItemName("stoldshovel");
-		stoldhoe = new hybridcraft.common.IngotStuff.ItemHybridHoe(stoldhoeID, stold).setIconIndex(34).setItemName("stoldhoe");
-		stomendsword = new hybridcraft.common.IngotStuff.ItemHybridSword(stomendswordID, stomend).setIconIndex(35).setItemName("stomendsword");
-		stomendpick = new hybridcraft.common.IngotStuff.ItemHybridPickaxe(stomendpickID, stomend).setIconIndex(36).setItemName("stomendpick");
-		stomendaxe = new hybridcraft.common.IngotStuff.ItemHybridAxe(stomendaxeID, stomend).setIconIndex(37).setItemName("stomendaxe");
-		stomendshovel = new hybridcraft.common.IngotStuff.ItemHybridSpade(stomendshovelID, stomend).setIconIndex(38).setItemName("stomendshovel");
-		stomendhoe = new hybridcraft.common.IngotStuff.ItemHybridHoe(stomendhoeID, stomend).setIconIndex(39).setItemName("stomendhoe");
-		iroldsword = new hybridcraft.common.IngotStuff.ItemHybridSword(iroldswordID, irold).setIconIndex(40).setItemName("iroldsword");
-		iroldpick = new hybridcraft.common.IngotStuff.ItemHybridPickaxe(iroldpickID, irold).setIconIndex(41).setItemName("iroldpick");
-		iroldaxe = new hybridcraft.common.IngotStuff.ItemHybridAxe(iroldaxeID, irold).setIconIndex(42).setItemName("iroldaxe");
-		iroldshovel = new hybridcraft.common.IngotStuff.ItemHybridSpade(iroldshovelID, irold).setIconIndex(43).setItemName("iroldshovel");
-		iroldhoe = new hybridcraft.common.IngotStuff.ItemHybridHoe(iroldhoeID, irold).setIconIndex(44).setItemName("iroldhoe");
-		irmendsword = new hybridcraft.common.IngotStuff.ItemHybridSword(irmendswordID, irmend).setIconIndex(45).setItemName("irmendsword");
-		irmendpick = new hybridcraft.common.IngotStuff.ItemHybridPickaxe(irmendpickID, irmend).setIconIndex(46).setItemName("irmendpick");
-		irmendaxe = new hybridcraft.common.IngotStuff.ItemHybridAxe(irmendaxeID, irmend).setIconIndex(47).setItemName("irmendaxe");
-		irmendshovel = new hybridcraft.common.IngotStuff.ItemHybridSpade(irmendshovelID, irmend).setIconIndex(48).setItemName("irmendshovel");
-		irmendhoe = new hybridcraft.common.IngotStuff.ItemHybridHoe(irmendhoeID, irmend).setIconIndex(49).setItemName("irmendhoe");
-		gomendsword = new hybridcraft.common.IngotStuff.ItemHybridSword(gomendswordID, gomend).setIconIndex(50).setItemName("gomendsword");
-		gomendpick = new hybridcraft.common.IngotStuff.ItemHybridPickaxe(gomendpickID, gomend).setIconIndex(51).setItemName("gomendpick");
-		gomendaxe = new hybridcraft.common.IngotStuff.ItemHybridAxe(gomendaxeID, gomend).setIconIndex(52).setItemName("gomendaxe");
-		gomendshovel = new hybridcraft.common.IngotStuff.ItemHybridSpade(gomendshovelID, gomend).setIconIndex(53).setItemName("gomendshovel");
-		gomendhoe = new hybridcraft.common.IngotStuff.ItemHybridHoe(gomendhoeID, gomend).setIconIndex(54).setItemName("gomendhoe");
-		obsidiansword = new hybridcraft.common.IngotStuff.ItemHybridSword(obsidianswordID, obsidian).setIconIndex(55).setItemName("obsidiansword");
-		obsidianpick = new hybridcraft.common.IngotStuff.ItemHybridPickaxe(obsidianpickID, obsidian).setIconIndex(56).setItemName("obsidianpick");
-		obsidianaxe = new hybridcraft.common.IngotStuff.ItemHybridAxe(obsidianaxeID, obsidian).setIconIndex(57).setItemName("obsidianaxe");
-		obsidianshovel = new hybridcraft.common.IngotStuff.ItemHybridSpade(obsidianshovelID, obsidian).setIconIndex(58).setItemName("obsidianshovel");
-		obsidianhoe = new hybridcraft.common.IngotStuff.ItemHybridHoe(obsidianhoeID, obsidian).setIconIndex(59).setItemName("obsidianhoe");
-		sandsword = new hybridcraft.common.IngotStuff.ItemHybridSword(sandswordID, sand).setIconIndex(60).setItemName("sandsword");
-		sandpick = new hybridcraft.common.IngotStuff.ItemHybridPickaxe(sandpickID, sand).setIconIndex(61).setItemName("sandpick");
-		sandaxe = new hybridcraft.common.IngotStuff.ItemHybridAxe(sandaxeID, sand).setIconIndex(62).setItemName("sandaxe");
-		sandshovel = new hybridcraft.common.IngotStuff.ItemHybridSpade(sandshovelID, sand).setIconIndex(63).setItemName("sandshovel");
-		sandhoe = new hybridcraft.common.IngotStuff.ItemHybridHoe(sandhoeID, sand).setIconIndex(64).setItemName("sandhoe");
-		cobblesword = new hybridcraft.common.IngotStuff.ItemHybridSword(cobbleswordID, cobble).setIconIndex(65).setItemName("cobblesword");
-		cobblepick = new hybridcraft.common.IngotStuff.ItemHybridPickaxe(cobblepickID, cobble).setIconIndex(66).setItemName("cobblepick");
-		cobbleaxe = new hybridcraft.common.IngotStuff.ItemHybridAxe(cobbleaxeID, cobble).setIconIndex(67).setItemName("cobbleaxe");
-		cobbleshovel = new hybridcraft.common.IngotStuff.ItemHybridSpade(cobbleshovelID, cobble).setIconIndex(68).setItemName("cobbleshovel");
-		cobblehoe = new hybridcraft.common.IngotStuff.ItemHybridHoe(cobblehoeID, cobble).setIconIndex(69).setItemName("cobblehoe");
-		emeraldsword = new hybridcraft.common.IngotStuff.ItemHybridSword(emeraldswordID, emerald).setIconIndex(70).setItemName("emeraldsword");
-		emeraldpick = new hybridcraft.common.IngotStuff.ItemHybridPickaxe(emeraldpickID, emerald).setIconIndex(71).setItemName("emeraldpick");
-		emeraldaxe = new hybridcraft.common.IngotStuff.ItemHybridAxe(emeraldaxeID, emerald).setIconIndex(72).setItemName("emeraldaxe");
-		emeraldshovel = new hybridcraft.common.IngotStuff.ItemHybridSpade(emeraldshovelID, emerald).setIconIndex(73).setItemName("emeraldshovel");
-		emeraldhoe = new hybridcraft.common.IngotStuff.ItemHybridHoe(emeraldhoeID, emerald).setIconIndex(74).setItemName("emeraldhoe");
+		dirtsword = new hybridcraft.common.IngotStuff.items.ItemHybridSword(dirtswordID, dirt).setIconIndex(0).setItemName("dirtsword");
+		dirtpick = new hybridcraft.common.IngotStuff.items.ItemHybridPickaxe(dirtpickID, dirt).setIconIndex(1).setItemName("dirtpick");
+		dirtaxe = new hybridcraft.common.IngotStuff.items.ItemHybridAxe(dirtaxeID, dirt).setIconIndex(2).setItemName("dirtaxe");
+		dirtshovel = new hybridcraft.common.IngotStuff.items.ItemHybridSpade(dirtshovelID, dirt).setIconIndex(3).setItemName("dirtshovel");
+		dirthoe = new hybridcraft.common.IngotStuff.items.ItemHybridHoe(dirthoeID, dirt).setIconIndex(4).setItemName("dirthoe");
+		dirtonesword = new hybridcraft.common.IngotStuff.items.ItemHybridSword(dirtoneswordID, dirtone).setIconIndex(5).setItemName("dirtonesword");
+		dirtonepick = new hybridcraft.common.IngotStuff.items.ItemHybridPickaxe(dirtonepickID, dirtone).setIconIndex(6).setItemName("dirtonepick");
+		dirtoneaxe = new hybridcraft.common.IngotStuff.items.ItemHybridAxe(dirtoneaxeID, dirtone).setIconIndex(7).setItemName("dirtoneaxe");
+		dirtoneshovel = new hybridcraft.common.IngotStuff.items.ItemHybridSpade(dirtoneshovelID, dirtone).setIconIndex(8).setItemName("dirtoneshovel");
+		dirtonehoe = new hybridcraft.common.IngotStuff.items.ItemHybridHoe(dirtonehoeID, dirtone).setIconIndex(9).setItemName("dirtonehoe");
+		dironsword = new hybridcraft.common.IngotStuff.items.ItemHybridSword(dironswordID, dirtone).setIconIndex(10).setItemName("dironsword");
+		dironpick = new hybridcraft.common.IngotStuff.items.ItemHybridPickaxe(dironpickID, diron).setIconIndex(11).setItemName("dironpick");
+		dironaxe = new hybridcraft.common.IngotStuff.items.ItemHybridAxe(dironaxeID, diron).setIconIndex(12).setItemName("dironaxe");
+		dironshovel = new hybridcraft.common.IngotStuff.items.ItemHybridSpade(dironshovelID, diron).setIconIndex(13).setItemName("dironshovel");
+		dironhoe = new hybridcraft.common.IngotStuff.items.ItemHybridHoe(dironhoeID, diron).setIconIndex(14).setItemName("dironhoe");
+		diroldsword = new hybridcraft.common.IngotStuff.items.ItemHybridSword(diroldswordID, dirold).setIconIndex(15).setItemName("diroldsword");
+		diroldpick = new hybridcraft.common.IngotStuff.items.ItemHybridPickaxe(diroldpickID, dirold).setIconIndex(16).setItemName("diroldpick");
+		diroldaxe = new hybridcraft.common.IngotStuff.items.ItemHybridAxe(diroldaxeID, dirold).setIconIndex(17).setItemName("diroldaxe");
+		diroldshovel = new hybridcraft.common.IngotStuff.items.ItemHybridSpade(diroldshovelID, dirold).setIconIndex(18).setItemName("diroldshovel");
+		diroldhoe = new hybridcraft.common.IngotStuff.items.ItemHybridHoe(diroldhoeID, dirold).setIconIndex(19).setItemName("diroldhoe");
+		dirmendsword = new hybridcraft.common.IngotStuff.items.ItemHybridSword(dirmendswordID, dirmend).setIconIndex(20).setItemName("dirmendsword");
+		dirmendpick = new hybridcraft.common.IngotStuff.items.ItemHybridPickaxe(dirmendpickID, dirmend).setIconIndex(21).setItemName("dirmendpick");
+		dirmendaxe = new hybridcraft.common.IngotStuff.items.ItemHybridAxe(dirmendaxeID, dirmend).setIconIndex(22).setItemName("dirmendaxe");
+		dirmendshovel = new hybridcraft.common.IngotStuff.items.ItemHybridSpade(dirmendshovelID, dirmend).setIconIndex(23).setItemName("dirmendshovel");
+		dirmendhoe = new hybridcraft.common.IngotStuff.items.ItemHybridHoe(dirmendhoeID, dirmend).setIconIndex(24).setItemName("dirmendhoe");
+		stornsword = new hybridcraft.common.IngotStuff.items.ItemHybridSword(stornswordID, storn).setIconIndex(25).setItemName("stornsword");
+		stornpick = new hybridcraft.common.IngotStuff.items.ItemHybridPickaxe(stornpickID, storn).setIconIndex(26).setItemName("stornpick");
+		stornaxe = new hybridcraft.common.IngotStuff.items.ItemHybridAxe(stornaxeID, storn).setIconIndex(27).setItemName("stornaxe");
+		stornshovel = new hybridcraft.common.IngotStuff.items.ItemHybridSpade(stornshovelID, storn).setIconIndex(28).setItemName("stornshovel");
+		stornhoe = new hybridcraft.common.IngotStuff.items.ItemHybridHoe(stornhoeID, storn).setIconIndex(29).setItemName("stornhoe");
+		stoldsword = new hybridcraft.common.IngotStuff.items.ItemHybridSword(stoldswordID, stold).setIconIndex(30).setItemName("stoldsword");
+		stoldpick = new hybridcraft.common.IngotStuff.items.ItemHybridPickaxe(stoldpickID, stold).setIconIndex(31).setItemName("stoldpick");
+		stoldaxe = new hybridcraft.common.IngotStuff.items.ItemHybridAxe(stoldaxeID, stold).setIconIndex(32).setItemName("stoldaxe");
+		stoldshovel = new hybridcraft.common.IngotStuff.items.ItemHybridSpade(stoldshovelID, stold).setIconIndex(33).setItemName("stoldshovel");
+		stoldhoe = new hybridcraft.common.IngotStuff.items.ItemHybridHoe(stoldhoeID, stold).setIconIndex(34).setItemName("stoldhoe");
+		stomendsword = new hybridcraft.common.IngotStuff.items.ItemHybridSword(stomendswordID, stomend).setIconIndex(35).setItemName("stomendsword");
+		stomendpick = new hybridcraft.common.IngotStuff.items.ItemHybridPickaxe(stomendpickID, stomend).setIconIndex(36).setItemName("stomendpick");
+		stomendaxe = new hybridcraft.common.IngotStuff.items.ItemHybridAxe(stomendaxeID, stomend).setIconIndex(37).setItemName("stomendaxe");
+		stomendshovel = new hybridcraft.common.IngotStuff.items.ItemHybridSpade(stomendshovelID, stomend).setIconIndex(38).setItemName("stomendshovel");
+		stomendhoe = new hybridcraft.common.IngotStuff.items.ItemHybridHoe(stomendhoeID, stomend).setIconIndex(39).setItemName("stomendhoe");
+		iroldsword = new hybridcraft.common.IngotStuff.items.ItemHybridSword(iroldswordID, irold).setIconIndex(40).setItemName("iroldsword");
+		iroldpick = new hybridcraft.common.IngotStuff.items.ItemHybridPickaxe(iroldpickID, irold).setIconIndex(41).setItemName("iroldpick");
+		iroldaxe = new hybridcraft.common.IngotStuff.items.ItemHybridAxe(iroldaxeID, irold).setIconIndex(42).setItemName("iroldaxe");
+		iroldshovel = new hybridcraft.common.IngotStuff.items.ItemHybridSpade(iroldshovelID, irold).setIconIndex(43).setItemName("iroldshovel");
+		iroldhoe = new hybridcraft.common.IngotStuff.items.ItemHybridHoe(iroldhoeID, irold).setIconIndex(44).setItemName("iroldhoe");
+		irmendsword = new hybridcraft.common.IngotStuff.items.ItemHybridSword(irmendswordID, irmend).setIconIndex(45).setItemName("irmendsword");
+		irmendpick = new hybridcraft.common.IngotStuff.items.ItemHybridPickaxe(irmendpickID, irmend).setIconIndex(46).setItemName("irmendpick");
+		irmendaxe = new hybridcraft.common.IngotStuff.items.ItemHybridAxe(irmendaxeID, irmend).setIconIndex(47).setItemName("irmendaxe");
+		irmendshovel = new hybridcraft.common.IngotStuff.items.ItemHybridSpade(irmendshovelID, irmend).setIconIndex(48).setItemName("irmendshovel");
+		irmendhoe = new hybridcraft.common.IngotStuff.items.ItemHybridHoe(irmendhoeID, irmend).setIconIndex(49).setItemName("irmendhoe");
+		gomendsword = new hybridcraft.common.IngotStuff.items.ItemHybridSword(gomendswordID, gomend).setIconIndex(50).setItemName("gomendsword");
+		gomendpick = new hybridcraft.common.IngotStuff.items.ItemHybridPickaxe(gomendpickID, gomend).setIconIndex(51).setItemName("gomendpick");
+		gomendaxe = new hybridcraft.common.IngotStuff.items.ItemHybridAxe(gomendaxeID, gomend).setIconIndex(52).setItemName("gomendaxe");
+		gomendshovel = new hybridcraft.common.IngotStuff.items.ItemHybridSpade(gomendshovelID, gomend).setIconIndex(53).setItemName("gomendshovel");
+		gomendhoe = new hybridcraft.common.IngotStuff.items.ItemHybridHoe(gomendhoeID, gomend).setIconIndex(54).setItemName("gomendhoe");
+		obsidiansword = new hybridcraft.common.IngotStuff.items.ItemHybridSword(obsidianswordID, obsidian).setIconIndex(55).setItemName("obsidiansword");
+		obsidianpick = new hybridcraft.common.IngotStuff.items.ItemHybridPickaxe(obsidianpickID, obsidian).setIconIndex(56).setItemName("obsidianpick");
+		obsidianaxe = new hybridcraft.common.IngotStuff.items.ItemHybridAxe(obsidianaxeID, obsidian).setIconIndex(57).setItemName("obsidianaxe");
+		obsidianshovel = new hybridcraft.common.IngotStuff.items.ItemHybridSpade(obsidianshovelID, obsidian).setIconIndex(58).setItemName("obsidianshovel");
+		obsidianhoe = new hybridcraft.common.IngotStuff.items.ItemHybridHoe(obsidianhoeID, obsidian).setIconIndex(59).setItemName("obsidianhoe");
+		sandsword = new hybridcraft.common.IngotStuff.items.ItemHybridSword(sandswordID, sand).setIconIndex(60).setItemName("sandsword");
+		sandpick = new hybridcraft.common.IngotStuff.items.ItemHybridPickaxe(sandpickID, sand).setIconIndex(61).setItemName("sandpick");
+		sandaxe = new hybridcraft.common.IngotStuff.items.ItemHybridAxe(sandaxeID, sand).setIconIndex(62).setItemName("sandaxe");
+		sandshovel = new hybridcraft.common.IngotStuff.items.ItemHybridSpade(sandshovelID, sand).setIconIndex(63).setItemName("sandshovel");
+		sandhoe = new hybridcraft.common.IngotStuff.items.ItemHybridHoe(sandhoeID, sand).setIconIndex(64).setItemName("sandhoe");
+		cobblesword = new hybridcraft.common.IngotStuff.items.ItemHybridSword(cobbleswordID, cobble).setIconIndex(65).setItemName("cobblesword");
+		cobblepick = new hybridcraft.common.IngotStuff.items.ItemHybridPickaxe(cobblepickID, cobble).setIconIndex(66).setItemName("cobblepick");
+		cobbleaxe = new hybridcraft.common.IngotStuff.items.ItemHybridAxe(cobbleaxeID, cobble).setIconIndex(67).setItemName("cobbleaxe");
+		cobbleshovel = new hybridcraft.common.IngotStuff.items.ItemHybridSpade(cobbleshovelID, cobble).setIconIndex(68).setItemName("cobbleshovel");
+		cobblehoe = new hybridcraft.common.IngotStuff.items.ItemHybridHoe(cobblehoeID, cobble).setIconIndex(69).setItemName("cobblehoe");
+		emeraldsword = new hybridcraft.common.IngotStuff.items.ItemHybridSword(emeraldswordID, emerald).setIconIndex(70).setItemName("emeraldsword");
+		emeraldpick = new hybridcraft.common.IngotStuff.items.ItemHybridPickaxe(emeraldpickID, emerald).setIconIndex(71).setItemName("emeraldpick");
+		emeraldaxe = new hybridcraft.common.IngotStuff.items.ItemHybridAxe(emeraldaxeID, emerald).setIconIndex(72).setItemName("emeraldaxe");
+		emeraldshovel = new hybridcraft.common.IngotStuff.items.ItemHybridSpade(emeraldshovelID, emerald).setIconIndex(73).setItemName("emeraldshovel");
+		emeraldhoe = new hybridcraft.common.IngotStuff.items.ItemHybridHoe(emeraldhoeID, emerald).setIconIndex(74).setItemName("emeraldhoe");
 
 		// Ingots
 		obsidianShard = new Ingot(obsidianShardID).setIconIndex(12).setItemName("obsidianShard");
@@ -791,23 +799,23 @@ public class HybridModIngotStuff implements ICraftingHandler {
 		done = new WorldBlockStay(doneID, 2).setStepSound(Block.soundGrassFootstep).setBlockName("doneBlock").setHardness(1F).setResistance(2F);
 
 		// Flowers
-		dirtFlower = (BlockFlower) new Flowers(dirtFlowerID, 0).setBlockName("dirtFlower");
-		stoneFlower = (BlockFlower) new Flowers(stoneFlowerID, 1).setBlockName("stoneFlower");
-		ironFlower = (BlockFlower) new Flowers(ironFlowerID, 2).setBlockName("ironFlower");
-		goldFlower = (BlockFlower) new Flowers(goldFlowerID, 3).setBlockName("goldFlower");
-		diamondFlower = (BlockFlower) new Flowers(diamondFlowerID, 4).setBlockName("diamondFlower");
-		obsidianFlower = (BlockFlower) new Flowers(obsidianFlowerID, 5).setBlockName("obsidianFlower");
-		emeraldFlower = (BlockFlower) new Flowers(emeraldflowerID, 6).setBlockName("emeraldFlower");
+		oreFlower = new BlockFlowers(627, 1).setBlockName("oreFlower");
+		//stoneFlower = new BlockFlowers(stoneFlowerID, 1).setBlockName("stoneFlower");
+		//ironFlower = new BlockFlowers(ironFlowerID, 2).setBlockName("ironFlower");
+		//goldFlower = new BlockFlowers(goldFlowerID, 3).setBlockName("goldFlower");
+		//diamondFlower = new BlockFlowers(diamondFlowerID, 4).setBlockName("diamondFlower");
+		//obsidianFlower = new BlockFlowers(obsidianFlowerID, 5).setBlockName("obsidianFlower");
+		//emeraldFlower = new BlockFlowers(emeraldflowerID, 6).setBlockName("emeraldFlower");
 
 		// Combiner
-		blockHybridizer = (BlockHybridizer) new BlockHybridizer(combinerID).setBlockName("Hybridizer");
+		blockHybridizer = new BlockHybridizer(combinerID).setBlockName("Hybridizer");
 
 		// Register combiner GUI
 		NetworkRegistry.instance().registerGuiHandler(this, guiHandler);
 
 
 		// register the crafting listener
-		GameRegistry.registerCraftingHandler(this);
+		GameRegistry.registerCraftingHandler(craftingHandler);
 		
 		// Tool Registry
 		LanguageRegistry.addName(dirtsword, "Dirt Sword");
@@ -995,20 +1003,20 @@ public class HybridModIngotStuff implements ICraftingHandler {
 		GameRegistry.registerWorldGenerator(new WorldGeneratorHybrid());
 
 		// Flower Registry
-		GameRegistry.registerBlock(dirtFlower);
-		GameRegistry.registerBlock(stoneFlower);
-		GameRegistry.registerBlock(ironFlower);
-		GameRegistry.registerBlock(goldFlower);
-		GameRegistry.registerBlock(diamondFlower);
-		GameRegistry.registerBlock(obsidianFlower);
-		GameRegistry.registerBlock(emeraldFlower);
-		LanguageRegistry.addName(dirtFlower, "Dirt Flower");
-		LanguageRegistry.addName(stoneFlower, "Stone Flower");
-		LanguageRegistry.addName(ironFlower, "Iron Flower");
-		LanguageRegistry.addName(goldFlower, "Gold Flower");
-		LanguageRegistry.addName(diamondFlower, "Diamond Flower");
-		LanguageRegistry.addName(obsidianFlower, "Obsidian Flower");
-		LanguageRegistry.addName(emeraldFlower, "Emerald Flower");
+		GameRegistry.registerBlock(oreFlower, ItemBlockFlowers.class);
+		//GameRegistry.registerBlock(stoneFlower);
+		//GameRegistry.registerBlock(ironFlower);
+		//GameRegistry.registerBlock(goldFlower);
+		//GameRegistry.registerBlock(diamondFlower);
+		//GameRegistry.registerBlock(obsidianFlower);
+		//GameRegistry.registerBlock(emeraldFlower);
+		LanguageRegistry.addName(new ItemStack(oreFlower, 1, 0), "Dirt Flower");
+		LanguageRegistry.addName(new ItemStack(oreFlower, 1, 1), "Stone Flower");
+		LanguageRegistry.addName(new ItemStack(oreFlower, 1, 2), "Iron Flower");
+		LanguageRegistry.addName(new ItemStack(oreFlower, 1, 3), "Gold Flower");
+		LanguageRegistry.addName(new ItemStack(oreFlower, 1, 4), "Diamond Flower");
+		LanguageRegistry.addName(new ItemStack(oreFlower, 1, 5), "Obsidian Flower");
+		LanguageRegistry.addName(new ItemStack(oreFlower, 1, 6), "Emerald Flower");
 
 		// Combiner
 		GameRegistry.registerBlock(blockHybridizer);
@@ -1219,13 +1227,13 @@ public class HybridModIngotStuff implements ICraftingHandler {
 		GameRegistry.addRecipe(new ItemStack(stoneIngot), new Object[] { "XXX", "XXX", "XXX", 'X', Block.stone, });
 
 		// Flowers
-		GameRegistry.addShapelessRecipe(new ItemStack(Block.dirt, 1), new Object[] { new ItemStack(dirtFlower) });
-		GameRegistry.addShapelessRecipe(new ItemStack(Block.stone, 1), new Object[] { new ItemStack(stoneFlower) });
-		GameRegistry.addShapelessRecipe(new ItemStack(Item.ingotIron, 1), new Object[] { new ItemStack(ironFlower) });
-		GameRegistry.addShapelessRecipe(new ItemStack(Item.ingotGold, 1), new Object[] { new ItemStack(goldFlower) });
-		GameRegistry.addShapelessRecipe(new ItemStack(Item.diamond, 1), new Object[] { new ItemStack(diamondFlower) });
-		GameRegistry.addShapelessRecipe(new ItemStack(obsidianIngot, 1), new Object[] { new ItemStack(obsidianFlower) });
-		GameRegistry.addShapelessRecipe(new ItemStack(Item.emerald, 1), new Object[] { new ItemStack(emeraldFlower) });
+		GameRegistry.addShapelessRecipe(new ItemStack(Block.dirt, 1), new Object[] { new ItemStack(oreFlower, 1, 0) });
+		GameRegistry.addShapelessRecipe(new ItemStack(Block.stone, 1), new Object[] { new ItemStack(oreFlower, 1, 1) });
+		GameRegistry.addShapelessRecipe(new ItemStack(Item.ingotIron, 1), new Object[] { new ItemStack(oreFlower, 1, 2) });
+		GameRegistry.addShapelessRecipe(new ItemStack(Item.ingotGold, 1), new Object[] { new ItemStack(oreFlower, 1, 3) });
+		GameRegistry.addShapelessRecipe(new ItemStack(Item.diamond, 1), new Object[] { new ItemStack(oreFlower,1, 4) });
+		GameRegistry.addShapelessRecipe(new ItemStack(obsidianIngot, 1), new Object[] { new ItemStack(oreFlower, 1, 5) });
+		GameRegistry.addShapelessRecipe(new ItemStack(Item.emerald, 1), new Object[] { new ItemStack(oreFlower,1 , 6) });
 
 		// Smelting
 		GameRegistry.addSmelting(obsidianShard.shiftedIndex, new ItemStack(obsidianIngot, 1), 2F);
@@ -1239,34 +1247,7 @@ public class HybridModIngotStuff implements ICraftingHandler {
 	
 	}
 
-	@Override
-	public void onCrafting(EntityPlayer player, ItemStack item, IInventory craftMatrix) {
-
-		// add enchantments
-		// dirt = silkTouch
-		// stone = efficiency
-		// iron = sharpness
-		// gold = looting
-		// diamond = fortune
-
-		net.minecraft.src.Enchantment[] i = new net.minecraft.src.Enchantment[] {net.minecraft.src.Enchantment.looting,net.minecraft.src.Enchantment.sharpness};
-		
-		if (item.getItem() instanceof hybridcraft.common.IngotStuff.ItemHybridAxe) {
-			item.addEnchantment(i[(int) (new Random().nextDouble()*2)], 1);
-		} else if (item.getItem() instanceof hybridcraft.common.IngotStuff.ItemHybridHoe) {
-			item.addEnchantment(i[(int) (new Random().nextDouble()*2)], 1);
-		} else if (item.getItem() instanceof hybridcraft.common.IngotStuff.ItemHybridPickaxe) {
-			item.addEnchantment(i[(int) (new Random().nextDouble()*2)], 1);
-		} else if (item.getItem() instanceof hybridcraft.common.IngotStuff.ItemHybridSpade) {
-			item.addEnchantment(i[(int) (new Random().nextDouble()*2)], 1);
-		} else if (item.getItem() instanceof hybridcraft.common.IngotStuff.ItemHybridSword) {
-			item.addEnchantment(i[(int) (new Random().nextDouble()*2)], 1);
-		}
-	}
-
-	@Override
-	public void onSmelting(EntityPlayer player, ItemStack item) {
-	}
+	
 	
 	
 

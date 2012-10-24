@@ -1,4 +1,4 @@
-package hybridcraft.common.IngotStuff;
+package hybridcraft.common.IngotStuff.items;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.EnumToolMaterial;
@@ -11,7 +11,7 @@ public class ItemHybridPickaxe extends ItemTool
     /** an array of the blocks this pickaxe is effective against */
     public static final Block[] blocksEffectiveAgainst = new Block[] {Block.cobblestone, Block.stoneDoubleSlab, Block.stoneSingleSlab, Block.stone, Block.sandStone, Block.cobblestoneMossy, Block.oreIron, Block.blockSteel, Block.oreCoal, Block.blockGold, Block.oreGold, Block.oreDiamond, Block.blockDiamond, Block.ice, Block.netherrack, Block.oreLapis, Block.blockLapis, Block.oreRedstone, Block.oreRedstoneGlowing, Block.rail, Block.railDetector, Block.railPowered};
 
-    protected ItemHybridPickaxe(int par1, EnumToolMaterial par2EnumToolMaterial)
+    public ItemHybridPickaxe(int par1, EnumToolMaterial par2EnumToolMaterial)
     {
         super(par1, 2, par2EnumToolMaterial, blocksEffectiveAgainst);
     }

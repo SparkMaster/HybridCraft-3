@@ -1,4 +1,4 @@
-package hybridcraft.common.IngotStuff;
+package hybridcraft.common.IngotStuff.items;
 
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
