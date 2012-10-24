@@ -11,6 +11,7 @@ import hybridcraft.common.IngotStuff.armor.*;
 import hybridcraft.common.IngotStuff.hybridizer.BlockHybridizer;
 import hybridcraft.common.IngotStuff.hybridizer.GuiHandler;
 import hybridcraft.common.IngotStuff.hybridizer.HybridizingManager;
+import hybridcraft.common.IngotStuff.lib.Reference;
 import hybridcraft.common.core.*;
 import net.minecraft.src.Block;
 import net.minecraft.src.BlockFlower;
@@ -39,7 +40,8 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.src.Achievement;
 import net.minecraft.src.AchievementList;
 
-@Mod(modid = "HybridCraft 2 Materials", name = "HybridCraft 2 Materials", version = "2.2 Stable")
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
+
 @NetworkMod(clientSideRequired = true, serverSideRequired = true)
 public class HybridModIngotStuff implements ICraftingHandler {
 
