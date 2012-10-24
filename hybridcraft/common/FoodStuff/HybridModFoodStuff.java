@@ -24,7 +24,7 @@ public class HybridModFoodStuff {
 	@Instance("HybridCraft 2 Food")
 	public static HybridModFoodStuff instance = new HybridModFoodStuff();
 
-	@SidedProxy(clientSide = "hybrid.client.ClientProxyHybrid", serverSide = "hybridcraft.CommonProxyHybrid")
+	@SidedProxy(clientSide = "hybridcraft.client.ClientProxyHybrid", serverSide = "hybridcraft.common.core.CommonProxyHybrid")
 	public static CommonProxyHybrid proxy;
 
 	// Declare Blocks

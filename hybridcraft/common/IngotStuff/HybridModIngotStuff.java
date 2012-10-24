@@ -48,7 +48,7 @@ public class HybridModIngotStuff implements ICraftingHandler {
 	public static HybridModIngotStuff instance = new HybridModIngotStuff();
 
 	// Proxy
-	@SidedProxy(clientSide = "hybrid.client.ClientProxyHybrid", serverSide = "hybridcraft.CommonProxyHybrid")
+	@SidedProxy(clientSide = "hybridcraft.client.ClientProxyHybrid", serverSide = "hybridcraft.common.core.CommonProxyHybrid")
 	public static CommonProxyHybrid proxy;
 	
 	// Combiner GUI
