@@ -1,13 +1,6 @@
-//Tools 601-700
-//Ingots 701-800
-//Armors 801-900
-//Blocks 401-800
-//Flowers 901-950
-
 package hybridcraft.common.IngotStuff;
 
 import java.util.Random;
-
 import hybridcraft.common.IngotStuff.armor.*;
 import hybridcraft.common.IngotStuff.handler.CraftingHandler;
 import hybridcraft.common.IngotStuff.hybridizer.BlockHybridizer;
@@ -29,6 +22,8 @@ import net.minecraft.src.IInventory;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ModLoader;
+import net.minecraft.src.Achievement;
+import net.minecraft.src.AchievementList;
 import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.EnumHelper;
@@ -44,8 +39,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import net.minecraft.src.Achievement;
-import net.minecraft.src.AchievementList;
+
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 
@@ -536,9 +530,7 @@ public class HybridModIngotStuff
 	public void load(FMLInitializationEvent event) {	
 		
 		// Achievements
-		ModLoader.addAchievementDesc(DirtAchieve, "Got Dirt?", "On Your Way to Mixing");
 		
-		AchievementPage.registerAchievementPage(HC1);
 		
 		//init mod items
 		ModItems.initItems();
@@ -972,6 +964,9 @@ public class HybridModIngotStuff
 		GameRegistry.addShapelessRecipe(new ItemStack(obsidianIngot, 1), new Object[] { new ItemStack(oreFlower, 1, 5) });
 		GameRegistry.addShapelessRecipe(new ItemStack(Item.emerald, 1), new Object[] { new ItemStack(oreFlower,1 , 6) });
 
+		// Hybridizer
+		GameRegistry.addRecipe(new ItemStack(blockHybridizer, 1), new Object[] { "XDX", "DSD", "XDX", 'X', Block.sand, 'D', Block.dirt, 'S', Block.cobblestone});
+		
 		// Smelting
 		GameRegistry.addSmelting(obsidianShard.shiftedIndex, new ItemStack(obsidianIngot, 1), 2F);
 

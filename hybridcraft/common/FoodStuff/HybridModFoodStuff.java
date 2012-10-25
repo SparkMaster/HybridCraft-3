@@ -1,7 +1,9 @@
 package hybridcraft.common.FoodStuff;
 
 import hybridcraft.common.FoodStuff.kitchen.*;
+import hybridcraft.common.FoodStuff.lib.Reference;
 import hybridcraft.common.IngotStuff.*;
+import hybridcraft.common.IngotStuff.handler.ConfigHandler;
 import hybridcraft.common.core.CommonProxyHybrid;
 import net.minecraft.src.*;
 import net.minecraftforge.common.Configuration;
@@ -17,7 +19,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@Mod(modid = "HybridCraft 2 Food", name = "HybridCraft 2 Food", version = "2.2 Stable")
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = true)
 public class HybridModFoodStuff {
 
@@ -64,32 +66,36 @@ public class HybridModFoodStuff {
 	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event) {
-		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		
+		ConfigHandler config =  new ConfigHandler(event.getSuggestedConfigurationFile());
 		
-		breadSliceID = config.get(CATEGORY_FOOD, "Slice of Bread", 1000).getInt();
-		chickenStripsID = config.get(CATEGORY_FOOD, "Chicken Tender", 1001).getInt();
-		beefSlicesID = config.get(CATEGORY_FOOD, "Beef Slice", 1002).getInt();
-		baconID = config.get(CATEGORY_FOOD, "Bacon", 1003).getInt();
-		chickenSandwichID = config.get(CATEGORY_FOOD, "Chicken Sandwich", 1004).getInt();
-		chickenSandwichBaconID = config.get(CATEGORY_FOOD, "Chicken Sandwich with Bacon", 1005).getInt();
-		beefSandwichID = config.get(CATEGORY_FOOD, "Beef Sandwich", 1006).getInt();
-		beefSandwichBaconID = config.get(CATEGORY_FOOD, "Beef Sandwich with Bacon", 1007).getInt();
-		meatSandwichID = config.get(CATEGORY_FOOD, "Meat Sandwich", 1008).getInt();
-		applePieID = config.get(CATEGORY_FOOD, "Apple Pie", 1009).getInt();
-		fruitSaladID = config.get(CATEGORY_FOOD, "Fruit Salad", 1010).getInt();
-		appleSliceID = config.get(CATEGORY_FOOD, "Apple Slice", 1011).getInt();
-		BaBID = config.get(CATEGORY_FOOD, "Beef Bread", 1012).getInt();
-		PaBID = config.get(CATEGORY_FOOD, "Pork Bread", 1013).getInt();
-		CaBID = config.get(CATEGORY_FOOD, "Chicken Bread", 1014).getInt();
-		DogBreadID = config.get(CATEGORY_FOOD, "Dog Treat", 1015).getInt();
-		bowlChickenID = config.get(CATEGORY_FOOD, "Bowl of Chicken", 1016).getInt();
-		bowlBeefID = config.get(CATEGORY_FOOD, "Bowl of Beef", 1017).getInt();
-		bowlMeatID = config.get(CATEGORY_FOOD, "Bowl of Meat", 1018).getInt();
-		counterID = config.get(CATEGORY_KITCHEN, "Counter", 1019).getInt();
-		stoveID = config.get(CATEGORY_KITCHEN, "Stove", 1020).getInt();
-		potID = config.get(CATEGORY_KITCHEN, "Cooking Pot", 1021).getInt();
+		config.loadConfig();
+		config.getInstance().load();
+
+		breadSliceID = config.getInstance().get(CATEGORY_FOOD, "Slice of Bread", 1000).getInt();
+		chickenStripsID = config.getInstance().get(CATEGORY_FOOD, "Chicken Tender", 1001).getInt();
+		beefSlicesID = config.getInstance().get(CATEGORY_FOOD, "Beef Slice", 1002).getInt();
+		baconID = config.getInstance().get(CATEGORY_FOOD, "Bacon", 1003).getInt();
+		chickenSandwichID = config.getInstance().get(CATEGORY_FOOD, "Chicken Sandwich", 1004).getInt();
+		chickenSandwichBaconID = config.getInstance().get(CATEGORY_FOOD, "Chicken Sandwich with Bacon", 1005).getInt();
+		beefSandwichID = config.getInstance().get(CATEGORY_FOOD, "Beef Sandwich", 1006).getInt();
+		beefSandwichBaconID = config.getInstance().get(CATEGORY_FOOD, "Beef Sandwich with Bacon", 1007).getInt();
+		meatSandwichID = config.getInstance().get(CATEGORY_FOOD, "Meat Sandwich", 1008).getInt();
+		applePieID = config.getInstance().get(CATEGORY_FOOD, "Apple Pie", 1009).getInt();
+		fruitSaladID = config.getInstance().get(CATEGORY_FOOD, "Fruit Salad", 1010).getInt();
+		appleSliceID = config.getInstance().get(CATEGORY_FOOD, "Apple Slice", 1011).getInt();
+		BaBID = config.getInstance().get(CATEGORY_FOOD, "Beef Bread", 1012).getInt();
+		PaBID = config.getInstance().get(CATEGORY_FOOD, "Pork Bread", 1013).getInt();
+		CaBID = config.getInstance().get(CATEGORY_FOOD, "Chicken Bread", 1014).getInt();
+		DogBreadID = config.getInstance().get(CATEGORY_FOOD, "Dog Treat", 1015).getInt();
+		bowlChickenID = config.getInstance().get(CATEGORY_FOOD, "Bowl of Chicken", 1016).getInt();
+		bowlBeefID = config.getInstance().get(CATEGORY_FOOD, "Bowl of Beef", 1017).getInt();
+		bowlMeatID = config.getInstance().get(CATEGORY_FOOD, "Bowl of Meat", 1018).getInt();
+		counterID = config.getInstance().get(CATEGORY_KITCHEN, "Counter", 1019).getInt();
+		stoveID = config.getInstance().get(CATEGORY_KITCHEN, "Stove", 1020).getInt();
+		potID = config.getInstance().get(CATEGORY_KITCHEN, "Cooking Pot", 1021).getInt();
 		
+		config.getInstance().save();
 		
 	}
 	
