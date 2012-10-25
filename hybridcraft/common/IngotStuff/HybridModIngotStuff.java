@@ -382,6 +382,7 @@ public class HybridModIngotStuff
 	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event) {
+		//TODO:  Add all of this into config handler
 		
 		ConfigHandler config =  new ConfigHandler(event.getSuggestedConfigurationFile());
 		
