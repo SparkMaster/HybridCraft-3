@@ -9,6 +9,8 @@ This time around we have git, IRC, and jenkins. :D So you can always stay caught
 
 Come join us in #hybridcraft2.. 
 
+Added aanthony3 To the team. :D Welcome Buddy.
+
 
 ~Enjoy
 
