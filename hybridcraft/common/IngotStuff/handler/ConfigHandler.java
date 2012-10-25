@@ -36,17 +36,35 @@ public class ConfigHandler
 		ItemIDs.DIROLD_SHOVEL = config.getItem("diroldShovel", ItemIDs.DIROLD_SHOVEL_DEFAULT).getInt();
 		ItemIDs.DIROLD_SWORD = config.getItem("diroldSword", ItemIDs.DIROLD_SWORD_DEFAULT).getInt();
 		//dirt and iron
-		ItemIDs.DIRON_AXE = config.getItem("dirmendAxe", ItemIDs.DIRMEND_AXE_DEFAULT).getInt();
-		ItemIDs.DIRON_HOE = config.getItem("dirmendAxe", ItemIDs.DIRMEND_AXE_DEFAULT).getInt();
-		ItemIDs.DIRON_PICK = config.getItem("dirmendAxe", ItemIDs.DIRMEND_AXE_DEFAULT).getInt();
-		ItemIDs.DIRON_SHOVEL = config.getItem("dirmendAxe", ItemIDs.DIRMEND_AXE_DEFAULT).getInt();
-		ItemIDs.DIRON_SWORD = config.getItem("dirmendAxe", ItemIDs.DIRMEND_AXE_DEFAULT).getInt();
-		//dirt
+		ItemIDs.DIRON_AXE = config.getItem("dirmendAxe", ItemIDs.DIRON_AXE_DEFAULT).getInt();
+		ItemIDs.DIRON_HOE = config.getItem("dirmendAxe", ItemIDs.DIRON_AXE_DEFAULT).getInt();
+		ItemIDs.DIRON_PICK = config.getItem("dirmendAxe", ItemIDs.DIRON_AXE_DEFAULT).getInt();
+		ItemIDs.DIRON_SHOVEL = config.getItem("dirmendAxe", ItemIDs.DIRON_AXE_DEFAULT).getInt();
+		ItemIDs.DIRON_SWORD = config.getItem("dirmendAxe", ItemIDs.DIRON_AXE_DEFAULT).getInt();
+		//STORN
+		ItemIDs.STORN_AXE = config.getItem("stornAxe", ItemIDs.STORN_AXE_DEFAULT).getInt();
+		ItemIDs.STORN_HOE = config.getItem("stornAxe", ItemIDs.STORN_AXE_DEFAULT).getInt();
+		ItemIDs.STORN_PICK = config.getItem("stornAxe", ItemIDs.STORN_AXE_DEFAULT).getInt();
+		ItemIDs.STORN_SHOVEL = config.getItem("stornAxe", ItemIDs.STORN_AXE_DEFAULT).getInt();
+		ItemIDs.STORN_SWORD = config.getItem("stornAxe", ItemIDs.STORN_AXE_DEFAULT).getInt();
+		//Dirt
+		ItemIDs.STOLD_AXE = config.getItem("dirmendAxe", ItemIDs.STOLD_AXE_DEFAULT).getInt();
+		ItemIDs.STOLD_HOE = config.getItem("dirmendAxe", ItemIDs.STOLD_AXE_DEFAULT).getInt();
+		ItemIDs.STOLD_PICK = config.getItem("dirmendAxe", ItemIDs.STOLD_AXE_DEFAULT).getInt();
+		ItemIDs.STOLD_SHOVEL = config.getItem("dirmendAxe", ItemIDs.STOLD_AXE_DEFAULT).getInt();
+		ItemIDs.STOLD_SWORD = config.getItem("dirmendAxe", ItemIDs.STOLD_AXE_DEFAULT).getInt();
+		
 		ItemIDs.DIRT_AXE = config.getItem("dirmendAxe", ItemIDs.DIRMEND_AXE_DEFAULT).getInt();
 		ItemIDs.DIRT_HOE = config.getItem("dirmendAxe", ItemIDs.DIRMEND_AXE_DEFAULT).getInt();
 		ItemIDs.DIRT_PICK = config.getItem("dirmendAxe", ItemIDs.DIRMEND_AXE_DEFAULT).getInt();
 		ItemIDs.DIRT_SHOVEL = config.getItem("dirmendAxe", ItemIDs.DIRMEND_AXE_DEFAULT).getInt();
 		ItemIDs.DIRT_SWORD = config.getItem("dirmendAxe", ItemIDs.DIRMEND_AXE_DEFAULT).getInt();
+		
+		ItemIDs.DIRT_AXE = config.getItem("dirmendAxe", ItemIDs.DIRMEND_AXE_DEFAULT).getInt();
+		ItemIDs.DIRT_HOE = config.getItem("dirmendAxe", ItemIDs.DIRMEND_AXE_DEFAULT).getInt();
+		ItemIDs.DIRT_PICK = config.getItem("dirmendAxe", ItemIDs.DIRMEND_AXE_DEFAULT).getInt();
+		ItemIDs.DIRT_SHOVEL = config.getItem("dirmendAxe", ItemIDs.DIRMEND_AXE_DEFAULT).getInt();
+		ItemIDs.DIRT_SWORD = config.getItem("dirmendAxe", ItemIDs.DIRMEND_AXE_DEFAULT).getInt();		
 		
 		config.save();
 		
