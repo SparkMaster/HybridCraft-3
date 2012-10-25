@@ -90,4 +90,9 @@ public class ItemHybridHoe extends Item
     {
         return this.theToolMaterial.toString();
     }
+    
+    public String getTextureFile()
+    {
+            return "/hc/tools.png";
+    }
 }

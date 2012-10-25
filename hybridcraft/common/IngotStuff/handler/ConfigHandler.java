@@ -1,11 +1,11 @@
-package hybridcraft.common.IngoStuff.handler;
+package hybridcraft.common.IngotStuff.handler;
 
 import java.io.File;
 import net.minecraftforge.common.Property;
 import net.minecraftforge.common.Configuration;
 import hybridcraft.common.IngotStuff.lib.ItemIDs;
 
-class ConfigHandler
+public class ConfigHandler
 {
 	
 	private static Configuration config;
@@ -13,6 +13,10 @@ class ConfigHandler
 	public ConfigHandler(String fileLocation)
 	{
 		config =  new Configuration(new File(fileLocation));
+	}
+	public ConfigHandler(File file)
+	{
+		config =  new Configuration(file);
 	}
 	
 	public static void loadConfig()
@@ -43,6 +47,14 @@ class ConfigHandler
 		ItemIDs.DIRT_PICK = config.getItem("dirmendAxe", ItemIDs.DIRMEND_AXE_DEFAULT).getInt();
 		ItemIDs.DIRT_SHOVEL = config.getItem("dirmendAxe", ItemIDs.DIRMEND_AXE_DEFAULT).getInt();
 		ItemIDs.DIRT_SWORD = config.getItem("dirmendAxe", ItemIDs.DIRMEND_AXE_DEFAULT).getInt();
+		
+		config.save();
+		
+	}
+	
+	public Configuration getInstance()
+	{
+		return config;
 		
 	}
 }

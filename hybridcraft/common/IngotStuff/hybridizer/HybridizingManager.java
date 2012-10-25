@@ -1,7 +1,7 @@
 package hybridcraft.common.IngotStuff.hybridizer;
 
 import net.minecraft.src.*;
-import hybridcraft.common.IngotStuff.items.Ingot;
+import hybridcraft.common.IngotStuff.items.ItemIngot;
 import hybridcraft.common.core.AbstractCraftingManager;
 import cpw.mods.fml.common.registry.*;
 
@@ -27,16 +27,16 @@ public class HybridizingManager extends AbstractCraftingManager {
 	private HybridizingManager(boolean x) {
 
 		// Ingot
-		dirtoneIngot = new Ingot(561).setIconIndex(1).setItemName("dirtoneIngot");
-		dironIngot = new Ingot(562).setIconIndex(2).setItemName("dironIngot");
-		diroldIngot = new Ingot(563).setIconIndex(3).setItemName("diroldIngot");
-		dirmendIngot = new Ingot(564).setIconIndex(4).setItemName("dirmendIngot");
-		stornIngot = new Ingot(566).setIconIndex(6).setItemName("stornIngot");
-		stoldIngot = new Ingot(567).setIconIndex(7).setItemName("stoldIngot");
-		stomendIngot = new Ingot(568).setIconIndex(8).setItemName("stormendIngot");
-		iroldIngot = new Ingot(569).setIconIndex(9).setItemName("iroldIngot");
-		irmendIngot = new Ingot(570).setIconIndex(10).setItemName("irmendIngot");
-		gomendIngot = new Ingot(571).setIconIndex(11).setItemName("gomendIngot");
+		dirtoneIngot = new ItemIngot(561).setIconIndex(1).setItemName("dirtoneIngot");
+		dironIngot = new ItemIngot(562).setIconIndex(2).setItemName("dironIngot");
+		diroldIngot = new ItemIngot(563).setIconIndex(3).setItemName("diroldIngot");
+		dirmendIngot = new ItemIngot(564).setIconIndex(4).setItemName("dirmendIngot");
+		stornIngot = new ItemIngot(566).setIconIndex(6).setItemName("stornIngot");
+		stoldIngot = new ItemIngot(567).setIconIndex(7).setItemName("stoldIngot");
+		stomendIngot = new ItemIngot(568).setIconIndex(8).setItemName("stormendIngot");
+		iroldIngot = new ItemIngot(569).setIconIndex(9).setItemName("iroldIngot");
+		irmendIngot = new ItemIngot(570).setIconIndex(10).setItemName("irmendIngot");
+		gomendIngot = new ItemIngot(571).setIconIndex(11).setItemName("gomendIngot");
 
 		// Ingot Registry
 		LanguageRegistry.addName(dirtoneIngot, "Dirtone Ingot");
