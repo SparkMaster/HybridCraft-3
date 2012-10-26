@@ -2,6 +2,7 @@ package hybridcraft.common.IngotStuff.items;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import net.minecraft.src.Block;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import hybridcraft.common.IngotStuff.HybridModIngotStuff;
@@ -9,7 +10,7 @@ import hybridcraft.common.IngotStuff.hybridizer.HybridizingManager;
 import hybridcraft.common.IngotStuff.lib.HybridToolMaterials;
 import hybridcraft.common.IngotStuff.lib.ItemIDs;
 
-public class ModItems 
+public class HybridTools 
 {
 	// Tools
 	public static Item dirtSword;
@@ -67,6 +68,26 @@ public class ModItems
 	public static Item gomendAxe;
 	public static Item gomendShovel;
 	public static Item gomendHoe;
+	public static Item obsidianSword;
+	public static Item obsidianPick;
+	public static Item obsidianAxe;
+	public static Item obsidianShovel;
+	public static Item obsidianHoe;
+	public static Item sandSword;
+	public static Item sandPick;
+	public static Item sandAxe;
+	public static Item sandShovel;
+	public static Item sandHoe;
+	public static Item cobbleSword;
+	public static Item cobblePick;
+	public static Item cobbleAxe;
+	public static Item cobbleShovel;
+	public static Item cobbleHoe;
+	public static Item emeraldSword;
+	public static Item emeraldPick;
+	public static Item emeraldAxe;
+	public static Item emeraldShovel;
+	public static Item emeraldHoe;
 	
 	
 	public static void initItems()
@@ -127,6 +148,21 @@ public class ModItems
 		gomendAxe = new ItemHybridAxe(ItemIDs.GOMEND_AXE, HybridToolMaterials.gomend).setIconIndex(52).setItemName("gomendAxe");
 		gomendShovel = new ItemHybridSpade(ItemIDs.GOMEND_SHOVEL, HybridToolMaterials.gomend).setIconIndex(53).setItemName("gomendShovel");
 		gomendHoe = new ItemHybridHoe(ItemIDs.GOMEND_HOE, HybridToolMaterials.gomend).setIconIndex(54).setItemName("gomendHoe");
+		obsidianSword = new ItemHybridSword(ItemIDs.OBSIDIAN_SWORD, HybridToolMaterials.obsidian).setIconIndex(55).setItemName("obsidianSword");
+		obsidianPick = new ItemHybridPickaxe(ItemIDs.OBSIDIAN_PICK, HybridToolMaterials.obsidian).setIconIndex(56).setItemName("obsidianPick");
+		obsidianAxe = new ItemHybridAxe(ItemIDs.OBSIDIAN_AXE, HybridToolMaterials.obsidian).setIconIndex(57).setItemName("obsidianAxe");
+		obsidianShovel = new ItemHybridSpade(ItemIDs.OBSIDIAN_SHOVEL, HybridToolMaterials.obsidian).setIconIndex(58).setItemName("obsidianShovel");
+		obsidianHoe = new ItemHybridHoe(ItemIDs.OBSIDIAN_HOE, HybridToolMaterials.obsidian).setIconIndex(59).setItemName("obsidianHoe");
+		sandSword = new ItemHybridSword(ItemIDs.SAND_SWORD, HybridToolMaterials.sand).setIconIndex(60).setItemName("sandSword");
+		sandPick = new ItemHybridPickaxe(ItemIDs.SAND_SWORD, HybridToolMaterials.sand).setIconIndex(61).setItemName("sandPick");
+		sandAxe = new ItemHybridAxe(ItemIDs.SAND_SWORD, HybridToolMaterials.sand).setIconIndex(62).setItemName("sandAxe");
+		sandShovel = new ItemHybridSpade(ItemIDs.SAND_SWORD, HybridToolMaterials.sand).setIconIndex(63).setItemName("sandShovel");
+		sandHoe = new ItemHybridHoe(ItemIDs.SAND_SWORD, HybridToolMaterials.sand).setIconIndex(64).setItemName("sandHoe");
+		emeraldSword = new ItemHybridSword(ItemIDs.EMERALD_SWORD, HybridToolMaterials.emerald).setIconIndex(70).setItemName("emeraldSword");
+		emeraldPick = new ItemHybridPickaxe(ItemIDs.EMERALD_PICK, HybridToolMaterials.emerald).setIconIndex(71).setItemName("emeraldPick");
+		emeraldAxe = new ItemHybridAxe(ItemIDs.EMERALD_AXE, HybridToolMaterials.emerald).setIconIndex(72).setItemName("emeraldAxe");
+		emeraldShovel = new ItemHybridSpade(ItemIDs.EMERALD_SHOVEL, HybridToolMaterials.emerald).setIconIndex(73).setItemName("emeraldShovel");
+		emeraldHoe = new ItemHybridHoe(ItemIDs.EMERALD_HOE, HybridToolMaterials.emerald).setIconIndex(74).setItemName("emeraldHoe");
 		
 		// Tool Registry
 		LanguageRegistry.addName(dirtSword, "Dirt Sword");
@@ -184,15 +220,30 @@ public class ModItems
 		LanguageRegistry.addName(gomendAxe, "Gomend Axe");
 		LanguageRegistry.addName(gomendShovel, "Gomend Shovel");
 		LanguageRegistry.addName(gomendHoe, "Gomend Hoe");
+		LanguageRegistry.addName(obsidianSword, "Obsidian Sword");
+		LanguageRegistry.addName(obsidianPick, "Obsidian Pickaxe");
+		LanguageRegistry.addName(obsidianAxe, "Obsidian Axe");
+		LanguageRegistry.addName(obsidianShovel, "Obsidian Shovel");
+		LanguageRegistry.addName(obsidianHoe, "Obsidian Hoe");
+		LanguageRegistry.addName(sandSword, "Sand Sword");
+		LanguageRegistry.addName(sandPick, "Sand Pickaxe");
+		LanguageRegistry.addName(sandAxe, "Sand Axe");
+		LanguageRegistry.addName(sandShovel, "Sand Shovel");
+		LanguageRegistry.addName(sandHoe, "Sand Hoe");
+		LanguageRegistry.addName(emeraldSword, "Emerald Sword");
+		LanguageRegistry.addName(emeraldPick, "Emerald Pickaxe");
+		LanguageRegistry.addName(emeraldAxe, "Emerald Axe");
+		LanguageRegistry.addName(emeraldShovel, "Emerald Shovel");
+		LanguageRegistry.addName(emeraldHoe, "Emerald Hoe");
 	}
 	
 	public static void initRecipies()
 	{
-		GameRegistry.addRecipe(new ItemStack(dirtSword), new Object[] { "X", "X", "Z", 'X', HybridModIngotStuff.dirtIngot, 'Z', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(dirtPick), new Object[] { "XXX", " S ", " S ", 'X', HybridModIngotStuff.dirtIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(dirtAxe), new Object[] { "XX ", "XS ", " S ", 'X', HybridModIngotStuff.dirtIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(dirtShovel), new Object[] { "X", "S", "S", 'X', HybridModIngotStuff.dirtIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(dirtHoe), new Object[] { "XX ", " S ", " S ", 'X', HybridModIngotStuff.dirtIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(dirtSword), new Object[] { "X", "X", "Z", 'X', HybridItems.dirtIngot, 'Z', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(dirtPick), new Object[] { "XXX", " S ", " S ", 'X', HybridItems.dirtIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(dirtAxe), new Object[] { "XX ", "XS ", " S ", 'X', HybridItems.dirtIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(dirtShovel), new Object[] { "X", "S", "S", 'X', HybridItems.dirtIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(dirtHoe), new Object[] { "XX ", " S ", " S ", 'X', HybridItems.dirtIngot, 'S', Item.stick });
 		GameRegistry.addRecipe(new ItemStack(dirtoneSword), new Object[] { "X", "X", "Z", 'X', HybridizingManager.getInstance().dirtoneIngot, 'Z', Item.stick });
 		GameRegistry.addRecipe(new ItemStack(dirtonePick), new Object[] { "XXX", " S ", " S ", 'X', HybridizingManager.getInstance().dirtoneIngot, 'S', Item.stick });
 		GameRegistry.addRecipe(new ItemStack(dirtoneAxe), new Object[] { "XX ", "XS ", " S ", 'X', HybridizingManager.getInstance().dirtoneIngot, 'S', Item.stick });
@@ -243,5 +294,20 @@ public class ModItems
 		GameRegistry.addRecipe(new ItemStack(gomendAxe), new Object[] { "XX ", "XS ", " S ", 'X', HybridizingManager.getInstance().gomendIngot, 'S', Item.stick });
 		GameRegistry.addRecipe(new ItemStack(gomendShovel), new Object[] { "X", "S", "S", 'X', HybridizingManager.getInstance().gomendIngot, 'S', Item.stick });
 		GameRegistry.addRecipe(new ItemStack(gomendHoe), new Object[] { "XX ", " S ", " S ", 'X', HybridizingManager.getInstance().gomendIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(obsidianSword), new Object[] { "X", "X", "Z", 'X', HybridItems.obsidianIngot, 'Z', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(obsidianPick), new Object[] { "XXX", " S ", " S ", 'X', HybridItems.obsidianIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(obsidianAxe), new Object[] { "XX ", "XS ", " S ", 'X', HybridItems.obsidianIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(obsidianShovel), new Object[] { "X", "S", "S", 'X', HybridItems.obsidianIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(obsidianHoe), new Object[] { "XX ", " S ", " S ", 'X', HybridItems.obsidianIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(sandSword), new Object[] { "X", "X", "Z", 'X', HybridItems.sandIngot, 'Z', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(sandPick), new Object[] { "XXX", " S ", " S ", 'X', HybridItems.sandIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(sandAxe), new Object[] { "XX ", "XS ", " S ", 'X', HybridItems.sandIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(sandShovel), new Object[] { "X", "S", "S", 'X', HybridItems.sandIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(sandHoe), new Object[] { "XX ", " S ", " S ", 'X', HybridItems.sandIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(emeraldSword), new Object[] { "X", "X", "Z", 'X', Item.emerald, 'Z', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(emeraldPick), new Object[] { "XXX", " S ", " S ", 'X', Item.emerald, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(emeraldAxe), new Object[] { "XX ", "XS ", " S ", 'X', Item.emerald, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(emeraldShovel), new Object[] { "X", "S", "S", 'X', Item.emerald, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(emeraldHoe), new Object[] { "XX ", " S ", " S ", 'X', Item.emerald, 'S', Item.stick });
 	}
 }

@@ -14,7 +14,7 @@ public class ItemIDs
 	
 	//dirt
 	public static int DIRT_SWORD_DEFAULT = 505;
-	public static int DIRT_PICK_DEFAULTT = 506;
+	public static int DIRT_PICK_DEFAULT = 506;
 	public static int DIRT_AXE_DEFAULT = 507;
 	public static int DIRT_SHOVEL_DEFAULT = 508;
 	public static int DIRT_HOE_DEFAULT = 509;
@@ -26,7 +26,7 @@ public class ItemIDs
 	public static int DIRTONE_HOE_DEFAULT = 514;
 	//dirt and iron
 	public static int DIRON_SWORD_DEFAULT = 515;
-	public static int DIRON_PICK_DEFAULTT = 516;
+	public static int DIRON_PICK_DEFAULT = 516;
 	public static int DIRON_AXE_DEFAULT = 517;
 	public static int DIRON_SHOVEL_DEFAULT = 518;
 	public static int DIRON_HOE_DEFAULT = 519;
@@ -78,6 +78,24 @@ public class ItemIDs
 	public static int GOMEND_AXE_DEFAULT = 557;
 	public static int GOMEND_SHOVEL_DEFAULT = 558;
 	public static int GOMEND_HOE_DEFAULT = 559;
+	//sand
+	public static int SAND_SWORD_DEFAULT = 555;
+	public static int SAND_PICK_DEFAULT = 556;
+	public static int SAND_AXE_DEFAULT = 557;
+	public static int SAND_SHOVEL_DEFAULT = 558;
+	public static int SAND_HOE_DEFAULT = 559;
+	//obsidian
+	public static int OBSIDIAN_SWORD_DEFAULT = 555;
+	public static int OBSIDIAN_PICK_DEFAULT = 556;
+	public static int OBSIDIAN_AXE_DEFAULT = 557;
+	public static int OBSIDIAN_SHOVEL_DEFAULT = 558;
+	public static int OBSIDIAN_HOE_DEFAULT = 559;
+	//emerald
+	public static int EMERALD_SWORD_DEFAULT = 555;
+	public static int EMERALD_PICK_DEFAULT = 556;
+	public static int EMERALD_AXE_DEFAULT = 557;
+	public static int EMERALD_SHOVEL_DEFAULT = 558;
+	public static int EMERALD_HOE_DEFAULT = 559;
 	
 	
 	
@@ -143,5 +161,20 @@ public class ItemIDs
 	public static int GOMEND_AXE;
 	public static int GOMEND_SHOVEL;
 	public static int GOMEND_HOE;
+	public static int OBSIDIAN_SWORD;
+	public static int OBSIDIAN_PICK;
+	public static int OBSIDIAN_AXE;
+	public static int OBSIDIAN_SHOVEL;
+	public static int OBSIDIAN_HOE;
+	public static int EMERALD_SWORD;
+	public static int EMERALD_PICK;
+	public static int EMERALD_AXE;
+	public static int EMERALD_SHOVEL;
+	public static int EMERALD_HOE;
+	public static int SAND_SWORD;
+	public static int SAND_PICK;
+	public static int SAND_AXE;
+	public static int SAND_SHOVEL;
+	public static int SAND_HOE;
 
 }

@@ -6,9 +6,10 @@ import hybridcraft.common.IngotStuff.handler.CraftingHandler;
 import hybridcraft.common.IngotStuff.hybridizer.BlockHybridizer;
 import hybridcraft.common.IngotStuff.hybridizer.GuiHandler;
 import hybridcraft.common.IngotStuff.hybridizer.HybridizingManager;
+import hybridcraft.common.IngotStuff.items.HybridItems;
 import hybridcraft.common.IngotStuff.items.ItemIngot;
 import hybridcraft.common.IngotStuff.items.ItemBlockFlowers;
-import hybridcraft.common.IngotStuff.items.ModItems;
+import hybridcraft.common.IngotStuff.items.HybridTools;
 import hybridcraft.common.IngotStuff.lib.Reference;
 import hybridcraft.common.IngotStuff.lib.HybridToolMaterials;
 import hybridcraft.common.IngotStuff.lib.HybridArmorMaterials;
@@ -61,40 +62,6 @@ public class HybridModIngotStuff
 	
 	//Crafting handler
 	private CraftingHandler craftingHandler = new CraftingHandler();
-	
-
-	
-
-	
-	
-	//Tools
-	public static Item obsidiansword;
-	public static Item obsidianpick;
-	public static Item obsidianaxe;
-	public static Item obsidianshovel;
-	public static Item obsidianhoe;
-	public static Item sandsword;
-	public static Item sandpick;
-	public static Item sandaxe;
-	public static Item sandshovel;
-	public static Item sandhoe;
-	public static Item cobblesword;
-	public static Item cobblepick;
-	public static Item cobbleaxe;
-	public static Item cobbleshovel;
-	public static Item cobblehoe;
-	public static Item emeraldsword;
-	public static Item emeraldpick;
-	public static Item emeraldaxe;
-	public static Item emeraldshovel;
-	public static Item emeraldhoe;
-
-	// Ingots
-	public static Item dirtIngot;
-	public static Item obsidianShard;
-	public static Item obsidianIngot;
-	public static Item sandIngot;
-	public static Item stoneIngot;
 
 	// Armors
 	public static Item dirtHelmet;
@@ -195,66 +162,7 @@ public class HybridModIngotStuff
 	public static final String CATEGORY_ARMOR = "armors";
 	public static final String CATEGORY_FLOWER = "flowers";
 
-	public static int  dirtswordID;
-	public static int  dirtpickID;
-	public static int  dirtaxeID;
-	public static int  dirtshovelID;
-	public static int  dirthoeID;
-	public static int  dirtoneswordID;
-	public static int  dirtonepickID;
-	public static int  dirtoneaxeID;
-	public static int  dirtoneshovelID;
-	public static int  dirtonehoeID;
-	public static int  dironswordID;
-	public static int  dironpickID;
-	public static int  dironaxeID;
-	public static int  dironshovelID;
-	public static int  dironhoeID;
-	public static int  diroldswordID;
-	public static int  diroldpickID;
-	public static int  diroldaxeID;
-	public static int  diroldshovelID;
-	public static int  diroldhoeID;
-	public static int  dirmendswordID;
-	public static int  dirmendpickID;
-	public static int  dirmendaxeID;
-	public static int  dirmendshovelID;
-	public static int  dirmendhoeID;
-	public static int  stornswordID;
-	public static int  stornpickID;
-	public static int  stornaxeID;
-	public static int  stornshovelID;
-	public static int  stornhoeID;
-	public static int  stoldswordID;
-	public static int  stoldpickID;
-	public static int  stoldaxeID;
-	public static int  stoldshovelID;
-	public static int  stoldhoeID;
-	public static int  stomendswordID;
-	public static int  stomendpickID;
-	public static int  stomendaxeID;
-	public static int  stomendshovelID;
-	public static int  stomendhoeID;
-	public static int  iroldswordID;
-	public static int  iroldpickID;
-	public static int  iroldaxeID;
-	public static int  iroldshovelID;
-	public static int  iroldhoeID;
-	public static int  irmendswordID;
-	public static int  irmendpickID;
-	public static int  irmendaxeID;
-	public static int  irmendshovelID;
-	public static int  irmendhoeID;
-	public static int  gomendswordID;
-	public static int  gomendpickID;
-	public static int  gomendaxeID;
-	public static int  gomendshovelID;
-	public static int  gomendhoeID;
-	public static int  obsidianswordID;
-	public static int  obsidianpickID;
-	public static int  obsidianaxeID;
-	public static int  obsidianshovelID;
-	public static int  obsidianhoeID;
+	
 	public static int  dirtHelmetID;
 	public static int  dirtPlateID;
 	public static int  dirtLegsID;
@@ -333,32 +241,11 @@ public class HybridModIngotStuff
 	public static int  sandPlateID;
 	public static int  sandLegsID;
 	public static int  sandBootsID;
-	public static int  sandswordID;
-	public static int  sandpickID;
-	public static int  sandaxeID;
-	public static int  sandshovelID;
-	public static int  sandhoeID;
-	public static int  cobbleswordID;
-	public static int  cobblepickID;
-	public static int  cobbleaxeID;
-	public static int  cobbleshovelID;
-	public static int  cobblehoeID;
-	public static int  emeraldswordID;
-	public static int  emeraldpickID;
-	public static int  emeraldaxeID;
-	public static int  emeraldshovelID;
-	public static int  emeraldhoeID;
-	public static int  emeraldflowerID;
 	public static int  emeraldhelmetID;
 	public static int  emeraldplateID;
 	public static int  emeraldlegsID;
 	public static int  emeraldbootsID;
 	public static int  combinerID;
-	public static int  obsidianShardID;
-	public static int  obsidianIngotID;
-	public static int  sandIngotID;
-	public static int  dirtIngotID;
-	public static int  stoneIngotID;
 	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event) {
@@ -368,46 +255,8 @@ public class HybridModIngotStuff
 		
 		config.loadConfig();
 		config.getInstance().load();
-
-		obsidianShardID = config.getInstance().get(CATEGORY_INGOT, "Obsidian Shard", 500).getInt();
-		obsidianIngotID = config.getInstance().get(CATEGORY_INGOT, "Obsidian Ingot", 501).getInt();
-		sandIngotID = config.getInstance().get(CATEGORY_INGOT, "Sand Ingot", 502).getInt();
-		dirtIngotID = config.getInstance().get(CATEGORY_INGOT, "Dirt Ingot", 503).getInt();		
-		stornswordID = config.getInstance().get(CATEGORY_TOOL, "Storn Sword", 529).getInt();
-		stornpickID = config.getInstance().get(CATEGORY_TOOL, "Storn Pick", 530).getInt();
-		stornaxeID = config.getInstance().get(CATEGORY_TOOL, "Storn Axe", 531).getInt();
-		stornshovelID = config.getInstance().get(CATEGORY_TOOL, "Storn Shovel", 532).getInt();
-		stornhoeID = config.getInstance().get(CATEGORY_TOOL, "Storn Hoe", 533).getInt();
-		stoldswordID = config.getInstance().get(CATEGORY_TOOL, "Stold Sword", 534).getInt();
-		stoldpickID = config.getInstance().get(CATEGORY_TOOL, "Stold Pickaxe", 535).getInt();
-		stoldaxeID = config.getInstance().get(CATEGORY_TOOL, "Stold Axe", 536).getInt();
-		stoldshovelID = config.getInstance().get(CATEGORY_TOOL, "Stold Shovel", 537).getInt();
-		stoldhoeID = config.getInstance().get(CATEGORY_TOOL, "Stold Hoe", 538).getInt();
-		stomendswordID = config.getInstance().get(CATEGORY_TOOL, "Stomend Sword", 539).getInt();
-		stomendpickID = config.getInstance().get(CATEGORY_TOOL, "Stomend Pickaxe", 540).getInt();
-		stomendaxeID = config.getInstance().get(CATEGORY_TOOL, "Stomend Axe", 541).getInt();
-		stomendshovelID = config.getInstance().get(CATEGORY_TOOL, "Stomend Shovel", 542).getInt();
-		stomendhoeID = config.getInstance().get(CATEGORY_TOOL, "Stomend Hoe", 543).getInt();
-		iroldswordID = config.getInstance().get(CATEGORY_TOOL, "Irold Sword", 544).getInt();
-		iroldpickID = config.getInstance().get(CATEGORY_TOOL, "Irold Pickaxe", 545).getInt();
-		iroldaxeID = config.getInstance().get(CATEGORY_TOOL, "Irold Axe", 546).getInt();
-		iroldshovelID = config.getInstance().get(CATEGORY_TOOL, "Irold Shovel", 547).getInt();
-		iroldhoeID = config.getInstance().get(CATEGORY_TOOL, "Irold Hoe", 548).getInt();
-		irmendswordID = config.getInstance().get(CATEGORY_TOOL, "Irmend Sword", 549).getInt();
-		irmendpickID = config.getInstance().get(CATEGORY_TOOL, "Irmend Pick", 550).getInt();
-		irmendaxeID = config.getInstance().get(CATEGORY_TOOL, "Irmend Axe", 551).getInt();
-		irmendshovelID = config.getInstance().get(CATEGORY_TOOL, "Irmend Shovel", 552).getInt();
-		irmendhoeID = config.getInstance().get(CATEGORY_TOOL, "Irmend Hoe", 553).getInt();
-		gomendswordID = config.getInstance().get(CATEGORY_TOOL, "Gomend Sword", 554).getInt();
-		gomendpickID = config.getInstance().get(CATEGORY_TOOL, "Gomend Pickaxe", 555).getInt();
-		gomendaxeID = config.getInstance().get(CATEGORY_TOOL, "Gomend Axe", 556).getInt();
-		gomendshovelID = config.getInstance().get(CATEGORY_TOOL, "Gomend Shovel", 557).getInt();
-		gomendhoeID = config.getInstance().get(CATEGORY_TOOL, "Gomend Hoe", 558).getInt();
-		obsidianswordID = config.getInstance().get(CATEGORY_TOOL, "Obsidian Sword", 559).getInt();
-		obsidianpickID = config.getInstance().get(CATEGORY_TOOL, "Obsidian Pickaxe", 560).getInt();
-		obsidianaxeID = config.getInstance().get(CATEGORY_TOOL, "Obsidian Axe", 561).getInt();
-		obsidianshovelID = config.getInstance().get(CATEGORY_TOOL, "Obsidian Shovel", 562).getInt();
-		obsidianhoeID = config.getInstance().get(CATEGORY_TOOL, "Obsidian Hoe", 563).getInt();
+		
+		//armor
 		dirtHelmetID = config.getInstance().get(CATEGORY_ARMOR, "Dirt Helmet ", 564).getInt();
 		dirtPlateID = config.getInstance().get(CATEGORY_ARMOR, "Dirt Chestplate", 565).getInt();
 		dirtLegsID = config.getInstance().get(CATEGORY_ARMOR, "Dirt Leggings", 566).getInt();
@@ -456,6 +305,8 @@ public class HybridModIngotStuff
 		obsidianPlateID = config.getInstance().get(CATEGORY_ARMOR, "Obsidian Chestplate", 609).getInt();
 		obsidianLegsID = config.getInstance().get(CATEGORY_ARMOR, "Obsidian Leggings", 610).getInt();
 		obsidianBootsID = config.getInstance().get(CATEGORY_ARMOR, "Obsidian Boots", 611).getInt();
+		
+		//blocks
 		dirtBlockID = config.getInstance().get(Configuration.CATEGORY_BLOCK, "Dirt Ingot Block", 612).getInt();
 		dirtoneBlockID = config.getInstance().get(Configuration.CATEGORY_BLOCK, "Dirtone Ingot Block", 613).getInt();
 		dironBlockID = config.getInstance().get(Configuration.CATEGORY_BLOCK, "Diron Ingot Block", 614).getInt();
@@ -471,11 +322,10 @@ public class HybridModIngotStuff
 		dandID = config.getInstance().get(Configuration.CATEGORY_BLOCK, "Dirt/Sand Block", 624).getInt();
 		davelID = config.getInstance().get(Configuration.CATEGORY_BLOCK, "Dirt/Gravel Block",	625).getInt();
 		doneID = config.getInstance().get(Configuration.CATEGORY_BLOCK, "Dirt/Stone Block", 626).getInt();
-		dirtFlowerID = config.getInstance().get(CATEGORY_FLOWER, "Dirt Flower", 627).getInt();
-		stoneFlowerID = config.getInstance().get(CATEGORY_FLOWER, "Stone Flower", 628).getInt();
-		ironFlowerID = config.getInstance().get(CATEGORY_FLOWER, "Iron Flower", 629).getInt();
-		goldFlowerID = config.getInstance().get(CATEGORY_FLOWER, "Gold Flower", 630).getInt();
-		diamondFlowerID = config.getInstance().get(CATEGORY_FLOWER, "Diamond Flower", 631).getInt();
+		
+		//flowers
+		
+		
 		sandBlockID = config.getInstance().get(Configuration.CATEGORY_BLOCK, "Sand Ingot Block", 633).getInt();
 		stoneHelmetID = config.getInstance().get(CATEGORY_ARMOR, "Stone Helmet", 634).getInt();
 		stonePlateID = config.getInstance().get(CATEGORY_ARMOR, "Stone Chestplate", 635).getInt();
@@ -485,70 +335,21 @@ public class HybridModIngotStuff
 		sandPlateID = config.getInstance().get(CATEGORY_ARMOR, "Sand Chestplate", 639).getInt();
 		sandLegsID = config.getInstance().get(CATEGORY_ARMOR, "Sand Leggings", 640).getInt();
 		sandBootsID = config.getInstance().get(CATEGORY_ARMOR, "Sand Boots", 641).getInt();
-		sandswordID = config.getInstance().get(CATEGORY_TOOL, "Sand Sword", 642).getInt();
-		sandpickID = config.getInstance().get(CATEGORY_TOOL, "Sand Pickaxe", 643).getInt();
-		sandaxeID = config.getInstance().get(CATEGORY_TOOL, "Sand Axe", 644).getInt();
-		sandshovelID = config.getInstance().get(CATEGORY_TOOL, "Sand Shovel", 645).getInt();
-		sandhoeID = config.getInstance().get(CATEGORY_TOOL, "Sand Hoe", 646).getInt();
-		cobbleswordID = config.getInstance().get(CATEGORY_TOOL, "Cobble Sword", 647).getInt();
-		cobblepickID = config.getInstance().get(CATEGORY_TOOL, "Cobble Pickaxe", 648).getInt();
-		cobbleaxeID = config.getInstance().get(CATEGORY_TOOL, "Cobble Axe", 649).getInt();
-		cobbleshovelID = config.getInstance().get(CATEGORY_TOOL, "Cobble Shovel", 650).getInt();
-		cobblehoeID = config.getInstance().get(CATEGORY_TOOL, "Cobble Hoe", 651).getInt();
-		obsidianFlowerID = config.getInstance().get(CATEGORY_FLOWER, "Obsidian Flower", 652).getInt();
-		emeraldswordID = config.getInstance().get(CATEGORY_TOOL, "Emerald Sword", 653).getInt();
-		emeraldpickID = config.getInstance().get(CATEGORY_TOOL, "Emerald Pickaxe", 654).getInt();
-		emeraldaxeID = config.getInstance().get(CATEGORY_TOOL, "Emerald Axe", 655).getInt();
-		emeraldshovelID = config.getInstance().get(CATEGORY_TOOL, "Emerald Shovel", 656).getInt();
-		emeraldhoeID = config.getInstance().get(CATEGORY_TOOL, "Emerald Hoe", 657).getInt();
-		emeraldflowerID = config.getInstance().get(CATEGORY_FLOWER, "Emerald Flower", 658).getInt();
 		emeraldhelmetID = config.getInstance().get(CATEGORY_ARMOR, "Emerald Helmet", 659).getInt();
 		emeraldplateID = config.getInstance().get(CATEGORY_ARMOR, "Emerald Chestplate", 660).getInt();
 		emeraldlegsID = config.getInstance().get(CATEGORY_ARMOR, "Emerald Leggings", 661).getInt();
 		emeraldbootsID = config.getInstance().get(CATEGORY_ARMOR, "Emerald Boots", 662).getInt();
 		combinerID = config.getInstance().get(CATEGORY_ARMOR, "Combiner", 663).getInt();
-		stoneIngotID = config.getInstance().get(CATEGORY_INGOT, "Stone Ingot", 664).getInt();
 		
 		config.getInstance().save();
 	}
 	
 	@Init
-	public void load(FMLInitializationEvent event) {	
-		
-		// Achievements
-		
+	public void load(FMLInitializationEvent event) {
 		
 		//init mod items
-		ModItems.initItems();
-		
-		
-		obsidiansword = new hybridcraft.common.IngotStuff.items.ItemHybridSword(obsidianswordID, HybridToolMaterials.obsidian).setIconIndex(55).setItemName("obsidiansword");
-		obsidianpick = new hybridcraft.common.IngotStuff.items.ItemHybridPickaxe(obsidianpickID, HybridToolMaterials.obsidian).setIconIndex(56).setItemName("obsidianpick");
-		obsidianaxe = new hybridcraft.common.IngotStuff.items.ItemHybridAxe(obsidianaxeID, HybridToolMaterials.obsidian).setIconIndex(57).setItemName("obsidianaxe");
-		obsidianshovel = new hybridcraft.common.IngotStuff.items.ItemHybridSpade(obsidianshovelID, HybridToolMaterials.obsidian).setIconIndex(58).setItemName("obsidianshovel");
-		obsidianhoe = new hybridcraft.common.IngotStuff.items.ItemHybridHoe(obsidianhoeID, HybridToolMaterials.obsidian).setIconIndex(59).setItemName("obsidianhoe");
-		sandsword = new hybridcraft.common.IngotStuff.items.ItemHybridSword(sandswordID, HybridToolMaterials.sand).setIconIndex(60).setItemName("sandsword");
-		sandpick = new hybridcraft.common.IngotStuff.items.ItemHybridPickaxe(sandpickID, HybridToolMaterials.sand).setIconIndex(61).setItemName("sandpick");
-		sandaxe = new hybridcraft.common.IngotStuff.items.ItemHybridAxe(sandaxeID, HybridToolMaterials.sand).setIconIndex(62).setItemName("sandaxe");
-		sandshovel = new hybridcraft.common.IngotStuff.items.ItemHybridSpade(sandshovelID, HybridToolMaterials.sand).setIconIndex(63).setItemName("sandshovel");
-		sandhoe = new hybridcraft.common.IngotStuff.items.ItemHybridHoe(sandhoeID, HybridToolMaterials.sand).setIconIndex(64).setItemName("sandhoe");
-		cobblesword = new hybridcraft.common.IngotStuff.items.ItemHybridSword(cobbleswordID, HybridToolMaterials.cobble).setIconIndex(65).setItemName("cobblesword");
-		cobblepick = new hybridcraft.common.IngotStuff.items.ItemHybridPickaxe(cobblepickID, HybridToolMaterials.cobble).setIconIndex(66).setItemName("cobblepick");
-		cobbleaxe = new hybridcraft.common.IngotStuff.items.ItemHybridAxe(cobbleaxeID, HybridToolMaterials.cobble).setIconIndex(67).setItemName("cobbleaxe");
-		cobbleshovel = new hybridcraft.common.IngotStuff.items.ItemHybridSpade(cobbleshovelID, HybridToolMaterials.cobble).setIconIndex(68).setItemName("cobbleshovel");
-		cobblehoe = new hybridcraft.common.IngotStuff.items.ItemHybridHoe(cobblehoeID, HybridToolMaterials.cobble).setIconIndex(69).setItemName("cobblehoe");
-		emeraldsword = new hybridcraft.common.IngotStuff.items.ItemHybridSword(emeraldswordID, HybridToolMaterials.emerald).setIconIndex(70).setItemName("emeraldsword");
-		emeraldpick = new hybridcraft.common.IngotStuff.items.ItemHybridPickaxe(emeraldpickID, HybridToolMaterials.emerald).setIconIndex(71).setItemName("emeraldpick");
-		emeraldaxe = new hybridcraft.common.IngotStuff.items.ItemHybridAxe(emeraldaxeID, HybridToolMaterials.emerald).setIconIndex(72).setItemName("emeraldaxe");
-		emeraldshovel = new hybridcraft.common.IngotStuff.items.ItemHybridSpade(emeraldshovelID, HybridToolMaterials.emerald).setIconIndex(73).setItemName("emeraldshovel");
-		emeraldhoe = new hybridcraft.common.IngotStuff.items.ItemHybridHoe(emeraldhoeID, HybridToolMaterials.emerald).setIconIndex(74).setItemName("emeraldhoe");
-
-		// Ingots
-		obsidianShard = new ItemIngot(obsidianShardID).setIconIndex(12).setItemName("obsidianShard");
-		obsidianIngot = new ItemIngot(obsidianIngotID).setIconIndex(13).setItemName("obsidianIngot");
-		sandIngot = new ItemIngot(sandIngotID).setIconIndex(14).setItemName("sandIngot");
-		dirtIngot = new ItemIngot(dirtIngotID).setIconIndex(0).setItemName("dirtIngot");
-		stoneIngot = new ItemIngot(stoneIngotID).setIconIndex(5).setItemName("stoneIngot");
+		HybridTools.initItems();
+		HybridItems.initItems();
 
 		// Armors
 		dirtHelmet = new Dirt(dirtHelmetID, HybridArmorMaterials.dirta, proxy.addArmor("Dirt Helmet"), 0).setItemName("dirtHelm").setIconIndex(0);
@@ -643,36 +444,7 @@ public class HybridModIngotStuff
 
 
 		// register the crafting listener
-		GameRegistry.registerCraftingHandler(craftingHandler);
-		
-		
-		LanguageRegistry.addName(obsidiansword, "Obsidian Sword");
-		LanguageRegistry.addName(obsidianpick, "Obsidian Pickaxe");
-		LanguageRegistry.addName(obsidianaxe, "Obsidian Axe");
-		LanguageRegistry.addName(obsidianshovel, "Obsidian Shovel");
-		LanguageRegistry.addName(obsidianhoe, "Obsidian Hoe");
-		LanguageRegistry.addName(sandsword, "Sand Sword");
-		LanguageRegistry.addName(sandpick, "Sand Pickaxe");
-		LanguageRegistry.addName(sandaxe, "Sand Axe");
-		LanguageRegistry.addName(sandshovel, "Sand Shovel");
-		LanguageRegistry.addName(sandhoe, "Sand Hoe");
-		LanguageRegistry.addName(cobblesword, "Cobble Sword");
-		LanguageRegistry.addName(cobblepick, "Cobble Pickaxe");
-		LanguageRegistry.addName(cobbleaxe, "Cobble Axe");
-		LanguageRegistry.addName(cobbleshovel, "Cobble Shovel");
-		LanguageRegistry.addName(cobblehoe, "Cobble Hoe");
-		LanguageRegistry.addName(emeraldsword, "Emerald Sword");
-		LanguageRegistry.addName(emeraldpick, "Emerald Pickaxe");
-		LanguageRegistry.addName(emeraldaxe, "Emerald Axe");
-		LanguageRegistry.addName(emeraldshovel, "Emerald Shovel");
-		LanguageRegistry.addName(emeraldhoe, "Emerald Hoe");
-
-		// ingot
-		LanguageRegistry.addName(obsidianShard, "Shard 'o Obsidian");
-		LanguageRegistry.addName(obsidianIngot, "Obsidian Ingot");
-		LanguageRegistry.addName(sandIngot, "Sand Ingot");
-		LanguageRegistry.addName(dirtIngot, "Dirt Ingot");
-		LanguageRegistry.addName(stoneIngot, "Stone Ingot");
+		GameRegistry.registerCraftingHandler(craftingHandler);		
 
 		// Armor Registry
 		LanguageRegistry.addName(dirtHelmet, "Dirt Helmet");
@@ -791,40 +563,18 @@ public class HybridModIngotStuff
 
 		// //Tool Recipes
 
-		GameRegistry.addShapelessRecipe(new ItemStack(obsidianShard, 12), new Object[] { new ItemStack(Block.obsidian), new ItemStack(Item.pickaxeDiamond) });
-		GameRegistry.addRecipe(new ItemStack(sandIngot), new Object[] { "SSS", "SSS", "SSS", 'S', Block.sand });
-		GameRegistry.addRecipe(new ItemStack(dirtIngot), new Object[] { "XXX", "XXX", "XXX", 'X', Block.dirt });
+		GameRegistry.addShapelessRecipe(new ItemStack(HybridItems.obsidianShard, 12), new Object[] { new ItemStack(Block.obsidian), new ItemStack(Item.pickaxeDiamond) });
+		GameRegistry.addRecipe(new ItemStack(HybridItems.sandIngot), new Object[] { "SSS", "SSS", "SSS", 'S', Block.sand });
+		GameRegistry.addRecipe(new ItemStack(HybridItems.dirtIngot), new Object[] { "XXX", "XXX", "XXX", 'X', Block.dirt });		
 		
-		
-		
-		GameRegistry.addRecipe(new ItemStack(obsidiansword), new Object[] { "X", "X", "Z", 'X', obsidianIngot, 'Z', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(obsidianpick), new Object[] { "XXX", " S ", " S ", 'X', obsidianIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(obsidianaxe), new Object[] { "XX ", "XS ", " S ", 'X', obsidianIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(obsidianshovel), new Object[] { "X", "S", "S", 'X', obsidianIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(obsidianhoe), new Object[] { "XX ", " S ", " S ", 'X', obsidianIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(sandsword), new Object[] { "X", "X", "Z", 'X', sandIngot, 'Z', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(sandpick), new Object[] { "XXX", " S ", " S ", 'X', sandIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(sandaxe), new Object[] { "XX ", "XS ", " S ", 'X', sandIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(sandshovel), new Object[] { "X", "S", "S", 'X', sandIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(sandhoe), new Object[] { "XX ", " S ", " S ", 'X', sandIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(cobblesword), new Object[] { "X", "X", "Z", 'X', Block.cobblestone, 'Z', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(cobblepick), new Object[] { "XXX", " S ", " S ", 'X', Block.cobblestone, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(cobbleaxe), new Object[] { "XX ", "XS ", " S ", 'X', Block.cobblestone, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(cobbleshovel), new Object[] { "X", "S", "S", 'X', Block.cobblestone, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(cobblehoe), new Object[] { "XX ", " S ", " S ", 'X', Block.cobblestone, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(emeraldsword), new Object[] { "X", "X", "Z", 'X', Item.emerald, 'Z', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(emeraldpick), new Object[] { "XXX", " S ", " S ", 'X', Item.emerald, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(emeraldaxe), new Object[] { "XX ", "XS ", " S ", 'X', Item.emerald, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(emeraldshovel), new Object[] { "X", "S", "S", 'X', Item.emerald, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(emeraldhoe), new Object[] { "XX ", " S ", " S ", 'X', Item.emerald, 'S', Item.stick });
 
 		// //Armor Recipes
-		GameRegistry.addRecipe(new ItemStack(dirtHelmet), new Object[] { "XXX", "X X", "   ", 'X', dirtIngot });
-		GameRegistry.addRecipe(new ItemStack(dirtHelmet), new Object[] { "   ", "XXX", "X X", 'X', dirtIngot });
-		GameRegistry.addRecipe(new ItemStack(dirtPlate), new Object[] { "X X", "XXX", "XXX", 'X', dirtIngot });
-		GameRegistry.addRecipe(new ItemStack(dirtLegs), new Object[] { "XXX", "X X", "X X", 'X', dirtIngot });
-		GameRegistry.addRecipe(new ItemStack(dirtBoots), new Object[] { "X X", "X X", "   ", 'X', dirtIngot });
-		GameRegistry.addRecipe(new ItemStack(dirtBoots), new Object[] { "   ", "X X", "X X", 'X', dirtIngot });
+		GameRegistry.addRecipe(new ItemStack(dirtHelmet), new Object[] { "XXX", "X X", "   ", 'X', HybridItems.dirtIngot });
+		GameRegistry.addRecipe(new ItemStack(dirtHelmet), new Object[] { "   ", "XXX", "X X", 'X', HybridItems.dirtIngot });
+		GameRegistry.addRecipe(new ItemStack(dirtPlate), new Object[] { "X X", "XXX", "XXX", 'X', HybridItems.dirtIngot });
+		GameRegistry.addRecipe(new ItemStack(dirtLegs), new Object[] { "XXX", "X X", "X X", 'X', HybridItems.dirtIngot });
+		GameRegistry.addRecipe(new ItemStack(dirtBoots), new Object[] { "X X", "X X", "   ", 'X', HybridItems.dirtIngot });
+		GameRegistry.addRecipe(new ItemStack(dirtBoots), new Object[] { "   ", "X X", "X X", 'X', HybridItems.dirtIngot });
 		GameRegistry.addRecipe(new ItemStack(dirtoneHelmet), new Object[] { "XXX", "X X", "   ", 'X', HybridizingManager.getInstance().dirtoneIngot, });
 		GameRegistry.addRecipe(new ItemStack(dirtoneHelmet), new Object[] { "   ", "XXX", "X X", 'X', HybridizingManager.getInstance().dirtoneIngot, });
 		GameRegistry.addRecipe(new ItemStack(dirtonePlate), new Object[] { "X X", "XXX", "XXX", 'X', HybridizingManager.getInstance().dirtoneIngot, });
@@ -885,24 +635,18 @@ public class HybridModIngotStuff
 		GameRegistry.addRecipe(new ItemStack(gomendLegs), new Object[] { "XXX", "X X", "X X", 'X', HybridizingManager.getInstance().gomendIngot, });
 		GameRegistry.addRecipe(new ItemStack(gomendBoots), new Object[] { "X X", "X X", "   ", 'X', HybridizingManager.getInstance().gomendIngot, });
 		GameRegistry.addRecipe(new ItemStack(gomendBoots), new Object[] { "   ", "X X", "X X", 'X', HybridizingManager.getInstance().gomendIngot, });
-		GameRegistry.addRecipe(new ItemStack(obsidianHelmet), new Object[] { "XXX", "X X", "   ", 'X', obsidianIngot, });
-		GameRegistry.addRecipe(new ItemStack(obsidianHelmet), new Object[] { "   ", "XXX", "X X", 'X', obsidianIngot, });
-		GameRegistry.addRecipe(new ItemStack(obsidianPlate), new Object[] { "X X", "XXX", "XXX", 'X', obsidianIngot, });
-		GameRegistry.addRecipe(new ItemStack(obsidianLegs), new Object[] { "XXX", "X X", "X X", 'X', obsidianIngot, });
-		GameRegistry.addRecipe(new ItemStack(obsidianBoots), new Object[] { "X X", "X X", "   ", 'X', obsidianIngot, });
-		GameRegistry.addRecipe(new ItemStack(obsidianBoots), new Object[] { "   ", "X X", "X X", 'X', obsidianIngot, });
-		GameRegistry.addRecipe(new ItemStack(stoneHelmet), new Object[] { "XXX", "X X", "   ", 'X', stoneIngot, });
-		GameRegistry.addRecipe(new ItemStack(stoneHelmet), new Object[] { "   ", "XXX", "X X", 'X', stoneIngot, });
-		GameRegistry.addRecipe(new ItemStack(stonePlate), new Object[] { "X X", "XXX", "XXX", 'X', stoneIngot, });
-		GameRegistry.addRecipe(new ItemStack(stoneLegs), new Object[] { "XXX", "X X", "X X", 'X', stoneIngot, });
-		GameRegistry.addRecipe(new ItemStack(stoneBoots), new Object[] { "X X", "X X", "   ", 'X', stoneIngot, });
-		GameRegistry.addRecipe(new ItemStack(stoneBoots), new Object[] { "   ", "X X", "X X", 'X', stoneIngot, });
-		GameRegistry.addRecipe(new ItemStack(sandHelmet), new Object[] { "XXX", "X X", "   ", 'X', sandIngot, });
-		GameRegistry.addRecipe(new ItemStack(sandHelmet), new Object[] { "   ", "XXX", "X X", 'X', sandIngot, });
-		GameRegistry.addRecipe(new ItemStack(sandPlate), new Object[] { "X X", "XXX", "XXX", 'X', sandIngot, });
-		GameRegistry.addRecipe(new ItemStack(sandLegs), new Object[] { "XXX", "X X", "X X", 'X', sandIngot, });
-		GameRegistry.addRecipe(new ItemStack(sandBoots), new Object[] { "X X", "X X", "   ", 'X', sandIngot, });
-		GameRegistry.addRecipe(new ItemStack(sandBoots), new Object[] { "   ", "X X", "X X", 'X', sandIngot, });
+		GameRegistry.addRecipe(new ItemStack(obsidianHelmet), new Object[] { "XXX", "X X", "   ", 'X', HybridItems.obsidianIngot, });
+		GameRegistry.addRecipe(new ItemStack(obsidianHelmet), new Object[] { "   ", "XXX", "X X", 'X', HybridItems.obsidianIngot, });
+		GameRegistry.addRecipe(new ItemStack(obsidianPlate), new Object[] { "X X", "XXX", "XXX", 'X', HybridItems.obsidianIngot, });
+		GameRegistry.addRecipe(new ItemStack(obsidianLegs), new Object[] { "XXX", "X X", "X X", 'X', HybridItems.obsidianIngot, });
+		GameRegistry.addRecipe(new ItemStack(obsidianBoots), new Object[] { "X X", "X X", "   ", 'X', HybridItems.obsidianIngot, });
+		GameRegistry.addRecipe(new ItemStack(obsidianBoots), new Object[] { "   ", "X X", "X X", 'X', HybridItems.obsidianIngot, });
+		GameRegistry.addRecipe(new ItemStack(sandHelmet), new Object[] { "XXX", "X X", "   ", 'X', HybridItems.sandIngot, });
+		GameRegistry.addRecipe(new ItemStack(sandHelmet), new Object[] { "   ", "XXX", "X X", 'X', HybridItems.sandIngot, });
+		GameRegistry.addRecipe(new ItemStack(sandPlate), new Object[] { "X X", "XXX", "XXX", 'X', HybridItems.sandIngot, });
+		GameRegistry.addRecipe(new ItemStack(sandLegs), new Object[] { "XXX", "X X", "X X", 'X', HybridItems.sandIngot, });
+		GameRegistry.addRecipe(new ItemStack(sandBoots), new Object[] { "X X", "X X", "   ", 'X', HybridItems.sandIngot, });
+		GameRegistry.addRecipe(new ItemStack(sandBoots), new Object[] { "   ", "X X", "X X", 'X', HybridItems.sandIngot, });
 		GameRegistry.addRecipe(new ItemStack(emeraldHelmet), new Object[] { "XXX", "X X", "   ", 'X', Item.emerald, });
 		GameRegistry.addRecipe(new ItemStack(emeraldHelmet), new Object[] { "   ", "XXX", "X X", 'X', Item.emerald, });
 		GameRegistry.addRecipe(new ItemStack(emeraldPlate), new Object[] { "X X", "XXX", "XXX", 'X', Item.emerald, });
@@ -911,35 +655,32 @@ public class HybridModIngotStuff
 		GameRegistry.addRecipe(new ItemStack(emeraldBoots), new Object[] { "   ", "X X", "X X", 'X', Item.emerald, });
 
 		// Block Recipes
-		GameRegistry.addRecipe(new ItemStack(dirtBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', dirtIngot, });
+		GameRegistry.addRecipe(new ItemStack(dirtBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', HybridItems.dirtIngot, });
 		GameRegistry.addRecipe(new ItemStack(dirtoneBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', HybridizingManager.getInstance().dirtoneIngot, });
 		GameRegistry.addRecipe(new ItemStack(dironBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', HybridizingManager.getInstance().dironIngot, });
 		GameRegistry.addRecipe(new ItemStack(diroldBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', HybridizingManager.getInstance().diroldIngot, });
 		GameRegistry.addRecipe(new ItemStack(dirmendBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', HybridizingManager.getInstance().dirmendIngot, });
-		GameRegistry.addRecipe(new ItemStack(stoneBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', stoneIngot, });
 		GameRegistry.addRecipe(new ItemStack(stornBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', HybridizingManager.getInstance().stornIngot, });
 		GameRegistry.addRecipe(new ItemStack(stoldBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', HybridizingManager.getInstance().stoldIngot, });
 		GameRegistry.addRecipe(new ItemStack(stomendBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', HybridizingManager.getInstance().stomendIngot, });
 		GameRegistry.addRecipe(new ItemStack(iroldBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', HybridizingManager.getInstance().iroldIngot, });
 		GameRegistry.addRecipe(new ItemStack(irmendBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', HybridizingManager.getInstance().irmendIngot, });
 		GameRegistry.addRecipe(new ItemStack(gomendBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', HybridizingManager.getInstance().gomendIngot, });
-		GameRegistry.addRecipe(new ItemStack(sandBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', sandIngot, });
+		GameRegistry.addRecipe(new ItemStack(sandBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', HybridItems.sandIngot, });
 
 		// Block -> Ingot Recipes
 		GameRegistry.addShapelessRecipe(new ItemStack(HybridizingManager.getInstance().dirtoneIngot, 9), new Object[] { new ItemStack(dirtoneBlock) });
 		GameRegistry.addShapelessRecipe(new ItemStack(HybridizingManager.getInstance().dironIngot, 9), new Object[] { new ItemStack(dironBlock) });
 		GameRegistry.addShapelessRecipe(new ItemStack(HybridizingManager.getInstance().diroldIngot, 9), new Object[] { new ItemStack(diroldBlock) });
 		GameRegistry.addShapelessRecipe(new ItemStack(HybridizingManager.getInstance().dirmendIngot, 9), new Object[] { new ItemStack(dirmendBlock) });
-		GameRegistry.addShapelessRecipe(new ItemStack(stoneIngot, 9), new Object[] { new ItemStack(stoneBlock) });
 		GameRegistry.addShapelessRecipe(new ItemStack(HybridizingManager.getInstance().stornIngot, 9), new Object[] { new ItemStack(stornBlock) });
 		GameRegistry.addShapelessRecipe(new ItemStack(HybridizingManager.getInstance().stoldIngot, 9), new Object[] { new ItemStack(stoldBlock) });
 		GameRegistry.addShapelessRecipe(new ItemStack(HybridizingManager.getInstance().stomendIngot, 9), new Object[] { new ItemStack(stomendBlock) });
 		GameRegistry.addShapelessRecipe(new ItemStack(HybridizingManager.getInstance().iroldIngot, 9), new Object[] { new ItemStack(iroldBlock) });
 		GameRegistry.addShapelessRecipe(new ItemStack(HybridizingManager.getInstance().irmendIngot, 9), new Object[] { new ItemStack(irmendBlock) });
 		GameRegistry.addShapelessRecipe(new ItemStack(HybridizingManager.getInstance().gomendIngot, 9), new Object[] { new ItemStack(gomendBlock) });
-		GameRegistry.addShapelessRecipe(new ItemStack(sandIngot, 9), new Object[] { new ItemStack(sandBlock) });
-		GameRegistry.addShapelessRecipe(new ItemStack(dirtIngot, 9), new Object[] { new ItemStack(dirtBlock) });
-		GameRegistry.addRecipe(new ItemStack(stoneIngot), new Object[] { "XXX", "XXX", "XXX", 'X', Block.stone, });
+		GameRegistry.addShapelessRecipe(new ItemStack(HybridItems.sandIngot, 9), new Object[] { new ItemStack(sandBlock) });
+		GameRegistry.addShapelessRecipe(new ItemStack(HybridItems.dirtIngot, 9), new Object[] { new ItemStack(dirtBlock) });
 
 		// Flowers
 		GameRegistry.addShapelessRecipe(new ItemStack(Block.dirt, 1), new Object[] { new ItemStack(oreFlower, 1, 0) });
@@ -947,20 +688,19 @@ public class HybridModIngotStuff
 		GameRegistry.addShapelessRecipe(new ItemStack(Item.ingotIron, 1), new Object[] { new ItemStack(oreFlower, 1, 2) });
 		GameRegistry.addShapelessRecipe(new ItemStack(Item.ingotGold, 1), new Object[] { new ItemStack(oreFlower, 1, 3) });
 		GameRegistry.addShapelessRecipe(new ItemStack(Item.diamond, 1), new Object[] { new ItemStack(oreFlower,1, 4) });
-		GameRegistry.addShapelessRecipe(new ItemStack(obsidianIngot, 1), new Object[] { new ItemStack(oreFlower, 1, 5) });
+		GameRegistry.addShapelessRecipe(new ItemStack(HybridItems.obsidianIngot, 1), new Object[] { new ItemStack(oreFlower, 1, 5) });
 		GameRegistry.addShapelessRecipe(new ItemStack(Item.emerald, 1), new Object[] { new ItemStack(oreFlower,1 , 6) });
 
 		// Hybridizer
 		GameRegistry.addRecipe(new ItemStack(blockHybridizer, 1), new Object[] { "XDX", "DSD", "XDX", 'X', Block.sand, 'D', Block.dirt, 'S', Block.cobblestone});
 		
 		// Smelting
-		GameRegistry.addSmelting(obsidianShard.shiftedIndex, new ItemStack(obsidianIngot, 1), 2F);
+		GameRegistry.addSmelting(HybridItems.obsidianShard.shiftedIndex, new ItemStack(HybridItems.obsidianIngot, 1), 2F);
 
 		proxy.registerRenderThings();
 		
 		
-		ModItems.initRecipies();
-		// Achievements
+		HybridTools.initRecipies();
 	
 	
 	
