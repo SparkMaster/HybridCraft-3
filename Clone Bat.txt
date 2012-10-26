@@ -5,7 +5,7 @@ PUT THIS IN A .bat FILE!!
 cd "Location of Workspace"
 git clone https://github.com/SparkMaster/HybridCraft-3
 cd "C:\"
-copy "Location of Workspace\HybridCraft-3\*" "Location of Workspace\"
+xcopy /y "Location of Workspace\HybridCraft-3\*" "Location of Workspace\"
 RD /s /q "Location of Workspace\\HybridCraft-3"
 
 
