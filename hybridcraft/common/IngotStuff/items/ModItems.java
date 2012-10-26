@@ -188,11 +188,11 @@ public class ModItems
 	
 	public static void initRecipies()
 	{
-		GameRegistry.addRecipe(new ItemStack(dirtSword), new Object[] { "X", "X", "Z", 'X', HybridModIngotStuff.dirtIngot, 'Z', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(dirtPick), new Object[] { "XXX", " S ", " S ", 'X', HybridModIngotStuff.dirtIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(dirtAxe), new Object[] { "XX ", "XS ", " S ", 'X', HybridModIngotStuff.dirtIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(dirtShovel), new Object[] { "X", "S", "S", 'X', HybridModIngotStuff.dirtIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(dirtHoe), new Object[] { "XX ", " S ", " S ", 'X', HybridModIngotStuff.dirtIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(dirtSword), new Object[] { "X", "X", "Z", 'X', HybridItems.dirtIngot, 'Z', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(dirtPick), new Object[] { "XXX", " S ", " S ", 'X', HybridItems.dirtIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(dirtAxe), new Object[] { "XX ", "XS ", " S ", 'X', HybridItems.dirtIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(dirtShovel), new Object[] { "X", "S", "S", 'X', HybridItems.dirtIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(dirtHoe), new Object[] { "XX ", " S ", " S ", 'X', HybridItems.dirtIngot, 'S', Item.stick });
 		GameRegistry.addRecipe(new ItemStack(dirtoneSword), new Object[] { "X", "X", "Z", 'X', HybridizingManager.getInstance().dirtoneIngot, 'Z', Item.stick });
 		GameRegistry.addRecipe(new ItemStack(dirtonePick), new Object[] { "XXX", " S ", " S ", 'X', HybridizingManager.getInstance().dirtoneIngot, 'S', Item.stick });
 		GameRegistry.addRecipe(new ItemStack(dirtoneAxe), new Object[] { "XX ", "XS ", " S ", 'X', HybridizingManager.getInstance().dirtoneIngot, 'S', Item.stick });

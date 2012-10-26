@@ -50,7 +50,7 @@ public class HybridModIngotStuff
 {
 
 	// Instance
-	@Instance("HybridCraft 2 Materials")
+	@Instance("HybridCraft 3 Materials")
 	public static HybridModIngotStuff instance = new HybridModIngotStuff();
 
 	// Proxy

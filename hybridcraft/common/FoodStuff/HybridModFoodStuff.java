@@ -23,7 +23,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @NetworkMod(clientSideRequired = true, serverSideRequired = true)
 public class HybridModFoodStuff {
 
-	@Instance("HybridCraft 2 Food")
+	@Instance("HybridCraft 3 Food")
 	public static HybridModFoodStuff instance = new HybridModFoodStuff();
 
 	@SidedProxy(clientSide = "hybridcraft.client.ClientProxyHybrid", serverSide = "hybridcraft.common.core.CommonProxyHybrid")
