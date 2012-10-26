@@ -1,4 +1,4 @@
-package hybridcraft.common.FuelStuff.lib;
+package hybridcraft.common.FuelStuff.items;
 
 import java.util.List;
 
@@ -8,9 +8,9 @@ import net.minecraft.src.ItemStack;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
 
-public class HybridCoal extends Item
+public class GoldCoal extends Item
 {
-    public HybridCoal(int par1)
+    public GoldCoal(int par1)
     {
         super(par1);
         this.setHasSubtypes(true);

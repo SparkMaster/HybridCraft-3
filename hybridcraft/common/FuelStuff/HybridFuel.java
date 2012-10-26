@@ -1,6 +1,6 @@
 package hybridcraft.common.FuelStuff;
 
-import hybridcraft.common.FuelStuff.items.OreCoal;
+import hybridcraft.common.FuelStuff.lib.OreCoal;
 import net.minecraft.src.ItemStack;
 import cpw.mods.fml.common.IFuelHandler;
 

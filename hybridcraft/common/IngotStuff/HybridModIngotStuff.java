@@ -44,8 +44,8 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
+@NetworkMod(clientSideRequired = true, serverSideRequired = false)
 
-@NetworkMod(clientSideRequired = true, serverSideRequired = true)
 public class HybridModIngotStuff
 {
 
