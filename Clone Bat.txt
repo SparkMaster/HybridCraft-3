@@ -1,0 +1,12 @@
+PUT THIS IN A .bat FILE!!
+
+------------------------START BATCH FILE------------------------------
+
+cd "Location of Workspace"
+git clone https://github.com/SparkMaster/HybridCraft-3
+cd "C:\"
+copy "Location of Workspace\HybridCraft-3\*" "Location of Workspace\"
+RD /s /q "Location of Workspace\\HybridCraft-3"
+
+
+-------------------------END BATCH FILE-------------------------------
