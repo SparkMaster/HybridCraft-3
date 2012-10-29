@@ -1,5 +1,7 @@
 package hybridcraft.common.FoodStuff.kitchen;
 
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 import hybridcraft.common.FoodStuff.HybridModFoodStuff;
 import net.minecraft.src.*;
 
@@ -10,6 +12,8 @@ public class BlockStove extends Block {
         this.blockIndexInTexture = 0;
         this.setCreativeTab(hybridcraft.common.FoodStuff.HybridModFoodStuff.tabsFood);
 	}
+	
+	@SideOnly(Side.CLIENT)
 
 	// Display gui if next to counter
 	@Override

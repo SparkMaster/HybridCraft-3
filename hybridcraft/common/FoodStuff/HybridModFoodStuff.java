@@ -1,17 +1,24 @@
 package hybridcraft.common.FoodStuff;
 
-import hybridcraft.common.FoodStuff.kitchen.*;
-import hybridcraft.common.FoodStuff.lib.Reference;
-import hybridcraft.common.IngotStuff.*;
+import hybridcraft.common.FoodStuff.kitchen.BlockCookingPot;
+import hybridcraft.common.FoodStuff.kitchen.BlockCounter;
+import hybridcraft.common.FoodStuff.kitchen.BlockStove;
+import hybridcraft.common.FoodStuff.kitchen.CookingPotManager;
+import hybridcraft.common.FoodStuff.kitchen.CounterManager;
+import hybridcraft.common.FoodStuff.kitchen.GuiHandler;
+import hybridcraft.common.FoodStuff.kitchen.StoveManager;
 import hybridcraft.common.IngotStuff.handler.ConfigHandler;
 import hybridcraft.common.core.CommonProxyHybrid;
-import net.minecraft.src.*;
-import net.minecraftforge.common.Configuration;
+import hybridcraft.common.core.CoreRef;
+import net.minecraft.src.Block;
+import net.minecraft.src.CreativeTabs;
+import net.minecraft.src.Item;
+import net.minecraft.src.ItemStack;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.PreInit;
-import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.Mod.PreInit;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
@@ -19,8 +26,9 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
+@Mod(modid = CoreRef.HCF_MOD_ID, name = CoreRef.HCF_MOD_NAME, version = CoreRef.HCF_VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
+
 public class HybridModFoodStuff {
 	
 	// Creative Tab
@@ -29,7 +37,7 @@ public class HybridModFoodStuff {
 	@Instance("HybridCraft 3 Food")
 	public static HybridModFoodStuff instance = new HybridModFoodStuff();
 
-	@SidedProxy(clientSide = "hybridcraft.client.ClientProxyHybrid", serverSide = "hybridcraft.common.core.CommonProxyHybrid")
+	@SidedProxy(clientSide = hybridcraft.common.core.CoreRef.CLIENT_PROXY_CLASS , serverSide = hybridcraft.common.core.CoreRef.SERVER_PROXY_CLASS)
 	public static CommonProxyHybrid proxy;
 
 	// Declare Blocks
@@ -133,5 +141,8 @@ public class HybridModFoodStuff {
 		GameRegistry.addRecipe(new ItemStack(counter, 1), new Object[] { "SSS", "XXX", "XXX", 'X', Block.wood, 'S', Block.stone });
 		GameRegistry.addRecipe(new ItemStack(cookingPot, 1), new Object[] { "X X", "X X", "XWX", 'X', Item.ingotIron, 'W', Item.bucketWater });
 
+		proxy.registerRenderThings();
+		
 	}
+	
 }

@@ -10,7 +10,7 @@ import hybridcraft.common.IngotStuff.items.HybridItems;
 import hybridcraft.common.IngotStuff.items.ItemIngot;
 import hybridcraft.common.IngotStuff.items.ItemBlockFlowers;
 import hybridcraft.common.IngotStuff.items.HybridTools;
-import hybridcraft.common.IngotStuff.lib.Reference;
+import hybridcraft.common.core.CoreRef;
 import hybridcraft.common.IngotStuff.lib.HybridToolMaterials;
 import hybridcraft.common.IngotStuff.lib.HybridArmorMaterials;
 import hybridcraft.common.IngotStuff.handler.ConfigHandler;
@@ -44,7 +44,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 
-@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
+@Mod(modid = CoreRef.HCM_MOD_ID, name = CoreRef.HCM_MOD_NAME, version = CoreRef.HCM_VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 
 public class HybridModIngotStuff
@@ -58,7 +58,7 @@ public class HybridModIngotStuff
 	public static HybridModIngotStuff instance = new HybridModIngotStuff();
 
 	// Proxy
-	@SidedProxy(clientSide = "hybridcraft.client.ClientProxyHybrid", serverSide = "hybridcraft.common.core.CommonProxyHybrid")
+	@SidedProxy(clientSide = hybridcraft.common.core.CoreRef.CLIENT_PROXY_CLASS , serverSide = hybridcraft.common.core.CoreRef.SERVER_PROXY_CLASS)
 	public static CommonProxyHybrid proxy;
 	
 	// Combiner GUI
@@ -152,11 +152,6 @@ public class HybridModIngotStuff
 	// Flowers
 	public static Block oreFlower;
 	
-	// Achievement
-	public static final Achievement DirtAchieve = new Achievement(2000, "DirtAchieve", 0, 0, Block.dirt, null).setIndependent().registerAchievement();
-	
-	public static AchievementPage HC1 = new AchievementPage("HybridCraft2", DirtAchieve);
-	
 	// Crafting
 	public static Block blockHybridizer;
 	
@@ -166,7 +161,6 @@ public class HybridModIngotStuff
 	public static final String CATEGORY_ARMOR = "armors";
 	public static final String CATEGORY_FLOWER = "flowers";
 
-	
 	public static int  dirtHelmetID;
 	public static int  dirtPlateID;
 	public static int  dirtLegsID;
@@ -253,14 +247,13 @@ public class HybridModIngotStuff
 	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event) {
-		//TODO:  Add all of this into config handler
 		
+		//TODO:  Add all of this into config handler
 		ConfigHandler config =  new ConfigHandler(event.getSuggestedConfigurationFile());
 		
 		config.loadConfig();
 		config.getInstance().load();
 		
-		//armor
 		dirtHelmetID = config.getInstance().get(CATEGORY_ARMOR, "Dirt Helmet ", 564).getInt();
 		dirtPlateID = config.getInstance().get(CATEGORY_ARMOR, "Dirt Chestplate", 565).getInt();
 		dirtLegsID = config.getInstance().get(CATEGORY_ARMOR, "Dirt Leggings", 566).getInt();
@@ -309,8 +302,6 @@ public class HybridModIngotStuff
 		obsidianPlateID = config.getInstance().get(CATEGORY_ARMOR, "Obsidian Chestplate", 609).getInt();
 		obsidianLegsID = config.getInstance().get(CATEGORY_ARMOR, "Obsidian Leggings", 610).getInt();
 		obsidianBootsID = config.getInstance().get(CATEGORY_ARMOR, "Obsidian Boots", 611).getInt();
-		
-		//blocks
 		dirtBlockID = config.getInstance().get(Configuration.CATEGORY_BLOCK, "Dirt Ingot Block", 612).getInt();
 		dirtoneBlockID = config.getInstance().get(Configuration.CATEGORY_BLOCK, "Dirtone Ingot Block", 613).getInt();
 		dironBlockID = config.getInstance().get(Configuration.CATEGORY_BLOCK, "Diron Ingot Block", 614).getInt();
@@ -326,10 +317,6 @@ public class HybridModIngotStuff
 		dandID = config.getInstance().get(Configuration.CATEGORY_BLOCK, "Dirt/Sand Block", 624).getInt();
 		davelID = config.getInstance().get(Configuration.CATEGORY_BLOCK, "Dirt/Gravel Block",	625).getInt();
 		doneID = config.getInstance().get(Configuration.CATEGORY_BLOCK, "Dirt/Stone Block", 626).getInt();
-		
-		//flowers
-		
-		
 		sandBlockID = config.getInstance().get(Configuration.CATEGORY_BLOCK, "Sand Ingot Block", 633).getInt();
 		stoneHelmetID = config.getInstance().get(CATEGORY_ARMOR, "Stone Helmet", 634).getInt();
 		stonePlateID = config.getInstance().get(CATEGORY_ARMOR, "Stone Chestplate", 635).getInt();
@@ -445,7 +432,6 @@ public class HybridModIngotStuff
 
 		// Register combiner GUI
 		NetworkRegistry.instance().registerGuiHandler(this, guiHandler);
-
 
 		// register the crafting listener
 		GameRegistry.registerCraftingHandler(craftingHandler);		
@@ -565,14 +551,12 @@ public class HybridModIngotStuff
 		GameRegistry.registerBlock(blockHybridizer);
 		LanguageRegistry.addName(blockHybridizer, "Hybridizer");
 
-		// //Tool Recipes
-
+		//Tool Recipes
 		GameRegistry.addShapelessRecipe(new ItemStack(HybridItems.obsidianShard, 12), new Object[] { new ItemStack(Block.obsidian), new ItemStack(Item.pickaxeDiamond) });
 		GameRegistry.addRecipe(new ItemStack(HybridItems.sandIngot), new Object[] { "SSS", "SSS", "SSS", 'S', Block.sand });
 		GameRegistry.addRecipe(new ItemStack(HybridItems.dirtIngot), new Object[] { "XXX", "XXX", "XXX", 'X', Block.dirt });		
 		
-
-		// //Armor Recipes
+		//Armor Recipes
 		GameRegistry.addRecipe(new ItemStack(dirtHelmet), new Object[] { "XXX", "X X", "   ", 'X', HybridItems.dirtIngot });
 		GameRegistry.addRecipe(new ItemStack(dirtHelmet), new Object[] { "   ", "XXX", "X X", 'X', HybridItems.dirtIngot });
 		GameRegistry.addRecipe(new ItemStack(dirtPlate), new Object[] { "X X", "XXX", "XXX", 'X', HybridItems.dirtIngot });
@@ -703,16 +687,6 @@ public class HybridModIngotStuff
 
 		proxy.registerRenderThings();
 		
-		
 		HybridTools.initRecipies();
-	
-	
-	
-	
 	}
-
-	
-	
-	
-
 }
