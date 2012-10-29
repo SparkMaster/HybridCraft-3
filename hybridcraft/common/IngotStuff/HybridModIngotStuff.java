@@ -17,6 +17,7 @@ import hybridcraft.common.IngotStuff.handler.ConfigHandler;
 import hybridcraft.common.core.*;
 import net.minecraft.src.Block;
 import net.minecraft.src.BlockFlower;
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.EnumArmorMaterial;
 import net.minecraft.src.EnumToolMaterial;
@@ -48,6 +49,9 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class HybridModIngotStuff
 {
+	
+	// Creative Tabs
+	public static CreativeTabs tabsHCM = new CreativeTabHCM(CreativeTabs.getNextID(), Reference.MOD_ID);      
 
 	// Instance
 	@Instance("HybridCraft 3 Materials")

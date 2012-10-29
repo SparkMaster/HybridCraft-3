@@ -20,7 +20,7 @@ public class DirtCoal extends Item
 
     public String getItemNameIS(ItemStack par1ItemStack)
     {
-        return par1ItemStack.getItemDamage() == 1 ? "DirtCharcoal" : "DirtCoal";
+        return par1ItemStack.getItemDamage() == 1 ? "item.charcoal" : "item.coal";
     }
 
     @SideOnly(Side.CLIENT)

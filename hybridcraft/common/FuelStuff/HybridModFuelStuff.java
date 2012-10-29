@@ -4,7 +4,9 @@ import hybridcraft.common.FuelStuff.items.BioCoal;
 import hybridcraft.common.FuelStuff.items.OrganicCoal;
 import hybridcraft.common.FuelStuff.lib.OreCoal;
 import hybridcraft.common.FuelStuff.lib.Reference;
+import hybridcraft.common.IngotStuff.CreativeTabHCM;
 import hybridcraft.common.core.CommonProxyHybrid;
+import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Item;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -20,6 +22,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class HybridModFuelStuff 
 {
+	// Creative Tab
+	public static CreativeTabs tabsFuel = new CreativeTabHCF(CreativeTabs.getNextID(), Reference.MOD_ID); 
+	
 	// Instance
 	@Instance("HybridCraft 3 Fuels")
 	public static HybridModFuelStuff instance = new HybridModFuelStuff();
