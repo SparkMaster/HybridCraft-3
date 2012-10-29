@@ -24,7 +24,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class HybridModFoodStuff {
 	
 	// Creative Tab
-	public static CreativeTabs tabsFood = new CreativeTabHCK(CreativeTabs.getNextID(), Reference.MOD_ID); 
+	public static CreativeTabs tabsFood = new CreativeTabHCK(CreativeTabs.getNextID(), "HybridCraft Food"); 
 
 	@Instance("HybridCraft 3 Food")
 	public static HybridModFoodStuff instance = new HybridModFoodStuff();

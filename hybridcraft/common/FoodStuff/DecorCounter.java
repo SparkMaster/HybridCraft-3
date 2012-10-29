@@ -9,7 +9,7 @@ public class DecorCounter extends Block
     public DecorCounter(int par1, int par2)
     {
         super(par1, par2, Material.rock);
-        this.setCreativeTab(CreativeTabs.tabBlock);
+        this.setCreativeTab(hybridcraft.common.FoodStuff.HybridModFoodStuff.tabsFood);
     }
     
     public int getBlockTextureFromSide(int i){

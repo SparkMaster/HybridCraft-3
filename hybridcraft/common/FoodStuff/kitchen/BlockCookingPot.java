@@ -17,7 +17,7 @@ public class BlockCookingPot extends Block {
 	
 	public BlockCookingPot(int par1) {
 		super(par1, Material.iron);
-		this.setCreativeTab(CreativeTabs.tabDecorations);
+		this.setCreativeTab(hybridcraft.common.FoodStuff.HybridModFoodStuff.tabsFood);
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.5F, 0.5F, 0.5F);
 	}
 

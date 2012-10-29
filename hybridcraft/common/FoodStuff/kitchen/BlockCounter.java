@@ -8,7 +8,7 @@ public class BlockCounter extends Block {
 	public BlockCounter(int par1) {
 		super(par1,Material.wood);
         this.blockIndexInTexture = 1;
-        this.setCreativeTab(CreativeTabs.tabDecorations);
+        this.setCreativeTab(hybridcraft.common.FoodStuff.HybridModFoodStuff.tabsFood);
 	}
 
 	// Display gui if next to stove

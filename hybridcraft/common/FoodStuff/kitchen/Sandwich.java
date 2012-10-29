@@ -6,6 +6,7 @@ public class Sandwich extends ItemFood {
 
 	public Sandwich(int par1, int healAmount, float par3, boolean par4) {
 		super(par1, healAmount, par3, false);
+		this.setCreativeTab(hybridcraft.common.FoodStuff.HybridModFoodStuff.tabsFood);
 	}
 
 	public String getTextureFile() {

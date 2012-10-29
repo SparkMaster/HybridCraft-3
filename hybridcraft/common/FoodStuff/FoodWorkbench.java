@@ -12,7 +12,7 @@ public class FoodWorkbench extends Block
     {
         super(par1, Material.wood);
         this.blockIndexInTexture = 59;
-        this.setCreativeTab(CreativeTabs.tabDecorations);
+        this.setCreativeTab(hybridcraft.common.FoodStuff.HybridModFoodStuff.tabsFood);
     }
 
     /**

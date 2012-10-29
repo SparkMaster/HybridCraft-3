@@ -12,7 +12,7 @@ public class WorldBlockStay extends Block
     protected WorldBlockStay(int par1, int par2)
     {
         super(par1, par2, Material.rock);
-        this.setCreativeTab(CreativeTabs.tabBlock);
+        this.setCreativeTab(hybridcraft.common.IngotStuff.HybridModIngotStuff.tabsHCM);
     }
     
     public int idBlock(int par1, Random par2Random, int par3)

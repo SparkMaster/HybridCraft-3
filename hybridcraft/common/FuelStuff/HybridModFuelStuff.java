@@ -23,7 +23,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class HybridModFuelStuff 
 {
 	// Creative Tab
-	public static CreativeTabs tabsFuel = new CreativeTabHCF(CreativeTabs.getNextID(), Reference.MOD_ID); 
+	public static CreativeTabs tabsFuel = new CreativeTabHCF(CreativeTabs.getNextID(), "HybridCraft Fuel"); 
 	
 	// Instance
 	@Instance("HybridCraft 3 Fuels")

@@ -34,6 +34,7 @@ public class BlockFlowers extends Block implements IPlantable
 	{
 		super(id, index, Material.plants);
 		this.setRequiresSelfNotify();
+		this.setCreativeTab(hybridcraft.common.IngotStuff.HybridModIngotStuff.tabsHCM);
 	}
 	
 	public boolean canBlockStay(World par1World, int par2, int par3, int par4)

@@ -7,8 +7,7 @@ public class BlockHybridizer extends BlockWorkbench {
 
 	public BlockHybridizer(int par1) {
 		super(par1);
-
-		this.setCreativeTab(CreativeTabs.tabDecorations);
+		this.setCreativeTab(hybridcraft.common.IngotStuff.HybridModIngotStuff.tabsHCM);
 	}
 
 	@Override

@@ -76,7 +76,7 @@ public class FoodBread extends ItemFood
 
 		this.saturationModifier = par3;
 
-		this.setCreativeTab(CreativeTabs.tabFood);
+		this.setCreativeTab(hybridcraft.common.FoodStuff.HybridModFoodStuff.tabsFood);
 
 	}
 

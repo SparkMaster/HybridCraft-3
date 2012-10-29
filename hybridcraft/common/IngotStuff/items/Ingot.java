@@ -6,7 +6,7 @@ public class Ingot extends Item {
 	public Ingot(int i) {
 		super(i);
 		maxStackSize = 64;
-		this.setCreativeTab(CreativeTabs.tabMaterials);
+		this.setCreativeTab(hybridcraft.common.IngotStuff.HybridModIngotStuff.tabsHCM);
 	}
 
 	public String getTextureFile() {

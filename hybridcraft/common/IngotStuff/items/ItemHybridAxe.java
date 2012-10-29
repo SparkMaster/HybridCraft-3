@@ -14,6 +14,7 @@ public class ItemHybridAxe extends ItemTool
     public ItemHybridAxe(int par1, EnumToolMaterial par2EnumToolMaterial)
     {
         super(par1, 3, par2EnumToolMaterial, blocksEffectiveAgainst);
+        this.setCreativeTab(hybridcraft.common.IngotStuff.HybridModIngotStuff.tabsHCM);
     }
 
     /**

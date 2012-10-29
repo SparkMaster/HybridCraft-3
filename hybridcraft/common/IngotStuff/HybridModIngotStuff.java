@@ -51,7 +51,7 @@ public class HybridModIngotStuff
 {
 	
 	// Creative Tabs
-	public static CreativeTabs tabsHCM = new CreativeTabHCM(CreativeTabs.getNextID(), Reference.MOD_ID);      
+	public static CreativeTabs tabsHCM = new CreativeTabHCM(CreativeTabs.getNextID(), "HybridCraft Materials");      
 
 	// Instance
 	@Instance("HybridCraft 3 Materials")

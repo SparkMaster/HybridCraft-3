@@ -9,6 +9,7 @@ public class ItemBlockFlowers extends ItemBlock {
 	public ItemBlockFlowers(int blockID) {
 		super(blockID);
 		this.setHasSubtypes(true);
+		this.setCreativeTab(hybridcraft.common.IngotStuff.HybridModIngotStuff.tabsHCM);
 	}
 	
 	public ItemBlockFlowers(Block block)

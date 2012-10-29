@@ -15,7 +15,7 @@ public class DiamondCoal extends Item
         super(par1);
         this.setHasSubtypes(true);
         this.setMaxDamage(0);
-        this.setCreativeTab(CreativeTabs.tabMaterials);
+        this.setCreativeTab(hybridcraft.common.FuelStuff.HybridModFuelStuff.tabsFuel);
     }
 
     public String getItemNameIS(ItemStack par1ItemStack)
