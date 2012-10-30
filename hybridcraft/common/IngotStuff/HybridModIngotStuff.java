@@ -1,36 +1,39 @@
 package hybridcraft.common.IngotStuff;
 
-import java.util.Random;
-import hybridcraft.common.IngotStuff.armor.*;
+import hybridcraft.common.IngotStuff.armor.Dirmend;
+import hybridcraft.common.IngotStuff.armor.Dirold;
+import hybridcraft.common.IngotStuff.armor.Diron;
+import hybridcraft.common.IngotStuff.armor.Dirt;
+import hybridcraft.common.IngotStuff.armor.Dirtone;
+import hybridcraft.common.IngotStuff.armor.Emerald;
+import hybridcraft.common.IngotStuff.armor.Gomend;
+import hybridcraft.common.IngotStuff.armor.Irmend;
+import hybridcraft.common.IngotStuff.armor.Irold;
+import hybridcraft.common.IngotStuff.armor.Obsidian;
+import hybridcraft.common.IngotStuff.armor.Sand;
+import hybridcraft.common.IngotStuff.armor.Stold;
+import hybridcraft.common.IngotStuff.armor.Stomend;
+import hybridcraft.common.IngotStuff.armor.Stone;
+import hybridcraft.common.IngotStuff.armor.Storn;
+import hybridcraft.common.IngotStuff.handler.ConfigHandler;
 import hybridcraft.common.IngotStuff.handler.CraftingHandler;
 import hybridcraft.common.IngotStuff.hybridizer.BlockHybridizer;
 import hybridcraft.common.IngotStuff.hybridizer.GuiHandler;
 import hybridcraft.common.IngotStuff.hybridizer.HybridizingManager;
 import hybridcraft.common.IngotStuff.items.HybridItems;
-import hybridcraft.common.IngotStuff.items.ItemIngot;
-import hybridcraft.common.IngotStuff.items.ItemBlockFlowers;
 import hybridcraft.common.IngotStuff.items.HybridTools;
-import hybridcraft.common.core.CoreRef;
-import hybridcraft.common.IngotStuff.lib.HybridToolMaterials;
+import hybridcraft.common.IngotStuff.items.ItemBlockFlowers;
 import hybridcraft.common.IngotStuff.lib.HybridArmorMaterials;
-import hybridcraft.common.IngotStuff.handler.ConfigHandler;
-import hybridcraft.common.core.*;
+import hybridcraft.common.core.ClientPacketHandler;
+import hybridcraft.common.core.CommonProxyHybrid;
+import hybridcraft.common.core.CoreRef;
+import hybridcraft.common.core.ServerPacketHandler;
+import hybridcraft.common.core.TileHybrid;
 import net.minecraft.src.Block;
-import net.minecraft.src.BlockFlower;
 import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.EnumArmorMaterial;
-import net.minecraft.src.EnumToolMaterial;
-import net.minecraft.src.IInventory;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
-import net.minecraft.src.ModLoader;
-import net.minecraft.src.Achievement;
-import net.minecraft.src.AchievementList;
-import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.common.Configuration;
-import net.minecraftforge.common.EnumHelper;
-import cpw.mods.fml.common.ICraftingHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -39,34 +42,37 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.network.NetworkMod.SidedPacketHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 
 @Mod(modid = CoreRef.HCM_MOD_ID, name = CoreRef.HCM_MOD_NAME, version = CoreRef.HCM_VERSION)
-@NetworkMod(clientSideRequired = true, serverSideRequired = false)
+
+@NetworkMod(clientSideRequired=true, serverSideRequired=false, clientPacketHandlerSpec = @SidedPacketHandler(channels = {"HybridMod" }, packetHandler = ClientPacketHandler.class),
+serverPacketHandlerSpec =@SidedPacketHandler(channels = {"HybridMod" }, packetHandler = ServerPacketHandler.class))
 
 public class HybridModIngotStuff
 {
 	
 	// Creative Tabs
-	public static CreativeTabs tabsHCM = new CreativeTabHCM(CreativeTabs.getNextID(), "HybridCraft Materials");      
+	public static CreativeTabs tabsHCM = new CreativeTabHCM(CreativeTabs.getNextID(), CoreRef.HCM_MOD_ID);
 
 	// Instance
 	@Instance("HybridCraft 3 Materials")
 	public static HybridModIngotStuff instance = new HybridModIngotStuff();
+	private GuiHandler guiHandler = new GuiHandler();
+		// Special Block
+		public static Block hidden;
 
 	// Proxy
 	@SidedProxy(clientSide = hybridcraft.common.core.CoreRef.CLIENT_PROXY_CLASS , serverSide = hybridcraft.common.core.CoreRef.SERVER_PROXY_CLASS)
-	public static CommonProxyHybrid proxy;
-	
-	// Combiner GUI
-	private GuiHandler guiHandler = new GuiHandler();
+	public static CommonProxyHybrid proxy;	
 	
 	//Crafting handler
 	private CraftingHandler craftingHandler = new CraftingHandler();
-
+	
 	// Armors
 	public static Item dirtHelmet;
 	public static Item dirtPlate;
@@ -341,6 +347,13 @@ public class HybridModIngotStuff
 		//init mod items
 		HybridTools.initItems();
 		HybridItems.initItems();
+		
+		// Special Block
+		hidden = new Testing(800).setBlockName("blockHidden");
+		GameRegistry.registerBlock(hidden);
+		 GameRegistry.addRecipe(new ItemStack(this.hidden, 1), new Object[]{
+             "   ", " X ", "   ", Character.valueOf('X'), Block.obsidian
+         });
 
 		// Armors
 		dirtHelmet = new Dirt(dirtHelmetID, HybridArmorMaterials.dirta, proxy.addArmor("Dirt Helmet"), 0).setItemName("dirtHelm").setIconIndex(0);
@@ -432,6 +445,7 @@ public class HybridModIngotStuff
 
 		// Register combiner GUI
 		NetworkRegistry.instance().registerGuiHandler(this, guiHandler);
+		GameRegistry.registerTileEntity(TileHybrid.class, "tileEntityHybridM");
 
 		// register the crafting listener
 		GameRegistry.registerCraftingHandler(craftingHandler);		

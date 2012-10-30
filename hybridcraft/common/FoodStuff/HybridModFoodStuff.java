@@ -7,9 +7,13 @@ import hybridcraft.common.FoodStuff.kitchen.CookingPotManager;
 import hybridcraft.common.FoodStuff.kitchen.CounterManager;
 import hybridcraft.common.FoodStuff.kitchen.GuiHandler;
 import hybridcraft.common.FoodStuff.kitchen.StoveManager;
+import hybridcraft.common.IngotStuff.CreativeTabHCM;
 import hybridcraft.common.IngotStuff.handler.ConfigHandler;
+import hybridcraft.common.core.ClientPacketHandler;
 import hybridcraft.common.core.CommonProxyHybrid;
 import hybridcraft.common.core.CoreRef;
+import hybridcraft.common.core.ServerPacketHandler;
+import hybridcraft.common.core.TileHybrid;
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Item;
@@ -23,16 +27,18 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.network.NetworkMod.SidedPacketHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid = CoreRef.HCF_MOD_ID, name = CoreRef.HCF_MOD_NAME, version = CoreRef.HCF_VERSION)
-@NetworkMod(clientSideRequired = true, serverSideRequired = false)
+@NetworkMod(clientSideRequired=true, serverSideRequired=false, clientPacketHandlerSpec = @SidedPacketHandler(channels = {"HybridMod" }, packetHandler = ClientPacketHandler.class),
+serverPacketHandlerSpec =@SidedPacketHandler(channels = {"HybridMod" }, packetHandler = ServerPacketHandler.class))
 
 public class HybridModFoodStuff {
 	
 	// Creative Tab
-	public static CreativeTabs tabsFood = new CreativeTabHCK(CreativeTabs.getNextID(), "HybridCraft Food"); 
+	public static CreativeTabs tabsFood = new CreativeTabHCK(CreativeTabs.getNextID(), CoreRef.HCF_MOD_ID);
 
 	@Instance("HybridCraft 3 Food")
 	public static HybridModFoodStuff instance = new HybridModFoodStuff();
@@ -70,10 +76,10 @@ public class HybridModFoodStuff {
 	public static int  bowlChickenID;
 	public static int  bowlBeefID;
 	public static int  bowlMeatID;
-	public static int BaBID;
-	public static int PaBID;
-	public static int CaBID;
-	public static int DogBreadID;
+	public static int  BaBID;
+	public static int  PaBID;
+	public static int  CaBID;
+	public static int  DogBreadID;
 	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event) {
@@ -121,6 +127,7 @@ public class HybridModFoodStuff {
 		
 		// Register GUIs
 		NetworkRegistry.instance().registerGuiHandler(this, guiHandler);
+		GameRegistry.registerTileEntity(TileHybrid.class, "tileEntityHybridK");
 
 		// Classify Blocks
 		counter = new BlockCounter(counterID).setBlockName("Counter");

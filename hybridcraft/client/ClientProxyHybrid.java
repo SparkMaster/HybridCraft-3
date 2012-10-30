@@ -6,6 +6,7 @@ import net.minecraftforge.client.MinecraftForgeClient;
 
 public class ClientProxyHybrid extends hybridcraft.common.core.CommonProxyHybrid
 {
+	@Override
 	public void registerRenderThings()
 	{
 	MinecraftForgeClient.preloadTexture("/hc/armor.png");
