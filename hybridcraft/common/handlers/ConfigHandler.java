@@ -1,4 +1,4 @@
-package hybridcraft.common.IngotStuff.handler;
+package hybridcraft.common.handlers;
 
 import java.io.File;
 import net.minecraftforge.common.Property;

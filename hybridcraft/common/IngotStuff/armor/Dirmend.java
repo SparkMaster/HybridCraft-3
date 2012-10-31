@@ -1,6 +1,6 @@
 package hybridcraft.common.IngotStuff.armor;
 
-import hybridcraft.common.IngotStuff.HybridModIngotStuff;
+import hybridcraft.common.mod.Hybridcraft;
 import net.minecraft.src.EnumArmorMaterial;
 import net.minecraft.src.ItemArmor;
 import net.minecraft.src.ItemStack;
@@ -10,7 +10,7 @@ public class Dirmend extends ItemArmor implements IArmorTextureProvider{
 
  public Dirmend(int par1, EnumArmorMaterial par2EnumArmorMaterial, int par3, int par4) {
  super(par1, par2EnumArmorMaterial, par3, par4);
- this.setCreativeTab(hybridcraft.common.IngotStuff.HybridModIngotStuff.tabsHCM);
+ this.setCreativeTab(hybridcraft.common.mod.Hybridcraft.tabsHCM);
 
  
  }
@@ -21,10 +21,10 @@ public class Dirmend extends ItemArmor implements IArmorTextureProvider{
  }
 
  public String getArmorTextureFile(ItemStack par1){
- if ( par1.itemID==HybridModIngotStuff.dirmendHelmet.shiftedIndex|| par1.itemID==HybridModIngotStuff.dirmendPlate.shiftedIndex||
- par1.itemID==HybridModIngotStuff.dirmendBoots.shiftedIndex){
+ if ( par1.itemID==Hybridcraft.dirmendHelmet.shiftedIndex|| par1.itemID==Hybridcraft.dirmendPlate.shiftedIndex||
+ par1.itemID==Hybridcraft.dirmendBoots.shiftedIndex){
  return "/hc/armor/dirmend_1.png";
- }if(par1.itemID==HybridModIngotStuff.dirmendLegs.shiftedIndex){
+ }if(par1.itemID==Hybridcraft.dirmendLegs.shiftedIndex){
  return "/hc/armor/dirmend_2.png";
  }return "/hc/armor/dirmend_2.png";
  }

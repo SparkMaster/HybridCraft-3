@@ -1,4 +1,4 @@
-package hybridcraft.common.core;
+package hybridcraft.common.tile;
 
 import net.minecraft.src.EntityPlayer;
 

@@ -1,6 +1,6 @@
 package hybridcraft.common.IngotStuff.armor;
 
-import hybridcraft.common.IngotStuff.HybridModIngotStuff;
+import hybridcraft.common.mod.Hybridcraft;
 import net.minecraft.src.EnumArmorMaterial;
 import net.minecraft.src.ItemArmor;
 import net.minecraft.src.ItemStack;
@@ -10,7 +10,7 @@ public class Dirtone extends ItemArmor implements IArmorTextureProvider{
 
  public Dirtone(int par1, EnumArmorMaterial par2EnumArmorMaterial, int par3, int par4) {
  super(par1, par2EnumArmorMaterial, par3, par4);
- this.setCreativeTab(hybridcraft.common.IngotStuff.HybridModIngotStuff.tabsHCM);
+ this.setCreativeTab(hybridcraft.common.mod.Hybridcraft.tabsHCM);
 
  }
 
@@ -20,10 +20,10 @@ public class Dirtone extends ItemArmor implements IArmorTextureProvider{
  }
 
  public String getArmorTextureFile(ItemStack par1){
- if ( par1.itemID==HybridModIngotStuff.dirtoneHelmet.shiftedIndex|| par1.itemID==HybridModIngotStuff.dirtonePlate.shiftedIndex||
- par1.itemID==HybridModIngotStuff.dirtoneBoots.shiftedIndex){
+ if ( par1.itemID==Hybridcraft.dirtoneHelmet.shiftedIndex|| par1.itemID==Hybridcraft.dirtonePlate.shiftedIndex||
+ par1.itemID==Hybridcraft.dirtoneBoots.shiftedIndex){
  return "/hc/armor/dirtone_1.png";
- }if(par1.itemID==HybridModIngotStuff.dirtoneLegs.shiftedIndex){
+ }if(par1.itemID==Hybridcraft.dirtoneLegs.shiftedIndex){
  return "/hc/armor/dirtone_2.png";
  }return "/hc/armor/dirtone_2.png";
  }

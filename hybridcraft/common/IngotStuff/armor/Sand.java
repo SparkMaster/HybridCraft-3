@@ -1,6 +1,6 @@
 package hybridcraft.common.IngotStuff.armor;
 
-import hybridcraft.common.IngotStuff.HybridModIngotStuff;
+import hybridcraft.common.mod.Hybridcraft;
 import net.minecraft.src.EnumArmorMaterial;
 import net.minecraft.src.ItemArmor;
 import net.minecraft.src.ItemStack;
@@ -10,7 +10,7 @@ public class Sand extends ItemArmor implements IArmorTextureProvider{
 
  public Sand(int par1, EnumArmorMaterial par2EnumArmorMaterial, int par3, int par4) {
  super(par1, par2EnumArmorMaterial, par3, par4);
- this.setCreativeTab(hybridcraft.common.IngotStuff.HybridModIngotStuff.tabsHCM);
+ this.setCreativeTab(hybridcraft.common.mod.Hybridcraft.tabsHCM);
 
  }
 
@@ -20,10 +20,10 @@ public class Sand extends ItemArmor implements IArmorTextureProvider{
  }
 
  public String getArmorTextureFile(ItemStack par1){
- if ( par1.itemID==HybridModIngotStuff.sandHelmet.shiftedIndex|| par1.itemID==HybridModIngotStuff.sandPlate.shiftedIndex||
- par1.itemID==HybridModIngotStuff.sandBoots.shiftedIndex){
+ if ( par1.itemID==Hybridcraft.sandHelmet.shiftedIndex|| par1.itemID==Hybridcraft.sandPlate.shiftedIndex||
+ par1.itemID==Hybridcraft.sandBoots.shiftedIndex){
  return "/hc/armor/sand_1.png";
- }if(par1.itemID==HybridModIngotStuff.sandLegs.shiftedIndex){
+ }if(par1.itemID==Hybridcraft.sandLegs.shiftedIndex){
  return "/hc/armor/sand_2.png";
  }return "/hc/armor/sand_2.png";
  }

@@ -1,4 +1,4 @@
-package hybridcraft.common.IngotStuff.handler;
+package hybridcraft.common.handlers;
 
 import java.util.Random;
 

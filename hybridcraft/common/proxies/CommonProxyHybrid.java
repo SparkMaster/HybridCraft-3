@@ -1,4 +1,4 @@
-package hybridcraft.common.core;
+package hybridcraft.common.proxies;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
 

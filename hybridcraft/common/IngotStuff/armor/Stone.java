@@ -1,6 +1,6 @@
 package hybridcraft.common.IngotStuff.armor;
 
-import hybridcraft.common.IngotStuff.HybridModIngotStuff;
+import hybridcraft.common.mod.Hybridcraft;
 import net.minecraft.src.EnumArmorMaterial;
 import net.minecraft.src.ItemArmor;
 import net.minecraft.src.ItemStack;
@@ -10,7 +10,7 @@ public class Stone extends ItemArmor implements IArmorTextureProvider{
 
  public Stone(int par1, EnumArmorMaterial par2EnumArmorMaterial, int par3, int par4) {
  super(par1, par2EnumArmorMaterial, par3, par4);
- this.setCreativeTab(hybridcraft.common.IngotStuff.HybridModIngotStuff.tabsHCM);
+ this.setCreativeTab(hybridcraft.common.mod.Hybridcraft.tabsHCM);
 
  }
 
@@ -20,10 +20,10 @@ public class Stone extends ItemArmor implements IArmorTextureProvider{
  }
 
  public String getArmorTextureFile(ItemStack par1){
- if ( par1.itemID==HybridModIngotStuff.stoneHelmet.shiftedIndex|| par1.itemID==HybridModIngotStuff.stonePlate.shiftedIndex||
- par1.itemID==HybridModIngotStuff.stoneBoots.shiftedIndex){
+ if ( par1.itemID==Hybridcraft.stoneHelmet.shiftedIndex|| par1.itemID==Hybridcraft.stonePlate.shiftedIndex||
+ par1.itemID==Hybridcraft.stoneBoots.shiftedIndex){
  return "/hc/armor/stone_1.png";
- }if(par1.itemID==HybridModIngotStuff.stoneLegs.shiftedIndex){
+ }if(par1.itemID==Hybridcraft.stoneLegs.shiftedIndex){
  return "/hc/armor/stone_2.png";
  }return "/hc/armor/stone_2.png";
  }

@@ -1,4 +1,4 @@
-package hybridcraft.common.core;
+package hybridcraft.common.handlers;
 
 import java.io.ByteArrayInputStream;
 

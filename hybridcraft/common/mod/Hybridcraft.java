@@ -1,5 +1,12 @@
-package hybridcraft.common.IngotStuff;
+package hybridcraft.common.mod;
 
+import hybridcraft.common.IngotStuff.BlockFlowers;
+import hybridcraft.common.IngotStuff.CreativeTabHCM;
+import hybridcraft.common.IngotStuff.IngotBlock;
+import hybridcraft.common.IngotStuff.Testing;
+import hybridcraft.common.IngotStuff.WorldBlockFall;
+import hybridcraft.common.IngotStuff.WorldBlockStay;
+import hybridcraft.common.IngotStuff.WorldGeneratorHybrid;
 import hybridcraft.common.IngotStuff.armor.Dirmend;
 import hybridcraft.common.IngotStuff.armor.Dirold;
 import hybridcraft.common.IngotStuff.armor.Diron;
@@ -15,20 +22,25 @@ import hybridcraft.common.IngotStuff.armor.Stold;
 import hybridcraft.common.IngotStuff.armor.Stomend;
 import hybridcraft.common.IngotStuff.armor.Stone;
 import hybridcraft.common.IngotStuff.armor.Storn;
-import hybridcraft.common.IngotStuff.handler.ConfigHandler;
-import hybridcraft.common.IngotStuff.handler.CraftingHandler;
 import hybridcraft.common.IngotStuff.hybridizer.BlockHybridizer;
-import hybridcraft.common.IngotStuff.hybridizer.GuiHandler;
 import hybridcraft.common.IngotStuff.hybridizer.HybridizingManager;
 import hybridcraft.common.IngotStuff.items.HybridItems;
 import hybridcraft.common.IngotStuff.items.HybridTools;
 import hybridcraft.common.IngotStuff.items.ItemBlockFlowers;
 import hybridcraft.common.IngotStuff.lib.HybridArmorMaterials;
-import hybridcraft.common.core.ClientPacketHandler;
-import hybridcraft.common.core.CommonProxyHybrid;
 import hybridcraft.common.core.CoreRef;
-import hybridcraft.common.core.ServerPacketHandler;
-import hybridcraft.common.core.TileHybrid;
+import hybridcraft.common.core.lib.BioCoal;
+import hybridcraft.common.core.lib.OreCoal;
+import hybridcraft.common.core.lib.OrganicCoal;
+import hybridcraft.common.gui.GuiHandlerFood;
+import hybridcraft.common.gui.GuiHandlerMix;
+import hybridcraft.common.handlers.ClientPacketHandler;
+import hybridcraft.common.handlers.ConfigHandler;
+import hybridcraft.common.handlers.CraftingHandler;
+import hybridcraft.common.handlers.HybridFuelHandler;
+import hybridcraft.common.handlers.ServerPacketHandler;
+import hybridcraft.common.proxies.CommonProxyHybrid;
+import hybridcraft.common.tile.TileHybrid;
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Item;
@@ -53,18 +65,20 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @NetworkMod(clientSideRequired=true, serverSideRequired=false, clientPacketHandlerSpec = @SidedPacketHandler(channels = {"HybridMod" }, packetHandler = ClientPacketHandler.class),
 serverPacketHandlerSpec =@SidedPacketHandler(channels = {"HybridMod" }, packetHandler = ServerPacketHandler.class))
 
-public class HybridModIngotStuff
+public class Hybridcraft
 {
 	
 	// Creative Tabs
 	public static CreativeTabs tabsHCM = new CreativeTabHCM(CreativeTabs.getNextID(), CoreRef.HCM_MOD_ID);
-
+	
 	// Instance
 	@Instance("HybridCraft 3 Materials")
-	public static HybridModIngotStuff instance = new HybridModIngotStuff();
-	private GuiHandler guiHandler = new GuiHandler();
-		// Special Block
-		public static Block hidden;
+	public static Hybridcraft instance = new Hybridcraft();
+	private GuiHandlerMix guiHandlerMix = new GuiHandlerMix();
+	private GuiHandlerFood guiHandlerFood = new GuiHandlerFood();
+
+	// Special Block
+	public static Block hidden;
 
 	// Proxy
 	@SidedProxy(clientSide = hybridcraft.common.core.CoreRef.CLIENT_PROXY_CLASS , serverSide = hybridcraft.common.core.CoreRef.SERVER_PROXY_CLASS)
@@ -160,6 +174,18 @@ public class HybridModIngotStuff
 	
 	// Crafting
 	public static Block blockHybridizer;
+	
+	// Item List
+	public static Item bioCoal;
+	public static Item organicCoal;
+	
+	// Kitchen
+	public static Block stove;
+	public static Block counter;
+	public static Block cookingPot;
+	
+	// Counter/Stove GUIs
+	
 	
 	// Config
 	public static final String CATEGORY_TOOL = "tools";
@@ -347,6 +373,7 @@ public class HybridModIngotStuff
 		//init mod items
 		HybridTools.initItems();
 		HybridItems.initItems();
+		OreCoal.initItems();
 		
 		// Special Block
 		hidden = new Testing(800).setBlockName("blockHidden");
@@ -354,6 +381,11 @@ public class HybridModIngotStuff
 		 GameRegistry.addRecipe(new ItemStack(this.hidden, 1), new Object[]{
              "   ", " X ", "   ", Character.valueOf('X'), Block.obsidian
          });
+		 
+		 // Fuel
+		 bioCoal = new BioCoal(1507).setIconIndex(7).setItemName("bioCoal");
+		 organicCoal = new OrganicCoal(1508).setIconIndex(8).setItemName("organicCoal");
+		 
 
 		// Armors
 		dirtHelmet = new Dirt(dirtHelmetID, HybridArmorMaterials.dirta, proxy.addArmor("Dirt Helmet"), 0).setItemName("dirtHelm").setIconIndex(0);
@@ -444,7 +476,8 @@ public class HybridModIngotStuff
 		blockHybridizer = new BlockHybridizer(combinerID).setBlockName("Hybridizer");
 
 		// Register combiner GUI
-		NetworkRegistry.instance().registerGuiHandler(this, guiHandler);
+		NetworkRegistry.instance().registerGuiHandler(this, guiHandlerMix);
+		NetworkRegistry.instance().registerGuiHandler(this, guiHandlerFood);
 		GameRegistry.registerTileEntity(TileHybrid.class, "tileEntityHybridM");
 
 		// register the crafting listener
@@ -699,6 +732,9 @@ public class HybridModIngotStuff
 		// Smelting
 		GameRegistry.addSmelting(HybridItems.obsidianShard.shiftedIndex, new ItemStack(HybridItems.obsidianIngot, 1), 2F);
 
+		// Fuel
+		GameRegistry.registerFuelHandler(new HybridFuelHandler());
+		
 		proxy.registerRenderThings();
 		
 		HybridTools.initRecipies();

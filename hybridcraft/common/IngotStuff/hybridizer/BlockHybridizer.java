@@ -1,13 +1,13 @@
 package hybridcraft.common.IngotStuff.hybridizer;
 
-import hybridcraft.common.IngotStuff.HybridModIngotStuff;
+import hybridcraft.common.mod.Hybridcraft;
 import net.minecraft.src.*;
 
 public class BlockHybridizer extends BlockWorkbench {
 
 	public BlockHybridizer(int par1) {
 		super(par1);
-		this.setCreativeTab(hybridcraft.common.IngotStuff.HybridModIngotStuff.tabsHCM);
+		this.setCreativeTab(hybridcraft.common.mod.Hybridcraft.tabsHCM);
 	}
 
 	@Override
@@ -15,7 +15,7 @@ public class BlockHybridizer extends BlockWorkbench {
 		if (par1World.isRemote) {
 			return true;
 		} else {
-			par5EntityPlayer.openGui(HybridModIngotStuff.instance, 0, par1World, par2, par3, par4);
+			par5EntityPlayer.openGui(Hybridcraft.instance, 0, par1World, par2, par3, par4);
 			return true;
 		}
 	}

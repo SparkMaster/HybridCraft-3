@@ -9,7 +9,7 @@ public class IngotBlock extends Block
     public IngotBlock(int par1, int par2)
     {
         super(par1, par2, Material.rock);
-        this.setCreativeTab(hybridcraft.common.IngotStuff.HybridModIngotStuff.tabsHCM);
+        this.setCreativeTab(hybridcraft.common.mod.Hybridcraft.tabsHCM);
     }
     public String getTextureFile()
     {

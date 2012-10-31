@@ -23,7 +23,7 @@ public class ItemHybridHoe extends Item
         this.theToolMaterial = par2EnumToolMaterial;
         this.maxStackSize = 1;
         this.setMaxDamage(par2EnumToolMaterial.getMaxUses());
-        this.setCreativeTab(hybridcraft.common.IngotStuff.HybridModIngotStuff.tabsHCM);
+        this.setCreativeTab(hybridcraft.common.mod.Hybridcraft.tabsHCM);
     }
 
     /**

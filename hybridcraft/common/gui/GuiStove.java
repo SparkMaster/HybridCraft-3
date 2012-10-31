@@ -1,5 +1,6 @@
-package hybridcraft.common.FoodStuff.kitchen;
+package hybridcraft.common.gui;
 
+import hybridcraft.common.FoodStuff.kitchen.ContainerStove;
 import net.minecraft.src.*;
 
 public class GuiStove extends GuiContainer {

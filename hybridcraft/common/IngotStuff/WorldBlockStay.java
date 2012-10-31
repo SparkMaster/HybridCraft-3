@@ -9,10 +9,10 @@ import net.minecraft.src.Material;
 
 public class WorldBlockStay extends Block
 {
-    protected WorldBlockStay(int par1, int par2)
+    public WorldBlockStay(int par1, int par2)
     {
         super(par1, par2, Material.rock);
-        this.setCreativeTab(hybridcraft.common.IngotStuff.HybridModIngotStuff.tabsHCM);
+        this.setCreativeTab(hybridcraft.common.mod.Hybridcraft.tabsHCM);
     }
     
     public int idBlock(int par1, Random par2Random, int par3)

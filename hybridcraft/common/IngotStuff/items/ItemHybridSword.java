@@ -25,7 +25,7 @@ public class ItemHybridSword extends Item
         this.toolMaterial = par2EnumToolMaterial;
         this.maxStackSize = 1;
         this.setMaxDamage(par2EnumToolMaterial.getMaxUses());
-        this.setCreativeTab(hybridcraft.common.IngotStuff.HybridModIngotStuff.tabsHCM);
+        this.setCreativeTab(hybridcraft.common.mod.Hybridcraft.tabsHCM);
         this.weaponDamage = 4 + par2EnumToolMaterial.getDamageVsEntity();
     }
 

@@ -1,10 +1,9 @@
-package hybridcraft.client;
+package hybridcraft.common.proxies;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import hybridcraft.common.core.CommonProxyHybrid;
 import net.minecraftforge.client.MinecraftForgeClient;
 
-public class ClientProxyHybrid extends hybridcraft.common.core.CommonProxyHybrid
+public class ClientProxyHybrid extends hybridcraft.common.proxies.CommonProxyHybrid
 {
 	@Override
 	public void registerRenderThings()

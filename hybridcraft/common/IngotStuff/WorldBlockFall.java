@@ -9,10 +9,10 @@ public class WorldBlockFall extends BlockSand
 {
 	public static boolean fallInstantly = false;
 	
-    protected WorldBlockFall(int par1, int par2)
+    public WorldBlockFall(int par1, int par2)
     {
         super(par1, par2);
-        this.setCreativeTab(hybridcraft.common.IngotStuff.HybridModIngotStuff.tabsHCM);
+        this.setCreativeTab(hybridcraft.common.mod.Hybridcraft.tabsHCM);
     }
     
     public String getTextureFile()

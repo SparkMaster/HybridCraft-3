@@ -1,10 +1,13 @@
-package hybridcraft.common.FoodStuff.kitchen;
+package hybridcraft.common.gui;
 
+import hybridcraft.common.FoodStuff.kitchen.ContainerCookingPot;
+import hybridcraft.common.FoodStuff.kitchen.ContainerCounter;
+import hybridcraft.common.FoodStuff.kitchen.ContainerStove;
 import cpw.mods.fml.common.asm.SideOnly;
 import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.src.*;
 
-public class GuiHandler implements IGuiHandler {
+public class GuiHandlerFood implements IGuiHandler {
 	
 	@Override
 	public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {

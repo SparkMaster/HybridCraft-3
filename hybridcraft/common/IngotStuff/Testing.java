@@ -1,6 +1,7 @@
 package hybridcraft.common.IngotStuff;
 
-import hybridcraft.common.core.TileHybrid;
+import hybridcraft.common.mod.Hybridcraft;
+import hybridcraft.common.tile.TileHybrid;
 
 import java.util.Random;
 
@@ -26,13 +27,13 @@ import net.minecraft.src.World;
 
 public class Testing extends BlockContainer {
 
-	protected Testing(int blockId) {
+	public Testing(int blockId) {
 
 		super(blockId, Material.rock);
 
 		setBlockName("blockTutorial");
 
-		this.setCreativeTab(hybridcraft.common.IngotStuff.HybridModIngotStuff.tabsHCM);
+		this.setCreativeTab(hybridcraft.common.mod.Hybridcraft.tabsHCM);
 
 	}
 
@@ -48,7 +49,7 @@ public class Testing extends BlockContainer {
 
 		}
 
-		player.openGui(HybridModIngotStuff.instance, 0, world, x, y, z);
+		player.openGui(Hybridcraft.instance, 0, world, x, y, z);
 
 		return true;
 

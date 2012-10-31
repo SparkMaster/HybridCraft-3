@@ -5,15 +5,15 @@ import hybridcraft.common.FoodStuff.kitchen.BlockCounter;
 import hybridcraft.common.FoodStuff.kitchen.BlockStove;
 import hybridcraft.common.FoodStuff.kitchen.CookingPotManager;
 import hybridcraft.common.FoodStuff.kitchen.CounterManager;
-import hybridcraft.common.FoodStuff.kitchen.GuiHandler;
 import hybridcraft.common.FoodStuff.kitchen.StoveManager;
 import hybridcraft.common.IngotStuff.CreativeTabHCM;
-import hybridcraft.common.IngotStuff.handler.ConfigHandler;
-import hybridcraft.common.core.ClientPacketHandler;
-import hybridcraft.common.core.CommonProxyHybrid;
 import hybridcraft.common.core.CoreRef;
-import hybridcraft.common.core.ServerPacketHandler;
-import hybridcraft.common.core.TileHybrid;
+import hybridcraft.common.gui.GuiHandlerFood;
+import hybridcraft.common.handlers.ClientPacketHandler;
+import hybridcraft.common.handlers.ConfigHandler;
+import hybridcraft.common.handlers.ServerPacketHandler;
+import hybridcraft.common.proxies.CommonProxyHybrid;
+import hybridcraft.common.tile.TileHybrid;
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Item;
@@ -52,7 +52,7 @@ public class HybridModFoodStuff {
 	public static Block cookingPot;
 	
 	// Counter/Stove GUIs
-	private GuiHandler guiHandler = new GuiHandler();
+	private GuiHandlerFood guiHandler = new GuiHandlerFood();
 	
 	// Config
 	public static final String CATEGORY_KITCHEN = "kitchen";

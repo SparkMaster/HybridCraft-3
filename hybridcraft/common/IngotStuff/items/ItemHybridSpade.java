@@ -12,7 +12,7 @@ public class ItemHybridSpade extends ItemTool
     public ItemHybridSpade(int par1, EnumToolMaterial par2EnumToolMaterial)
     {
         super(par1, 1, par2EnumToolMaterial, blocksEffectiveAgainst);
-        this.setCreativeTab(hybridcraft.common.IngotStuff.HybridModIngotStuff.tabsHCM);
+        this.setCreativeTab(hybridcraft.common.mod.Hybridcraft.tabsHCM);
     }
 
     /**

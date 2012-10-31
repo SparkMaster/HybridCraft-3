@@ -1,5 +1,7 @@
 package hybridcraft.common.IngotStuff;
 
+import hybridcraft.common.mod.Hybridcraft;
+
 import java.util.Random;
 
 import net.minecraft.src.IChunkProvider;
@@ -25,8 +27,8 @@ public class WorldGeneratorHybrid implements IWorldGenerator {
 		int Xcoord = BlockX+random.nextInt(16);
 		int Zcoord = BlockZ+random.nextInt(16);
 		int Ycoord = 60+random.nextInt(16);
-		(new WorldGenMinable(HybridModIngotStuff.dand.blockID, 15)).generate(world, random, Xcoord, Ycoord, Zcoord);
-		(new WorldGenMinable(HybridModIngotStuff.davel.blockID, 15)).generate(world, random, Xcoord, Ycoord, Zcoord);
+		(new WorldGenMinable(Hybridcraft.dand.blockID, 15)).generate(world, random, Xcoord, Ycoord, Zcoord);
+		(new WorldGenMinable(Hybridcraft.davel.blockID, 15)).generate(world, random, Xcoord, Ycoord, Zcoord);
 		}
 		
 		//generate flowers
@@ -35,19 +37,19 @@ public class WorldGeneratorHybrid implements IWorldGenerator {
 			int Xcoordf = BlockX+random.nextInt(16);
 			int Zcoordf = BlockZ+random.nextInt(16);
 			int Ycoordf = random.nextInt(256);
-			(new WorldGenFlowersHybrid(HybridModIngotStuff.oreFlower.blockID, 0)).generate(world, random, Xcoordf, Ycoordf, Zcoordf);
-			(new WorldGenFlowersHybrid(HybridModIngotStuff.oreFlower.blockID, 1)).generate(world, random, Xcoordf, Ycoordf, Zcoordf);
-			(new WorldGenFlowersHybrid(HybridModIngotStuff.oreFlower.blockID, 2)).generate(world, random, Xcoordf, Ycoordf, Zcoordf);
-			(new WorldGenFlowersHybrid(HybridModIngotStuff.oreFlower.blockID, 3)).generate(world, random, Xcoordf, Ycoordf, Zcoordf);
-			(new WorldGenFlowersHybrid(HybridModIngotStuff.oreFlower.blockID, 4)).generate(world, random, Xcoordf, Ycoordf, Zcoordf);
-			(new WorldGenFlowersHybrid(HybridModIngotStuff.oreFlower.blockID, 5)).generate(world, random, Xcoordf, Ycoordf, Zcoordf);
+			(new WorldGenFlowersHybrid(Hybridcraft.oreFlower.blockID, 0)).generate(world, random, Xcoordf, Ycoordf, Zcoordf);
+			(new WorldGenFlowersHybrid(Hybridcraft.oreFlower.blockID, 1)).generate(world, random, Xcoordf, Ycoordf, Zcoordf);
+			(new WorldGenFlowersHybrid(Hybridcraft.oreFlower.blockID, 2)).generate(world, random, Xcoordf, Ycoordf, Zcoordf);
+			(new WorldGenFlowersHybrid(Hybridcraft.oreFlower.blockID, 3)).generate(world, random, Xcoordf, Ycoordf, Zcoordf);
+			(new WorldGenFlowersHybrid(Hybridcraft.oreFlower.blockID, 4)).generate(world, random, Xcoordf, Ycoordf, Zcoordf);
+			(new WorldGenFlowersHybrid(Hybridcraft.oreFlower.blockID, 5)).generate(world, random, Xcoordf, Ycoordf, Zcoordf);
 		}
 		
 		for(int o =0; o<10;o++){
 		int Xcoordo = BlockX+random.nextInt(16);
 		int Zcoordo = BlockZ+random.nextInt(16);
 		int Ycoordo = random.nextInt(16);
-		(new WorldGenMinable(HybridModIngotStuff.done.blockID, 15)).generate(world, random, Xcoordo, Ycoordo, Zcoordo);
+		(new WorldGenMinable(Hybridcraft.done.blockID, 15)).generate(world, random, Xcoordo, Ycoordo, Zcoordo);
 		}
 	}
 	

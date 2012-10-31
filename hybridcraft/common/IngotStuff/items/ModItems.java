@@ -4,10 +4,10 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
-import hybridcraft.common.IngotStuff.HybridModIngotStuff;
 import hybridcraft.common.IngotStuff.hybridizer.HybridizingManager;
 import hybridcraft.common.IngotStuff.lib.HybridToolMaterials;
 import hybridcraft.common.IngotStuff.lib.ItemIDs;
+import hybridcraft.common.mod.Hybridcraft;
 
 public class ModItems 
 {

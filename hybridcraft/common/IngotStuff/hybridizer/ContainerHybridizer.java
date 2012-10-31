@@ -1,6 +1,6 @@
 package hybridcraft.common.IngotStuff.hybridizer;
 
-import hybridcraft.common.IngotStuff.HybridModIngotStuff;
+import hybridcraft.common.mod.Hybridcraft;
 import net.minecraft.src.*;
 
 public class ContainerHybridizer extends ContainerWorkbench {
@@ -25,6 +25,6 @@ public class ContainerHybridizer extends ContainerWorkbench {
 
 	@Override
 	public boolean canInteractWith(EntityPlayer par1EntityPlayer) {
-		return this.worldObj.getBlockId(this.posX, this.posY, this.posZ) != hybridcraft.common.IngotStuff.HybridModIngotStuff.blockHybridizer.blockID ? false : par1EntityPlayer.getDistanceSq((double) this.posX + 0.5D, (double) this.posY + 0.5D, (double) this.posZ + 0.5D) <= 64.0D;
+		return this.worldObj.getBlockId(this.posX, this.posY, this.posZ) != hybridcraft.common.mod.Hybridcraft.blockHybridizer.blockID ? false : par1EntityPlayer.getDistanceSq((double) this.posX + 0.5D, (double) this.posY + 0.5D, (double) this.posZ + 0.5D) <= 64.0D;
 	}
 }

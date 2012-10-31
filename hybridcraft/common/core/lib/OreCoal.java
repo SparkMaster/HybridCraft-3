@@ -1,12 +1,5 @@
-package hybridcraft.common.FuelStuff.lib;
+package hybridcraft.common.core.lib;
 
-import hybridcraft.common.FuelStuff.items.CobbleCoal;
-import hybridcraft.common.FuelStuff.items.DiamondCoal;
-import hybridcraft.common.FuelStuff.items.DirtCoal;
-import hybridcraft.common.FuelStuff.items.EmeraldCoal;
-import hybridcraft.common.FuelStuff.items.GoldCoal;
-import hybridcraft.common.FuelStuff.items.IronCoal;
-import hybridcraft.common.FuelStuff.items.ObsidianCoal;
 import net.minecraft.src.Block;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
