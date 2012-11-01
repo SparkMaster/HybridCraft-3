@@ -1,8 +1,8 @@
 package hybridcraft.common.IngotStuff.hybridizer;
 
 import net.minecraft.src.*;
-import hybridcraft.common.IngotStuff.items.ItemIngot;
 import hybridcraft.common.core.AbstractCraftingManager;
+import hybridcraft.common.mod.lib.ItemIngot;
 import cpw.mods.fml.common.registry.*;
 
 public class HybridizingManager extends AbstractCraftingManager {

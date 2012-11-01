@@ -1,18 +1,20 @@
-package hybridcraft.common.IngotStuff.items;
+package hybridcraft.common.mod.init;
 
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
-import net.minecraft.src.Block;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import hybridcraft.common.IngotStuff.HybridModIngotStuff;
 import hybridcraft.common.IngotStuff.hybridizer.HybridizingManager;
 import hybridcraft.common.IngotStuff.lib.HybridToolMaterials;
 import hybridcraft.common.IngotStuff.lib.ItemIDs;
+import hybridcraft.common.mod.lib.ItemHybridAxe;
+import hybridcraft.common.mod.lib.ItemHybridHoe;
+import hybridcraft.common.mod.lib.ItemHybridPickaxe;
+import hybridcraft.common.mod.lib.ItemHybridSpade;
+import hybridcraft.common.mod.lib.ItemHybridSword;
+import net.minecraft.src.Item;
+import net.minecraft.src.ItemStack;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
-public class HybridTools 
-{
-	// Tools
+public class Tools {
+	
 	public static Item dirtSword;
 	public static Item dirtPick;
 	public static Item dirtAxe;
@@ -239,11 +241,11 @@ public class HybridTools
 	
 	public static void initRecipies()
 	{
-		GameRegistry.addRecipe(new ItemStack(dirtSword), new Object[] { "X", "X", "Z", 'X', HybridItems.dirtIngot, 'Z', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(dirtPick), new Object[] { "XXX", " S ", " S ", 'X', HybridItems.dirtIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(dirtAxe), new Object[] { "XX ", "XS ", " S ", 'X', HybridItems.dirtIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(dirtShovel), new Object[] { "X", "S", "S", 'X', HybridItems.dirtIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(dirtHoe), new Object[] { "XX ", " S ", " S ", 'X', HybridItems.dirtIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(dirtSword), new Object[] { "X", "X", "Z", 'X', Ingots.dirtIngot, 'Z', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(dirtPick), new Object[] { "XXX", " S ", " S ", 'X', Ingots.dirtIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(dirtAxe), new Object[] { "XX ", "XS ", " S ", 'X', Ingots.dirtIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(dirtShovel), new Object[] { "X", "S", "S", 'X', Ingots.dirtIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(dirtHoe), new Object[] { "XX ", " S ", " S ", 'X', Ingots.dirtIngot, 'S', Item.stick });
 		GameRegistry.addRecipe(new ItemStack(dirtoneSword), new Object[] { "X", "X", "Z", 'X', HybridizingManager.getInstance().dirtoneIngot, 'Z', Item.stick });
 		GameRegistry.addRecipe(new ItemStack(dirtonePick), new Object[] { "XXX", " S ", " S ", 'X', HybridizingManager.getInstance().dirtoneIngot, 'S', Item.stick });
 		GameRegistry.addRecipe(new ItemStack(dirtoneAxe), new Object[] { "XX ", "XS ", " S ", 'X', HybridizingManager.getInstance().dirtoneIngot, 'S', Item.stick });
@@ -294,20 +296,21 @@ public class HybridTools
 		GameRegistry.addRecipe(new ItemStack(gomendAxe), new Object[] { "XX ", "XS ", " S ", 'X', HybridizingManager.getInstance().gomendIngot, 'S', Item.stick });
 		GameRegistry.addRecipe(new ItemStack(gomendShovel), new Object[] { "X", "S", "S", 'X', HybridizingManager.getInstance().gomendIngot, 'S', Item.stick });
 		GameRegistry.addRecipe(new ItemStack(gomendHoe), new Object[] { "XX ", " S ", " S ", 'X', HybridizingManager.getInstance().gomendIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(obsidianSword), new Object[] { "X", "X", "Z", 'X', HybridItems.obsidianIngot, 'Z', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(obsidianPick), new Object[] { "XXX", " S ", " S ", 'X', HybridItems.obsidianIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(obsidianAxe), new Object[] { "XX ", "XS ", " S ", 'X', HybridItems.obsidianIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(obsidianShovel), new Object[] { "X", "S", "S", 'X', HybridItems.obsidianIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(obsidianHoe), new Object[] { "XX ", " S ", " S ", 'X', HybridItems.obsidianIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(sandSword), new Object[] { "X", "X", "Z", 'X', HybridItems.sandIngot, 'Z', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(sandPick), new Object[] { "XXX", " S ", " S ", 'X', HybridItems.sandIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(sandAxe), new Object[] { "XX ", "XS ", " S ", 'X', HybridItems.sandIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(sandShovel), new Object[] { "X", "S", "S", 'X', HybridItems.sandIngot, 'S', Item.stick });
-		GameRegistry.addRecipe(new ItemStack(sandHoe), new Object[] { "XX ", " S ", " S ", 'X', HybridItems.sandIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(obsidianSword), new Object[] { "X", "X", "Z", 'X', Ingots.obsidianIngot, 'Z', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(obsidianPick), new Object[] { "XXX", " S ", " S ", 'X', Ingots.obsidianIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(obsidianAxe), new Object[] { "XX ", "XS ", " S ", 'X', Ingots.obsidianIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(obsidianShovel), new Object[] { "X", "S", "S", 'X', Ingots.obsidianIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(obsidianHoe), new Object[] { "XX ", " S ", " S ", 'X', Ingots.obsidianIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(sandSword), new Object[] { "X", "X", "Z", 'X', Ingots.sandIngot, 'Z', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(sandPick), new Object[] { "XXX", " S ", " S ", 'X', Ingots.sandIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(sandAxe), new Object[] { "XX ", "XS ", " S ", 'X', Ingots.sandIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(sandShovel), new Object[] { "X", "S", "S", 'X', Ingots.sandIngot, 'S', Item.stick });
+		GameRegistry.addRecipe(new ItemStack(sandHoe), new Object[] { "XX ", " S ", " S ", 'X', Ingots.sandIngot, 'S', Item.stick });
 		GameRegistry.addRecipe(new ItemStack(emeraldSword), new Object[] { "X", "X", "Z", 'X', Item.emerald, 'Z', Item.stick });
 		GameRegistry.addRecipe(new ItemStack(emeraldPick), new Object[] { "XXX", " S ", " S ", 'X', Item.emerald, 'S', Item.stick });
 		GameRegistry.addRecipe(new ItemStack(emeraldAxe), new Object[] { "XX ", "XS ", " S ", 'X', Item.emerald, 'S', Item.stick });
 		GameRegistry.addRecipe(new ItemStack(emeraldShovel), new Object[] { "X", "S", "S", 'X', Item.emerald, 'S', Item.stick });
 		GameRegistry.addRecipe(new ItemStack(emeraldHoe), new Object[] { "XX ", " S ", " S ", 'X', Item.emerald, 'S', Item.stick });
 	}
+
 }

@@ -21,15 +21,15 @@ public class CraftingHandler implements ICraftingHandler {
 
 		net.minecraft.src.Enchantment[] i = new net.minecraft.src.Enchantment[] {net.minecraft.src.Enchantment.looting,net.minecraft.src.Enchantment.sharpness};
 		
-		if (item.getItem() instanceof hybridcraft.common.IngotStuff.items.ItemHybridAxe) {
+		if (item.getItem() instanceof hybridcraft.common.mod.lib.ItemHybridAxe) {
 			item.addEnchantment(i[(int) (new Random().nextDouble()*2)], 1);
-		} else if (item.getItem() instanceof hybridcraft.common.IngotStuff.items.ItemHybridHoe) {
+		} else if (item.getItem() instanceof hybridcraft.common.mod.lib.ItemHybridHoe) {
 			item.addEnchantment(i[(int) (new Random().nextDouble()*2)], 1);
-		} else if (item.getItem() instanceof hybridcraft.common.IngotStuff.items.ItemHybridPickaxe) {
+		} else if (item.getItem() instanceof hybridcraft.common.mod.lib.ItemHybridPickaxe) {
 			item.addEnchantment(i[(int) (new Random().nextDouble()*2)], 1);
-		} else if (item.getItem() instanceof hybridcraft.common.IngotStuff.items.ItemHybridSpade) {
+		} else if (item.getItem() instanceof hybridcraft.common.mod.lib.ItemHybridSpade) {
 			item.addEnchantment(i[(int) (new Random().nextDouble()*2)], 1);
-		} else if (item.getItem() instanceof hybridcraft.common.IngotStuff.items.ItemHybridSword) {
+		} else if (item.getItem() instanceof hybridcraft.common.mod.lib.ItemHybridSword) {
 			item.addEnchantment(i[(int) (new Random().nextDouble()*2)], 1);
 		}
 	}

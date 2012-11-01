@@ -1,4 +1,4 @@
-package hybridcraft.common.IngotStuff.items;
+package hybridcraft.common.mod.lib;
 
 import net.minecraft.src.*;
 

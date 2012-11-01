@@ -1,12 +1,12 @@
-package hybridcraft.common.IngotStuff.items;
+package hybridcraft.common.mod.init;
 
-import cpw.mods.fml.common.registry.LanguageRegistry;
-import net.minecraft.src.Item;
+import hybridcraft.common.mod.lib.ItemIngot;
 import hybridcraft.common.IngotStuff.lib.ItemIDs;
+import net.minecraft.src.Item;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
-public class HybridItems 
-{
-	// Ingots
+public class Ingots {
+	
 	public static Item dirtIngot;
 	public static Item obsidianShard;
 	public static Item obsidianIngot;
@@ -26,4 +26,5 @@ public class HybridItems
 		LanguageRegistry.addName(sandIngot, "Sand Ingot");
 		LanguageRegistry.addName(dirtIngot, "Dirt Ingot");
 	}
+
 }

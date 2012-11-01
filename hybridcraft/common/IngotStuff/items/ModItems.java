@@ -8,6 +8,11 @@ import hybridcraft.common.IngotStuff.hybridizer.HybridizingManager;
 import hybridcraft.common.IngotStuff.lib.HybridToolMaterials;
 import hybridcraft.common.IngotStuff.lib.ItemIDs;
 import hybridcraft.common.mod.Hybridcraft;
+import hybridcraft.common.mod.lib.ItemHybridAxe;
+import hybridcraft.common.mod.lib.ItemHybridHoe;
+import hybridcraft.common.mod.lib.ItemHybridPickaxe;
+import hybridcraft.common.mod.lib.ItemHybridSpade;
+import hybridcraft.common.mod.lib.ItemHybridSword;
 
 public class ModItems 
 {
