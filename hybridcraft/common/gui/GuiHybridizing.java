@@ -1,6 +1,6 @@
 package hybridcraft.common.gui;
 
-import hybridcraft.common.IngotStuff.hybridizer.ContainerHybridizer;
+import hybridcraft.common.containers.ContainerHybridizer;
 import net.minecraft.src.*;
 
 public class GuiHybridizing extends GuiContainer {

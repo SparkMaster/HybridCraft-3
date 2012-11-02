@@ -1,6 +1,6 @@
 package hybridcraft.common.gui;
 
-import hybridcraft.common.FoodStuff.kitchen.ContainerCookingPot;
+import hybridcraft.common.containers.ContainerCookingPot;
 import net.minecraft.src.*;
 
 public class GuiCookingPot extends GuiContainer {

@@ -1,6 +1,6 @@
 package hybridcraft.common.gui;
 
-import hybridcraft.common.FoodStuff.kitchen.ContainerCounter;
+import hybridcraft.common.containers.ContainerCounter;
 import net.minecraft.src.*;
 
 public class GuiCounter extends GuiContainer {
