@@ -46,27 +46,27 @@ public class Blocks {
 	public static void initItems() {
 	
 	// Ingot Blocks
-	dirtBlock = new IngotBlock(hybridcraft.common.mod.lib.Configuration.dirtBlockID, 0).setStepSound(Block.soundMetalFootstep).setBlockName("dirtBlock").setHardness(3F).setResistance(4F);
-	dirtoneBlock = new IngotBlock(hybridcraft.common.mod.lib.Configuration.dirtoneBlockID, 1).setStepSound(Block.soundMetalFootstep).setBlockName("dirtoneBlock").setHardness(3F).setResistance(4F);
-	dironBlock = new IngotBlock(hybridcraft.common.mod.lib.Configuration.dironBlockID, 2).setStepSound(Block.soundMetalFootstep).setBlockName("dironBlock").setHardness(3F).setResistance(4F);
-	diroldBlock = new IngotBlock(hybridcraft.common.mod.lib.Configuration.diroldBlockID, 3).setStepSound(Block.soundMetalFootstep).setBlockName("diroldBlock").setHardness(3F).setResistance(4F);
-	dirmendBlock = new IngotBlock(hybridcraft.common.mod.lib.Configuration.dirmendBlockID, 4).setStepSound(Block.soundMetalFootstep).setBlockName("dirmendBlock").setHardness(3F).setResistance(4F);
-	stoneBlock = new IngotBlock(hybridcraft.common.mod.lib.Configuration.stoneBlockID, 5).setStepSound(Block.soundMetalFootstep).setBlockName("stoneBlock").setHardness(3F).setResistance(4F);
-	stornBlock = new IngotBlock(hybridcraft.common.mod.lib.Configuration.stornBlockID, 6).setStepSound(Block.soundMetalFootstep).setBlockName("stornBlock").setHardness(3F).setResistance(4F);
-	stoldBlock = new IngotBlock(hybridcraft.common.mod.lib.Configuration.stoldBlockID, 7).setStepSound(Block.soundMetalFootstep).setBlockName("stoldBlock").setHardness(3F).setResistance(4F);
-	stomendBlock = new IngotBlock(hybridcraft.common.mod.lib.Configuration.stomendBlockID, 8).setStepSound(Block.soundMetalFootstep).setBlockName("stomendBlock").setHardness(3F).setResistance(4F);
-	iroldBlock = new IngotBlock(hybridcraft.common.mod.lib.Configuration.iroldBlockID, 9).setStepSound(Block.soundMetalFootstep).setBlockName("iroldBlock").setHardness(3F).setResistance(4F);
-	irmendBlock = new IngotBlock(hybridcraft.common.mod.lib.Configuration.irmendBlockID, 10).setStepSound(Block.soundMetalFootstep).setBlockName("irmendBlock").setHardness(3F).setResistance(4F);
-	gomendBlock = new IngotBlock(hybridcraft.common.mod.lib.Configuration.gomendBlockID, 11).setStepSound(Block.soundMetalFootstep).setBlockName("gomendBlock").setHardness(3F).setResistance(4F);
-	sandBlock = new IngotBlock(hybridcraft.common.mod.lib.Configuration.sandBlockID, 12).setStepSound(Block.soundSandFootstep).setBlockName("sandBlock").setHardness(3F).setResistance(4F);
+	dirtBlock = new IngotBlock(hybridcraft.common.handlers.IDHandler.dirtBlockID, 0).setStepSound(Block.soundMetalFootstep).setBlockName("dirtBlock").setHardness(3F).setResistance(4F);
+	dirtoneBlock = new IngotBlock(hybridcraft.common.handlers.IDHandler.dirtoneBlockID, 1).setStepSound(Block.soundMetalFootstep).setBlockName("dirtoneBlock").setHardness(3F).setResistance(4F);
+	dironBlock = new IngotBlock(hybridcraft.common.handlers.IDHandler.dironBlockID, 2).setStepSound(Block.soundMetalFootstep).setBlockName("dironBlock").setHardness(3F).setResistance(4F);
+	diroldBlock = new IngotBlock(hybridcraft.common.handlers.IDHandler.diroldBlockID, 3).setStepSound(Block.soundMetalFootstep).setBlockName("diroldBlock").setHardness(3F).setResistance(4F);
+	dirmendBlock = new IngotBlock(hybridcraft.common.handlers.IDHandler.dirmendBlockID, 4).setStepSound(Block.soundMetalFootstep).setBlockName("dirmendBlock").setHardness(3F).setResistance(4F);
+	stoneBlock = new IngotBlock(hybridcraft.common.handlers.IDHandler.stoneBlockID, 5).setStepSound(Block.soundMetalFootstep).setBlockName("stoneBlock").setHardness(3F).setResistance(4F);
+	stornBlock = new IngotBlock(hybridcraft.common.handlers.IDHandler.stornBlockID, 6).setStepSound(Block.soundMetalFootstep).setBlockName("stornBlock").setHardness(3F).setResistance(4F);
+	stoldBlock = new IngotBlock(hybridcraft.common.handlers.IDHandler.stoldBlockID, 7).setStepSound(Block.soundMetalFootstep).setBlockName("stoldBlock").setHardness(3F).setResistance(4F);
+	stomendBlock = new IngotBlock(hybridcraft.common.handlers.IDHandler.stomendBlockID, 8).setStepSound(Block.soundMetalFootstep).setBlockName("stomendBlock").setHardness(3F).setResistance(4F);
+	iroldBlock = new IngotBlock(hybridcraft.common.handlers.IDHandler.iroldBlockID, 9).setStepSound(Block.soundMetalFootstep).setBlockName("iroldBlock").setHardness(3F).setResistance(4F);
+	irmendBlock = new IngotBlock(hybridcraft.common.handlers.IDHandler.irmendBlockID, 10).setStepSound(Block.soundMetalFootstep).setBlockName("irmendBlock").setHardness(3F).setResistance(4F);
+	gomendBlock = new IngotBlock(hybridcraft.common.handlers.IDHandler.gomendBlockID, 11).setStepSound(Block.soundMetalFootstep).setBlockName("gomendBlock").setHardness(3F).setResistance(4F);
+	sandBlock = new IngotBlock(hybridcraft.common.handlers.IDHandler.sandBlockID, 12).setStepSound(Block.soundSandFootstep).setBlockName("sandBlock").setHardness(3F).setResistance(4F);
 
 	// World Blocks
-	dand = new WorldBlockFall(hybridcraft.common.mod.lib.Configuration.dandID, 0).setStepSound(Block.soundSandFootstep).setBlockName("dandBlock").setHardness(1F).setResistance(2F);
-	davel = new WorldBlockFall(hybridcraft.common.mod.lib.Configuration.davelID, 1).setStepSound(Block.soundGravelFootstep).setBlockName("davelBlock").setHardness(1F).setResistance(2F);
-	done = new WorldBlockStay(hybridcraft.common.mod.lib.Configuration.doneID, 2).setStepSound(Block.soundGrassFootstep).setBlockName("doneBlock").setHardness(1F).setResistance(2F);
+	dand = new WorldBlockFall(hybridcraft.common.handlers.IDHandler.dandID, 0).setStepSound(Block.soundSandFootstep).setBlockName("dandBlock").setHardness(1F).setResistance(2F);
+	davel = new WorldBlockFall(hybridcraft.common.handlers.IDHandler.davelID, 1).setStepSound(Block.soundGravelFootstep).setBlockName("davelBlock").setHardness(1F).setResistance(2F);
+	done = new WorldBlockStay(hybridcraft.common.handlers.IDHandler.doneID, 2).setStepSound(Block.soundGrassFootstep).setBlockName("doneBlock").setHardness(1F).setResistance(2F);
 
 	// Combiner
-	blockHybridizer = new BlockHybridizer(hybridcraft.common.mod.lib.Configuration.combinerID).setBlockName("Hybridizer");
+	blockHybridizer = new BlockHybridizer(hybridcraft.common.handlers.IDHandler.combinerID).setBlockName("Hybridizer");
 
 	// Ingot Block Registry
 	GameRegistry.registerBlock(dirtBlock);
