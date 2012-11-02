@@ -106,7 +106,7 @@ public class Hybridcraft {
 	public void load(FMLInitializationEvent event) {
 
 		// init mod items
-		//Armors.initItems();
+		Armors.initItems();
 		Blocks.initItems();
 		Flowers.initItems();
 		Ingots.initItems();
