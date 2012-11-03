@@ -155,10 +155,10 @@ public class Tools {
 		obsidianShovel = new ItemHybridSpade(hybridcraft.common.handlers.IDHandler.OBSIDIAN_SHOVEL, hybridcraft.common.handlers.MaterialHandler.obsidian).setIconIndex(58).setItemName("obsidianShovel");
 		obsidianHoe = new ItemHybridHoe(hybridcraft.common.handlers.IDHandler.OBSIDIAN_HOE, hybridcraft.common.handlers.MaterialHandler.obsidian).setIconIndex(59).setItemName("obsidianHoe");
 		sandSword = new ItemHybridSword(hybridcraft.common.handlers.IDHandler.SAND_SWORD, hybridcraft.common.handlers.MaterialHandler.sand).setIconIndex(60).setItemName("sandSword");
-		sandPick = new ItemHybridPickaxe(hybridcraft.common.handlers.IDHandler.SAND_SWORD, hybridcraft.common.handlers.MaterialHandler.sand).setIconIndex(61).setItemName("sandPick");
-		sandAxe = new ItemHybridAxe(hybridcraft.common.handlers.IDHandler.SAND_SWORD, hybridcraft.common.handlers.MaterialHandler.sand).setIconIndex(62).setItemName("sandAxe");
-		sandShovel = new ItemHybridSpade(hybridcraft.common.handlers.IDHandler.SAND_SWORD, hybridcraft.common.handlers.MaterialHandler.sand).setIconIndex(63).setItemName("sandShovel");
-		sandHoe = new ItemHybridHoe(hybridcraft.common.handlers.IDHandler.SAND_SWORD, hybridcraft.common.handlers.MaterialHandler.sand).setIconIndex(64).setItemName("sandHoe");
+		sandPick = new ItemHybridPickaxe(hybridcraft.common.handlers.IDHandler.SAND_PICK, hybridcraft.common.handlers.MaterialHandler.sand).setIconIndex(61).setItemName("sandPick");
+		sandAxe = new ItemHybridAxe(hybridcraft.common.handlers.IDHandler.SAND_AXE, hybridcraft.common.handlers.MaterialHandler.sand).setIconIndex(62).setItemName("sandAxe");
+		sandShovel = new ItemHybridSpade(hybridcraft.common.handlers.IDHandler.SAND_SHOVEL, hybridcraft.common.handlers.MaterialHandler.sand).setIconIndex(63).setItemName("sandShovel");
+		sandHoe = new ItemHybridHoe(hybridcraft.common.handlers.IDHandler.SAND_HOE, hybridcraft.common.handlers.MaterialHandler.sand).setIconIndex(64).setItemName("sandHoe");
 		emeraldSword = new ItemHybridSword(hybridcraft.common.handlers.IDHandler.EMERALD_SWORD, hybridcraft.common.handlers.MaterialHandler.emerald).setIconIndex(70).setItemName("emeraldSword");
 		emeraldPick = new ItemHybridPickaxe(hybridcraft.common.handlers.IDHandler.EMERALD_PICK, hybridcraft.common.handlers.MaterialHandler.emerald).setIconIndex(71).setItemName("emeraldPick");
 		emeraldAxe = new ItemHybridAxe(hybridcraft.common.handlers.IDHandler.EMERALD_AXE, hybridcraft.common.handlers.MaterialHandler.emerald).setIconIndex(72).setItemName("emeraldAxe");

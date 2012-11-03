@@ -46,7 +46,7 @@ public class Blocks {
 	public static void initItems() {
 	
 	// Ingot Blocks
-	dirtBlock = new IngotBlock(hybridcraft.common.handlers.DummyConfig.dirtBlockID, 0).setStepSound(Block.soundMetalFootstep).setBlockName("dirtBlock").setHardness(3F).setResistance(4F);
+	dirtBlock = new IngotBlock(hybridcraft.common.handlers.IDHandler.dirtBlockID, 0).setStepSound(Block.soundMetalFootstep).setBlockName("dirtBlock").setHardness(3F).setResistance(4F);
 	dirtoneBlock = new IngotBlock(hybridcraft.common.handlers.IDHandler.dirtoneBlockID, 1).setStepSound(Block.soundMetalFootstep).setBlockName("dirtoneBlock").setHardness(3F).setResistance(4F);
 	dironBlock = new IngotBlock(hybridcraft.common.handlers.IDHandler.dironBlockID, 2).setStepSound(Block.soundMetalFootstep).setBlockName("dironBlock").setHardness(3F).setResistance(4F);
 	diroldBlock = new IngotBlock(hybridcraft.common.handlers.IDHandler.diroldBlockID, 3).setStepSound(Block.soundMetalFootstep).setBlockName("diroldBlock").setHardness(3F).setResistance(4F);

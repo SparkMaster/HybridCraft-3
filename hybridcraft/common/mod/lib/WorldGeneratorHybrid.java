@@ -32,7 +32,7 @@ public class WorldGeneratorHybrid implements IWorldGenerator {
 		}
 		
 		//generate flowers
-		for(int f =0; f<1;f++)
+		for(int f =0; f<6;f++)
 		{
 			int Xcoordf = BlockX+random.nextInt(16);
 			int Zcoordf = BlockZ+random.nextInt(16);
