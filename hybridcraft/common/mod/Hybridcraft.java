@@ -7,48 +7,25 @@ import hybridcraft.common.core.lib.OrganicCoal;
 import hybridcraft.common.gui.GuiHandlerFood;
 import hybridcraft.common.gui.GuiHandlerMix;
 import hybridcraft.common.handlers.ClientPacketHandler;
-import hybridcraft.common.handlers.ConfigHandler;
 import hybridcraft.common.handlers.CraftingHandler;
 import hybridcraft.common.handlers.HybridFuelHandler;
 import hybridcraft.common.handlers.ServerPacketHandler;
 import hybridcraft.common.managers.CookingPotManager;
 import hybridcraft.common.managers.CounterManager;
-import hybridcraft.common.managers.HybridizingManager;
 import hybridcraft.common.managers.StoveManager;
 import hybridcraft.common.mod.init.Armors;
 import hybridcraft.common.mod.init.Blocks;
 import hybridcraft.common.mod.init.Flowers;
 import hybridcraft.common.mod.init.Ingots;
 import hybridcraft.common.mod.init.Tools;
-import hybridcraft.common.mod.init.Armor.Dirmend;
-import hybridcraft.common.mod.init.Armor.Dirold;
-import hybridcraft.common.mod.init.Armor.Diron;
-import hybridcraft.common.mod.init.Armor.Dirt;
-import hybridcraft.common.mod.init.Armor.Dirtone;
-import hybridcraft.common.mod.init.Armor.Emerald;
-import hybridcraft.common.mod.init.Armor.Gomend;
-import hybridcraft.common.mod.init.Armor.Irmend;
-import hybridcraft.common.mod.init.Armor.Irold;
-import hybridcraft.common.mod.init.Armor.Obsidian;
-import hybridcraft.common.mod.init.Armor.Sand;
-import hybridcraft.common.mod.init.Armor.Stold;
-import hybridcraft.common.mod.init.Armor.Stomend;
-import hybridcraft.common.mod.init.Armor.Stone;
-import hybridcraft.common.mod.init.Armor.Storn;
-import hybridcraft.common.mod.lib.BlockFlowers;
-import hybridcraft.common.mod.lib.BlockHybridizer;
 import hybridcraft.common.mod.lib.CreativeTabHCM;
-import hybridcraft.common.mod.lib.ItemBlockFlowers;
-import hybridcraft.common.mod.lib.WorldBlockFall;
-import hybridcraft.common.mod.lib.WorldBlockStay;
 import hybridcraft.common.mod.lib.WorldGeneratorHybrid;
 import hybridcraft.common.proxies.CommonProxyHybrid;
 import hybridcraft.common.tile.TileHybrid;
-import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
 import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.Property;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -60,7 +37,6 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkMod.SidedPacketHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid = CoreRef.HCM_MOD_ID, name = CoreRef.HCM_MOD_NAME, version = CoreRef.HCM_VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false, clientPacketHandlerSpec = @SidedPacketHandler(channels = { "HybridMod" }, packetHandler = ClientPacketHandler.class), serverPacketHandlerSpec = @SidedPacketHandler(channels = { "HybridMod" }, packetHandler = ServerPacketHandler.class))
@@ -96,9 +72,11 @@ public class Hybridcraft {
 	public void preInit(FMLPreInitializationEvent event) {
 
 		// TODO: Add all of this into config handler
-		ConfigHandler config = new ConfigHandler(event.getSuggestedConfigurationFile());
+		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		
-		config.loadConfig();
+		config.load();
+		
+		Property vernum = config.get("general", "Version", "0.5");
 	
 	}
 

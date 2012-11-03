@@ -199,19 +199,8 @@ public class IDHandler {
 	public static int EMERALD_LEGS_DEFAULT = 656;
 	public static int EMERALD_BOOTS_DEFAULT = 657;
 	public static int COMBINER_DEFAULT = 658;
-	
-	//Ingot IDs
-	public static int OBSIDIAN_SHARD;
-	public static int OBSIDIAN_INGOT;
-	public static int SAND_INGOT;
-	public static int DIRT_INGOT;
-	
+		
 	//Tool IDs
-	public static int DIRT_SWORD;
-	public static int DIRT_PICK;
-	public static int DIRT_AXE;
-	public static int DIRT_SHOVEL;
-	public static int DIRT_HOE;
 	public static int DIRTONE_SWORD;
 	public static int DIRTONE_PICK;
 	public static int DIRTONE_AXE;
@@ -279,111 +268,9 @@ public class IDHandler {
 	public static int SAND_HOE;
 	
 	// Food
-	public static int  breadSliceID;
-	public static int  chickenStripsID;
-	public static int  beefSlicesID;
-	public static int  baconID;
-	public static int  chickenSandwichID;
-	public static int  chickenSandwichBaconID;
-	public static int  beefSandwichID;
-	public static int  beefSandwichBaconID;
-	public static int  meatSandwichID;
-	public static int  applePieID;
-	public static int  fruitSaladID;
-	public static int  appleSliceID;
-	public static int  counterID;
-	public static int  stoveID;
-	public static int  potID;
-	public static int  bowlChickenID;
-	public static int  bowlBeefID;
-	public static int  bowlMeatID;
-	public static int  BaBID;
-	public static int  PaBID;
-	public static int  CaBID;
-	public static int  DogBreadID;
-
-	public static int  dirtHelmetID;
-	public static int  dirtPlateID;
-	public static int  dirtLegsID;
-	public static int  dirtBootsID;
-	public static int  dirtoneHelmetID;
-	public static int  dirtonePlateID;
-	public static int  dirtoneLegsID;
-	public static int  dirtoneBootsID;
-	public static int  dironHelmetID;
-	public static int  dironPlateID;
-	public static int  dironLegsID;
-	public static int  dironBootsID;
-	public static int  diroldHelmetID;
-	public static int  diroldPlateID;
-	public static int  diroldLegsID;
-	public static int  diroldBootsID;
-	public static int  dirmendHelmetID;
-	public static int  dirmendPlateID;
-	public static int  dirmendLegsID;
-	public static int  dirmendBootsID;
-	public static int  stornHelmetID;
-	public static int  stornPlateID;
-	public static int  stornLegsID;
-	public static int  stornBootsID;
-	public static int  stoldHelmetID;
-	public static int  stoldPlateID;
-	public static int  stoldLegsID;
-	public static int  stoldBootsID;
-	public static int  stomendHelmetID;
-	public static int  stomendPlateID;
-	public static int  stomendLegsID;
-	public static int  stomendBootsID;
-	public static int  iroldHelmetID;
-	public static int  iroldPlateID;
-	public static int  iroldLegsID;
-	public static int  iroldBootsID;
-	public static int  irmendHelmetID;
-	public static int  irmendPlateID;
-	public static int  irmendLegsID;
-	public static int  irmendBootsID;
-	public static int  gomendHelmetID;
-	public static int  gomendPlateID;
-	public static int  gomendLegsID;
-	public static int  gomendBootsID;
-	public static int  obsidianHelmetID;
-	public static int  obsidianPlateID;
-	public static int  obsidianLegsID;
-	public static int  obsidianBootsID;
-	public static int  dirtBlockID;
-	public static int  dirtoneBlockID;
-	public static int  dironBlockID;
-	public static int  diroldBlockID;
-	public static int  dirmendBlockID;
-	public static int  stoneBlockID;
-	public static int  stornBlockID;
-	public static int  stoldBlockID;
-	public static int  stomendBlockID;
-	public static int  iroldBlockID;
-	public static int  irmendBlockID;
-	public static int  gomendBlockID;
-	public static int  dandID;
-	public static int  davelID;
-	public static int  doneID;
-	public static int  dirtFlowerID;
-	public static int  stoneFlowerID;
-	public static int  ironFlowerID;
-	public static int  goldFlowerID;
-	public static int  diamondFlowerID;
-	public static int  obsidianFlowerID;
-	public static int  sandBlockID;
-	public static int  stoneHelmetID;
-	public static int  stonePlateID;
-	public static int  stoneLegsID;
-	public static int  stoneBootsID;
-	public static int  sandHelmetID;
-	public static int  sandPlateID;
-	public static int  sandLegsID;
-	public static int  sandBootsID;
-	public static int  emeraldhelmetID;
-	public static int  emeraldplateID;
-	public static int  emeraldlegsID;
-	public static int  emeraldbootsID;
-	public static int  combinerID;
+	
+	
+	
+	
 	
 }
