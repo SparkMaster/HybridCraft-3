@@ -18,9 +18,12 @@ public class ConfigHandler
 		config =  new Configuration(file);
 	}
 	
+	public static final String CATEGORY_BLOCKS = "Blocks";
+	
+	
 	public static void loadConfig()
 	{
-		config.load();
+		//config.load();
 		
 		/*Load all ingot Ids */
 		hybridcraft.common.handlers.IDHandler.OBSIDIAN_SHARD = config.getItem("obsidianShard", hybridcraft.common.handlers.IDHandler.OBSIDIAN_SHARD_DEFAULT).getInt();
@@ -129,9 +132,9 @@ public class ConfigHandler
 		hybridcraft.common.handlers.IDHandler.bowlChickenID = config.getItem("Bowl of Chicken", hybridcraft.common.handlers.IDHandler.BOWL_CHICKEN_DEFAULT).getInt();
 		hybridcraft.common.handlers.IDHandler.bowlBeefID = config.getItem("Bowl of Beef", hybridcraft.common.handlers.IDHandler.BOWL_BEEF_DEFAULT).getInt();
 		hybridcraft.common.handlers.IDHandler.bowlMeatID = config.getItem("Bowl of Meat", hybridcraft.common.handlers.IDHandler.BOWL_MEAT_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.counterID = config.getItem("Counter", hybridcraft.common.handlers.IDHandler.COUNTER_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.stoveID = config.getItem("Stove", hybridcraft.common.handlers.IDHandler.STOVE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.potID = config.getItem("Cooking Pot", hybridcraft.common.handlers.IDHandler.POT_DEFAULT).getInt();
+		hybridcraft.common.handlers.IDHandler.counterID = config.get(CATEGORY_BLOCKS, "Counter", hybridcraft.common.handlers.IDHandler.COUNTER_DEFAULT).getInt();
+		hybridcraft.common.handlers.IDHandler.stoveID = config.get(CATEGORY_BLOCKS, "Stove", hybridcraft.common.handlers.IDHandler.STOVE_DEFAULT).getInt();
+		hybridcraft.common.handlers.IDHandler.potID = config.get(CATEGORY_BLOCKS, "Cooking Pot", hybridcraft.common.handlers.IDHandler.POT_DEFAULT).getInt();
 		//Armor
 		hybridcraft.common.handlers.IDHandler.dirtHelmetID = config.getItem("Dirt Helmet ", hybridcraft.common.handlers.IDHandler.DIRT_HELMET_DEFAULT).getInt();
 		hybridcraft.common.handlers.IDHandler.dirtPlateID = config.getItem("Dirt Chestplate", hybridcraft.common.handlers.IDHandler.DIRT_PLATE_DEFAULT).getInt();
@@ -181,22 +184,22 @@ public class ConfigHandler
 		hybridcraft.common.handlers.IDHandler.obsidianPlateID = config.getItem("Obsidian Chestplate", hybridcraft.common.handlers.IDHandler.OBSIDIAN_HELMET_DEFAULT).getInt();
 		hybridcraft.common.handlers.IDHandler.obsidianLegsID = config.getItem("Obsidian Leggings", hybridcraft.common.handlers.IDHandler.OBSIDIAN_HELMET_DEFAULT).getInt();
 		hybridcraft.common.handlers.IDHandler.obsidianBootsID = config.getItem("Obsidian Boots", hybridcraft.common.handlers.IDHandler.OBSIDIAN_HELMET_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dirtBlockID = config.getItem("Dirt Ingot Block", hybridcraft.common.handlers.IDHandler.DIRT_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dirtoneBlockID = config.getItem("Dirtone Ingot Block", hybridcraft.common.handlers.IDHandler.DIRON_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dironBlockID = config.getItem("Diron Ingot Block", hybridcraft.common.handlers.IDHandler.DIRON_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.diroldBlockID = config.getItem("Dirold Ingot Block", hybridcraft.common.handlers.IDHandler.DIROLD_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dirmendBlockID = config.getItem("Dirmend Ingot Block", hybridcraft.common.handlers.IDHandler.DIRMEND_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.stoneBlockID = config.getItem("Stone Ingot Block", hybridcraft.common.handlers.IDHandler.STONE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.stornBlockID = config.getItem("Storn Ingot Block", hybridcraft.common.handlers.IDHandler.STORN_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.stoldBlockID = config.getItem("Stold Ingot Block", hybridcraft.common.handlers.IDHandler.STOLD_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.stomendBlockID = config.getItem("Stomend Ingot Block", hybridcraft.common.handlers.IDHandler.STOMEND_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.iroldBlockID = config.getItem("Irold Ingot Block", hybridcraft.common.handlers.IDHandler.IROLD_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.irmendBlockID = config.getItem("Irmend Ingot Block", hybridcraft.common.handlers.IDHandler.IRMEND_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.gomendBlockID = config.getItem("Gomend Ingot Block", hybridcraft.common.handlers.IDHandler.GOMEND_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dandID = config.getItem("Dirt/Sand Block", hybridcraft.common.handlers.IDHandler.DAND_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.davelID = config.getItem("Dirt/Gravel Block",	hybridcraft.common.handlers.IDHandler.DAVEL_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.doneID = config.getItem("Dirt/Stone Block", hybridcraft.common.handlers.IDHandler.DONE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.sandBlockID = config.getItem("Sand Ingot Block", hybridcraft.common.handlers.IDHandler.SAND_DEFAULT).getInt();
+		hybridcraft.common.handlers.IDHandler.dirtBlockID = config.get(CATEGORY_BLOCKS, "Dirt Ingot Block", hybridcraft.common.handlers.IDHandler.DIRT_DEFAULT).getInt();
+		hybridcraft.common.handlers.IDHandler.dirtoneBlockID = config.get(CATEGORY_BLOCKS, "Dirtone Ingot Block", hybridcraft.common.handlers.IDHandler.DIRTONE_DEFAULT).getInt();
+		hybridcraft.common.handlers.IDHandler.dironBlockID = config.get(CATEGORY_BLOCKS, "Diron Ingot Block", hybridcraft.common.handlers.IDHandler.DIRON_DEFAULT).getInt();
+		hybridcraft.common.handlers.IDHandler.diroldBlockID = config.get(CATEGORY_BLOCKS, "Dirold Ingot Block", hybridcraft.common.handlers.IDHandler.DIROLD_DEFAULT).getInt();
+		hybridcraft.common.handlers.IDHandler.dirmendBlockID = config.get(CATEGORY_BLOCKS, "Dirmend Ingot Block", hybridcraft.common.handlers.IDHandler.DIRMEND_DEFAULT).getInt();
+		hybridcraft.common.handlers.IDHandler.stoneBlockID = config.get(CATEGORY_BLOCKS, "Stone Ingot Block", hybridcraft.common.handlers.IDHandler.STONE_DEFAULT).getInt();
+		hybridcraft.common.handlers.IDHandler.stornBlockID = config.get(CATEGORY_BLOCKS, "Storn Ingot Block", hybridcraft.common.handlers.IDHandler.STORN_DEFAULT).getInt();
+		hybridcraft.common.handlers.IDHandler.stoldBlockID = config.get(CATEGORY_BLOCKS, "Stold Ingot Block", hybridcraft.common.handlers.IDHandler.STOLD_DEFAULT).getInt();
+		hybridcraft.common.handlers.IDHandler.stomendBlockID = config.get(CATEGORY_BLOCKS, "Stomend Ingot Block", hybridcraft.common.handlers.IDHandler.STOMEND_DEFAULT).getInt();
+		hybridcraft.common.handlers.IDHandler.iroldBlockID = config.get(CATEGORY_BLOCKS, "Irold Ingot Block", hybridcraft.common.handlers.IDHandler.IROLD_DEFAULT).getInt();
+		hybridcraft.common.handlers.IDHandler.irmendBlockID = config.get(CATEGORY_BLOCKS, "Irmend Ingot Block", hybridcraft.common.handlers.IDHandler.IRMEND_DEFAULT).getInt();
+		hybridcraft.common.handlers.IDHandler.gomendBlockID = config.get(CATEGORY_BLOCKS, "Gomend Ingot Block", hybridcraft.common.handlers.IDHandler.GOMEND_DEFAULT).getInt();
+		hybridcraft.common.handlers.IDHandler.dandID = config.get(CATEGORY_BLOCKS, "Dirt/Sand Block", hybridcraft.common.handlers.IDHandler.DAND_DEFAULT).getInt();
+		hybridcraft.common.handlers.IDHandler.davelID = config.get(CATEGORY_BLOCKS, "Dirt/Gravel Block",	hybridcraft.common.handlers.IDHandler.DAVEL_DEFAULT).getInt();
+		hybridcraft.common.handlers.IDHandler.doneID = config.get(CATEGORY_BLOCKS, "Dirt/Stone Block", hybridcraft.common.handlers.IDHandler.DONE_DEFAULT).getInt();
+		hybridcraft.common.handlers.IDHandler.sandBlockID = config.get(CATEGORY_BLOCKS, "Sand Ingot Block", hybridcraft.common.handlers.IDHandler.SAND_DEFAULT).getInt();
 		hybridcraft.common.handlers.IDHandler.stoneHelmetID = config.getItem("Stone Helmet", 634).getInt();
 		hybridcraft.common.handlers.IDHandler.stonePlateID = config.getItem("Stone Chestplate", 635).getInt();
 		hybridcraft.common.handlers.IDHandler.stoneLegsID = config.getItem("Stone Leggings", 636).getInt();
@@ -209,7 +212,7 @@ public class ConfigHandler
 		hybridcraft.common.handlers.IDHandler.emeraldplateID = config.getItem("Emerald Chestplate", 660).getInt();
 		hybridcraft.common.handlers.IDHandler.emeraldlegsID = config.getItem("Emerald Leggings", 661).getInt();
 		hybridcraft.common.handlers.IDHandler.emeraldbootsID = config.getItem("Emerald Boots", 662).getInt();
-		hybridcraft.common.handlers.IDHandler.combinerID = config.getItem("Combiner", 663).getInt();
+		hybridcraft.common.handlers.IDHandler.combinerID = config.get(CATEGORY_BLOCKS, "Combiner", 663).getInt();
 		
 		config.save();
 		

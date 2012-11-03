@@ -9,6 +9,7 @@ import hybridcraft.common.gui.GuiHandlerMix;
 import hybridcraft.common.handlers.ClientPacketHandler;
 import hybridcraft.common.handlers.ConfigHandler;
 import hybridcraft.common.handlers.CraftingHandler;
+import hybridcraft.common.handlers.DummyConfig;
 import hybridcraft.common.handlers.HybridFuelHandler;
 import hybridcraft.common.handlers.ServerPacketHandler;
 import hybridcraft.common.managers.CookingPotManager;
@@ -97,8 +98,9 @@ public class Hybridcraft {
 
 		// TODO: Add all of this into config handler
 		ConfigHandler config = new ConfigHandler(event.getSuggestedConfigurationFile());
+		//DummyConfig config = new DummyConfig(event.getSuggestedConfigurationFile());
 		
-		ConfigHandler.loadConfig();
+		config.loadConfig();
 	
 	}
 
@@ -106,11 +108,11 @@ public class Hybridcraft {
 	public void load(FMLInitializationEvent event) {
 
 		// init mod items
+		Ingots.initItems();
 		Armors.initItems();
 		Blocks.initItems();
-		Flowers.initItems();
-		Ingots.initItems();
 		Tools.initItems();
+		Flowers.initItems();
 		OreCoal.initItems();
 		CounterManager.getInstance();
 		StoveManager.getInstance();
