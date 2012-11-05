@@ -1,6 +1,17 @@
 package hybridcraft.common.handlers;
 
-import net.minecraft.src.Item;
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
+import hybridcraft.common.core.lib.CobbleCoal;
+import hybridcraft.common.core.lib.DiamondCoal;
+import hybridcraft.common.core.lib.DirtCoal;
+import hybridcraft.common.core.lib.EmeraldCoal;
+import hybridcraft.common.core.lib.GoldCoal;
+import hybridcraft.common.core.lib.IronCoal;
+import hybridcraft.common.core.lib.ObsidianCoal;
+import hybridcraft.common.mod.lib.ItemIngot;
+import net.minecraft.src.EnumRarity;
+import net.minecraft.src.ItemStack;
 import net.minecraftforge.common.Configuration;
 
 public class ConfigHandler
@@ -33,6 +44,7 @@ public class ConfigHandler
 	public static int stoveBlockID = 819;
 	public static int potBlockID = 820;
 	public static int combinerBlockID = 821;
+	public static int oreFlowerID = 822; 
 	
 	//Armors 4100-4199
 	public static int dirtHelmetID = 4100;
@@ -216,9 +228,11 @@ public class ConfigHandler
 	public static int stoldIngotID = 4310;
 	public static int stomendIngotID = 4311;
 	public static int iroldIngotID = 4312;
-	public static int irmendIngotID = 4313;
-	public static int gomendIngotID = 4314;
+	public static int irmendIngotID = 4314;
+	public static int gomendIngotID = 4315;
 	
+	
+		
 	//Flowers 4321-4340
 	public static int dirtFlowerID = 4321;
 	public static int stoneFlowerID = 4322;
@@ -246,8 +260,18 @@ public class ConfigHandler
 	public static int BaBID = 4356;
 	public static int PaBID = 4357;
 	public static int CaBID = 4368;
-	public static int DogBreadID = 4369;	
-
+	public static int DogBreadID = 4369;
+	public static int bioCoalID = 4370;
+	public static int organicCoalID = 4371;
+	public static int dirtCoalID = 4372;
+	public static int cobbleCoalID = 4373;
+	public static int ironCoalID = 4374;
+	public static int goldCoalID = 4375;
+	public static int diamondCoalID = 4376;
+	public static int emeraldCoalID = 4377;
+	public static int obsidianCoalID = 4378;
+	
+	
 	private static final String COMMENT_PREFIX = "\n";
 	private static final String COMMENT_SUFFIX = "\n";
 	
@@ -279,29 +303,20 @@ public class ConfigHandler
 		stoveBlockID = config.get(CAT_BLOCKS, "stoveBlockID", stoveBlockID).getInt();
 		potBlockID = config.get(CAT_BLOCKS, "potBlockID", potBlockID).getInt();
 		combinerBlockID = config.get(CAT_BLOCKS, "combinerBlockID", combinerBlockID).getInt();
+		oreFlowerID = config.get(CAT_BLOCKS, "oreFlowerID", oreFlowerID).getInt();
 		
 		/*Load all ingot Ids */
 		obsidianShardID = config.get(CAT_ITEMS, "obsidianShardID", obsidianShardID).getInt();
 		obsidianIngotID = config.get(CAT_ITEMS, "obsidianIngotID", obsidianIngotID).getInt();
 		sandIngotID = config.get(CAT_ITEMS, "sandIngotID", sandIngotID).getInt();
 		dirtIngotID = config.get(CAT_ITEMS, "dirtIngotID", dirtIngotID).getInt();
-		dirtoneIngotID = config.get(CAT_ITEMS, "dirtoneIngotID", dirtoneIngotID).getInt();
-		dironIngotID = config.get(CAT_ITEMS, "dironIngotID", dironIngotID).getInt();
-		diroldIngotID = config.get(CAT_ITEMS, "diroldIngotID", diroldIngotID).getInt();
-		dirmendIngotID = config.get(CAT_ITEMS, "dirmendIngotID", dirmendIngotID).getInt();
-		stornIngotID = config.get(CAT_ITEMS, "stornIngotID", stornIngotID).getInt();
-		stoldIngotID = config.get(CAT_ITEMS, "stoldIngotID", stoldIngotID).getInt();
-		stomendIngotID = config.get(CAT_ITEMS, "stomendIngotID", stomendIngotID).getInt();
-		iroldIngotID = config.get(CAT_ITEMS, "iroldIngotID", iroldIngotID).getInt();
-		irmendIngotID = config.get(CAT_ITEMS, "irmendIngotID", irmendIngotID).getInt();
-		gomendIngotID = config.get(CAT_ITEMS, "gomendIngotID", gomendIngotID).getInt();
 		
 		/*Load all tool Ids */
 		
 		//dirt
 		dirtAxeID = config.get(CAT_TOOLS, "dirtAxeID", dirtAxeID).getInt();
 		dirtHoeID = config.get(CAT_TOOLS, "dirtHoeID", dirtHoeID).getInt();
-		dirtPickID = config.get(CAT_TOOLS, "dirtPickID", dirtPickID).getInt();
+		dirtPickID = config.get(CAT_TOOLS, "dirtPickID", dirtHoeID).getInt();
 		dirtShovelID = config.get(CAT_TOOLS, "dirtShovelID", dirtShovelID).getInt();
 		dirtSwordID = config.get(CAT_TOOLS, "dirtSwordID", dirtSwordID).getInt();		
 
