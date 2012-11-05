@@ -3,7 +3,6 @@ package hybridcraft.common.mod.lib;
 import static net.minecraftforge.common.EnumPlantType.Plains;
 
 import java.util.List;
-import java.util.Random;
 
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
@@ -11,13 +10,14 @@ import cpw.mods.fml.common.asm.SideOnly;
 import net.minecraft.src.AxisAlignedBB;
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
+import net.minecraft.src.EnumRarity;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
 import net.minecraft.src.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IPlantable;
-
+import hybridcraft.common.mod.*;
 public class BlockFlowers extends Block implements IPlantable
 {
 	
@@ -35,9 +35,14 @@ public class BlockFlowers extends Block implements IPlantable
 	{
 		super(id, index, Material.plants);
 		this.setRequiresSelfNotify();
-		this.setTickRandomly(true);
-		this.setCreativeTab(hybridcraft.common.mod.Hybridcraft.tabsHCM);
+		this.setCreativeTab(Hybridcraft.tabsHCM);
 	}
+
+	@SideOnly(Side.CLIENT)
+	public EnumRarity getRarity(ItemStack par1){
+		return EnumRarity.uncommon;
+	}		
+
 	
 	public boolean canBlockStay(World par1World, int par2, int par3, int par4)
     {
@@ -109,7 +114,7 @@ public class BlockFlowers extends Block implements IPlantable
 	public String getTextureFile(){
 		return "/hc/flowers.png";
 	}
-	
+
 	@Override
 	public EnumPlantType getPlantType(World world, int x, int y, int z) {
 		return Plains;

@@ -1,5 +1,7 @@
 package hybridcraft.common.containers;
 
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 import hybridcraft.common.managers.HybridizingManager;
 import hybridcraft.common.mod.Hybridcraft;
 import net.minecraft.src.*;
@@ -19,6 +21,11 @@ public class ContainerHybridizer extends ContainerWorkbench {
 		this.posZ = par5;
 	}
 
+	@SideOnly(Side.CLIENT)
+	public EnumRarity getRarity(ItemStack par1){
+		return EnumRarity.uncommon;
+	}		
+	
 	@Override
 	public void onCraftMatrixChanged(IInventory par1IInventory) {
 		this.craftResult.setInventorySlotContents(0, HybridizingManager.getInstance().findMatchingRecipe(this.craftMatrix));

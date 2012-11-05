@@ -9,7 +9,10 @@ import hybridcraft.common.gui.GuiHandlerMix;
 import hybridcraft.common.handlers.ClientPacketHandler;
 import hybridcraft.common.handlers.ConfigHandler;
 import hybridcraft.common.handlers.CraftingHandler;
+import hybridcraft.common.handlers.GameRegHandler;
 import hybridcraft.common.handlers.HybridFuelHandler;
+import hybridcraft.common.handlers.LanguageHandler;
+import hybridcraft.common.handlers.RecipeHandler;
 import hybridcraft.common.handlers.ServerPacketHandler;
 import hybridcraft.common.managers.CookingPotManager;
 import hybridcraft.common.managers.CounterManager;
@@ -19,6 +22,7 @@ import hybridcraft.common.mod.init.Blocks;
 import hybridcraft.common.mod.init.Flowers;
 import hybridcraft.common.mod.init.Ingots;
 import hybridcraft.common.mod.init.Tools;
+import hybridcraft.common.mod.init.Torches;
 import hybridcraft.common.mod.lib.CreativeTabHCM;
 import hybridcraft.common.mod.lib.WorldGeneratorHybrid;
 import hybridcraft.common.proxies.CommonProxyHybrid;
@@ -28,6 +32,7 @@ import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EnumCreatureType;
 import net.minecraft.src.Item;
+import net.minecraft.src.ItemBow;
 import net.minecraftforge.common.Configuration;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -51,7 +56,7 @@ public class Hybridcraft {
 	public static CreativeTabs tabsHCM = new CreativeTabHCM(CreativeTabs.getNextID(), CoreRef.HCM_MOD_ID);
 
 	// Instance
-	@Instance("HybridCraft 3 Materials")
+	@Instance("hybridcraft.common.core.CoreRef.HCM_MOD_ID")
 	public static Hybridcraft instance = new Hybridcraft();
 	private GuiHandlerMix guiHandlerMix = new GuiHandlerMix();
 	private GuiHandlerFood guiHandlerFood = new GuiHandlerFood();
@@ -69,6 +74,12 @@ public class Hybridcraft {
 	
 	//Sparkling Blocks
 	public static Block sparkle;
+	
+	//Torches
+	public static Block dirtTorch;
+	public static Block stoneTorch;
+	public static Block cobbleTorch;
+	public static Block sandTorch;
 	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event) {
@@ -93,6 +104,10 @@ public class Hybridcraft {
 		CounterManager.getInstance();
 		StoveManager.getInstance();
 		CookingPotManager.getInstance();
+		GameRegHandler.loadBlocks();
+		LanguageHandler.loadNames();
+		RecipeHandler.loadRecipes();
+
 		
 		// Fuel
 		bioCoal = new BioCoal(1507).setIconIndex(7).setItemName("bioCoal");
@@ -100,6 +115,16 @@ public class Hybridcraft {
 
 		//Sparkle
 		sparkle = new BlockSparkle(2091, 1).setBlockName("Sparklez");
+		
+		//Torches
+		dirtTorch = new Torches(823, 80).setHardness(0.0F).setLightValue(0.1736F).setStepSound(Block.soundWoodFootstep).setBlockName("torch").setRequiresSelfNotify();
+		stoneTorch = new Torches(824, 80).setHardness(0.0F).setLightValue(0.2604F).setStepSound(Block.soundWoodFootstep).setBlockName("torch").setRequiresSelfNotify();
+		cobbleTorch = new Torches(825, 80).setHardness(0.0F).setLightValue(0.2174F).setStepSound(Block.soundWoodFootstep).setBlockName("torch").setRequiresSelfNotify();
+		sandTorch = new Torches(826, 80).setHardness(0.0F).setLightValue(0.2405F).setStepSound(Block.soundWoodFootstep).setBlockName("torch").setRequiresSelfNotify();
+		
+		//Mobs
+		EntityRegistry.registerModEntity(EntityHybrid.class, "Tutorial", 44, this, 40, 1, true);
+		EntityRegistry.addSpawn(EntityHybrid.class, 10, 2, 4, EnumCreatureType.monster, BiomeGenBase.beach, BiomeGenBase.extremeHills, BiomeGenBase.extremeHillsEdge, BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.jungle, BiomeGenBase.jungleHills, BiomeGenBase.mushroomIsland, BiomeGenBase.mushroomIslandShore, BiomeGenBase.ocean, BiomeGenBase.plains, BiomeGenBase.river, BiomeGenBase.swampland);
 		
 		// Register combiner GUI
 		NetworkRegistry.instance().registerGuiHandler(this, guiHandlerMix);
@@ -119,12 +144,16 @@ public class Hybridcraft {
 		GameRegistry.registerBlock(sparkle);
 		LanguageRegistry.addName(sparkle, "Sparkz");
 		
-		/**
-		 //Entities
-		 EntityRegistry.registerModEntity(EntityTutorial.class, "Tutorial", 44, this, 40, 1, true);
-		 EntityRegistry.addSpawn(EntityTutorial.class, 10, 2, 4, EnumCreatureType.monster, BiomeGenBase.beach, BiomeGenBase.extremeHills, BiomeGenBase.extremeHillsEdge, BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.jungle, BiomeGenBase.jungleHills, BiomeGenBase.mushroomIsland, BiomeGenBase.mushroomIslandShore, BiomeGenBase.ocean, BiomeGenBase.plains, BiomeGenBase.river, BiomeGenBase.swampland);
-		 */
-
+		//Torches
+		GameRegistry.registerBlock(dirtTorch);
+		GameRegistry.registerBlock(cobbleTorch);
+		GameRegistry.registerBlock(sandTorch);
+		GameRegistry.registerBlock(stoneTorch);
+		LanguageRegistry.addName(dirtTorch, "Dirt Torch");
+		LanguageRegistry.addName(sandTorch, "Sand Torch");
+		LanguageRegistry.addName(cobbleTorch, "Cobble Torch");
+		LanguageRegistry.addName(stoneTorch, "Stone Torch");
+		
 		proxy.registerRenderThings();
 
 	}

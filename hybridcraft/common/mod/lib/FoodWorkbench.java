@@ -1,8 +1,12 @@
 package hybridcraft.common.mod.lib;
 
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.EnumRarity;
+import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
 import net.minecraft.src.World;
 
@@ -22,6 +26,11 @@ public class FoodWorkbench extends Block
     {
         return par1 == 1 ? this.blockIndexInTexture - 16 : (par1 == 0 ? Block.planks.getBlockTextureFromSide(0) : (par1 != 2 && par1 != 4 ? this.blockIndexInTexture : this.blockIndexInTexture + 1));
     }
+
+    @SideOnly(Side.CLIENT)
+	public EnumRarity getRarity(ItemStack par1){
+		return EnumRarity.uncommon;
+	}		
 
     /**
      * Called upon block activation (right click on the block.)

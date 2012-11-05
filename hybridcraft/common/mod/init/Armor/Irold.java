@@ -1,7 +1,10 @@
 package hybridcraft.common.mod.init.Armor;
 
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 import hybridcraft.common.mod.Hybridcraft;
 import net.minecraft.src.EnumArmorMaterial;
+import net.minecraft.src.EnumRarity;
 import net.minecraft.src.ItemArmor;
 import net.minecraft.src.ItemStack;
 import net.minecraftforge.common.IArmorTextureProvider;
@@ -13,6 +16,10 @@ public class Irold extends ItemArmor implements IArmorTextureProvider{
  this.setCreativeTab(hybridcraft.common.mod.Hybridcraft.tabsHCM);
 
  }
+	@SideOnly(Side.CLIENT)
+	public EnumRarity getRarity(ItemStack par1){
+		return EnumRarity.uncommon;
+	}		
 
  public String getTextureFile(){
  return "/hc/armor.png";

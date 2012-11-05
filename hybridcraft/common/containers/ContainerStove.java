@@ -1,5 +1,7 @@
 package hybridcraft.common.containers;
 
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 import net.minecraft.src.*;
 import hybridcraft.common.managers.StoveManager;
 
@@ -18,6 +20,10 @@ public class ContainerStove extends ContainerWorkbench {
 		this.posZ = par5;
 	}
 
+	@SideOnly(Side.CLIENT)
+	public EnumRarity getRarity(ItemStack par1){
+		return EnumRarity.uncommon;
+	}		
 	@Override
 	public void onCraftMatrixChanged(IInventory par1IInventory) {
 		this.craftResult.setInventorySlotContents(0, StoveManager.getInstance().findMatchingRecipe(this.craftMatrix));

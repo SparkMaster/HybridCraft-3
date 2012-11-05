@@ -20,6 +20,11 @@ public class BlockCookingPot extends Block {
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.5F, 0.5F, 0.5F);
 	}
 
+	@SideOnly(Side.CLIENT)
+	public EnumRarity getRarity(ItemStack par1){
+		return EnumRarity.uncommon;
+	}		
+
     
 	// Display gui
 	@Override

@@ -1,6 +1,9 @@
 package hybridcraft.common.mod.lib;
 
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 import net.minecraft.src.Block;
+import net.minecraft.src.EnumRarity;
 import net.minecraft.src.EnumToolMaterial;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.ItemTool;
@@ -16,6 +19,11 @@ public class ItemHybridPickaxe extends ItemTool
         super(par1, 2, par2EnumToolMaterial, blocksEffectiveAgainst);
         this.setCreativeTab(hybridcraft.common.mod.Hybridcraft.tabsHCM);
     }
+
+	@SideOnly(Side.CLIENT)
+	public EnumRarity getRarity(ItemStack par1){
+		return EnumRarity.uncommon;
+	}		
 
     /**
      * Returns if the item (tool) can harvest results from the block type.

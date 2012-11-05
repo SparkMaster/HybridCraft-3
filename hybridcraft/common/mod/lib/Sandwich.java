@@ -1,5 +1,7 @@
 package hybridcraft.common.mod.lib;
 
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 import net.minecraft.src.*;
 
 public class Sandwich extends ItemFood {
@@ -8,6 +10,11 @@ public class Sandwich extends ItemFood {
 		super(par1, healAmount, par3, false);
 		this.setCreativeTab(hybridcraft.common.mod.Hybridcraft.tabsHCM);
 	}
+
+	@SideOnly(Side.CLIENT)
+	public EnumRarity getRarity(ItemStack par1){
+		return EnumRarity.uncommon;
+	}		
 
 	public String getTextureFile() {
 		return "/hc/sandwich.png";

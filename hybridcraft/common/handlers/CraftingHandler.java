@@ -1,7 +1,12 @@
 package hybridcraft.common.handlers;
 
+import hybridcraft.common.mod.lib.ItemHybridAxe;
+import hybridcraft.common.mod.lib.ItemHybridHoe;
+import hybridcraft.common.mod.lib.ItemHybridPickaxe;
+import hybridcraft.common.mod.lib.ItemHybridSpade;
+import hybridcraft.common.mod.lib.ItemHybridSword;
 import java.util.Random;
-
+import net.minecraft.src.Enchantment;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.IInventory;
 import net.minecraft.src.ItemStack;
@@ -19,17 +24,17 @@ public class CraftingHandler implements ICraftingHandler {
 		// gold = looting
 		// diamond = fortune
 
-		net.minecraft.src.Enchantment[] i = new net.minecraft.src.Enchantment[] {net.minecraft.src.Enchantment.looting,net.minecraft.src.Enchantment.sharpness};
+		Enchantment[] i = new Enchantment[] {Enchantment.looting, Enchantment.sharpness};
 		
-		if (item.getItem() instanceof hybridcraft.common.mod.lib.ItemHybridAxe) {
+		if (item.getItem() instanceof ItemHybridAxe) {
 			item.addEnchantment(i[(int) (new Random().nextDouble()*2)], 1);
-		} else if (item.getItem() instanceof hybridcraft.common.mod.lib.ItemHybridHoe) {
+		} else if (item.getItem() instanceof ItemHybridHoe) {
 			item.addEnchantment(i[(int) (new Random().nextDouble()*2)], 1);
-		} else if (item.getItem() instanceof hybridcraft.common.mod.lib.ItemHybridPickaxe) {
+		} else if (item.getItem() instanceof ItemHybridPickaxe) {
 			item.addEnchantment(i[(int) (new Random().nextDouble()*2)], 1);
-		} else if (item.getItem() instanceof hybridcraft.common.mod.lib.ItemHybridSpade) {
+		} else if (item.getItem() instanceof ItemHybridSpade) {
 			item.addEnchantment(i[(int) (new Random().nextDouble()*2)], 1);
-		} else if (item.getItem() instanceof hybridcraft.common.mod.lib.ItemHybridSword) {
+		} else if (item.getItem() instanceof ItemHybridSword) {
 			item.addEnchantment(i[(int) (new Random().nextDouble()*2)], 1);
 		}
 	}

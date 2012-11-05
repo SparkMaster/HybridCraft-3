@@ -3,6 +3,7 @@ package hybridcraft.common.mod.lib;
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.EnumRarity;
 import net.minecraft.src.EnumToolMaterial;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
@@ -25,6 +26,11 @@ public class ItemHybridHoe extends Item
         this.setMaxDamage(par2EnumToolMaterial.getMaxUses());
         this.setCreativeTab(hybridcraft.common.mod.Hybridcraft.tabsHCM);
     }
+
+	@SideOnly(Side.CLIENT)
+	public EnumRarity getRarity(ItemStack par1){
+		return EnumRarity.uncommon;
+	}		
 
     /**
      * Callback for item usage. If the item does something special on right clicking, he will have one of those. Return

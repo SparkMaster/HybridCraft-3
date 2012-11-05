@@ -1,6 +1,9 @@
 package hybridcraft.common.mod.lib;
 
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 import net.minecraft.src.CreativeTabs;
+import net.minecraft.src.EnumRarity;
 
 import net.minecraft.src.EntityPlayer;
 
@@ -27,6 +30,11 @@ public class FoodBread extends ItemFood
 	/** The amount this food item heals the player. */
 
 	private final int healAmount;
+
+	@SideOnly(Side.CLIENT)
+	public EnumRarity getRarity(ItemStack par1){
+		return EnumRarity.uncommon;
+	}		
 
 	private final float saturationModifier;
 

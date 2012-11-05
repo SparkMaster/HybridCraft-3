@@ -6,6 +6,7 @@ import net.minecraft.src.Entity;
 import net.minecraft.src.EntityLiving;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.EnumAction;
+import net.minecraft.src.EnumRarity;
 import net.minecraft.src.EnumToolMaterial;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
@@ -28,6 +29,11 @@ public class ItemHybridSword extends Item
         this.setCreativeTab(hybridcraft.common.mod.Hybridcraft.tabsHCM);
         this.weaponDamage = 4 + par2EnumToolMaterial.getDamageVsEntity();
     }
+
+	@SideOnly(Side.CLIENT)
+	public EnumRarity getRarity(ItemStack par1){
+		return EnumRarity.uncommon;
+	}		
 
     /**
      * Returns the strength of the stack against a given block. 1.0F base, (Quality+1)*2 if correct blocktype, 1.5F if

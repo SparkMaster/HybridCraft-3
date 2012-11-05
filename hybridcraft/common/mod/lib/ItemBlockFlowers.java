@@ -1,6 +1,9 @@
 package hybridcraft.common.mod.lib;
 
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 import net.minecraft.src.Block;
+import net.minecraft.src.EnumRarity;
 import net.minecraft.src.ItemBlock;
 import net.minecraft.src.ItemStack;
 
@@ -14,9 +17,14 @@ public class ItemBlockFlowers extends ItemBlock {
 	
 	public ItemBlockFlowers(Block block)
 	{
-		this(block.blockID - 256);
+		this(block.blockID);
 	}
-	
+
+	@SideOnly(Side.CLIENT)
+	public EnumRarity getRarity(ItemStack par1){
+		return EnumRarity.uncommon;
+	}		
+
 	@Override
     public int getIconFromDamage(int metadata)
 	{

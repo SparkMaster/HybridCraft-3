@@ -33,6 +33,7 @@ public class Blocks {
 	public static Block dand;
 	public static Block davel;
 	public static Block done;
+	
 
 	// Kitchen
 	public static Block stove;
@@ -67,77 +68,6 @@ public class Blocks {
 
 	// Combiner
 	blockHybridizer = new BlockHybridizer(ConfigHandler.combinerBlockID).setBlockName("Hybridizer");
-
-	// Ingot Block Registry
-	GameRegistry.registerBlock(dirtBlock);
-	GameRegistry.registerBlock(dirtoneBlock);
-	GameRegistry.registerBlock(dironBlock);
-	GameRegistry.registerBlock(diroldBlock);
-	GameRegistry.registerBlock(dirmendBlock);
-	GameRegistry.registerBlock(stoneBlock);
-	GameRegistry.registerBlock(stornBlock);
-	GameRegistry.registerBlock(stoldBlock);
-	GameRegistry.registerBlock(stomendBlock);
-	GameRegistry.registerBlock(iroldBlock);
-	GameRegistry.registerBlock(irmendBlock);
-	GameRegistry.registerBlock(gomendBlock);
-	GameRegistry.registerBlock(sandBlock);
-	LanguageRegistry.addName(dirtBlock, "Dirt Ingot Block");
-	LanguageRegistry.addName(dirtoneBlock, "Dirtone Ingot Block");
-	LanguageRegistry.addName(dironBlock, "Diron Ingot Block");
-	LanguageRegistry.addName(diroldBlock, "Dirold Ingot Block");
-	LanguageRegistry.addName(dirmendBlock, "Dirmend Ingot Block");
-	LanguageRegistry.addName(stoneBlock, "Stone Ingot Block");
-	LanguageRegistry.addName(stornBlock, "Storn Ingot Block");
-	LanguageRegistry.addName(stoldBlock, "Stold Ingot Block");
-	LanguageRegistry.addName(stomendBlock, "Stomend Ingot Block");
-	LanguageRegistry.addName(iroldBlock, "Irold Ingot Block");
-	LanguageRegistry.addName(irmendBlock, "Irmend Ingot Block");
-	LanguageRegistry.addName(gomendBlock, "Gomend Ingot Block");
-	LanguageRegistry.addName(sandBlock, "Sand Ingot Block");
-
-	// World Blocks
-	GameRegistry.registerBlock(dand);
-	GameRegistry.registerBlock(davel);
-	GameRegistry.registerBlock(done);
-	LanguageRegistry.addName(dand, "Dirt/Sand Block");
-	LanguageRegistry.addName(davel, "Dirt/Gravel Block");
-	LanguageRegistry.addName(done, "Dirt/Stone Block");
-
-	// Block Recipes
-	GameRegistry.addRecipe(new ItemStack(dirtBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', Ingots.dirtIngot, });
-	GameRegistry.addRecipe(new ItemStack(dirtoneBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', HybridizingManager.getInstance().dirtoneIngot, });
-	GameRegistry.addRecipe(new ItemStack(dironBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', HybridizingManager.getInstance().dironIngot, });
-	GameRegistry.addRecipe(new ItemStack(diroldBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', HybridizingManager.getInstance().diroldIngot, });
-	GameRegistry.addRecipe(new ItemStack(dirmendBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', HybridizingManager.getInstance().dirmendIngot, });
-	GameRegistry.addRecipe(new ItemStack(stornBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', HybridizingManager.getInstance().stornIngot, });
-	GameRegistry.addRecipe(new ItemStack(stoldBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', HybridizingManager.getInstance().stoldIngot, });
-	GameRegistry.addRecipe(new ItemStack(stomendBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', HybridizingManager.getInstance().stomendIngot, });
-	GameRegistry.addRecipe(new ItemStack(iroldBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', HybridizingManager.getInstance().iroldIngot, });
-	GameRegistry.addRecipe(new ItemStack(irmendBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', HybridizingManager.getInstance().irmendIngot, });
-	GameRegistry.addRecipe(new ItemStack(gomendBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', HybridizingManager.getInstance().gomendIngot, });
-	GameRegistry.addRecipe(new ItemStack(sandBlock, 1), new Object[] { "XXX", "XXX", "XXX", 'X', Ingots.sandIngot, });
-
-	// Block -> Ingot Recipes
-	GameRegistry.addShapelessRecipe(new ItemStack(HybridizingManager.getInstance().dirtoneIngot, 9), new Object[] { new ItemStack(dirtoneBlock) });
-	GameRegistry.addShapelessRecipe(new ItemStack(HybridizingManager.getInstance().dironIngot, 9), new Object[] { new ItemStack(dironBlock) });
-	GameRegistry.addShapelessRecipe(new ItemStack(HybridizingManager.getInstance().diroldIngot, 9), new Object[] { new ItemStack(diroldBlock) });
-	GameRegistry.addShapelessRecipe(new ItemStack(HybridizingManager.getInstance().dirmendIngot, 9), new Object[] { new ItemStack(dirmendBlock) });
-	GameRegistry.addShapelessRecipe(new ItemStack(HybridizingManager.getInstance().stornIngot, 9), new Object[] { new ItemStack(stornBlock) });
-	GameRegistry.addShapelessRecipe(new ItemStack(HybridizingManager.getInstance().stoldIngot, 9), new Object[] { new ItemStack(stoldBlock) });
-	GameRegistry.addShapelessRecipe(new ItemStack(HybridizingManager.getInstance().stomendIngot, 9), new Object[] { new ItemStack(stomendBlock) });
-	GameRegistry.addShapelessRecipe(new ItemStack(HybridizingManager.getInstance().iroldIngot, 9), new Object[] { new ItemStack(iroldBlock) });
-	GameRegistry.addShapelessRecipe(new ItemStack(HybridizingManager.getInstance().irmendIngot, 9), new Object[] { new ItemStack(irmendBlock) });
-	GameRegistry.addShapelessRecipe(new ItemStack(HybridizingManager.getInstance().gomendIngot, 9), new Object[] { new ItemStack(gomendBlock) });
-	GameRegistry.addShapelessRecipe(new ItemStack(Ingots.sandIngot, 9), new Object[] { new ItemStack(sandBlock) });
-	GameRegistry.addShapelessRecipe(new ItemStack(Ingots.dirtIngot, 9), new Object[] { new ItemStack(dirtBlock) });
-
-	// Combiner
-	GameRegistry.registerBlock(blockHybridizer);
-	LanguageRegistry.addName(blockHybridizer, "Hybridizer");
-			
-	// Hybridizer
-	GameRegistry.addRecipe(new ItemStack(blockHybridizer, 1), new Object[] {"XDX", "DSD", "XDX", 'X', Block.sand, 'D', Block.dirt, 'S',Block.cobblestone });
 			
 	}
 }

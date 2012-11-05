@@ -13,6 +13,12 @@ public class BlockStove extends Block {
 	}
 	
 	@SideOnly(Side.CLIENT)
+	public EnumRarity getRarity(ItemStack par1){
+		return EnumRarity.uncommon;
+	}		
+	
+	
+	@SideOnly(Side.CLIENT)
 
 	// Display gui if next to counter
 	@Override

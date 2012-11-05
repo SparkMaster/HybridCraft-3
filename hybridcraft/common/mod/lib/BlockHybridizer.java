@@ -1,5 +1,7 @@
 package hybridcraft.common.mod.lib;
 
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 import hybridcraft.common.mod.Hybridcraft;
 import net.minecraft.src.*;
 
@@ -9,6 +11,11 @@ public class BlockHybridizer extends BlockWorkbench {
 		super(par1);
 		this.setCreativeTab(hybridcraft.common.mod.Hybridcraft.tabsHCM);
 	}
+
+	@SideOnly(Side.CLIENT)
+	public EnumRarity getRarity(ItemStack par1){
+		return EnumRarity.uncommon;
+	}		
 
 	@Override
 	public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {

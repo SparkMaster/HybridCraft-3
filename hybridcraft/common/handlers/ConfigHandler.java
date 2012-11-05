@@ -1,18 +1,7 @@
 package hybridcraft.common.handlers;
 
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
-import hybridcraft.common.core.lib.CobbleCoal;
-import hybridcraft.common.core.lib.DiamondCoal;
-import hybridcraft.common.core.lib.DirtCoal;
-import hybridcraft.common.core.lib.EmeraldCoal;
-import hybridcraft.common.core.lib.GoldCoal;
-import hybridcraft.common.core.lib.IronCoal;
-import hybridcraft.common.core.lib.ObsidianCoal;
-import hybridcraft.common.mod.lib.ItemIngot;
-import net.minecraft.src.EnumRarity;
-import net.minecraft.src.ItemStack;
 import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.Property;
 
 public class ConfigHandler
 {
@@ -118,11 +107,10 @@ public class ConfigHandler
 	public static int sandLegsID = 4154;
 	public static int sandBootsID = 4155;
 	
-	public static int emeraldhelmetID = 4156;
-	public static int emeraldplateID = 4157;
-	public static int emeraldlegsID = 4158;
-	public static int emeraldbootsID = 4159;
-	
+	public static int emeraldHelmetID = 4156;
+	public static int emeraldPlateID = 4157;
+	public static int emeraldLegsID = 4158;
+	public static int emeraldBootsID = 4159;
 	
 	// Tools  4200-4299
 	public static int dirtSwordID = 4200;
@@ -228,11 +216,9 @@ public class ConfigHandler
 	public static int stoldIngotID = 4310;
 	public static int stomendIngotID = 4311;
 	public static int iroldIngotID = 4312;
-	public static int irmendIngotID = 4314;
-	public static int gomendIngotID = 4315;
+	public static int irmendIngotID = 4313;
+	public static int gomendIngotID = 4314;
 	
-	
-		
 	//Flowers 4321-4340
 	public static int dirtFlowerID = 4321;
 	public static int stoneFlowerID = 4322;
@@ -261,6 +247,7 @@ public class ConfigHandler
 	public static int PaBID = 4357;
 	public static int CaBID = 4368;
 	public static int DogBreadID = 4369;
+	
 	public static int bioCoalID = 4370;
 	public static int organicCoalID = 4371;
 	public static int dirtCoalID = 4372;
@@ -271,235 +258,595 @@ public class ConfigHandler
 	public static int emeraldCoalID = 4377;
 	public static int obsidianCoalID = 4378;
 	
-	
-	private static final String COMMENT_PREFIX = "\n";
-	private static final String COMMENT_SUFFIX = "\n";
+	public static final String commentPrefix = "************  ************\n\n";
+	public static final String commentSuffix = "\n";
 	
 	public static void loadConfig(Configuration config)
 	{
-		
 		config.load();
 		
+		Property bioCoalIDProperty = config.get(CAT_ITEMS, "bioCoalID", bioCoalID);
+		bioCoalIDProperty.comment = commentPrefix + "Bio Coal Item ID default = " + bioCoalID + commentSuffix;
+		
+		Property organicCoalIDProperty = config.get(CAT_ITEMS, "organicCoalID", organicCoalID);
+		organicCoalIDProperty.comment = commentPrefix + "Organic Coal Item ID default = " + organicCoalID + commentSuffix;
+		
+		Property dirtCoalIDProperty = config.get(CAT_ITEMS, "dirtCoalID", dirtCoalID);
+		dirtCoalIDProperty.comment = commentPrefix + "Dirt Coal Item ID default = " + dirtCoalID + commentSuffix;
+		
+		Property cobbleCoalIDProperty = config.get(CAT_ITEMS, "cobbleCoalID", cobbleCoalID);
+		cobbleCoalIDProperty.comment = commentPrefix + "Cobble Coal Item ID default = " + cobbleCoalID + commentSuffix;
+		
+		Property ironCoalIDProperty = config.get(CAT_ITEMS, "ironCoalID", ironCoalID);
+		ironCoalIDProperty.comment = commentPrefix + "Iron Coal Item ID default = " + ironCoalID + commentSuffix;
 
-		dirtBlockID = config.get("blocks", "dirtBlockID", dirtBlockID).getInt();
+		Property goldCoalIDProperty = config.get(CAT_ITEMS, "goldCoalID", goldCoalID);
+		goldCoalIDProperty.comment = commentPrefix + "Gold Coal Item ID default = " + goldCoalID + commentSuffix;
 		
+		Property diamondCoalIDProperty = config.get(CAT_ITEMS, "diamondCoalID", diamondCoalID);
+		diamondCoalIDProperty.comment = commentPrefix + "Diamond Coal Item ID default = " + diamondCoalID + commentSuffix;
 		
-		dirtoneBlockID = config.get(CAT_BLOCKS, "dirtOneBlockID", dirtoneBlockID).getInt();
-		dironBlockID = config.get(CAT_BLOCKS, "dironBlockID", dironBlockID).getInt();
-		diroldBlockID = config.get(CAT_BLOCKS, "diroldBlockID", diroldBlockID).getInt();
-		dirmendBlockID = config.get(CAT_BLOCKS, "dirmendBlockID", dirmendBlockID).getInt();
-		stoneBlockID = config.get(CAT_BLOCKS, "stoneBlockID", stoneBlockID).getInt();
-		stornBlockID = config.get(CAT_BLOCKS, "stornBlockID", stornBlockID).getInt();
-		stoldBlockID = config.get(CAT_BLOCKS, "stoldBlockID", stoldBlockID).getInt();
-		stomendBlockID = config.get(CAT_BLOCKS, "stomendBlockID", stomendBlockID).getInt();
-		iroldBlockID = config.get(CAT_BLOCKS, "iroldBlockID", iroldBlockID).getInt();
-		irmendBlockID = config.get(CAT_BLOCKS, "irmendBlockID", irmendBlockID).getInt();
-		gomendBlockID = config.get(CAT_BLOCKS, "gomendBlockID", gomendBlockID).getInt();
-		dandID = config.get(CAT_BLOCKS, "dandID", dandID).getInt();
-		davelID = config.get(CAT_BLOCKS, "davelID",	davelID).getInt();
-		doneID = config.get(CAT_BLOCKS, "doneID", doneID).getInt();
-		sandID = config.get(CAT_BLOCKS, "sandID", sandID).getInt();
-		counterBlockID = config.get(CAT_BLOCKS, "counterBlockID", counterBlockID).getInt();
-		stoveBlockID = config.get(CAT_BLOCKS, "stoveBlockID", stoveBlockID).getInt();
-		potBlockID = config.get(CAT_BLOCKS, "potBlockID", potBlockID).getInt();
-		combinerBlockID = config.get(CAT_BLOCKS, "combinerBlockID", combinerBlockID).getInt();
-		oreFlowerID = config.get(CAT_BLOCKS, "oreFlowerID", oreFlowerID).getInt();
+		Property emeraldCoalIDProperty = config.get(CAT_ITEMS, "emeraldCoalID", emeraldCoalID);
+		emeraldCoalIDProperty.comment = commentPrefix + "Emerald Coal Item ID default = " + emeraldCoalID + commentSuffix;
+		
+		Property obsidianCoalIDProperty = config.get(CAT_ITEMS, "obsidianCoalID", obsidianCoalID);
+		obsidianCoalIDProperty.comment = commentPrefix + "Obsidian Coal Item ID default = " + obsidianCoalID + commentSuffix;
+
+		Property dirtBlockIDProperty = config.get("blocks", "dirtBlockID", dirtBlockID);
+		dirtBlockIDProperty.comment = commentPrefix + "Dirt Block ID default = " + dirtBlockID + commentSuffix;
+		
+		Property dirtoneBlockIDProperty = config.get(CAT_BLOCKS, "dirtOneBlockID", dirtoneBlockID);
+		dirtoneBlockIDProperty.comment = commentPrefix + "Dirtone Block ID default = " + dirtoneBlockID + commentSuffix;
+		
+		Property dironBlockIDProperty = config.get(CAT_BLOCKS, "dironBlockID", dironBlockID);
+		dironBlockIDProperty.comment = commentPrefix + "Diron Block ID default = " + dironBlockID + commentSuffix;
+		
+		Property diroldBlockIDProperty = config.get(CAT_BLOCKS, "diroldBlockID", diroldBlockID);
+		diroldBlockIDProperty.comment = commentPrefix + "Dirold Block ID default = " + diroldBlockID + commentSuffix;
+		
+		Property dirmendBlockIDProperty = config.get(CAT_BLOCKS, "dirmendBlockID", dirmendBlockID);
+		dirmendBlockIDProperty.comment = commentPrefix + "Dirmend Block ID default = " + dirmendBlockID + commentSuffix;
+		
+		Property stoneBlockIDProperty = config.get(CAT_BLOCKS, "stoneBlockID", stoneBlockID);
+		stoneBlockIDProperty.comment = commentPrefix + "Stone Block ID default = " + stoneBlockID + commentSuffix;
+		
+		Property stornBlockIDProperty = config.get(CAT_BLOCKS, "stornBlockID", stornBlockID);
+		stornBlockIDProperty.comment = commentPrefix + "Storn Block ID default = " + stornBlockID + commentSuffix;
+		
+		Property stoldBlockIDProperty = config.get(CAT_BLOCKS, "stoldBlockID", stoldBlockID);
+		stoldBlockIDProperty.comment = commentPrefix + "Stold Block ID default = " + stoldBlockID + commentSuffix;
+		
+		Property stomendBlockIDProperty = config.get(CAT_BLOCKS, "stomendBlockID", stomendBlockID);
+		stomendBlockIDProperty.comment = commentPrefix + "Stomend Block ID default = " + stomendBlockID + commentSuffix;
+		
+		Property iroldBlockIDProperty = config.get(CAT_BLOCKS, "iroldBlockID", iroldBlockID);
+		iroldBlockIDProperty.comment = commentPrefix + "Irold Block ID default = " + iroldBlockID + commentSuffix;
+		
+		Property irmendBlockIDProperty  = config.get(CAT_BLOCKS, "irmendBlockID", irmendBlockID);
+		irmendBlockIDProperty.comment = commentPrefix + "Irmend Block ID default = " + irmendBlockID + commentSuffix;
+		
+		Property gomendBlockIDProperty  = config.get(CAT_BLOCKS, "gomendBlockID", gomendBlockID);
+		gomendBlockIDProperty.comment = commentPrefix + "Gomend Block ID default = " + gomendBlockID + commentSuffix;
+		
+		Property dandIDProperty  = config.get(CAT_BLOCKS, "dandID", dandID);
+		dandIDProperty.comment = commentPrefix + "Dand Block ID default = " + dandID + commentSuffix;
+		
+		Property davelIDProperty  = config.get(CAT_BLOCKS, "davelID",	davelID);
+		davelIDProperty.comment = commentPrefix + "Davel Block ID default = " + davelID + commentSuffix;
+		
+		Property doneIDProperty  = config.get(CAT_BLOCKS, "doneID", doneID);
+		doneIDProperty.comment = commentPrefix + "Done Block ID default = " + doneID + commentSuffix;
+		
+		Property sandIDProperty  = config.get(CAT_BLOCKS, "sandID", sandID);
+		sandIDProperty.comment = commentPrefix + "Sand Block ID default = " + sandID + commentSuffix;
+		
+		Property counterBlockIDProperty  = config.get(CAT_BLOCKS, "counterBlockID", counterBlockID);
+		counterBlockIDProperty.comment = commentPrefix + "Counter Block ID default = " + counterBlockID + commentSuffix;
+		
+		Property stoveBlockIDProperty  = config.get(CAT_BLOCKS, "stoveBlockID", stoveBlockID);
+		stoveBlockIDProperty.comment = commentPrefix + "Stove Block ID default = " + stoveBlockID + commentSuffix;
+		
+		Property potBlockIDProperty  = config.get(CAT_BLOCKS, "potBlockID", potBlockID);
+		potBlockIDProperty.comment = commentPrefix + "Pot Block ID default = " + potBlockID + commentSuffix;
+		
+		Property combinerBlockIDProperty  = config.get(CAT_BLOCKS, "combinerBlockID", combinerBlockID);
+		combinerBlockIDProperty.comment = commentPrefix + "Combiner Block ID default = " + combinerBlockID + commentSuffix;
+	
+		Property oreFlowerIDProperty  = config.get(CAT_BLOCKS, "oreFlowerID", oreFlowerID);
+		oreFlowerIDProperty.comment = commentPrefix + "Ore Flower Block ID default = " + oreFlowerID + commentSuffix;
 		
 		/*Load all ingot Ids */
-		obsidianShardID = config.get(CAT_ITEMS, "obsidianShardID", obsidianShardID).getInt();
-		obsidianIngotID = config.get(CAT_ITEMS, "obsidianIngotID", obsidianIngotID).getInt();
-		sandIngotID = config.get(CAT_ITEMS, "sandIngotID", sandIngotID).getInt();
-		dirtIngotID = config.get(CAT_ITEMS, "dirtIngotID", dirtIngotID).getInt();
+		Property obsidianShardIDProperty  = config.get(CAT_ITEMS, "obsidianShardID", obsidianShardID);
+		obsidianShardIDProperty.comment = commentPrefix + "Obsidian Shard Item ID default = " + obsidianShardID + commentSuffix;
 		
+		Property obsidianIngotIDProperty  = config.get(CAT_ITEMS, "obsidianIngotID", obsidianIngotID);
+		obsidianIngotIDProperty.comment = commentPrefix + "Obsidian Ingot Item ID default = " + obsidianIngotID + commentSuffix;
+		
+		Property sandIngotIDProperty  = config.get(CAT_ITEMS, "sandIngotID", sandIngotID);
+		sandIngotIDProperty.comment = commentPrefix + "Sand Ingot Item ID default = " + sandIngotID + commentSuffix;
+		
+		Property dirtIngotIDProperty  = config.get(CAT_ITEMS, "dirtIngotID", dirtIngotID);
+		dirtIngotIDProperty.comment = commentPrefix + "Dirt Ingot Item ID default = " + dirtIngotID + commentSuffix;
+		
+		Property dirtoneIngotIDProperty = config.get(CAT_ITEMS, "dirtoneIngotID", dirtoneIngotID);
+		dirtoneIngotIDProperty.comment = commentPrefix + "Dirtone Ingot Item ID default = " + dirtoneIngotID + commentSuffix;
+		
+		Property dironIngotIDProperty  = config.get(CAT_ITEMS, "dironIngotID", dironIngotID);
+		dironIngotIDProperty.comment = commentPrefix + "Diron Ingot Item ID default = " + dironIngotID + commentSuffix;
+		
+		Property diroldIngotIDProperty  = config.get(CAT_ITEMS, "diroldIngotID", diroldIngotID);
+		diroldIngotIDProperty.comment = commentPrefix + "Dirold Ingot Item ID default = " + diroldIngotID + commentSuffix;
+		
+		Property dirmendIngotIDProperty  = config.get(CAT_ITEMS, "dirmendIngotID", dirmendIngotID);
+		dirmendIngotIDProperty.comment = commentPrefix + "Dirmend Ingot ID default = " + dirmendIngotID + commentSuffix;
+		
+		Property stornIngotIDProperty  = config.get(CAT_ITEMS, "stornIngotID", stornIngotID);
+		stornIngotIDProperty.comment = commentPrefix + "Storn Ingot Item ID default = " + stornIngotID + commentSuffix;
+		
+		Property stoldIngotIDProperty  = config.get(CAT_ITEMS, "stoldIngotID", stoldIngotID);
+		stoldIngotIDProperty.comment = commentPrefix + "Stold Ingot Item ID default = " + stoldIngotID + commentSuffix;
+		
+		Property stomendIngotIDProperty  = config.get(CAT_ITEMS, "stomendIngotID", stomendIngotID);
+		stomendIngotIDProperty.comment = commentPrefix + "Stomend Ingot Item ID default = " + stomendIngotID + commentSuffix;
+		
+		Property iroldIngotIDProperty  = config.get(CAT_ITEMS, "iroldIngotID", iroldIngotID);
+		iroldIngotIDProperty.comment = commentPrefix + "Irold Ingot Item ID default = " + iroldIngotID + commentSuffix;
+		
+		Property irmendIngotIDProperty = config.get(CAT_ITEMS, "irmendIngotID", irmendIngotID);
+		irmendIngotIDProperty.comment = commentPrefix + "Irmend Ingot Item ID default = " + irmendIngotID + commentSuffix;
+		
+		Property gomendIngotIDProperty = config.get(CAT_ITEMS, "gomendIngotID", gomendIngotID);
+		gomendIngotIDProperty.comment = commentPrefix + "Gomend Ingot Item ID default = " + gomendIngotID + commentSuffix;
+
 		/*Load all tool Ids */
-		
 		//dirt
-		dirtAxeID = config.get(CAT_TOOLS, "dirtAxeID", dirtAxeID).getInt();
-		dirtHoeID = config.get(CAT_TOOLS, "dirtHoeID", dirtHoeID).getInt();
-		dirtPickID = config.get(CAT_TOOLS, "dirtPickID", dirtHoeID).getInt();
-		dirtShovelID = config.get(CAT_TOOLS, "dirtShovelID", dirtShovelID).getInt();
-		dirtSwordID = config.get(CAT_TOOLS, "dirtSwordID", dirtSwordID).getInt();		
+		Property dirtAxeIDProperty = config.get(CAT_TOOLS, "dirtAxeID", dirtAxeID);
+		dirtAxeIDProperty.comment = commentPrefix + "Dirt Axe Item ID default = " + dirtAxeID + commentSuffix;
+		
+		Property dirtHoeIDProperty = config.get(CAT_TOOLS, "dirtHoeID", dirtHoeID);
+		dirtHoeIDProperty.comment = commentPrefix + "Dirt Hoe Item ID default = " + dirtHoeID + commentSuffix;
+		
+		Property dirtPickIDProperty = config.get(CAT_TOOLS, "dirtPickID", dirtHoeID);
+		dirtPickIDProperty.comment = commentPrefix + "Dirt Pick Item ID default = " + dirtPickID + commentSuffix;
+		
+		Property dirtShovelIDProperty = config.get(CAT_TOOLS, "dirtShovelID", dirtShovelID);
+		dirtShovelIDProperty.comment = commentPrefix + "Dirt Shovel Item ID default = " + dirtShovelID + commentSuffix;
+		
+		Property dirtSwordIDProperty = config.get(CAT_TOOLS, "dirtSwordID", dirtSwordID);		
+		dirtSwordIDProperty.comment = commentPrefix + "Dirt Sword Item ID default = " + dirtSwordID + commentSuffix;
 
 		//Dirt and diamond
-		dirmendAxeID = config.get(CAT_TOOLS, "dirmendAxeID", dirmendAxeID).getInt();
-		dirmendHoeID = config.get(CAT_TOOLS, "dirmendHoeID", dirmendHoeID).getInt();
-		dirmendPickID = config.get(CAT_TOOLS, "dirmendPickID", dirmendPickID).getInt();
-		dirmendShovelID = config.get(CAT_TOOLS, "dirmendShovelID", dirmendShovelID).getInt();
-		dirmendSwordID = config.get(CAT_TOOLS, "dirmendSwordID", dirmendSwordID).getInt();		
+		Property dirmendAxeIDProperty = config.get(CAT_TOOLS, "dirmendAxeID", dirmendAxeID);
+		dirmendAxeIDProperty.comment = commentPrefix + "Dirmend Axe Item ID default = " + dirmendAxeID + commentSuffix;
 		
+		Property dirmendHoeIDProperty = config.get(CAT_TOOLS, "dirmendHoeID", dirmendHoeID);
+		dirmendHoeIDProperty.comment = commentPrefix + "Dirmend Hoe Item ID default = " + dirmendHoeID + commentSuffix;
+		
+		Property dirmendPickIDProperty = config.get(CAT_TOOLS, "dirmendPickID", dirmendPickID);
+		dirmendPickIDProperty.comment = commentPrefix + "Dirmend Pick Item ID default = " + dirmendPickID + commentSuffix;
+		
+		Property dirmendShovelIDProperty = config.get(CAT_TOOLS, "dirmendShovelID", dirmendShovelID);
+		dirmendShovelIDProperty.comment = commentPrefix + "Dirmend Shovel Item ID default = " + dirmendShovelID + commentSuffix;
+		
+		Property dirmendSwordIDProperty = config.get(CAT_TOOLS, "dirmendSwordID", dirmendSwordID);		
+		dirmendSwordIDProperty.comment = commentPrefix + "Dirmend Sword Item ID default = " + dirmendSwordID + commentSuffix;
+
 		//dirt and gold
-		diroldAxeID = config.get(CAT_TOOLS, "diroldAxeID", diroldAxeID).getInt();
-		diroldHoeID = config.get(CAT_TOOLS, "diroldHoeID", diroldHoeID).getInt();
-		diroldPickID = config.get(CAT_TOOLS, "diroldPickID", diroldPickID).getInt();
-		diroldShovelID = config.get(CAT_TOOLS, "diroldShovelID", diroldShovelID).getInt();
-		diroldSwordID = config.get(CAT_TOOLS, "diroldSwordID", diroldSwordID).getInt();
+		Property diroldAxeIDProperty = config.get(CAT_TOOLS, "diroldAxeID", diroldAxeID);
+		diroldAxeIDProperty.comment = commentPrefix + "Dirold Axe Item ID default = " + diroldAxeID + commentSuffix;
+		
+		Property diroldHoeIDProperty = config.get(CAT_TOOLS, "diroldHoeID", diroldHoeID);
+		diroldHoeIDProperty.comment = commentPrefix + "Dirold Hoe Item ID default = " + diroldHoeID + commentSuffix;
+		
+		Property diroldPickIDProperty = config.get(CAT_TOOLS, "diroldPickID", diroldPickID);
+		diroldPickIDProperty.comment = commentPrefix + "Dirold Pick Item ID default = " + diroldPickID + commentSuffix;
+		
+		Property diroldShovelIDProperty = config.get(CAT_TOOLS, "diroldShovelID", diroldShovelID);
+		diroldShovelIDProperty.comment = commentPrefix + "Dirold Shovel Item ID default = " + diroldShovelID + commentSuffix;
+		
+		Property diroldSwordIDProperty = config.get(CAT_TOOLS, "diroldSwordID", diroldSwordID);
+		diroldSwordIDProperty.comment = commentPrefix + "Dirold Sword Item ID default = " + diroldSwordID + commentSuffix;
 		
 		//dirt and iron
-		dironAxeID = config.get(CAT_TOOLS, "dironAxeID", dironAxeID).getInt();
-		dironHoeID = config.get(CAT_TOOLS, "dironHoeID", dironHoeID).getInt();
-		dironPickID = config.get(CAT_TOOLS, "dironPickID", dironPickID).getInt();
-		dironShovelID = config.get(CAT_TOOLS, "dironShovelID", dironShovelID).getInt();
-		dironSwordID = config.get(CAT_TOOLS, "dironSwordID", dironSwordID).getInt();
+		Property dironAxeIDProperty = config.get(CAT_TOOLS, "dironAxeID", dironAxeID);
+		dironAxeIDProperty.comment = commentPrefix + "Diron Axe Item ID default = " + dironAxeID + commentSuffix;
+		
+		Property dironHoeIDProperty = config.get(CAT_TOOLS, "dironHoeID", dironHoeID);
+		dironHoeIDProperty.comment = commentPrefix + "Diron Hoe Item ID default = " + dironHoeID + commentSuffix;
+		
+		Property dironPickIDProperty = config.get(CAT_TOOLS, "dironPickID", dironPickID);
+		dironPickIDProperty.comment = commentPrefix + "Diron Pick Item ID default = " + dironPickID + commentSuffix;
+		
+		Property dironShovelIDProperty = config.get(CAT_TOOLS, "dironShovelID", dironShovelID);
+		dironShovelIDProperty.comment = commentPrefix + "Diron Shovel Item ID default = " + dironShovelID + commentSuffix;
+		
+		Property dironSwordIDProperty = config.get(CAT_TOOLS, "dironSwordID", dironSwordID);
+		dironSwordIDProperty.comment = commentPrefix + "Diron Sword Item ID default = " + dironSwordID + commentSuffix;
 		
 		//STORN
-		stornAxeID = config.get(CAT_TOOLS, "stornAxeID", stornAxeID).getInt();
-		stornHoeID = config.get(CAT_TOOLS, "stornHoeID", stornHoeID).getInt();
-		stornPickID = config.get(CAT_TOOLS, "stornPickID", stornPickID).getInt();
-		stornShovelID = config.get(CAT_TOOLS, "stornShovelID", stornShovelID).getInt();
-		stornSwordID = config.get(CAT_TOOLS, "stornSwordID", stornSwordID).getInt();
+		Property stornAxeIDProperty = config.get(CAT_TOOLS, "stornAxeID", stornAxeID);
+		stornAxeIDProperty.comment = commentPrefix + "Storn Axe Item ID default = " + stornAxeID + commentSuffix;
+		
+		Property stornHoeIDProperty = config.get(CAT_TOOLS, "stornHoeID", stornHoeID);
+		stornHoeIDProperty.comment = commentPrefix + "Storn Hoe Item ID default = " + stornHoeID + commentSuffix;
+		
+		Property stornPickIDProperty = config.get(CAT_TOOLS, "stornPickID", stornPickID);
+		stornPickIDProperty.comment = commentPrefix + "Storn Pick Item ID default = " + stornPickID + commentSuffix;
+		
+		Property stornShovelIDProperty = config.get(CAT_TOOLS, "stornShovelID", stornShovelID);
+		stornShovelIDProperty.comment = commentPrefix + "Storn Shovel Item ID default = " + stornShovelID + commentSuffix;
+		
+		Property stornSwordIDProperty = config.get(CAT_TOOLS, "stornSwordID", stornSwordID);
+		stornSwordIDProperty.comment = commentPrefix + "Storn Sword Item ID default = " + stornSwordID + commentSuffix;
 		
 		//stold
-		stoldAxeID = config.get(CAT_TOOLS, "stoldAxeID", stoldAxeID).getInt();
-		stoldHoeID = config.get(CAT_TOOLS, "stoldHoeID", stoldHoeID).getInt();
-		stoldPickID = config.get(CAT_TOOLS, "stoldPickID", stoldPickID).getInt();
-		stoldShovelID = config.get(CAT_TOOLS, "stoldShovelID", stoldShovelID).getInt();
-		stoldSwordID = config.get(CAT_TOOLS, "stoldSwordID", stoldSwordID).getInt();
+		Property stoldAxeIDProperty = config.get(CAT_TOOLS, "stoldAxeID", stoldAxeID);
+		stoldAxeIDProperty.comment = commentPrefix + "Stold Axe Item ID default = " + stoldAxeID + commentSuffix;
+		
+		Property stoldHoeIDProperty = config.get(CAT_TOOLS, "stoldHoeID", stoldHoeID);
+		stoldHoeIDProperty.comment = commentPrefix + "Stold Hoe Item ID default = " + stoldHoeID + commentSuffix;
+		stoldHoeIDProperty.comment = commentPrefix + "Stold Hoe Item ID default = " + stoldHoeID + commentSuffix;
+		
+		Property stoldPickIDProperty = config.get(CAT_TOOLS, "stoldPickID", stoldPickID);
+		stoldPickIDProperty.comment = commentPrefix + "Stold Pick Item ID default = " + stoldPickID + commentSuffix;
+		
+		Property stoldShovelIDProperty = config.get(CAT_TOOLS, "stoldShovelID", stoldShovelID);
+		stoldShovelIDProperty.comment = commentPrefix + "Stold Shovel Item ID default = " + stoldShovelID + commentSuffix;
+		
+		Property stoldSwordIDProperty = config.get(CAT_TOOLS, "stoldSwordID", stoldSwordID);
+		stoldSwordIDProperty.comment = commentPrefix + "Stold Sword Item ID default = " + stoldSwordID + commentSuffix;
+		
 		
 		//STOMEND
-		stomendAxeID = config.get(CAT_TOOLS, "stomendAxeID", stomendAxeID).getInt();
-		stomendHoeID = config.get(CAT_TOOLS, "stomendHoeID", stomendHoeID).getInt();
-		stomendPickID = config.get(CAT_TOOLS, "stomendPickID", stomendPickID).getInt();
-		stomendShovelID = config.get(CAT_TOOLS, "stomendShovelID", stomendShovelID).getInt();
-		stomendSwordID = config.get(CAT_TOOLS, "stomendSwordID", stomendSwordID).getInt();
+		Property stomendAxeIDProperty = config.get(CAT_TOOLS, "stomendAxeID", stomendAxeID);
+		stomendAxeIDProperty.comment = commentPrefix + "Stomend Axe Item ID default = " + stomendAxeID + commentSuffix;
+		
+		Property stomendHoeIDProperty = config.get(CAT_TOOLS, "stomendHoeID", stomendHoeID);
+		stomendHoeIDProperty.comment = commentPrefix + "Stomend Hoe Item ID default = " + stomendHoeID + commentSuffix;
+		
+		Property stomendPickIDProperty  = config.get(CAT_TOOLS, "stomendPickID", stomendPickID);
+		stomendPickIDProperty.comment = commentPrefix + "Stomend Pick Item ID default = " + stomendPickID + commentSuffix;
+		
+		Property stomendShovelIDProperty  = config.get(CAT_TOOLS, "stomendShovelID", stomendShovelID);
+		stomendShovelIDProperty.comment = commentPrefix + "Stomend Shovel Item ID default = " + stomendShovelID + commentSuffix;
+		
+		Property stomendSwordIDProperty  = config.get(CAT_TOOLS, "stomendSwordID", stomendSwordID);
+		stomendSwordIDProperty.comment = commentPrefix + "Stomend Sword Item ID default = " + stomendSwordID + commentSuffix;
 		
 		//IROLD
-		iroldAxeID = config.get(CAT_TOOLS, "iroldAxeID", iroldAxeID).getInt();
-		iroldHoeID = config.get(CAT_TOOLS, "iroldHoeID", iroldHoeID).getInt();
-		iroldPickID = config.get(CAT_TOOLS, "iroldPickID", iroldPickID).getInt();
-		iroldShovelID = config.get(CAT_TOOLS, "iroldShovelID", iroldShovelID).getInt();
-		iroldSwordID = config.get(CAT_TOOLS, "iroldSwordID", iroldSwordID).getInt();
+		Property iroldAxeIDProperty  = config.get(CAT_TOOLS, "iroldAxeID", iroldAxeID);
+		iroldAxeIDProperty.comment = commentPrefix + "Irold Axe Item ID default = " + iroldAxeID + commentSuffix;
+		
+		Property iroldHoeIDProperty  = config.get(CAT_TOOLS, "iroldHoeID", iroldHoeID);
+		iroldHoeIDProperty.comment = commentPrefix + "Irold Hoe Item ID default = " + iroldHoeID + commentSuffix;
+		
+		Property iroldPickIDProperty  = config.get(CAT_TOOLS, "iroldPickID", iroldPickID);
+		iroldPickIDProperty.comment = commentPrefix + "Irold Pick Item ID default = " + iroldPickID + commentSuffix;
+		
+		Property iroldShovelIDProperty  = config.get(CAT_TOOLS, "iroldShovelID", iroldShovelID);
+		iroldShovelIDProperty.comment = commentPrefix + "Irold Shovel Item ID default = " + iroldShovelID + commentSuffix;
+		
+		Property iroldSwordIDProperty  = config.get(CAT_TOOLS, "iroldSwordID", iroldSwordID);
+		iroldSwordIDProperty.comment = commentPrefix + "Irold Sword Item ID default = " + iroldSwordID + commentSuffix;
 		
 		//IRMEND
-		irmendAxeID = config.get(CAT_TOOLS, "irmendAxeID", irmendAxeID).getInt();
-		irmendHoeID = config.get(CAT_TOOLS, "irmendHoeID", irmendHoeID).getInt();
-		irmendPickID = config.get(CAT_TOOLS, "irmendPickID", irmendPickID).getInt();
-		irmendShovelID = config.get(CAT_TOOLS, "irmendShovelID", irmendShovelID).getInt();
-		irmendSwordID = config.get(CAT_TOOLS, "irmendSwordID", irmendSwordID).getInt();	
+		Property irmendAxeIDProperty = config.get(CAT_TOOLS, "irmendAxeID", irmendAxeID);
+		irmendAxeIDProperty.comment = commentPrefix + "Irmend Axe Item ID default = " + irmendAxeID + commentSuffix;
+		
+		Property irmendHoeIDProperty = config.get(CAT_TOOLS, "irmendHoeID", irmendHoeID);
+		irmendHoeIDProperty.comment = commentPrefix + "Irmend Hoe Item ID default = " + irmendHoeID + commentSuffix;
+		
+		Property irmendPickIDProperty = config.get(CAT_TOOLS, "irmendPickID", irmendPickID);
+		irmendPickIDProperty.comment = commentPrefix + "Irmend Pick Item ID default = " + irmendPickID + commentSuffix;
+		
+		Property irmendShovelIDProperty = config.get(CAT_TOOLS, "irmendShovelID", irmendShovelID);
+		irmendShovelIDProperty.comment = commentPrefix + "Irmend Shovel Item ID default = " + irmendShovelID + commentSuffix;
+		
+		Property irmendSwordIDProperty = config.get(CAT_TOOLS, "irmendSwordID", irmendSwordID);	
+		irmendSwordIDProperty.comment = commentPrefix + "Irmend Sword Item ID default = " + irmendSwordID + commentSuffix;
 		
 		//GOMEND
-		gomendAxeID = config.get(CAT_TOOLS, "gomendAxeID", gomendAxeID).getInt();
-		gomendHoeID = config.get(CAT_TOOLS, "gomendHoeID", gomendHoeID).getInt();
-		gomendPickID = config.get(CAT_TOOLS, "gomendPickID", gomendPickID).getInt();
-		gomendShovelID = config.get(CAT_TOOLS, "gomendShovelID", gomendShovelID).getInt();
-		gomendSwordID = config.get(CAT_TOOLS, "gomendSwordID", gomendSwordID).getInt();
+		Property gomendAxeIDProperty  = config.get(CAT_TOOLS, "gomendAxeID", gomendAxeID);
+		gomendAxeIDProperty.comment = commentPrefix + "Gomend Axe Item ID default = " + gomendAxeID + commentSuffix;
+		
+		Property gomendHoeIDProperty  = config.get(CAT_TOOLS, "gomendHoeID", gomendHoeID);
+		gomendHoeIDProperty.comment = commentPrefix + "Gomend Hoe Item ID default = " + gomendHoeID + commentSuffix;
+		
+		Property gomendPickIDProperty  = config.get(CAT_TOOLS, "gomendPickID", gomendPickID);
+		gomendPickIDProperty.comment = commentPrefix + "Gomend Pick Item ID default = " + gomendPickID + commentSuffix;
+		
+		Property gomendShovelIDProperty  = config.get(CAT_TOOLS, "gomendShovelID", gomendShovelID);
+		gomendShovelIDProperty.comment = commentPrefix + "Gomend Shovel Item ID default = " + gomendShovelID + commentSuffix;
+		
+		Property gomendSwordIDProperty  = config.get(CAT_TOOLS, "gomendSwordID", gomendSwordID);
+		gomendSwordIDProperty.comment = commentPrefix + "Gomend Sword Item ID default = " + gomendSwordID + commentSuffix;
 		
 		//sand
-		sandAxeID = config.get(CAT_TOOLS, "sandAxeID", sandAxeID).getInt();
-		sandHoeID = config.get(CAT_TOOLS, "sandHoeID", sandHoeID).getInt();
-		sandPickID = config.get(CAT_TOOLS, "sandPickID", sandPickID).getInt();
-		sandShovelID = config.get(CAT_TOOLS, "sandShovelID", sandShovelID).getInt();
-		sandSwordID = config.get(CAT_TOOLS, "sandSwordID", sandSwordID).getInt();		
+		Property sandAxeIDProperty  = config.get(CAT_TOOLS, "sandAxeID", sandAxeID);
+		sandAxeIDProperty.comment = commentPrefix + "Sand Axe Item ID default = " + sandAxeID + commentSuffix;
+		
+		Property sandHoeIDProperty  = config.get(CAT_TOOLS, "sandHoeID", sandHoeID);
+		sandHoeIDProperty.comment = commentPrefix + "Sand Hoe Item ID default = " + sandHoeID + commentSuffix;
+		
+		Property sandPickIDProperty  = config.get(CAT_TOOLS, "sandPickID", sandPickID);
+		sandPickIDProperty.comment = commentPrefix + "Sand Pick Item ID default = " + sandPickID + commentSuffix;
+		
+		Property sandShovelIDProperty  = config.get(CAT_TOOLS, "sandShovelID", sandShovelID);
+		sandShovelIDProperty.comment = commentPrefix + "Sand Shovel Item ID default = " + sandShovelID + commentSuffix;
+		
+		Property sandSwordIDProperty  = config.get(CAT_TOOLS, "sandSwordID", sandSwordID);		
+		sandSwordIDProperty.comment = commentPrefix + "Sand Sword Item ID default = " + sandSwordID + commentSuffix;
 		
 		//obsidian
-		obsidianAxeID = config.get(CAT_TOOLS, "obsidianAxeID", obsidianAxeID).getInt();
-		obsidianHoeID = config.get(CAT_TOOLS, "obsidianHoeID", obsidianHoeID).getInt();
-		obsidianPickID = config.get(CAT_TOOLS, "obsidianPickID", obsidianPickID).getInt();
-		obsidianShovelID = config.get(CAT_TOOLS, "obsidianShovelID", obsidianShovelID).getInt();
-		obsidianSwordID = config.get(CAT_TOOLS, "obsidianSwordID", obsidianSwordID).getInt();
+		Property obsidianAxeIDProperty  = config.get(CAT_TOOLS, "obsidianAxeID", obsidianAxeID);
+		obsidianAxeIDProperty.comment = commentPrefix + "Obsidian Axe Item ID default = " + obsidianAxeID + commentSuffix;
+		
+		Property obsidianHoeIDProperty  = config.get(CAT_TOOLS, "obsidianHoeID", obsidianHoeID);
+		obsidianHoeIDProperty.comment = commentPrefix + "Obsidian Hoe Item ID default = " + obsidianHoeID + commentSuffix;
+		
+		Property obsidianPickIDProperty  = config.get(CAT_TOOLS, "obsidianPickID", obsidianPickID);
+		obsidianPickIDProperty.comment = commentPrefix + "Obsidian Pick Item ID default = " + obsidianPickID + commentSuffix;
+		
+		Property obsidianShovelIDProperty  = config.get(CAT_TOOLS, "obsidianShovelID", obsidianShovelID);
+		obsidianShovelIDProperty.comment = commentPrefix + "Obsidian Shovel Item ID default = " + obsidianShovelID + commentSuffix;
+		
+		Property obsidianSwordIDProperty  = config.get(CAT_TOOLS, "obsidianSwordID", obsidianSwordID);
+		obsidianSwordIDProperty.comment = commentPrefix + "Obsidian Sword Item ID default = " + obsidianSwordID + commentSuffix;
 		
 		//emerald
-		emeraldAxeID = config.get(CAT_TOOLS, "emeraldAxeID", emeraldAxeID).getInt();
-		emeraldHoeID = config.get(CAT_TOOLS, "emeraldHoeID", emeraldHoeID).getInt();
-		emeraldPickID = config.get(CAT_TOOLS, "emeraldPickID", emeraldPickID).getInt();
-		emeraldShovelID = config.get(CAT_TOOLS, "emeraldShovelID", emeraldShovelID).getInt();
-		emeraldSwordID = config.get(CAT_TOOLS, "emeraldSwordID", emeraldSwordID).getInt();
+		Property emeraldAxeIDProperty  = config.get(CAT_TOOLS, "emeraldAxeID", emeraldAxeID);
+		emeraldAxeIDProperty.comment = commentPrefix + "Emerald Axe Item ID default = " + emeraldAxeID + commentSuffix;
+		
+		Property emeraldHoeIDProperty  = config.get(CAT_TOOLS, "emeraldHoeID", emeraldHoeID);
+		emeraldHoeIDProperty.comment = commentPrefix + "Emerald Hoe Item ID default = " + emeraldHoeID + commentSuffix;
+		
+		Property emeraldPickIDProperty  = config.get(CAT_TOOLS, "emeraldPickID", emeraldPickID);
+		emeraldPickIDProperty.comment = commentPrefix + "Emerald Pick Item ID default = " + emeraldPickID + commentSuffix;
+		
+		Property emeraldShovelIDProperty  = config.get(CAT_TOOLS, "emeraldShovelID", emeraldShovelID);
+		emeraldShovelIDProperty.comment = commentPrefix + "Emerald Shovel Item ID default = " + emeraldShovelID + commentSuffix;
+		
+		Property emeraldSwordIDProperty  = config.get(CAT_TOOLS, "emeraldSwordID", emeraldSwordID);
+		emeraldSwordIDProperty.comment = commentPrefix + "Emerald Sword Item ID default = " + emeraldSwordID + commentSuffix;
 		
 		//Food
-		breadSliceID = config.get(CAT_FOOD, "breadSliceID", breadSliceID).getInt();
-		chickenStripsID = config.get(CAT_FOOD, "chickenStripsID", chickenStripsID).getInt();
-		beefSlicesID = config.get(CAT_FOOD, "beefSlicesID", beefSlicesID).getInt();
-		baconID = config.get(CAT_FOOD, "Bacon", baconID).getInt();
-		chickenSandwichID = config.get(CAT_FOOD, "chickenSandwichID", chickenSandwichID).getInt();
-		chickenSandwichBaconID = config.get(CAT_FOOD, "chickenSandwichBaconID", chickenSandwichBaconID).getInt();
-		beefSandwichID = config.get(CAT_FOOD, "beefSandwichID", beefSandwichID).getInt();
-		beefSandwichBaconID = config.get(CAT_FOOD, "beefSandwichBaconID", beefSandwichBaconID).getInt();
-		meatSandwichID = config.get(CAT_FOOD, "meatSandwichID", meatSandwichID).getInt();
-		applePieID = config.get(CAT_FOOD, "applePieID", applePieID).getInt();
-		fruitSaladID = config.get(CAT_FOOD, "fruitSaladID", fruitSaladID).getInt();
-		appleSliceID = config.get(CAT_FOOD, "appleSliceID", appleSliceID).getInt();
-		BaBID = config.get(CAT_FOOD, "BaBID", BaBID).getInt();
-		PaBID = config.get(CAT_FOOD, "PaBID", PaBID).getInt();
-		CaBID = config.get(CAT_FOOD, "CaBID", CaBID).getInt();
-		DogBreadID = config.get(CAT_FOOD, "DogBreadID", DogBreadID).getInt();
-		bowlChickenID = config.get(CAT_FOOD, "bowlChickenID", bowlChickenID).getInt();
-		bowlBeefID = config.get(CAT_FOOD, "bowlBeefID", bowlBeefID).getInt();
-		bowlMeatID = config.get(CAT_FOOD, "bowlMeatID", bowlMeatID).getInt();
+		Property breadSliceIDProperty  = config.get(CAT_FOOD, "breadSliceID", breadSliceID);
+		breadSliceIDProperty.comment = commentPrefix + "Slice of Bread Item ID default = " + breadSliceID + commentSuffix;
+		
+		Property chickenStripsIDProperty  = config.get(CAT_FOOD, "chickenStripsID", chickenStripsID);
+		chickenStripsIDProperty.comment = commentPrefix + "Chicken Tender Item ID default = " + chickenStripsID + commentSuffix;
+		
+		Property beefSlicesIDProperty  = config.get(CAT_FOOD, "beefSlicesID", beefSlicesID);
+		beefSlicesIDProperty.comment = commentPrefix + "Beef Slices Item ID default = " + beefSlicesID + commentSuffix;
+		
+		Property baconIDProperty = config.get(CAT_FOOD, "Bacon", baconID);
+		baconIDProperty.comment = commentPrefix + "Bacon Item ID default = " + baconID + commentSuffix;
+		
+		Property chickenSandwichIDProperty = config.get(CAT_FOOD, "chickenSandwichID", chickenSandwichID);
+		chickenSandwichIDProperty.comment = commentPrefix + "Chicken Sandwich Item ID default = " + chickenSandwichID + commentSuffix;
+		
+		Property chickenSandwichBaconIDProperty = config.get(CAT_FOOD, "chickenSandwichBaconID", chickenSandwichBaconID);
+		chickenSandwichBaconIDProperty.comment = commentPrefix + "Chicken Sandwich w/Bacon Item ID default = " + chickenSandwichBaconID + commentSuffix;
+		
+		Property beefSandwichIDProperty = config.get(CAT_FOOD, "beefSandwichID", beefSandwichID);
+		beefSandwichIDProperty.comment = commentPrefix + "Beef Sandwich Item ID default = " + beefSandwichID + commentSuffix;
+		
+		Property beefSandwichBaconIDProperty = config.get(CAT_FOOD, "beefSandwichBaconID", beefSandwichBaconID);
+		beefSandwichBaconIDProperty.comment = commentPrefix + "Beef Sandwich w/Bacon Item ID default = " + beefSandwichBaconID + commentSuffix;
+		
+		Property meatSandwichIDProperty = config.get(CAT_FOOD, "meatSandwichID", meatSandwichID);
+		meatSandwichIDProperty.comment = commentPrefix + "Meat Sandwich Item ID default = " + meatSandwichID + commentSuffix;
+		
+		Property applePieIDProperty = config.get(CAT_FOOD, "applePieID", applePieID);
+		applePieIDProperty.comment = commentPrefix + "Apple Pie Item ID default = " + applePieID + commentSuffix;
+		
+		Property fruitSaladIDProperty = config.get(CAT_FOOD, "fruitSaladID", fruitSaladID);
+		fruitSaladIDProperty.comment = commentPrefix + "Fruit Salad Item ID default = " + fruitSaladID + commentSuffix;
+		
+		Property appleSliceIDProperty = config.get(CAT_FOOD, "appleSliceID", appleSliceID);
+		appleSliceIDProperty.comment = commentPrefix + "Apple Slice Item ID default = " + appleSliceID + commentSuffix;
+		
+		Property BaBIDProperty = config.get(CAT_FOOD, "BaBID", BaBID);
+		BaBIDProperty.comment = commentPrefix + "Beef and Bacon Sandwich Item ID default = " + BaBID + commentSuffix;
+		
+		Property PaBIDProperty = config.get(CAT_FOOD, "PaBID", PaBID);
+		PaBIDProperty.comment = commentPrefix + "Pork and Bacon Sandwich Item ID default = " + PaBID + commentSuffix;
+		
+		Property CaBIDProperty = config.get(CAT_FOOD, "CaBID", CaBID);
+		CaBIDProperty.comment = commentPrefix + "Chicken and Bacon Sandwich Item ID default = " + CaBID + commentSuffix;
+		
+		Property DogBreadIDProperty = config.get(CAT_FOOD, "DogBreadID", DogBreadID);
+		DogBreadIDProperty.comment = commentPrefix + "Doggie Treat Item ID default = " + DogBreadID + commentSuffix;
+		
+		Property bowlChickenIDProperty = config.get(CAT_FOOD, "bowlChickenID", bowlChickenID);
+		bowlChickenIDProperty.comment = commentPrefix + "Bowl Chicken Soup Item ID default = " + bowlChickenID + commentSuffix;
+		
+		Property bowlBeefIDProperty = config.get(CAT_FOOD, "bowlBeefID", bowlBeefID);
+		bowlBeefIDProperty.comment = commentPrefix + "Bowl Beef Soup Item ID default = " + bowlBeefID + commentSuffix;
+		
+		Property bowlMeatIDProperty = config.get(CAT_FOOD, "bowlMeatID", bowlMeatID);
+		bowlMeatIDProperty.comment = commentPrefix + "Bowl Meat Soup Item ID default = " + bowlMeatID + commentSuffix;
 		
 		//Armor
-		dirtHelmetID = config.get(CAT_ARMOR, "dirtHelmetID", dirtHelmetID).getInt();
-		dirtPlateID = config.get(CAT_ARMOR, "dirtPlateID", dirtPlateID).getInt();
-		dirtLegsID = config.get(CAT_ARMOR, "dirtLegsID", dirtLegsID).getInt();
-		dirtBootsID = config.get(CAT_ARMOR, "dirtBootsID", dirtBootsID).getInt();
+		Property dirtHelmetIDProperty = config.get(CAT_ARMOR, "dirtHelmetID", dirtHelmetID);
+		dirtHelmetIDProperty.comment = commentPrefix + "Dirt Helmet Item ID default = " + dirtHelmetID + commentSuffix;
 		
-		dirtoneHelmetID = config.get(CAT_ARMOR, "dirtoneHelmetID", dirtoneHelmetID).getInt();
-		dirtonePlateID = config.get(CAT_ARMOR, "dirtonePlateID", dirtonePlateID).getInt();
-		dirtoneLegsID = config.get(CAT_ARMOR, "dirtoneLegsID", dirtoneLegsID).getInt();
-		dirtoneBootsID = config.get(CAT_ARMOR, "dirtoneBootsID", dirtoneBootsID).getInt();
+		Property dirtPlateIDProperty = config.get(CAT_ARMOR, "dirtPlateID", dirtPlateID);
+		dirtPlateIDProperty.comment = commentPrefix + "Dirt Chest Plate Item ID default = " + dirtPlateID + commentSuffix;
 		
-		dironHelmetID = config.get(CAT_ARMOR, "dironHelmetID", dironHelmetID).getInt();
-		dironPlateID = config.get(CAT_ARMOR, "dironPlateID", dironPlateID).getInt();
-		dironLegsID = config.get(CAT_ARMOR, "dironLegsID", dironLegsID).getInt();
-		dironBootsID = config.get(CAT_ARMOR, "dironBootsID", dironBootsID).getInt();
+		Property dirtLegsIDProperty = config.get(CAT_ARMOR, "dirtLegsID", dirtLegsID);
+		dirtLegsIDProperty.comment = commentPrefix + "Dirt Leggings Item ID default = " + dirtLegsID + commentSuffix;
 		
-		diroldHelmetID = config.get(CAT_ARMOR, "diroldHelmetID", diroldHelmetID).getInt();
-		diroldPlateID = config.get(CAT_ARMOR, "diroldPlateID", diroldPlateID).getInt();
-		diroldLegsID = config.get(CAT_ARMOR, "diroldLegsID", diroldLegsID).getInt();
-		diroldBootsID = config.get(CAT_ARMOR, "diroldBootsID", diroldBootsID).getInt();
+		Property dirtBootsIDProperty = config.get(CAT_ARMOR, "dirtBootsID", dirtBootsID);
+		dirtBootsIDProperty.comment = commentPrefix + "Dirt Boots Item ID default = " + dirtBootsID + commentSuffix;
 		
-		dirmendHelmetID = config.get(CAT_ARMOR, "dirmendHelmetID", dirmendHelmetID).getInt();
-		dirmendPlateID = config.get(CAT_ARMOR, "dirmendPlateID", dirmendPlateID).getInt();
-		dirmendLegsID = config.get(CAT_ARMOR, "dirmendLegsID", dirmendLegsID).getInt();
-		dirmendBootsID = config.get(CAT_ARMOR, "dirmendBootsID", dirmendBootsID).getInt();
+		Property dirtoneHelmetIDProperty = config.get(CAT_ARMOR, "dirtoneHelmetID", dirtoneHelmetID);
+		dirtoneHelmetIDProperty.comment = commentPrefix + "Dirtone Helmet Item ID default = " + dirtoneHelmetID + commentSuffix;
+
+		Property dirtonePlateIDProperty = config.get(CAT_ARMOR, "dirtonePlateID", dirtonePlateID);
+		dirtonePlateIDProperty.comment = commentPrefix + "Dirtone Chest Plate Item ID default = " + dirtonePlateID + commentSuffix;
 		
-		stornHelmetID = config.get(CAT_ARMOR, "stornHelmetID", stornHelmetID).getInt();
-		stornPlateID = config.get(CAT_ARMOR, "stornPLateID", stornPlateID).getInt();
-		stornLegsID = config.get(CAT_ARMOR, "stornLegsID", stornLegsID).getInt();
-		stornBootsID = config.get(CAT_ARMOR, "stornBootsID", stornBootsID).getInt();
+		Property dirtoneLegsIDProperty = config.get(CAT_ARMOR, "dirtoneLegsID", dirtoneLegsID);
+		dirtoneLegsIDProperty.comment = commentPrefix + "Dirtone Leggings Item ID default = " + dirtoneLegsID + commentSuffix;
 		
-		stoldHelmetID = config.get(CAT_ARMOR, "stoldHelmetID", stoldHelmetID).getInt();
-		stoldPlateID = config.get(CAT_ARMOR, "stoldPlateID", stoldPlateID).getInt();
-		stoldLegsID = config.get(CAT_ARMOR, "stoldLegsID", stoldLegsID).getInt();
-		stoldBootsID = config.get(CAT_ARMOR, "stoldBootsID", stoldBootsID).getInt();
+		Property dirtoneBootsIDProperty = config.get(CAT_ARMOR, "dirtoneBootsID", dirtoneBootsID);
+		dirtoneBootsIDProperty.comment = commentPrefix + "Dirtone Boots Item ID default = " + dirtoneBootsID + commentSuffix;
 		
-		stomendHelmetID = config.get(CAT_ARMOR, "stomendHelmetID", stomendHelmetID).getInt();
-		stomendPlateID = config.get(CAT_ARMOR, "stomendPlateID", stomendPlateID).getInt();
-		stomendLegsID = config.get(CAT_ARMOR, "stomendLegsID", stomendLegsID).getInt();
-		stomendBootsID = config.get(CAT_ARMOR, "stomendBootsID", stomendBootsID).getInt();
+		Property dironHelmetIDProperty = config.get(CAT_ARMOR, "dironHelmetID", dironHelmetID);
+		dironHelmetIDProperty.comment = commentPrefix + "Diron Helemt Item ID default = " + dironHelmetID + commentSuffix;
 		
-		iroldHelmetID = config.get(CAT_ARMOR, "iroldHelmetID", iroldHelmetID).getInt();
-		iroldPlateID = config.get(CAT_ARMOR, "iroldPlateID", iroldPlateID).getInt();
-		iroldLegsID = config.get(CAT_ARMOR, "iroldLegsID", iroldLegsID).getInt();
-		iroldBootsID = config.get(CAT_ARMOR, "iroldBootsID", iroldBootsID).getInt();
+		Property dironPlateIDProperty = config.get(CAT_ARMOR, "dironPlateID", dironPlateID);
+		dironPlateIDProperty.comment = commentPrefix + "Diron Chest Plate Item ID default = " + dironPlateID + commentSuffix;
 		
-		irmendHelmetID = config.get(CAT_ARMOR, "irmendHelmetID", irmendHelmetID).getInt();
-		irmendPlateID = config.get(CAT_ARMOR, "irmendPlateID", irmendPlateID).getInt();
-		irmendLegsID = config.get(CAT_ARMOR, "irmendLegsID", irmendLegsID).getInt();
-		irmendBootsID = config.get(CAT_ARMOR, "irmendBootsID", irmendBootsID).getInt();
+		Property dironLegsIDProperty = config.get(CAT_ARMOR, "dironLegsID", dironLegsID);
+		dironLegsIDProperty.comment = commentPrefix + "Diron Leggings Item ID default = " + dironLegsID + commentSuffix;
 		
-		gomendHelmetID = config.get(CAT_ARMOR, "gomendHelmetID", gomendHelmetID).getInt();
-		gomendPlateID = config.get(CAT_ARMOR, "gomendPlateID", gomendPlateID).getInt();
-		gomendLegsID = config.get(CAT_ARMOR, "gomendLegsID", gomendLegsID).getInt();
-		gomendBootsID = config.get(CAT_ARMOR, "gomendBootsID", gomendBootsID).getInt();
+		Property dironBootsIDProperty = config.get(CAT_ARMOR, "dironBootsID", dironBootsID);
+		dironBootsIDProperty.comment = commentPrefix + "Diron Boots Item ID default = " + dironBootsID + commentSuffix;
 		
-		obsidianHelmetID = config.get(CAT_ARMOR, "obsidianHelmetID", obsidianHelmetID).getInt();
-		obsidianPlateID = config.get(CAT_ARMOR, "obsidianPlateID", obsidianPlateID).getInt();
-		obsidianLegsID = config.get(CAT_ARMOR, "obsidianLegsID", obsidianLegsID).getInt();
-		obsidianBootsID = config.get(CAT_ARMOR, "obsidianBootsID", obsidianBootsID).getInt();
+		Property diroldHelmetIDProperty = config.get(CAT_ARMOR, "diroldHelmetID", diroldHelmetID);
+		diroldHelmetIDProperty.comment = commentPrefix + "Dirold Helmet Item ID default = " + diroldHelmetID + commentSuffix;
 		
-		stoneHelmetID = config.get(CAT_ARMOR, "stoneHelmetID", stoneHelmetID).getInt();
-		stonePlateID = config.get(CAT_ARMOR, "stonePLateID", stonePlateID).getInt();
-		stoneLegsID = config.get(CAT_ARMOR, "stoneLegsID", stoneLegsID).getInt();
-		stoneBootsID = config.get(CAT_ARMOR, "stoneBootsID", stoneBootsID).getInt();
+		Property diroldPlateIDProperty = config.get(CAT_ARMOR, "diroldPlateID", diroldPlateID);
+		diroldPlateIDProperty.comment = commentPrefix + "Dirold Chest Plate Item ID default = " + diroldPlateID + commentSuffix;
 		
-		sandHelmetID = config.get(CAT_ARMOR, "sandHelmetID", sandHelmetID).getInt();
-		sandPlateID = config.get(CAT_ARMOR, "sandPlateID", sandPlateID).getInt();
-		sandLegsID = config.get(CAT_ARMOR, "sandLegsID", sandLegsID).getInt();
-		sandBootsID = config.get(CAT_ARMOR, "sandBootsID", sandBootsID).getInt();
+		Property diroldLegsIDProperty = config.get(CAT_ARMOR, "diroldLegsID", diroldLegsID);
+		diroldLegsIDProperty.comment = commentPrefix + "Dirold Leggings Item ID default = " + diroldLegsID + commentSuffix;
 		
-		emeraldhelmetID = config.get(CAT_ARMOR, "emeraldhelmetID", emeraldhelmetID).getInt();
-		emeraldplateID = config.get(CAT_ARMOR, "emeraldplateID", emeraldplateID).getInt();
-		emeraldlegsID = config.get(CAT_ARMOR, "emeraldlegsID", emeraldlegsID).getInt();
-		emeraldbootsID = config.get(CAT_ARMOR, "emeraldbootsID", emeraldbootsID).getInt();
+		Property diroldBootsIDProperty = config.get(CAT_ARMOR, "diroldBootsID", diroldBootsID);
+		diroldBootsIDProperty.comment = commentPrefix + "Dirold Boots Item ID default = " + diroldBootsID + commentSuffix;
+		
+		Property dirmendHelmetIDProperty = config.get(CAT_ARMOR, "dirmendHelmetID", dirmendHelmetID);
+		dirmendHelmetIDProperty.comment = commentPrefix + "Dirmend Helmet Item ID default = " + dirmendHelmetID + commentSuffix;
+		
+		Property dirmendPlateIDProperty = config.get(CAT_ARMOR, "dirmendPlateID", dirmendPlateID);
+		dirmendPlateIDProperty.comment = commentPrefix + "Dirmend Chest Plate Item ID default = " + dirmendPlateID + commentSuffix;
+		
+		Property dirmendLegsIDProperty = config.get(CAT_ARMOR, "dirmendLegsID", dirmendLegsID);
+		dirmendLegsIDProperty.comment = commentPrefix + "Dirmend Leggings Item ID default = " + dirmendLegsID + commentSuffix;
+		
+		Property dirmendBootsIDProperty = config.get(CAT_ARMOR, "dirmendBootsID", dirmendBootsID);
+		dirmendBootsIDProperty.comment = commentPrefix + "Dirmend Boots Item ID default = " + dirmendBootsID + commentSuffix;
+		
+		Property stornHelmetIDProperty = config.get(CAT_ARMOR, "stornHelmetID", stornHelmetID);
+		stornHelmetIDProperty.comment = commentPrefix + "Storn Helmet Item ID default = " + stornHelmetID + commentSuffix;
+		
+		Property stornPlateIDProperty = config.get(CAT_ARMOR, "stornPLateID", stornPlateID);
+		stornPlateIDProperty.comment = commentPrefix + "Storn Chest Plate Item ID default = " + stornPlateID + commentSuffix;
+		
+		Property stornLegsIDProperty = config.get(CAT_ARMOR, "stornLegsID", stornLegsID);
+		stornLegsIDProperty.comment = commentPrefix + "Storn Leggings Item ID default = " + stornLegsID + commentSuffix;
+		
+		Property stornBootsIDProperty = config.get(CAT_ARMOR, "stornBootsID", stornBootsID);
+		stornBootsIDProperty.comment = commentPrefix + "Storn Boots Item ID default = " + stornBootsID + commentSuffix;
+		
+		Property stoldHelmetIDProperty = config.get(CAT_ARMOR, "stoldHelmetID", stoldHelmetID);
+		stoldHelmetIDProperty.comment = commentPrefix + "Stold Helmet Item ID default = " + stoldHelmetID + commentSuffix;
+		
+		Property stoldPlateIDProperty = config.get(CAT_ARMOR, "stoldPlateID", stoldPlateID);
+		stoldPlateIDProperty.comment = commentPrefix + "Stold Chest Plate Item ID default = " + stoldPlateID + commentSuffix;
+		
+		Property stoldLegsIDProperty = config.get(CAT_ARMOR, "stoldLegsID", stoldLegsID);
+		stoldLegsIDProperty.comment = commentPrefix + "Stold Leggings Item ID default = " + stoldLegsID + commentSuffix;
+		
+		Property stoldBootsIDProperty = config.get(CAT_ARMOR, "stoldBootsID", stoldBootsID);
+		stoldBootsIDProperty.comment = commentPrefix + "Stold Boots Item ID default = " + stoldBootsID + commentSuffix;
+
+		Property stomendHelmetIDProperty = config.get(CAT_ARMOR, "stomendHelmetID", stomendHelmetID);
+		stomendHelmetIDProperty.comment = commentPrefix + "Stomend Helmet Item ID default = " + stomendHelmetID + commentSuffix;
+		
+		Property stomendPlateIDProperty = config.get(CAT_ARMOR, "stomendPlateID", stomendPlateID);
+		stomendPlateIDProperty.comment = commentPrefix + "Stomend Chest Plate Item ID default = " + stomendPlateID + commentSuffix;
+		
+		Property stomendLegsIDProperty = config.get(CAT_ARMOR, "stomendLegsID", stomendLegsID);
+		stomendLegsIDProperty.comment = commentPrefix + "Stomend Leggings Item ID default = " + stomendLegsID + commentSuffix;
+		
+		Property stomendBootsIDProperty = config.get(CAT_ARMOR, "stomendBootsID", stomendBootsID);
+		stomendBootsIDProperty.comment = commentPrefix + "Stomend Boots Item ID default = " + stomendBootsID + commentSuffix;
+		
+		Property iroldHelmetIDProperty = config.get(CAT_ARMOR, "iroldHelmetID", iroldHelmetID);
+		iroldHelmetIDProperty.comment = commentPrefix + "Irold Helmet Item ID default = " + iroldHelmetID + commentSuffix;
+		
+		Property iroldPlateIDProperty = config.get(CAT_ARMOR, "iroldPlateID", iroldPlateID);
+		iroldPlateIDProperty.comment = commentPrefix + "Irold Chest Plate Item ID default = " + iroldPlateID + commentSuffix;
+		
+		Property iroldLegsIDProperty = config.get(CAT_ARMOR, "iroldLegsID", iroldLegsID);
+		iroldLegsIDProperty.comment = commentPrefix + "Irold Leggings Item ID default = " + iroldLegsID + commentSuffix;
+		
+		Property iroldBootsIDProperty = config.get(CAT_ARMOR, "iroldBootsID", iroldBootsID);
+		iroldBootsIDProperty.comment = commentPrefix + "Irold Boots Item ID default = " + iroldBootsID + commentSuffix;
+		
+		Property irmendHelmetIDProperty = config.get(CAT_ARMOR, "irmendHelmetID", irmendHelmetID);
+		irmendHelmetIDProperty.comment = commentPrefix + "Irmend Helmet Item ID default = " + irmendHelmetID + commentSuffix;
+		
+		Property irmendPlateIDProperty = config.get(CAT_ARMOR, "irmendPlateID", irmendPlateID);
+		irmendPlateIDProperty.comment = commentPrefix + "Irmend Chest Plate Item ID default = " + irmendPlateID + commentSuffix;
+		
+		Property irmendLegsIDProperty = config.get(CAT_ARMOR, "irmendLegsID", irmendLegsID);
+		irmendLegsIDProperty.comment = commentPrefix + "Irmend Leggings Item ID default = " + irmendLegsID + commentSuffix;
+		
+		Property irmendBootsIDProperty = config.get(CAT_ARMOR, "irmendBootsID", irmendBootsID);
+		irmendBootsIDProperty.comment = commentPrefix + "Irmend Boots Item ID default = " + irmendBootsID + commentSuffix;
+		
+		Property gomendHelmetIDProperty = config.get(CAT_ARMOR, "gomendHelmetID", gomendHelmetID);
+		gomendHelmetIDProperty.comment = commentPrefix + "Gomend Helmet Item ID default = " + gomendHelmetID + commentSuffix;
+		
+		Property gomendPlateIDProperty = config.get(CAT_ARMOR, "gomendPlateID", gomendPlateID);
+		gomendPlateIDProperty.comment = commentPrefix + "Gomend Chest Plate Item ID default = " + gomendPlateID + commentSuffix;
+		
+		Property gomendLegsIDProperty = config.get(CAT_ARMOR, "gomendLegsID", gomendLegsID);
+		gomendLegsIDProperty.comment = commentPrefix + "Gomend Leggings Item ID default = " + gomendLegsID + commentSuffix;
+		
+		Property gomendBootsIDProperty = config.get(CAT_ARMOR, "gomendBootsID", gomendBootsID);
+		gomendBootsIDProperty.comment = commentPrefix + "Gomend Boots Item ID default = " + gomendBootsID + commentSuffix;
+		
+		Property obsidianHelmetIDProperty = config.get(CAT_ARMOR, "obsidianHelmetID", obsidianHelmetID);
+		obsidianHelmetIDProperty.comment = commentPrefix + "Obsidian Helmet Item ID default = " + obsidianHelmetID + commentSuffix;
+		
+		Property obsidianPlateIDProperty = config.get(CAT_ARMOR, "obsidianPlateID", obsidianPlateID);
+		obsidianPlateIDProperty.comment = commentPrefix + "Obsidian Chest Plate Item ID default = " + obsidianPlateID + commentSuffix;
+		
+		Property obsidianLegsIDProperty = config.get(CAT_ARMOR, "obsidianLegsID", obsidianLegsID);
+		obsidianLegsIDProperty.comment = commentPrefix + "Obsidian Leggings Item ID default = " + obsidianLegsID + commentSuffix;
+		
+		Property obsidianBootsIDProperty = config.get(CAT_ARMOR, "obsidianBootsID", obsidianBootsID);
+		obsidianBootsIDProperty.comment = commentPrefix + "Obsidian Boots Item ID default = " + obsidianBootsID + commentSuffix;
+		
+		Property stoneHelmetIDProperty = config.get(CAT_ARMOR, "stoneHelmetID", stoneHelmetID);
+		stoneHelmetIDProperty.comment = commentPrefix + "Stone Helmet Item ID default = " + stoneHelmetID + commentSuffix;
+		
+		Property stonePlateIDProperty = config.get(CAT_ARMOR, "stonePLateID", stonePlateID);
+		stonePlateIDProperty.comment = commentPrefix + "Stone Chest Plate Item ID default = " + stonePlateID + commentSuffix;
+		
+		Property stoneLegsIDProperty = config.get(CAT_ARMOR, "stoneLegsID", stoneLegsID);
+		stoneLegsIDProperty.comment = commentPrefix + "Stone Leggings Item ID default = " + stoneLegsID + commentSuffix;
+		
+		Property stoneBootsIDProperty = config.get(CAT_ARMOR, "stoneBootsID", stoneBootsID);
+		stoneBootsIDProperty.comment = commentPrefix + "Stone Boots Item ID default = " + stoneBootsID + commentSuffix;
+		
+		Property sandHelmetIDProperty = config.get(CAT_ARMOR, "sandHelmetID", sandHelmetID);
+		sandHelmetIDProperty.comment = commentPrefix + "Sand Helmet Item ID default = " + sandHelmetID + commentSuffix;
+		
+		Property sandPlateIDProperty = config.get(CAT_ARMOR, "sandPlateID", sandPlateID);
+		sandPlateIDProperty.comment = commentPrefix + "Sand Chest Plate Item ID default = " + sandPlateID + commentSuffix;
+		
+		Property sandLegsIDProperty = config.get(CAT_ARMOR, "sandLegsID", sandLegsID);
+		sandLegsIDProperty.comment = commentPrefix + "Sand Leggings Item ID default = " + sandLegsID + commentSuffix;
+		
+		Property sandBootsIDProperty = config.get(CAT_ARMOR, "sandBootsID", sandBootsID);
+		sandBootsIDProperty.comment = commentPrefix + "Sand Boots Item ID default = " + sandBootsID + commentSuffix;
+		
+		Property emeraldHelmetIDProperty = config.get(CAT_ARMOR, "emeraldHelmetID", emeraldHelmetID);
+		emeraldHelmetIDProperty.comment = commentPrefix + "Emerald Helmet Item ID default = " + emeraldHelmetID + commentSuffix;
+		
+		Property emeraldPlateIDProperty = config.get(CAT_ARMOR, "emeraldPlateID", emeraldPlateID);
+		emeraldPlateIDProperty.comment = commentPrefix + "Emerald Chest Plate Item ID default = " + emeraldPlateID + commentSuffix;
+		
+		Property emeraldLegsIDProperty = config.get(CAT_ARMOR, "emeraldLegsID", emeraldLegsID);
+		emeraldLegsIDProperty.comment = commentPrefix + "Emerald Leggings Item ID default = " + emeraldLegsID + commentSuffix;
+		
+		Property emeraldBootsIDProperty = config.get(CAT_ARMOR, "emeraldBootsID", emeraldBootsID);
+		emeraldBootsIDProperty.comment = commentPrefix + "Emerald Boots Item ID default = " + emeraldBootsID + commentSuffix;
 		
 		
 		config.save();

@@ -1,5 +1,7 @@
 package hybridcraft.common.containers;
 
+import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 import net.minecraft.src.*;
 import hybridcraft.common.managers.CookingPotManager;
 
@@ -17,6 +19,10 @@ public class ContainerCookingPot extends ContainerWorkbench {
 		this.posY = par4;
 		this.posZ = par5;
 	}
+	@SideOnly(Side.CLIENT)
+	public EnumRarity getRarity(ItemStack par1){
+		return EnumRarity.uncommon;
+	}		
 
 	@Override
 	public void onCraftMatrixChanged(IInventory par1IInventory) {
