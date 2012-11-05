@@ -1,12 +1,11 @@
 package hybridcraft.common.managers;
 
-import net.minecraft.src.*;
-import net.minecraftforge.common.Configuration;
 import hybridcraft.common.core.AbstractCraftingManager;
+import hybridcraft.common.handlers.ConfigHandler;
 import hybridcraft.common.mod.lib.Sandwich;
-import cpw.mods.fml.common.Mod.PreInit;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.*;
+import net.minecraft.src.Item;
+import net.minecraft.src.ItemStack;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class CookingPotManager extends AbstractCraftingManager {
 
@@ -25,9 +24,9 @@ public class CookingPotManager extends AbstractCraftingManager {
 	private CookingPotManager() {
 
 		// Classify Items
-		bowlChicken = new Sandwich(hybridcraft.common.handlers.IDHandler.bowlChickenID, 9).setIconIndex(12).setItemName("Chicken Soup");
-		bowlBeef = new Sandwich(hybridcraft.common.handlers.IDHandler.bowlBeefID, 8).setIconIndex(13).setItemName("Beef Stew");
-		bowlMeat = new Sandwich(hybridcraft.common.handlers.IDHandler.bowlMeatID, 10).setIconIndex(14).setItemName("Broth");
+		bowlChicken = new Sandwich(ConfigHandler.bowlChickenID, 9).setIconIndex(12).setItemName("Chicken Soup");
+		bowlBeef = new Sandwich(ConfigHandler.bowlBeefID, 8).setIconIndex(13).setItemName("Beef Stew");
+		bowlMeat = new Sandwich(ConfigHandler.bowlMeatID, 10).setIconIndex(14).setItemName("Broth");
 		
 		// Register Items
 		LanguageRegistry.addName(bowlChicken, "Chicken Soup");

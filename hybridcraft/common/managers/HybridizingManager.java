@@ -27,16 +27,16 @@ public class HybridizingManager extends AbstractCraftingManager {
 	private HybridizingManager(boolean x) {
 
 		// Ingot
-		dirtoneIngot = new ItemIngot(561).setIconIndex(1).setItemName("dirtoneIngot");
-		dironIngot = new ItemIngot(562).setIconIndex(2).setItemName("dironIngot");
-		diroldIngot = new ItemIngot(563).setIconIndex(3).setItemName("diroldIngot");
-		dirmendIngot = new ItemIngot(564).setIconIndex(4).setItemName("dirmendIngot");
-		stornIngot = new ItemIngot(566).setIconIndex(6).setItemName("stornIngot");
-		stoldIngot = new ItemIngot(567).setIconIndex(7).setItemName("stoldIngot");
-		stomendIngot = new ItemIngot(568).setIconIndex(8).setItemName("stormendIngot");
-		iroldIngot = new ItemIngot(569).setIconIndex(9).setItemName("iroldIngot");
-		irmendIngot = new ItemIngot(570).setIconIndex(10).setItemName("irmendIngot");
-		gomendIngot = new ItemIngot(571).setIconIndex(11).setItemName("gomendIngot");
+		dirtoneIngot = new ItemIngot(hybridcraft.common.handlers.ConfigHandler.dirtoneIngotID).setIconIndex(1).setItemName("dirtoneIngot");
+		dironIngot = new ItemIngot(hybridcraft.common.handlers.ConfigHandler.dironIngotID).setIconIndex(2).setItemName("dironIngot");
+		diroldIngot = new ItemIngot(hybridcraft.common.handlers.ConfigHandler.diroldIngotID).setIconIndex(3).setItemName("diroldIngot");
+		dirmendIngot = new ItemIngot(hybridcraft.common.handlers.ConfigHandler.dirmendIngotID).setIconIndex(4).setItemName("dirmendIngot");
+		stornIngot = new ItemIngot(hybridcraft.common.handlers.ConfigHandler.stornIngotID).setIconIndex(6).setItemName("stornIngot");
+		stoldIngot = new ItemIngot(hybridcraft.common.handlers.ConfigHandler.stoldIngotID).setIconIndex(7).setItemName("stoldIngot");
+		stomendIngot = new ItemIngot(hybridcraft.common.handlers.ConfigHandler.stomendIngotID).setIconIndex(8).setItemName("stormendIngot");
+		iroldIngot = new ItemIngot(hybridcraft.common.handlers.ConfigHandler.iroldIngotID).setIconIndex(9).setItemName("iroldIngot");
+		irmendIngot = new ItemIngot(hybridcraft.common.handlers.ConfigHandler.irmendIngotID).setIconIndex(10).setItemName("irmendIngot");
+		gomendIngot = new ItemIngot(hybridcraft.common.handlers.ConfigHandler.gomendIngotID).setIconIndex(11).setItemName("gomendIngot");
 
 		// Ingot Registry
 		LanguageRegistry.addName(dirtoneIngot, "Dirtone Ingot");

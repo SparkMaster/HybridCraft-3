@@ -1,12 +1,11 @@
 package hybridcraft.common.managers;
 
-import net.minecraft.src.*;
-import net.minecraftforge.common.Configuration;
 import hybridcraft.common.core.AbstractCraftingManager;
+import hybridcraft.common.handlers.ConfigHandler;
 import hybridcraft.common.mod.lib.FoodBread;
-import cpw.mods.fml.common.Mod.PreInit;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.*;
+import net.minecraft.src.Item;
+import net.minecraft.src.ItemStack;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class StoveManager extends AbstractCraftingManager {
 
@@ -25,10 +24,10 @@ public class StoveManager extends AbstractCraftingManager {
 	private StoveManager() {
 
 		// Classify Items
-		BaB = new FoodBread(hybridcraft.common.handlers.IDHandler.BaBID, 8, false).setIconIndex(0).setItemName("bab");
-		PaB = new FoodBread(hybridcraft.common.handlers.IDHandler.PaBID, 10, false).setIconIndex(1).setItemName("pab");
-		CaB = new FoodBread(hybridcraft.common.handlers.IDHandler.CaBID, 10, false).setIconIndex(2).setItemName("cab");
-		DogBread = new FoodBread(hybridcraft.common.handlers.IDHandler.DogBreadID, 10, true).setIconIndex(3).setItemName("db");
+		BaB = new FoodBread(ConfigHandler.BaBID, 8, false).setIconIndex(0).setItemName("bab");
+		PaB = new FoodBread(ConfigHandler.PaBID, 10, false).setIconIndex(1).setItemName("pab");
+		CaB = new FoodBread(ConfigHandler.CaBID, 10, false).setIconIndex(2).setItemName("cab");
+		DogBread = new FoodBread(ConfigHandler.DogBreadID, 10, true).setIconIndex(3).setItemName("db");
 		
 		// Register Items
 		LanguageRegistry.addName(BaB, "Beef and Bread");

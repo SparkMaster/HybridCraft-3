@@ -1,7 +1,7 @@
 package hybridcraft.common.mod.init;
 
+import hybridcraft.common.handlers.ConfigHandler;
 import hybridcraft.common.mod.lib.ItemIngot;
-import hybridcraft.common.handlers.IDHandler;
 import net.minecraft.src.Block;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
@@ -18,10 +18,10 @@ public class Ingots {
 	public static void initItems()
 	{
 		// Ingots
-		obsidianShard = new ItemIngot(hybridcraft.common.handlers.IDHandler.OBSIDIAN_SHARD).setIconIndex(12).setItemName("obsidianShard");
-		obsidianIngot = new ItemIngot(hybridcraft.common.handlers.IDHandler.OBSIDIAN_INGOT).setIconIndex(13).setItemName("obsidianIngot");
-		sandIngot = new ItemIngot(hybridcraft.common.handlers.IDHandler.SAND_INGOT).setIconIndex(14).setItemName("sandIngot");
-		dirtIngot = new ItemIngot(hybridcraft.common.handlers.IDHandler.DIRT_INGOT).setIconIndex(0).setItemName("dirtIngot");
+		obsidianShard = new ItemIngot(ConfigHandler.obsidianShardID).setIconIndex(12).setItemName("obsidianShard");
+		obsidianIngot = new ItemIngot(ConfigHandler.obsidianIngotID).setIconIndex(13).setItemName("obsidianIngot");
+		sandIngot = new ItemIngot(ConfigHandler.sandIngotID).setIconIndex(14).setItemName("sandIngot");
+		dirtIngot = new ItemIngot(ConfigHandler.dirtIngotID).setIconIndex(0).setItemName("dirtIngot");
 		
 		// ingot
 		LanguageRegistry.addName(obsidianShard, "Shard 'o Obsidian");

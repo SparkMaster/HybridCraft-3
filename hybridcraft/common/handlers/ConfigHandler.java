@@ -1,227 +1,499 @@
 package hybridcraft.common.handlers;
 
-import java.io.File;
-import net.minecraftforge.common.Property;
+import net.minecraft.src.Item;
 import net.minecraftforge.common.Configuration;
 
 public class ConfigHandler
 {
 	
-	private static Configuration config;
+	public static final String CAT_BLOCKS = "Blocks";
+	public static final String CAT_ITEMS = "Items";
+	public static final String CAT_ARMOR = "Armor";
+	public static final String CAT_TOOLS = "Tools";
+	public static final String CAT_FOOD = "Food";
+
+	//Blocks 800-899
+	public static int dirtBlockID = 801;
+	public static int dirtoneBlockID = 802;
+	public static int dironBlockID = 804;
+	public static int diroldBlockID = 805;
+	public static int dirmendBlockID = 806;
+	public static int stoneBlockID = 807;
+	public static int stornBlockID = 808;
+	public static int stoldBlockID = 809;
+	public static int stomendBlockID = 810;
+	public static int iroldBlockID = 811;
+	public static int irmendBlockID = 812;
+	public static int gomendBlockID = 813;
+	public static int sandID = 814;
+	public static int dandID = 815;
+	public static int davelID = 816;
+	public static int doneID = 817;
+	public static int counterBlockID = 818;
+	public static int stoveBlockID = 819;
+	public static int potBlockID = 820;
+	public static int combinerBlockID = 821;
 	
-	public ConfigHandler(String fileLocation)
+	//Armors 4100-4199
+	public static int dirtHelmetID = 4100;
+	public static int dirtPlateID = 4101;
+	public static int dirtLegsID = 4102;
+	public static int dirtBootsID = 4103;
+	
+	
+	public static int dirtoneHelmetID = 4104;
+	public static int dirtonePlateID = 4105;
+	public static int dirtoneLegsID = 4106;
+	public static int dirtoneBootsID = 4107;
+
+	public static int dironHelmetID = 4108;
+	public static int dironPlateID = 4109;
+	public static int dironLegsID = 4110;
+	public static int dironBootsID = 4111;
+	
+	public static int diroldHelmetID = 4112;
+	public static int diroldPlateID = 4113;
+	public static int diroldLegsID = 4114;
+	public static int diroldBootsID = 4115;
+	
+	public static int dirmendHelmetID = 4116;
+	public static int dirmendPlateID = 4117;
+	public static int dirmendLegsID = 4118;
+	public static int dirmendBootsID = 4119;
+	
+	public static int stornHelmetID = 4120;
+	public static int stornPlateID = 4121;
+	public static int stornLegsID = 4122;
+	public static int stornBootsID = 4123;
+	
+	public static int stoldHelmetID = 4124;
+	public static int stoldPlateID = 4125;
+	public static int stoldLegsID = 4126;
+	public static int stoldBootsID = 4127;
+	
+	public static int stomendHelmetID = 4128;
+	public static int stomendPlateID = 4129;
+	public static int stomendLegsID = 4130;
+	public static int stomendBootsID = 4131;
+	
+	public static int iroldHelmetID = 4132;
+	public static int iroldPlateID = 4133;
+	public static int iroldLegsID = 4134;
+	public static int iroldBootsID = 4135;
+	
+	public static int irmendHelmetID = 4136;
+	public static int irmendPlateID = 4137;
+	public static int irmendLegsID = 4138;
+	public static int irmendBootsID = 4139;
+	
+	public static int gomendHelmetID = 4140;
+	public static int gomendPlateID = 4141;
+	public static int gomendLegsID = 4142;
+	public static int gomendBootsID = 4143;
+	
+	public static int obsidianHelmetID = 4144;
+	public static int obsidianPlateID = 4145;
+	public static int obsidianLegsID = 4146;
+	public static int obsidianBootsID = 4147;
+	
+	public static int stoneHelmetID = 4148;
+	public static int stonePlateID = 4149;
+	public static int stoneLegsID = 4150;
+	public static int stoneBootsID = 4151;
+	
+	public static int sandHelmetID = 4152;
+	public static int sandPlateID = 4153;
+	public static int sandLegsID = 4154;
+	public static int sandBootsID = 4155;
+	
+	public static int emeraldhelmetID = 4156;
+	public static int emeraldplateID = 4157;
+	public static int emeraldlegsID = 4158;
+	public static int emeraldbootsID = 4159;
+	
+	
+	// Tools  4200-4299
+	public static int dirtSwordID = 4200;
+	public static int dirtPickID = 4201;
+	public static int dirtAxeID = 4202;
+	public static int dirtShovelID = 4203;
+	public static int dirtHoeID = 4204;
+	
+	public static int dirtOneSwordID = 4205;
+	public static int dirtOnePickID = 4206;
+	public static int dirtOneAxeID = 4207;
+	public static int dirtOneShovelID = 4208;
+	public static int dirtOneHoeID = 4209;
+
+	public static int dironSwordID = 4210;
+	public static int dironPickID = 4211;
+	public static int dironAxeID = 4212;
+	public static int dironShovelID = 4213;
+	public static int dironHoeID = 4214;
+	
+	public static int diroldSwordID = 4215;
+	public static int diroldPickID = 4216;
+	public static int diroldAxeID = 4217;
+	public static int diroldShovelID = 4218;
+	public static int diroldHoeID = 4219;
+	
+	public static int dirmendSwordID = 4220;
+	public static int dirmendPickID = 4221;
+	public static int dirmendAxeID = 4222;
+	public static int dirmendShovelID = 4223;
+	public static int dirmendHoeID = 4224;
+	
+	public static int stornSwordID = 4225;
+	public static int stornPickID = 4226;
+	public static int stornAxeID = 4227;
+	public static int stornShovelID = 4228;
+	public static int stornHoeID = 4229;
+	
+	public static int stoldSwordID = 4230;
+	public static int stoldPickID = 4231;
+	public static int stoldAxeID = 4232;
+	public static int stoldShovelID = 4233;
+	public static int stoldHoeID = 4234;
+	
+	public static int stomendSwordID = 4235;
+	public static int stomendPickID = 4236;
+	public static int stomendAxeID = 4237;
+	public static int stomendShovelID = 4238;
+	public static int stomendHoeID = 4239;
+	
+	public static int iroldSwordID = 4240;
+	public static int iroldPickID = 4241;
+	public static int iroldAxeID = 4242;
+	public static int iroldShovelID = 4243;
+	public static int iroldHoeID = 4244;
+	
+	public static int irmendSwordID = 4245;
+	public static int irmendPickID = 4246;
+	public static int irmendAxeID = 4247;
+	public static int irmendShovelID = 4248;
+	public static int irmendHoeID = 4249;
+	
+	public static int gomendSwordID = 4250;
+	public static int gomendPickID = 4251;
+	public static int gomendAxeID = 4252;
+	public static int gomendShovelID = 4253;
+	public static int gomendHoeID = 4254;
+	
+	public static int obsidianSwordID = 4255;
+	public static int obsidianPickID = 4256;
+	public static int obsidianAxeID = 4257;
+	public static int obsidianShovelID = 4258;
+	public static int obsidianHoeID = 4259;
+	
+	public static int stoneSwordID = 4260;
+	public static int stonePickID = 4261;
+	public static int stoneAxeID = 4262;
+	public static int stoneShovelID = 4263;
+	public static int stoneHoeID = 4264;
+	
+	public static int sandSwordID = 4265;
+	public static int sandPickID = 4266;
+	public static int sandAxeID = 4267;
+	public static int sandShovelID = 4268;
+	public static int sandHoeID = 4269;
+	
+	public static int emeraldSwordID = 4270;
+	public static int emeraldPickID = 4271;
+	public static int emeraldAxeID = 4272;
+	public static int emeraldShovelID = 4273;
+	public static int emeraldHoeID = 4274;
+
+	//Ingots 4301-4320
+	public static int obsidianShardID = 4301;
+	public static int obsidianIngotID = 4302;
+	public static int sandIngotID = 4303;
+	public static int dirtIngotID = 4304;
+	public static int dirtoneIngotID = 4305;
+	public static int dironIngotID = 4306;
+	public static int diroldIngotID = 4307;
+	public static int dirmendIngotID = 4308;
+	public static int stornIngotID = 4309;
+	public static int stoldIngotID = 4310;
+	public static int stomendIngotID = 4311;
+	public static int iroldIngotID = 4312;
+	public static int irmendIngotID = 4313;
+	public static int gomendIngotID = 4314;
+	
+	//Flowers 4321-4340
+	public static int dirtFlowerID = 4321;
+	public static int stoneFlowerID = 4322;
+	public static int ironFlowerID = 4323;
+	public static int goldFlowerID = 4324;
+	public static int diamondFlowerID = 4325;
+	public static int obsidianFlowerID = 4326;
+
+	//Foods 4341-4399
+	public static int breadSliceID = 4341;
+	public static int chickenStripsID = 4342;
+	public static int beefSlicesID = 4343;
+	public static int baconID = 4344;
+	public static int chickenSandwichID = 4345;
+	public static int chickenSandwichBaconID = 4346;
+	public static int beefSandwichID = 4347;
+	public static int beefSandwichBaconID = 4348;
+	public static int meatSandwichID = 4349;
+	public static int applePieID = 4350;
+	public static int fruitSaladID = 4351;
+	public static int appleSliceID = 4352;
+	public static int bowlChickenID = 4353;
+	public static int bowlBeefID = 4354;
+	public static int bowlMeatID = 4355;
+	public static int BaBID = 4356;
+	public static int PaBID = 4357;
+	public static int CaBID = 4368;
+	public static int DogBreadID = 4369;	
+
+	private static final String COMMENT_PREFIX = "\n";
+	private static final String COMMENT_SUFFIX = "\n";
+	
+	public static void loadConfig(Configuration config)
 	{
-		config =  new Configuration(new File(fileLocation));
-	}
-	public ConfigHandler(File file)
-	{
-		config =  new Configuration(file);
-	}
-	
-	public static final String CATEGORY_BLOCKS = "Blocks";
-	public static final String CATEGORY_ITEMS = "Items";
-	
-	
-	public static void loadConfig()
-	{
-		//config.load();
+		
+		config.load();
+		
+
+		dirtBlockID = config.get("blocks", "dirtBlockID", dirtBlockID).getInt();
+		
+		
+		dirtoneBlockID = config.get(CAT_BLOCKS, "dirtOneBlockID", dirtoneBlockID).getInt();
+		dironBlockID = config.get(CAT_BLOCKS, "dironBlockID", dironBlockID).getInt();
+		diroldBlockID = config.get(CAT_BLOCKS, "diroldBlockID", diroldBlockID).getInt();
+		dirmendBlockID = config.get(CAT_BLOCKS, "dirmendBlockID", dirmendBlockID).getInt();
+		stoneBlockID = config.get(CAT_BLOCKS, "stoneBlockID", stoneBlockID).getInt();
+		stornBlockID = config.get(CAT_BLOCKS, "stornBlockID", stornBlockID).getInt();
+		stoldBlockID = config.get(CAT_BLOCKS, "stoldBlockID", stoldBlockID).getInt();
+		stomendBlockID = config.get(CAT_BLOCKS, "stomendBlockID", stomendBlockID).getInt();
+		iroldBlockID = config.get(CAT_BLOCKS, "iroldBlockID", iroldBlockID).getInt();
+		irmendBlockID = config.get(CAT_BLOCKS, "irmendBlockID", irmendBlockID).getInt();
+		gomendBlockID = config.get(CAT_BLOCKS, "gomendBlockID", gomendBlockID).getInt();
+		dandID = config.get(CAT_BLOCKS, "dandID", dandID).getInt();
+		davelID = config.get(CAT_BLOCKS, "davelID",	davelID).getInt();
+		doneID = config.get(CAT_BLOCKS, "doneID", doneID).getInt();
+		sandID = config.get(CAT_BLOCKS, "sandID", sandID).getInt();
+		counterBlockID = config.get(CAT_BLOCKS, "counterBlockID", counterBlockID).getInt();
+		stoveBlockID = config.get(CAT_BLOCKS, "stoveBlockID", stoveBlockID).getInt();
+		potBlockID = config.get(CAT_BLOCKS, "potBlockID", potBlockID).getInt();
+		combinerBlockID = config.get(CAT_BLOCKS, "combinerBlockID", combinerBlockID).getInt();
 		
 		/*Load all ingot Ids */
-		hybridcraft.common.handlers.IDHandler.OBSIDIAN_SHARD = config.get(CATEGORY_ITEMS, "obsidianShard", hybridcraft.common.handlers.IDHandler.OBSIDIAN_SHARD_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.OBSIDIAN_INGOT = config.get(CATEGORY_ITEMS, "obsidianIngot", hybridcraft.common.handlers.IDHandler.OBSIDIAN_INGOT_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.SAND_INGOT = config.get(CATEGORY_ITEMS, "sandIngot", hybridcraft.common.handlers.IDHandler.SAND_INGOT_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.DIRT_INGOT = config.get(CATEGORY_ITEMS, "dirtIngot", hybridcraft.common.handlers.IDHandler.DIRT_INGOT_DEFAULT).getInt();
+		obsidianShardID = config.get(CAT_ITEMS, "obsidianShardID", obsidianShardID).getInt();
+		obsidianIngotID = config.get(CAT_ITEMS, "obsidianIngotID", obsidianIngotID).getInt();
+		sandIngotID = config.get(CAT_ITEMS, "sandIngotID", sandIngotID).getInt();
+		dirtIngotID = config.get(CAT_ITEMS, "dirtIngotID", dirtIngotID).getInt();
+		dirtoneIngotID = config.get(CAT_ITEMS, "dirtoneIngotID", dirtoneIngotID).getInt();
+		dironIngotID = config.get(CAT_ITEMS, "dironIngotID", dironIngotID).getInt();
+		diroldIngotID = config.get(CAT_ITEMS, "diroldIngotID", diroldIngotID).getInt();
+		dirmendIngotID = config.get(CAT_ITEMS, "dirmendIngotID", dirmendIngotID).getInt();
+		stornIngotID = config.get(CAT_ITEMS, "stornIngotID", stornIngotID).getInt();
+		stoldIngotID = config.get(CAT_ITEMS, "stoldIngotID", stoldIngotID).getInt();
+		stomendIngotID = config.get(CAT_ITEMS, "stomendIngotID", stomendIngotID).getInt();
+		iroldIngotID = config.get(CAT_ITEMS, "iroldIngotID", iroldIngotID).getInt();
+		irmendIngotID = config.get(CAT_ITEMS, "irmendIngotID", irmendIngotID).getInt();
+		gomendIngotID = config.get(CAT_ITEMS, "gomendIngotID", gomendIngotID).getInt();
 		
 		/*Load all tool Ids */
 		
 		//dirt
-		hybridcraft.common.handlers.IDHandler.DIRT_AXE = config.get(CATEGORY_ITEMS, "dirtAxe", hybridcraft.common.handlers.IDHandler.DIRT_AXE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.DIRT_HOE = config.get(CATEGORY_ITEMS, "dirtHoe", hybridcraft.common.handlers.IDHandler.DIRT_HOE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.DIRT_PICK = config.get(CATEGORY_ITEMS, "dirtPick", hybridcraft.common.handlers.IDHandler.DIRT_PICK_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.DIRT_SHOVEL = config.get(CATEGORY_ITEMS, "dirtShovel", hybridcraft.common.handlers.IDHandler.DIRT_SHOVEL_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.DIRT_SWORD = config.get(CATEGORY_ITEMS, "dirtSword", hybridcraft.common.handlers.IDHandler.DIRT_SWORD_DEFAULT).getInt();		
+		dirtAxeID = config.get(CAT_TOOLS, "dirtAxeID", dirtAxeID).getInt();
+		dirtHoeID = config.get(CAT_TOOLS, "dirtHoeID", dirtHoeID).getInt();
+		dirtPickID = config.get(CAT_TOOLS, "dirtPickID", dirtPickID).getInt();
+		dirtShovelID = config.get(CAT_TOOLS, "dirtShovelID", dirtShovelID).getInt();
+		dirtSwordID = config.get(CAT_TOOLS, "dirtSwordID", dirtSwordID).getInt();		
+
 		//Dirt and diamond
-		hybridcraft.common.handlers.IDHandler.DIRMEND_AXE = config.get(CATEGORY_ITEMS, "dirmendAxe", hybridcraft.common.handlers.IDHandler.DIRMEND_AXE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.DIRMEND_HOE = config.get(CATEGORY_ITEMS, "dirmendHoe", hybridcraft.common.handlers.IDHandler.DIRMEND_HOE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.DIRMEND_PICK = config.get(CATEGORY_ITEMS, "dirmendPick", hybridcraft.common.handlers.IDHandler.DIRMEND_PICK_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.DIRMEND_SHOVEL = config.get(CATEGORY_ITEMS, "dirmendShovel", hybridcraft.common.handlers.IDHandler.DIRMEND_SHOVEL_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.DIRMEND_SWORD = config.get(CATEGORY_ITEMS, "dirmendSword", hybridcraft.common.handlers.IDHandler.DIRMEND_SWORD_DEFAULT).getInt();		
+		dirmendAxeID = config.get(CAT_TOOLS, "dirmendAxeID", dirmendAxeID).getInt();
+		dirmendHoeID = config.get(CAT_TOOLS, "dirmendHoeID", dirmendHoeID).getInt();
+		dirmendPickID = config.get(CAT_TOOLS, "dirmendPickID", dirmendPickID).getInt();
+		dirmendShovelID = config.get(CAT_TOOLS, "dirmendShovelID", dirmendShovelID).getInt();
+		dirmendSwordID = config.get(CAT_TOOLS, "dirmendSwordID", dirmendSwordID).getInt();		
+		
 		//dirt and gold
-		hybridcraft.common.handlers.IDHandler.DIROLD_AXE = config.get(CATEGORY_ITEMS, "diroldAxe", hybridcraft.common.handlers.IDHandler.DIROLD_AXE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.DIROLD_HOE = config.get(CATEGORY_ITEMS, "diroldHoe", hybridcraft.common.handlers.IDHandler.DIROLD_HOE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.DIROLD_PICK = config.get(CATEGORY_ITEMS, "diroldPick", hybridcraft.common.handlers.IDHandler.DIROLD_PICK_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.DIROLD_SHOVEL = config.get(CATEGORY_ITEMS, "diroldShovel", hybridcraft.common.handlers.IDHandler.DIROLD_SHOVEL_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.DIROLD_SWORD = config.get(CATEGORY_ITEMS, "diroldSword", hybridcraft.common.handlers.IDHandler.DIROLD_SWORD_DEFAULT).getInt();
+		diroldAxeID = config.get(CAT_TOOLS, "diroldAxeID", diroldAxeID).getInt();
+		diroldHoeID = config.get(CAT_TOOLS, "diroldHoeID", diroldHoeID).getInt();
+		diroldPickID = config.get(CAT_TOOLS, "diroldPickID", diroldPickID).getInt();
+		diroldShovelID = config.get(CAT_TOOLS, "diroldShovelID", diroldShovelID).getInt();
+		diroldSwordID = config.get(CAT_TOOLS, "diroldSwordID", diroldSwordID).getInt();
+		
 		//dirt and iron
-		hybridcraft.common.handlers.IDHandler.DIRON_AXE = config.get(CATEGORY_ITEMS, "dironAxe", hybridcraft.common.handlers.IDHandler.DIRON_AXE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.DIRON_HOE = config.get(CATEGORY_ITEMS, "dironHoe", hybridcraft.common.handlers.IDHandler.DIRON_HOE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.DIRON_PICK = config.get(CATEGORY_ITEMS, "dironPick", hybridcraft.common.handlers.IDHandler.DIRON_PICK_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.DIRON_SHOVEL = config.get(CATEGORY_ITEMS, "dironShovel", hybridcraft.common.handlers.IDHandler.DIRON_SHOVEL_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.DIRON_SWORD = config.get(CATEGORY_ITEMS, "dironSword", hybridcraft.common.handlers.IDHandler.DIRON_SWORD_DEFAULT).getInt();
+		dironAxeID = config.get(CAT_TOOLS, "dironAxeID", dironAxeID).getInt();
+		dironHoeID = config.get(CAT_TOOLS, "dironHoeID", dironHoeID).getInt();
+		dironPickID = config.get(CAT_TOOLS, "dironPickID", dironPickID).getInt();
+		dironShovelID = config.get(CAT_TOOLS, "dironShovelID", dironShovelID).getInt();
+		dironSwordID = config.get(CAT_TOOLS, "dironSwordID", dironSwordID).getInt();
+		
 		//STORN
-		hybridcraft.common.handlers.IDHandler.STORN_AXE = config.get(CATEGORY_ITEMS, "stornAxe", hybridcraft.common.handlers.IDHandler.STORN_AXE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.STORN_HOE = config.get(CATEGORY_ITEMS, "stornHoe", hybridcraft.common.handlers.IDHandler.STORN_HOE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.STORN_PICK = config.get(CATEGORY_ITEMS, "stornPick", hybridcraft.common.handlers.IDHandler.STORN_PICK_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.STORN_SHOVEL = config.get(CATEGORY_ITEMS, "stornShovel", hybridcraft.common.handlers.IDHandler.STORN_SHOVEL_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.STORN_SWORD = config.get(CATEGORY_ITEMS, "stornSword", hybridcraft.common.handlers.IDHandler.STORN_SWORD_DEFAULT).getInt();
+		stornAxeID = config.get(CAT_TOOLS, "stornAxeID", stornAxeID).getInt();
+		stornHoeID = config.get(CAT_TOOLS, "stornHoeID", stornHoeID).getInt();
+		stornPickID = config.get(CAT_TOOLS, "stornPickID", stornPickID).getInt();
+		stornShovelID = config.get(CAT_TOOLS, "stornShovelID", stornShovelID).getInt();
+		stornSwordID = config.get(CAT_TOOLS, "stornSwordID", stornSwordID).getInt();
+		
 		//stold
-		hybridcraft.common.handlers.IDHandler.STOLD_AXE = config.get(CATEGORY_ITEMS, "stoldAxe", hybridcraft.common.handlers.IDHandler.STOLD_AXE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.STOLD_HOE = config.get(CATEGORY_ITEMS, "stoldHoe", hybridcraft.common.handlers.IDHandler.STOLD_HOE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.STOLD_PICK = config.get(CATEGORY_ITEMS, "stoldPick", hybridcraft.common.handlers.IDHandler.STOLD_PICK_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.STOLD_SHOVEL = config.get(CATEGORY_ITEMS, "stoldShovel", hybridcraft.common.handlers.IDHandler.STOLD_SHOVEL_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.STOLD_SWORD = config.get(CATEGORY_ITEMS, "stoldSword", hybridcraft.common.handlers.IDHandler.STOLD_SWORD_DEFAULT).getInt();
+		stoldAxeID = config.get(CAT_TOOLS, "stoldAxeID", stoldAxeID).getInt();
+		stoldHoeID = config.get(CAT_TOOLS, "stoldHoeID", stoldHoeID).getInt();
+		stoldPickID = config.get(CAT_TOOLS, "stoldPickID", stoldPickID).getInt();
+		stoldShovelID = config.get(CAT_TOOLS, "stoldShovelID", stoldShovelID).getInt();
+		stoldSwordID = config.get(CAT_TOOLS, "stoldSwordID", stoldSwordID).getInt();
+		
 		//STOMEND
-		hybridcraft.common.handlers.IDHandler.STOMEND_AXE = config.get(CATEGORY_ITEMS, "stomendAxe", hybridcraft.common.handlers.IDHandler.STOMEND_AXE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.STOMEND_HOE = config.get(CATEGORY_ITEMS, "stomendHoe", hybridcraft.common.handlers.IDHandler.STOMEND_HOE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.STOMEND_PICK = config.get(CATEGORY_ITEMS, "stomendPick", hybridcraft.common.handlers.IDHandler.STOMEND_PICK_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.STOMEND_SHOVEL = config.get(CATEGORY_ITEMS, "stomendShovel", hybridcraft.common.handlers.IDHandler.STOMEND_SHOVEL_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.STOMEND_SWORD = config.get(CATEGORY_ITEMS, "stomendSword", hybridcraft.common.handlers.IDHandler.STOMEND_SWORD_DEFAULT).getInt();
+		stomendAxeID = config.get(CAT_TOOLS, "stomendAxeID", stomendAxeID).getInt();
+		stomendHoeID = config.get(CAT_TOOLS, "stomendHoeID", stomendHoeID).getInt();
+		stomendPickID = config.get(CAT_TOOLS, "stomendPickID", stomendPickID).getInt();
+		stomendShovelID = config.get(CAT_TOOLS, "stomendShovelID", stomendShovelID).getInt();
+		stomendSwordID = config.get(CAT_TOOLS, "stomendSwordID", stomendSwordID).getInt();
+		
 		//IROLD
-		hybridcraft.common.handlers.IDHandler.IROLD_AXE = config.get(CATEGORY_ITEMS, "iroldAxe", hybridcraft.common.handlers.IDHandler.IROLD_AXE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.IROLD_HOE = config.get(CATEGORY_ITEMS, "iroldHoe", hybridcraft.common.handlers.IDHandler.IROLD_HOE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.IROLD_PICK = config.get(CATEGORY_ITEMS, "iroldPick", hybridcraft.common.handlers.IDHandler.IROLD_PICK_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.IROLD_SHOVEL = config.get(CATEGORY_ITEMS, "iroldShovel", hybridcraft.common.handlers.IDHandler.IROLD_SHOVEL_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.IROLD_SWORD = config.get(CATEGORY_ITEMS, "iroldSword", hybridcraft.common.handlers.IDHandler.IROLD_SWORD_DEFAULT).getInt();
+		iroldAxeID = config.get(CAT_TOOLS, "iroldAxeID", iroldAxeID).getInt();
+		iroldHoeID = config.get(CAT_TOOLS, "iroldHoeID", iroldHoeID).getInt();
+		iroldPickID = config.get(CAT_TOOLS, "iroldPickID", iroldPickID).getInt();
+		iroldShovelID = config.get(CAT_TOOLS, "iroldShovelID", iroldShovelID).getInt();
+		iroldSwordID = config.get(CAT_TOOLS, "iroldSwordID", iroldSwordID).getInt();
+		
 		//IRMEND
-		hybridcraft.common.handlers.IDHandler.IRMEND_AXE = config.get(CATEGORY_ITEMS, "irmendAxe", hybridcraft.common.handlers.IDHandler.IROLD_AXE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.IRMEND_HOE = config.get(CATEGORY_ITEMS, "irmendHoe", hybridcraft.common.handlers.IDHandler.IROLD_HOE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.IRMEND_PICK = config.get(CATEGORY_ITEMS, "irmendPick", hybridcraft.common.handlers.IDHandler.IROLD_PICK_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.IRMEND_SHOVEL = config.get(CATEGORY_ITEMS, "irmendShovel", hybridcraft.common.handlers.IDHandler.IROLD_SHOVEL_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.IRMEND_SWORD = config.get(CATEGORY_ITEMS, "irmendSword", hybridcraft.common.handlers.IDHandler.IROLD_SWORD_DEFAULT).getInt();	
+		irmendAxeID = config.get(CAT_TOOLS, "irmendAxeID", irmendAxeID).getInt();
+		irmendHoeID = config.get(CAT_TOOLS, "irmendHoeID", irmendHoeID).getInt();
+		irmendPickID = config.get(CAT_TOOLS, "irmendPickID", irmendPickID).getInt();
+		irmendShovelID = config.get(CAT_TOOLS, "irmendShovelID", irmendShovelID).getInt();
+		irmendSwordID = config.get(CAT_TOOLS, "irmendSwordID", irmendSwordID).getInt();	
+		
 		//GOMEND
-		hybridcraft.common.handlers.IDHandler.GOMEND_AXE = config.get(CATEGORY_ITEMS, "gomendAxe", hybridcraft.common.handlers.IDHandler.GOMEND_AXE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.GOMEND_HOE = config.get(CATEGORY_ITEMS, "gomendHoe", hybridcraft.common.handlers.IDHandler.GOMEND_HOE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.GOMEND_PICK = config.get(CATEGORY_ITEMS, "gomendPick", hybridcraft.common.handlers.IDHandler.GOMEND_PICK_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.GOMEND_SHOVEL = config.get(CATEGORY_ITEMS, "gomendShovel", hybridcraft.common.handlers.IDHandler.GOMEND_SHOVEL_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.GOMEND_SWORD = config.get(CATEGORY_ITEMS, "gomendSword", hybridcraft.common.handlers.IDHandler.GOMEND_SWORD_DEFAULT).getInt();
+		gomendAxeID = config.get(CAT_TOOLS, "gomendAxeID", gomendAxeID).getInt();
+		gomendHoeID = config.get(CAT_TOOLS, "gomendHoeID", gomendHoeID).getInt();
+		gomendPickID = config.get(CAT_TOOLS, "gomendPickID", gomendPickID).getInt();
+		gomendShovelID = config.get(CAT_TOOLS, "gomendShovelID", gomendShovelID).getInt();
+		gomendSwordID = config.get(CAT_TOOLS, "gomendSwordID", gomendSwordID).getInt();
+		
 		//sand
-		hybridcraft.common.handlers.IDHandler.SAND_AXE = config.get(CATEGORY_ITEMS, "sandAxe", hybridcraft.common.handlers.IDHandler.SAND_AXE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.SAND_HOE = config.get(CATEGORY_ITEMS, "sandHoe", hybridcraft.common.handlers.IDHandler.SAND_HOE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.SAND_PICK = config.get(CATEGORY_ITEMS, "sandPick", hybridcraft.common.handlers.IDHandler.SAND_PICK_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.SAND_SHOVEL = config.get(CATEGORY_ITEMS, "sandShovel", hybridcraft.common.handlers.IDHandler.SAND_SHOVEL_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.SAND_SWORD = config.get(CATEGORY_ITEMS, "sandSword", hybridcraft.common.handlers.IDHandler.SAND_SWORD_DEFAULT).getInt();		
+		sandAxeID = config.get(CAT_TOOLS, "sandAxeID", sandAxeID).getInt();
+		sandHoeID = config.get(CAT_TOOLS, "sandHoeID", sandHoeID).getInt();
+		sandPickID = config.get(CAT_TOOLS, "sandPickID", sandPickID).getInt();
+		sandShovelID = config.get(CAT_TOOLS, "sandShovelID", sandShovelID).getInt();
+		sandSwordID = config.get(CAT_TOOLS, "sandSwordID", sandSwordID).getInt();		
+		
 		//obsidian
-		hybridcraft.common.handlers.IDHandler.OBSIDIAN_AXE = config.get(CATEGORY_ITEMS, "obsidianAxe", hybridcraft.common.handlers.IDHandler.OBSIDIAN_AXE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.OBSIDIAN_HOE = config.get(CATEGORY_ITEMS, "obsidianHoe", hybridcraft.common.handlers.IDHandler.OBSIDIAN_HOE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.OBSIDIAN_PICK = config.get(CATEGORY_ITEMS, "obsidianPick", hybridcraft.common.handlers.IDHandler.OBSIDIAN_PICK_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.OBSIDIAN_SHOVEL = config.get(CATEGORY_ITEMS, "obsidianShovel", hybridcraft.common.handlers.IDHandler.OBSIDIAN_SHOVEL_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.OBSIDIAN_SWORD = config.get(CATEGORY_ITEMS, "obsidianSword", hybridcraft.common.handlers.IDHandler.OBSIDIAN_SWORD_DEFAULT).getInt();
+		obsidianAxeID = config.get(CAT_TOOLS, "obsidianAxeID", obsidianAxeID).getInt();
+		obsidianHoeID = config.get(CAT_TOOLS, "obsidianHoeID", obsidianHoeID).getInt();
+		obsidianPickID = config.get(CAT_TOOLS, "obsidianPickID", obsidianPickID).getInt();
+		obsidianShovelID = config.get(CAT_TOOLS, "obsidianShovelID", obsidianShovelID).getInt();
+		obsidianSwordID = config.get(CAT_TOOLS, "obsidianSwordID", obsidianSwordID).getInt();
+		
 		//emerald
-		hybridcraft.common.handlers.IDHandler.EMERALD_AXE = config.get(CATEGORY_ITEMS, "emeraldAxe", hybridcraft.common.handlers.IDHandler.EMERALD_AXE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.EMERALD_HOE = config.get(CATEGORY_ITEMS, "emeraldHoe", hybridcraft.common.handlers.IDHandler.EMERALD_HOE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.EMERALD_PICK = config.get(CATEGORY_ITEMS, "emeraldPick", hybridcraft.common.handlers.IDHandler.EMERALD_PICK_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.EMERALD_SHOVEL = config.get(CATEGORY_ITEMS, "emeraldShovel", hybridcraft.common.handlers.IDHandler.EMERALD_SHOVEL_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.EMERALD_SWORD = config.get(CATEGORY_ITEMS, "emeraldSword", hybridcraft.common.handlers.IDHandler.EMERALD_SWORD_DEFAULT).getInt();
+		emeraldAxeID = config.get(CAT_TOOLS, "emeraldAxeID", emeraldAxeID).getInt();
+		emeraldHoeID = config.get(CAT_TOOLS, "emeraldHoeID", emeraldHoeID).getInt();
+		emeraldPickID = config.get(CAT_TOOLS, "emeraldPickID", emeraldPickID).getInt();
+		emeraldShovelID = config.get(CAT_TOOLS, "emeraldShovelID", emeraldShovelID).getInt();
+		emeraldSwordID = config.get(CAT_TOOLS, "emeraldSwordID", emeraldSwordID).getInt();
 		
 		//Food
-		hybridcraft.common.handlers.IDHandler.breadSliceID = config.get(CATEGORY_ITEMS, "Slice of Bread", hybridcraft.common.handlers.IDHandler.BREAD_SLICE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.chickenStripsID = config.get(CATEGORY_ITEMS, "Chicken Tender", hybridcraft.common.handlers.IDHandler.CHICKEN_STRIPS_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.beefSlicesID = config.get(CATEGORY_ITEMS, "Beef Slice", hybridcraft.common.handlers.IDHandler.BEEF_SLICES_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.baconID = config.get(CATEGORY_ITEMS, "Bacon", hybridcraft.common.handlers.IDHandler.BACON_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.chickenSandwichID = config.get(CATEGORY_ITEMS, "Chicken Sandwich", hybridcraft.common.handlers.IDHandler.CHICKEN_SANDWICH_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.chickenSandwichBaconID = config.get(CATEGORY_ITEMS, "Chicken Sandwich with Bacon", hybridcraft.common.handlers.IDHandler.CHICKEN_BACON_SANDWICH_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.beefSandwichID = config.get(CATEGORY_ITEMS, "Beef Sandwich", hybridcraft.common.handlers.IDHandler.BEEF_SANDWICH_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.beefSandwichBaconID = config.get(CATEGORY_ITEMS, "Beef Sandwich with Bacon", hybridcraft.common.handlers.IDHandler.BEEF_BACON_SANDWICH_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.meatSandwichID = config.get(CATEGORY_ITEMS, "Meat Sandwich", hybridcraft.common.handlers.IDHandler.MEAT_SANDWICH_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.applePieID = config.get(CATEGORY_ITEMS, "Apple Pie", hybridcraft.common.handlers.IDHandler.APPLE_PIE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.fruitSaladID = config.get(CATEGORY_ITEMS, "Fruit Salad", hybridcraft.common.handlers.IDHandler.FRUIT_SALAD_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.appleSliceID = config.get(CATEGORY_ITEMS, "Apple Slice", hybridcraft.common.handlers.IDHandler.APPLE_SLICE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.BaBID = config.get(CATEGORY_ITEMS, "Beef Bread", hybridcraft.common.handlers.IDHandler.BAB_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.PaBID = config.get(CATEGORY_ITEMS, "Pork Bread", hybridcraft.common.handlers.IDHandler.PAB_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.CaBID = config.get(CATEGORY_ITEMS, "Chicken Bread", hybridcraft.common.handlers.IDHandler.CAB_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.DogBreadID = config.get(CATEGORY_ITEMS, "Dog Treat", hybridcraft.common.handlers.IDHandler.DOG_BREAD_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.bowlChickenID = config.get(CATEGORY_ITEMS, "Bowl of Chicken", hybridcraft.common.handlers.IDHandler.BOWL_CHICKEN_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.bowlBeefID = config.get(CATEGORY_ITEMS, "Bowl of Beef", hybridcraft.common.handlers.IDHandler.BOWL_BEEF_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.bowlMeatID = config.get(CATEGORY_ITEMS, "Bowl of Meat", hybridcraft.common.handlers.IDHandler.BOWL_MEAT_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.counterID = config.get(CATEGORY_BLOCKS, "Counter", hybridcraft.common.handlers.IDHandler.COUNTER_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.stoveID = config.get(CATEGORY_BLOCKS, "Stove", hybridcraft.common.handlers.IDHandler.STOVE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.potID = config.get(CATEGORY_BLOCKS, "Cooking Pot", hybridcraft.common.handlers.IDHandler.POT_DEFAULT).getInt();
+		breadSliceID = config.get(CAT_FOOD, "breadSliceID", breadSliceID).getInt();
+		chickenStripsID = config.get(CAT_FOOD, "chickenStripsID", chickenStripsID).getInt();
+		beefSlicesID = config.get(CAT_FOOD, "beefSlicesID", beefSlicesID).getInt();
+		baconID = config.get(CAT_FOOD, "Bacon", baconID).getInt();
+		chickenSandwichID = config.get(CAT_FOOD, "chickenSandwichID", chickenSandwichID).getInt();
+		chickenSandwichBaconID = config.get(CAT_FOOD, "chickenSandwichBaconID", chickenSandwichBaconID).getInt();
+		beefSandwichID = config.get(CAT_FOOD, "beefSandwichID", beefSandwichID).getInt();
+		beefSandwichBaconID = config.get(CAT_FOOD, "beefSandwichBaconID", beefSandwichBaconID).getInt();
+		meatSandwichID = config.get(CAT_FOOD, "meatSandwichID", meatSandwichID).getInt();
+		applePieID = config.get(CAT_FOOD, "applePieID", applePieID).getInt();
+		fruitSaladID = config.get(CAT_FOOD, "fruitSaladID", fruitSaladID).getInt();
+		appleSliceID = config.get(CAT_FOOD, "appleSliceID", appleSliceID).getInt();
+		BaBID = config.get(CAT_FOOD, "BaBID", BaBID).getInt();
+		PaBID = config.get(CAT_FOOD, "PaBID", PaBID).getInt();
+		CaBID = config.get(CAT_FOOD, "CaBID", CaBID).getInt();
+		DogBreadID = config.get(CAT_FOOD, "DogBreadID", DogBreadID).getInt();
+		bowlChickenID = config.get(CAT_FOOD, "bowlChickenID", bowlChickenID).getInt();
+		bowlBeefID = config.get(CAT_FOOD, "bowlBeefID", bowlBeefID).getInt();
+		bowlMeatID = config.get(CAT_FOOD, "bowlMeatID", bowlMeatID).getInt();
+		
 		//Armor
-		hybridcraft.common.handlers.IDHandler.dirtHelmetID = config.get(CATEGORY_ITEMS, "Dirt Helmet ", hybridcraft.common.handlers.IDHandler.DIRT_HELMET_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dirtPlateID = config.get(CATEGORY_ITEMS, "Dirt Chestplate", hybridcraft.common.handlers.IDHandler.DIRT_PLATE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dirtLegsID = config.get(CATEGORY_ITEMS, "Dirt Leggings", hybridcraft.common.handlers.IDHandler.DIRT_LEGS_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dirtBootsID = config.get(CATEGORY_ITEMS, "Dirt Boots", hybridcraft.common.handlers.IDHandler.DIRT_BOOTS_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dirtoneHelmetID = config.get(CATEGORY_ITEMS, "Dirtone Helmet", hybridcraft.common.handlers.IDHandler.DIRTONE_HELMET_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dirtonePlateID = config.get(CATEGORY_ITEMS, "Dirtone Chestplate", hybridcraft.common.handlers.IDHandler.DIRTONE_PLATE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dirtoneLegsID = config.get(CATEGORY_ITEMS, "Dirtone Leggings", hybridcraft.common.handlers.IDHandler.DIRTONE_LEGS_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dirtoneBootsID = config.get(CATEGORY_ITEMS, "Dirtone Boots", hybridcraft.common.handlers.IDHandler.DIRTONE_BOOTS_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dironHelmetID = config.get(CATEGORY_ITEMS, "Diron Helmet", hybridcraft.common.handlers.IDHandler.DIRON_HELMET_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dironPlateID = config.get(CATEGORY_ITEMS, "Diron Chestplate", hybridcraft.common.handlers.IDHandler.DIRON_PLATE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dironLegsID = config.get(CATEGORY_ITEMS, "Diron Leggings", hybridcraft.common.handlers.IDHandler.DIRON_LEGS_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dironBootsID = config.get(CATEGORY_ITEMS, "Diron Boots", hybridcraft.common.handlers.IDHandler.DIRON_BOOTS_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.diroldHelmetID = config.get(CATEGORY_ITEMS, "Dirold Helmet", hybridcraft.common.handlers.IDHandler.DIROLD_HELMET_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.diroldPlateID = config.get(CATEGORY_ITEMS, "Dirold Chestplate", hybridcraft.common.handlers.IDHandler.DIROLD_PLATE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.diroldLegsID = config.get(CATEGORY_ITEMS, "Dirold Leggings", hybridcraft.common.handlers.IDHandler.DIROLD_LEGS_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.diroldBootsID = config.get(CATEGORY_ITEMS, "Dirold Boots", hybridcraft.common.handlers.IDHandler.DIROLD_BOOTS_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dirmendHelmetID = config.get(CATEGORY_ITEMS, "Dirmend Helmet", hybridcraft.common.handlers.IDHandler.DIRMEND_HELMET_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dirmendPlateID = config.get(CATEGORY_ITEMS, "Dirmend Chestplate", hybridcraft.common.handlers.IDHandler.DIRMEND_PLATE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dirmendLegsID = config.get(CATEGORY_ITEMS, "Dirmend Leggings", hybridcraft.common.handlers.IDHandler.DIRMEND_LEGS_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dirmendBootsID = config.get(CATEGORY_ITEMS, "Dirmend Boots", hybridcraft.common.handlers.IDHandler.DIRMEND_BOOTS_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.stornHelmetID = config.get(CATEGORY_ITEMS, "Storn Helmet", hybridcraft.common.handlers.IDHandler.STORN_HELMET_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.stornPlateID = config.get(CATEGORY_ITEMS, "Storn Chestplate", hybridcraft.common.handlers.IDHandler.STORN_PLATE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.stornLegsID = config.get(CATEGORY_ITEMS, "Storn Leggings", hybridcraft.common.handlers.IDHandler.STORN_LEGS_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.stornBootsID = config.get(CATEGORY_ITEMS, "Storn Boots", hybridcraft.common.handlers.IDHandler.STORN_BOOTS_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.stoldHelmetID = config.get(CATEGORY_ITEMS, "Stold Helmet", hybridcraft.common.handlers.IDHandler.STOLD_HELMET_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.stoldPlateID = config.get(CATEGORY_ITEMS, "Stold Chestplate", hybridcraft.common.handlers.IDHandler.STOLD_PLATE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.stoldLegsID = config.get(CATEGORY_ITEMS, "Stold Leggins", hybridcraft.common.handlers.IDHandler.STOLD_LEGS_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.stoldBootsID = config.get(CATEGORY_ITEMS, "Stold Boots", hybridcraft.common.handlers.IDHandler.STOLD_BOOTS_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.stomendHelmetID = config.get(CATEGORY_ITEMS, "Stomend Helmet", hybridcraft.common.handlers.IDHandler.STOMEND_HELMET_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.stomendPlateID = config.get(CATEGORY_ITEMS, "Stomend Chestplate", hybridcraft.common.handlers.IDHandler.STOMEND_PLATE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.stomendLegsID = config.get(CATEGORY_ITEMS, "Stomend Leggings", hybridcraft.common.handlers.IDHandler.STOMEND_LEGS_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.stomendBootsID = config.get(CATEGORY_ITEMS, "Stomend Boots", hybridcraft.common.handlers.IDHandler.STOMEND_BOOTS_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.iroldHelmetID = config.get(CATEGORY_ITEMS, "Irold Helmet", hybridcraft.common.handlers.IDHandler.IROLD_HELMET_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.iroldPlateID = config.get(CATEGORY_ITEMS, "Irold Chestplate", hybridcraft.common.handlers.IDHandler.IROLD_PLATE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.iroldLegsID = config.get(CATEGORY_ITEMS, "Irold Leggings", hybridcraft.common.handlers.IDHandler.IROLD_LEGS_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.iroldBootsID = config.get(CATEGORY_ITEMS, "Irold Boots", hybridcraft.common.handlers.IDHandler.IRMEND_HELMET_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.irmendHelmetID = config.get(CATEGORY_ITEMS, "Irmend Helmet", hybridcraft.common.handlers.IDHandler.IRMEND_HELMET_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.irmendPlateID = config.get(CATEGORY_ITEMS, "Irmend Chestplate", hybridcraft.common.handlers.IDHandler.IRMEND_HELMET_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.irmendLegsID = config.get(CATEGORY_ITEMS, "Irmend Leggings", hybridcraft.common.handlers.IDHandler.IRMEND_HELMET_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.irmendBootsID = config.get(CATEGORY_ITEMS, "Irmend Boots", hybridcraft.common.handlers.IDHandler.IRMEND_HELMET_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.gomendHelmetID = config.get(CATEGORY_ITEMS, "Gomend Helmet", hybridcraft.common.handlers.IDHandler.GOMEND_HELMET_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.gomendPlateID = config.get(CATEGORY_ITEMS, "Gomend Chestplate", hybridcraft.common.handlers.IDHandler.GOMEND_HELMET_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.gomendLegsID = config.get(CATEGORY_ITEMS, "Gomend Leggings", hybridcraft.common.handlers.IDHandler.GOMEND_HELMET_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.gomendBootsID = config.get(CATEGORY_ITEMS, "Gomend Boots", hybridcraft.common.handlers.IDHandler.GOMEND_HELMET_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.obsidianHelmetID = config.get(CATEGORY_ITEMS, "Obsidian Helmet", hybridcraft.common.handlers.IDHandler.OBSIDIAN_HELMET_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.obsidianPlateID = config.get(CATEGORY_ITEMS, "Obsidian Chestplate", hybridcraft.common.handlers.IDHandler.OBSIDIAN_HELMET_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.obsidianLegsID = config.get(CATEGORY_ITEMS, "Obsidian Leggings", hybridcraft.common.handlers.IDHandler.OBSIDIAN_HELMET_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.obsidianBootsID = config.get(CATEGORY_ITEMS, "Obsidian Boots", hybridcraft.common.handlers.IDHandler.OBSIDIAN_HELMET_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dirtBlockID = config.get(CATEGORY_BLOCKS, "Dirt Ingot Block", hybridcraft.common.handlers.IDHandler.DIRT_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dirtoneBlockID = config.get(CATEGORY_BLOCKS, "Dirtone Ingot Block", hybridcraft.common.handlers.IDHandler.DIRTONE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dironBlockID = config.get(CATEGORY_BLOCKS, "Diron Ingot Block", hybridcraft.common.handlers.IDHandler.DIRON_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.diroldBlockID = config.get(CATEGORY_BLOCKS, "Dirold Ingot Block", hybridcraft.common.handlers.IDHandler.DIROLD_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dirmendBlockID = config.get(CATEGORY_BLOCKS, "Dirmend Ingot Block", hybridcraft.common.handlers.IDHandler.DIRMEND_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.stoneBlockID = config.get(CATEGORY_BLOCKS, "Stone Ingot Block", hybridcraft.common.handlers.IDHandler.STONE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.stornBlockID = config.get(CATEGORY_BLOCKS, "Storn Ingot Block", hybridcraft.common.handlers.IDHandler.STORN_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.stoldBlockID = config.get(CATEGORY_BLOCKS, "Stold Ingot Block", hybridcraft.common.handlers.IDHandler.STOLD_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.stomendBlockID = config.get(CATEGORY_BLOCKS, "Stomend Ingot Block", hybridcraft.common.handlers.IDHandler.STOMEND_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.iroldBlockID = config.get(CATEGORY_BLOCKS, "Irold Ingot Block", hybridcraft.common.handlers.IDHandler.IROLD_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.irmendBlockID = config.get(CATEGORY_BLOCKS, "Irmend Ingot Block", hybridcraft.common.handlers.IDHandler.IRMEND_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.gomendBlockID = config.get(CATEGORY_BLOCKS, "Gomend Ingot Block", hybridcraft.common.handlers.IDHandler.GOMEND_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.dandID = config.get(CATEGORY_BLOCKS, "Dirt/Sand Block", hybridcraft.common.handlers.IDHandler.DAND_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.davelID = config.get(CATEGORY_BLOCKS, "Dirt/Gravel Block",	hybridcraft.common.handlers.IDHandler.DAVEL_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.doneID = config.get(CATEGORY_BLOCKS, "Dirt/Stone Block", hybridcraft.common.handlers.IDHandler.DONE_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.sandBlockID = config.get(CATEGORY_BLOCKS, "Sand Ingot Block", hybridcraft.common.handlers.IDHandler.SAND_DEFAULT).getInt();
-		hybridcraft.common.handlers.IDHandler.stoneHelmetID = config.get(CATEGORY_ITEMS, "Stone Helmet", 634).getInt();
-		hybridcraft.common.handlers.IDHandler.stonePlateID = config.get(CATEGORY_ITEMS, "Stone Chestplate", 635).getInt();
-		hybridcraft.common.handlers.IDHandler.stoneLegsID = config.get(CATEGORY_ITEMS, "Stone Leggings", 636).getInt();
-		hybridcraft.common.handlers.IDHandler.stoneBootsID = config.get(CATEGORY_ITEMS, "Stone Boots", 637).getInt();
-		hybridcraft.common.handlers.IDHandler.sandHelmetID = config.get(CATEGORY_ITEMS, "Sand Helmet", 638).getInt();
-		hybridcraft.common.handlers.IDHandler.sandPlateID = config.get(CATEGORY_ITEMS, "Sand Chestplate", 639).getInt();
-		hybridcraft.common.handlers.IDHandler.sandLegsID = config.get(CATEGORY_ITEMS, "Sand Leggings", 640).getInt();
-		hybridcraft.common.handlers.IDHandler.sandBootsID = config.get(CATEGORY_ITEMS, "Sand Boots", 641).getInt();
-		hybridcraft.common.handlers.IDHandler.emeraldhelmetID = config.get(CATEGORY_ITEMS, "Emerald Helmet", 659).getInt();
-		hybridcraft.common.handlers.IDHandler.emeraldplateID = config.get(CATEGORY_ITEMS, "Emerald Chestplate", 660).getInt();
-		hybridcraft.common.handlers.IDHandler.emeraldlegsID = config.get(CATEGORY_ITEMS, "Emerald Leggings", 661).getInt();
-		hybridcraft.common.handlers.IDHandler.emeraldbootsID = config.get(CATEGORY_ITEMS, "Emerald Boots", 662).getInt();
-		hybridcraft.common.handlers.IDHandler.combinerID = config.get(CATEGORY_BLOCKS, "Combiner", 663).getInt();
+		dirtHelmetID = config.get(CAT_ARMOR, "dirtHelmetID", dirtHelmetID).getInt();
+		dirtPlateID = config.get(CAT_ARMOR, "dirtPlateID", dirtPlateID).getInt();
+		dirtLegsID = config.get(CAT_ARMOR, "dirtLegsID", dirtLegsID).getInt();
+		dirtBootsID = config.get(CAT_ARMOR, "dirtBootsID", dirtBootsID).getInt();
+		
+		dirtoneHelmetID = config.get(CAT_ARMOR, "dirtoneHelmetID", dirtoneHelmetID).getInt();
+		dirtonePlateID = config.get(CAT_ARMOR, "dirtonePlateID", dirtonePlateID).getInt();
+		dirtoneLegsID = config.get(CAT_ARMOR, "dirtoneLegsID", dirtoneLegsID).getInt();
+		dirtoneBootsID = config.get(CAT_ARMOR, "dirtoneBootsID", dirtoneBootsID).getInt();
+		
+		dironHelmetID = config.get(CAT_ARMOR, "dironHelmetID", dironHelmetID).getInt();
+		dironPlateID = config.get(CAT_ARMOR, "dironPlateID", dironPlateID).getInt();
+		dironLegsID = config.get(CAT_ARMOR, "dironLegsID", dironLegsID).getInt();
+		dironBootsID = config.get(CAT_ARMOR, "dironBootsID", dironBootsID).getInt();
+		
+		diroldHelmetID = config.get(CAT_ARMOR, "diroldHelmetID", diroldHelmetID).getInt();
+		diroldPlateID = config.get(CAT_ARMOR, "diroldPlateID", diroldPlateID).getInt();
+		diroldLegsID = config.get(CAT_ARMOR, "diroldLegsID", diroldLegsID).getInt();
+		diroldBootsID = config.get(CAT_ARMOR, "diroldBootsID", diroldBootsID).getInt();
+		
+		dirmendHelmetID = config.get(CAT_ARMOR, "dirmendHelmetID", dirmendHelmetID).getInt();
+		dirmendPlateID = config.get(CAT_ARMOR, "dirmendPlateID", dirmendPlateID).getInt();
+		dirmendLegsID = config.get(CAT_ARMOR, "dirmendLegsID", dirmendLegsID).getInt();
+		dirmendBootsID = config.get(CAT_ARMOR, "dirmendBootsID", dirmendBootsID).getInt();
+		
+		stornHelmetID = config.get(CAT_ARMOR, "stornHelmetID", stornHelmetID).getInt();
+		stornPlateID = config.get(CAT_ARMOR, "stornPLateID", stornPlateID).getInt();
+		stornLegsID = config.get(CAT_ARMOR, "stornLegsID", stornLegsID).getInt();
+		stornBootsID = config.get(CAT_ARMOR, "stornBootsID", stornBootsID).getInt();
+		
+		stoldHelmetID = config.get(CAT_ARMOR, "stoldHelmetID", stoldHelmetID).getInt();
+		stoldPlateID = config.get(CAT_ARMOR, "stoldPlateID", stoldPlateID).getInt();
+		stoldLegsID = config.get(CAT_ARMOR, "stoldLegsID", stoldLegsID).getInt();
+		stoldBootsID = config.get(CAT_ARMOR, "stoldBootsID", stoldBootsID).getInt();
+		
+		stomendHelmetID = config.get(CAT_ARMOR, "stomendHelmetID", stomendHelmetID).getInt();
+		stomendPlateID = config.get(CAT_ARMOR, "stomendPlateID", stomendPlateID).getInt();
+		stomendLegsID = config.get(CAT_ARMOR, "stomendLegsID", stomendLegsID).getInt();
+		stomendBootsID = config.get(CAT_ARMOR, "stomendBootsID", stomendBootsID).getInt();
+		
+		iroldHelmetID = config.get(CAT_ARMOR, "iroldHelmetID", iroldHelmetID).getInt();
+		iroldPlateID = config.get(CAT_ARMOR, "iroldPlateID", iroldPlateID).getInt();
+		iroldLegsID = config.get(CAT_ARMOR, "iroldLegsID", iroldLegsID).getInt();
+		iroldBootsID = config.get(CAT_ARMOR, "iroldBootsID", iroldBootsID).getInt();
+		
+		irmendHelmetID = config.get(CAT_ARMOR, "irmendHelmetID", irmendHelmetID).getInt();
+		irmendPlateID = config.get(CAT_ARMOR, "irmendPlateID", irmendPlateID).getInt();
+		irmendLegsID = config.get(CAT_ARMOR, "irmendLegsID", irmendLegsID).getInt();
+		irmendBootsID = config.get(CAT_ARMOR, "irmendBootsID", irmendBootsID).getInt();
+		
+		gomendHelmetID = config.get(CAT_ARMOR, "gomendHelmetID", gomendHelmetID).getInt();
+		gomendPlateID = config.get(CAT_ARMOR, "gomendPlateID", gomendPlateID).getInt();
+		gomendLegsID = config.get(CAT_ARMOR, "gomendLegsID", gomendLegsID).getInt();
+		gomendBootsID = config.get(CAT_ARMOR, "gomendBootsID", gomendBootsID).getInt();
+		
+		obsidianHelmetID = config.get(CAT_ARMOR, "obsidianHelmetID", obsidianHelmetID).getInt();
+		obsidianPlateID = config.get(CAT_ARMOR, "obsidianPlateID", obsidianPlateID).getInt();
+		obsidianLegsID = config.get(CAT_ARMOR, "obsidianLegsID", obsidianLegsID).getInt();
+		obsidianBootsID = config.get(CAT_ARMOR, "obsidianBootsID", obsidianBootsID).getInt();
+		
+		stoneHelmetID = config.get(CAT_ARMOR, "stoneHelmetID", stoneHelmetID).getInt();
+		stonePlateID = config.get(CAT_ARMOR, "stonePLateID", stonePlateID).getInt();
+		stoneLegsID = config.get(CAT_ARMOR, "stoneLegsID", stoneLegsID).getInt();
+		stoneBootsID = config.get(CAT_ARMOR, "stoneBootsID", stoneBootsID).getInt();
+		
+		sandHelmetID = config.get(CAT_ARMOR, "sandHelmetID", sandHelmetID).getInt();
+		sandPlateID = config.get(CAT_ARMOR, "sandPlateID", sandPlateID).getInt();
+		sandLegsID = config.get(CAT_ARMOR, "sandLegsID", sandLegsID).getInt();
+		sandBootsID = config.get(CAT_ARMOR, "sandBootsID", sandBootsID).getInt();
+		
+		emeraldhelmetID = config.get(CAT_ARMOR, "emeraldhelmetID", emeraldhelmetID).getInt();
+		emeraldplateID = config.get(CAT_ARMOR, "emeraldplateID", emeraldplateID).getInt();
+		emeraldlegsID = config.get(CAT_ARMOR, "emeraldlegsID", emeraldlegsID).getInt();
+		emeraldbootsID = config.get(CAT_ARMOR, "emeraldbootsID", emeraldbootsID).getInt();
+		
 		
 		config.save();
 		
 	}
 	
-	public Configuration getInstance()
+	public Configuration getInstance(Configuration config)
 	{
 		return config;
-		
 	}
+
 }

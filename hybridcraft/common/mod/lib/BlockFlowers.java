@@ -3,6 +3,7 @@ package hybridcraft.common.mod.lib;
 import static net.minecraftforge.common.EnumPlantType.Plains;
 
 import java.util.List;
+import java.util.Random;
 
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
@@ -34,6 +35,7 @@ public class BlockFlowers extends Block implements IPlantable
 	{
 		super(id, index, Material.plants);
 		this.setRequiresSelfNotify();
+		this.setTickRandomly(true);
 		this.setCreativeTab(hybridcraft.common.mod.Hybridcraft.tabsHCM);
 	}
 	
@@ -107,7 +109,7 @@ public class BlockFlowers extends Block implements IPlantable
 	public String getTextureFile(){
 		return "/hc/flowers.png";
 	}
-
+	
 	@Override
 	public EnumPlantType getPlantType(World world, int x, int y, int z) {
 		return Plains;

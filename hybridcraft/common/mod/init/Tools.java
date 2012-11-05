@@ -1,12 +1,8 @@
 package hybridcraft.common.mod.init;
 
-import hybridcraft.common.handlers.IDHandler;
 import hybridcraft.common.managers.HybridizingManager;
-import hybridcraft.common.mod.lib.ItemHybridAxe;
-import hybridcraft.common.mod.lib.ItemHybridHoe;
-import hybridcraft.common.mod.lib.ItemHybridPickaxe;
-import hybridcraft.common.mod.lib.ItemHybridSpade;
-import hybridcraft.common.mod.lib.ItemHybridSword;
+import hybridcraft.common.mod.lib.*;
+import hybridcraft.common.handlers.*;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -94,76 +90,89 @@ public class Tools {
 	public static void initItems()
 	{
 		// Tools
-		dirtSword = new ItemHybridSword(hybridcraft.common.handlers.IDHandler.DIRT_SWORD, hybridcraft.common.handlers.MaterialHandler.dirt).setIconIndex(0).setItemName("dirtSword");
-		dirtPick = new ItemHybridPickaxe(hybridcraft.common.handlers.IDHandler.DIRT_PICK, hybridcraft.common.handlers.MaterialHandler.dirt).setIconIndex(1).setItemName("dirtPick");
-		dirtAxe = new ItemHybridAxe(hybridcraft.common.handlers.IDHandler.DIRT_AXE, hybridcraft.common.handlers.MaterialHandler.dirt).setIconIndex(2).setItemName("dirtAxe");
-		dirtShovel = new ItemHybridSpade(hybridcraft.common.handlers.IDHandler.DIRT_SHOVEL, hybridcraft.common.handlers.MaterialHandler.dirt).setIconIndex(3).setItemName("dirtShovel");
-		dirtHoe = new ItemHybridHoe(hybridcraft.common.handlers.IDHandler.DIRT_HOE, hybridcraft.common.handlers.MaterialHandler.dirt).setIconIndex(4).setItemName("dirtHoe");
-		dirtoneSword = new ItemHybridSword(hybridcraft.common.handlers.IDHandler.DIRTONE_SWORD, hybridcraft.common.handlers.MaterialHandler.dirtone).setIconIndex(5).setItemName("dirtoneSword");
-		dirtonePick = new ItemHybridPickaxe(hybridcraft.common.handlers.IDHandler.DIRTONE_PICK, hybridcraft.common.handlers.MaterialHandler.dirtone).setIconIndex(6).setItemName("dirtonePick");
-		dirtoneAxe = new ItemHybridAxe(hybridcraft.common.handlers.IDHandler.DIRTONE_AXE, hybridcraft.common.handlers.MaterialHandler.dirtone).setIconIndex(7).setItemName("dirtoneAxe");
-		dirtoneShovel = new ItemHybridSpade(hybridcraft.common.handlers.IDHandler.DIRTONE_SHOVEL, hybridcraft.common.handlers.MaterialHandler.dirtone).setIconIndex(8).setItemName("dirtoneShovel");
-		dirtoneHoe = new ItemHybridHoe(hybridcraft.common.handlers.IDHandler.DIRTONE_HOE, hybridcraft.common.handlers.MaterialHandler.dirtone).setIconIndex(9).setItemName("dirtoneHoe");
-		dironSword = new ItemHybridSword(hybridcraft.common.handlers.IDHandler.DIRTONE_SWORD, hybridcraft.common.handlers.MaterialHandler.dirtone).setIconIndex(10).setItemName("dironSword");
-		dironPick = new ItemHybridPickaxe(hybridcraft.common.handlers.IDHandler.DIRON_PICK, hybridcraft.common.handlers.MaterialHandler.diron).setIconIndex(11).setItemName("dironPick");
-		dironAxe = new ItemHybridAxe(hybridcraft.common.handlers.IDHandler.DIRON_AXE, hybridcraft.common.handlers.MaterialHandler.diron).setIconIndex(12).setItemName("dironAxe");
-		dironShovel = new ItemHybridSpade(hybridcraft.common.handlers.IDHandler.DIRON_SHOVEL,hybridcraft.common.handlers.MaterialHandler. diron).setIconIndex(13).setItemName("dironShovel");
-		dironHoe = new ItemHybridHoe(hybridcraft.common.handlers.IDHandler.DIRON_HOE, hybridcraft.common.handlers.MaterialHandler.diron).setIconIndex(14).setItemName("dironHoe");
-		diroldSword = new ItemHybridSword(hybridcraft.common.handlers.IDHandler.DIROLD_SWORD, hybridcraft.common.handlers.MaterialHandler.dirold).setIconIndex(15).setItemName("diroldSword");
-		diroldPick = new ItemHybridPickaxe(hybridcraft.common.handlers.IDHandler.DIROLD_PICK, hybridcraft.common.handlers.MaterialHandler.dirold).setIconIndex(16).setItemName("diroldPick");
-		diroldAxe = new ItemHybridAxe(hybridcraft.common.handlers.IDHandler.DIROLD_AXE, hybridcraft.common.handlers.MaterialHandler.dirold).setIconIndex(17).setItemName("diroldAxe");
-		diroldShovel = new ItemHybridSpade(hybridcraft.common.handlers.IDHandler.DIROLD_SHOVEL, hybridcraft.common.handlers.MaterialHandler.dirold).setIconIndex(18).setItemName("diroldShovel");
-		diroldHoe = new ItemHybridHoe(hybridcraft.common.handlers.IDHandler.DIROLD_HOE, hybridcraft.common.handlers.MaterialHandler.dirold).setIconIndex(19).setItemName("diroldHoe");
-		dirmendSword = new ItemHybridSword(hybridcraft.common.handlers.IDHandler.DIRMEND_SWORD, hybridcraft.common.handlers.MaterialHandler.dirmend).setIconIndex(20).setItemName("dirmendSword");
-		dirmendPick = new ItemHybridPickaxe(hybridcraft.common.handlers.IDHandler.DIRMEND_PICK, hybridcraft.common.handlers.MaterialHandler.dirmend).setIconIndex(21).setItemName("dirmendPick");
-		dirmendAxe = new ItemHybridAxe(hybridcraft.common.handlers.IDHandler.DIRMEND_AXE, hybridcraft.common.handlers.MaterialHandler.dirmend).setIconIndex(22).setItemName("dirmendAxe");
-		dirmendShovel = new ItemHybridSpade(hybridcraft.common.handlers.IDHandler.DIRMEND_SHOVEL, hybridcraft.common.handlers.MaterialHandler.dirmend).setIconIndex(23).setItemName("dirmendShovel");
-		dirmendHoe = new ItemHybridHoe(hybridcraft.common.handlers.IDHandler.DIRMEND_HOE, hybridcraft.common.handlers.MaterialHandler.irmend).setIconIndex(24).setItemName("dirmendHoe");
-		stornSword = new ItemHybridSword(hybridcraft.common.handlers.IDHandler.STORN_SWORD, hybridcraft.common.handlers.MaterialHandler.storn).setIconIndex(25).setItemName("stornSword");
-		stornPick = new ItemHybridPickaxe(hybridcraft.common.handlers.IDHandler.STORN_PICK, hybridcraft.common.handlers.MaterialHandler.storn).setIconIndex(26).setItemName("stornPick");
-		stornAxe = new ItemHybridAxe(hybridcraft.common.handlers.IDHandler.STORN_AXE, hybridcraft.common.handlers.MaterialHandler.storn).setIconIndex(27).setItemName("stornAxe");
-		stornShovel = new ItemHybridSpade(hybridcraft.common.handlers.IDHandler.STORN_SHOVEL, hybridcraft.common.handlers.MaterialHandler.storn).setIconIndex(28).setItemName("stornShovel");
-		stornHoe = new ItemHybridHoe(hybridcraft.common.handlers.IDHandler.STORN_HOE, hybridcraft.common.handlers.MaterialHandler.storn).setIconIndex(29).setItemName("stornHoe");
-		stoldSword = new ItemHybridSword(hybridcraft.common.handlers.IDHandler.STOLD_SWORD, hybridcraft.common.handlers.MaterialHandler.stold).setIconIndex(30).setItemName("stoldSword");
-		stoldPick = new ItemHybridPickaxe(hybridcraft.common.handlers.IDHandler.STOLD_PICK, hybridcraft.common.handlers.MaterialHandler.stold).setIconIndex(31).setItemName("stoldPick");
-		stoldAxe = new ItemHybridAxe(hybridcraft.common.handlers.IDHandler.STOLD_AXE, hybridcraft.common.handlers.MaterialHandler.stold).setIconIndex(32).setItemName("stoldAxe");
-		stoldShovel = new ItemHybridSpade(hybridcraft.common.handlers.IDHandler.STOLD_SHOVEL, hybridcraft.common.handlers.MaterialHandler.stold).setIconIndex(33).setItemName("stoldShovel");
-		stoldHoe = new ItemHybridHoe(hybridcraft.common.handlers.IDHandler.STOLD_HOE, hybridcraft.common.handlers.MaterialHandler.stold).setIconIndex(34).setItemName("stoldHoe");
-		stomendSword = new ItemHybridSword(hybridcraft.common.handlers.IDHandler.STOMEND_SWORD, hybridcraft.common.handlers.MaterialHandler.stomend).setIconIndex(35).setItemName("stomendSword");
-		stomendPick = new ItemHybridPickaxe(hybridcraft.common.handlers.IDHandler.STOMEND_PICK, hybridcraft.common.handlers.MaterialHandler.stomend).setIconIndex(36).setItemName("stomendPick");
-		stomendAxe = new ItemHybridAxe(hybridcraft.common.handlers.IDHandler.STOMEND_AXE, hybridcraft.common.handlers.MaterialHandler.stomend).setIconIndex(37).setItemName("stomendAxe");
-		stomendShovel = new ItemHybridSpade(hybridcraft.common.handlers.IDHandler.STOMEND_SHOVEL, hybridcraft.common.handlers.MaterialHandler.stomend).setIconIndex(38).setItemName("stomendShovel");
-		stomendHoe = new ItemHybridHoe(hybridcraft.common.handlers.IDHandler.STOMEND_HOE, hybridcraft.common.handlers.MaterialHandler.stomend).setIconIndex(39).setItemName("stomendHoe");
-		iroldSword = new ItemHybridSword(hybridcraft.common.handlers.IDHandler.IROLD_SWORD, hybridcraft.common.handlers.MaterialHandler.irold).setIconIndex(40).setItemName("iroldSword");
-		iroldPick = new ItemHybridPickaxe(hybridcraft.common.handlers.IDHandler.IROLD_PICK, hybridcraft.common.handlers.MaterialHandler.irold).setIconIndex(41).setItemName("iroldPick");
-		iroldAxe = new ItemHybridAxe(hybridcraft.common.handlers.IDHandler.IROLD_AXE, hybridcraft.common.handlers.MaterialHandler.irold).setIconIndex(42).setItemName("iroldAxe");
-		iroldShovel = new ItemHybridSpade(hybridcraft.common.handlers.IDHandler.IROLD_SHOVEL, hybridcraft.common.handlers.MaterialHandler.irold).setIconIndex(43).setItemName("iroldShovel");
-		iroldHoe = new ItemHybridHoe(hybridcraft.common.handlers.IDHandler.IROLD_HOE, hybridcraft.common.handlers.MaterialHandler.irold).setIconIndex(44).setItemName("iroldHoe");
-		irmendSword = new ItemHybridSword(hybridcraft.common.handlers.IDHandler.IRMEND_SWORD, hybridcraft.common.handlers.MaterialHandler.irmend).setIconIndex(45).setItemName("irmendSword");
-		irmendPick = new ItemHybridPickaxe(hybridcraft.common.handlers.IDHandler.IRMEND_PICK, hybridcraft.common.handlers.MaterialHandler.irmend).setIconIndex(46).setItemName("irmendPick");
-		irmendAxe = new ItemHybridAxe(hybridcraft.common.handlers.IDHandler.IRMEND_AXE, hybridcraft.common.handlers.MaterialHandler.irmend).setIconIndex(47).setItemName("irmendAxe");
-		irmendShovel = new ItemHybridSpade(hybridcraft.common.handlers.IDHandler.IRMEND_SHOVEL, hybridcraft.common.handlers.MaterialHandler.irmend).setIconIndex(48).setItemName("irmendShovel");
-		irmendHoe = new ItemHybridHoe(hybridcraft.common.handlers.IDHandler.IRMEND_HOE, hybridcraft.common.handlers.MaterialHandler.irmend).setIconIndex(49).setItemName("irmendHoe");
-		gomendSword = new ItemHybridSword(hybridcraft.common.handlers.IDHandler.GOMEND_SWORD, hybridcraft.common.handlers.MaterialHandler.gomend).setIconIndex(50).setItemName("gomendSword");
-		gomendPick = new ItemHybridPickaxe(hybridcraft.common.handlers.IDHandler.GOMEND_PICK, hybridcraft.common.handlers.MaterialHandler.gomend).setIconIndex(51).setItemName("gomendPick");
-		gomendAxe = new ItemHybridAxe(hybridcraft.common.handlers.IDHandler.GOMEND_AXE, hybridcraft.common.handlers.MaterialHandler.gomend).setIconIndex(52).setItemName("gomendAxe");
-		gomendShovel = new ItemHybridSpade(hybridcraft.common.handlers.IDHandler.GOMEND_SHOVEL, hybridcraft.common.handlers.MaterialHandler.gomend).setIconIndex(53).setItemName("gomendShovel");
-		gomendHoe = new ItemHybridHoe(hybridcraft.common.handlers.IDHandler.GOMEND_HOE, hybridcraft.common.handlers.MaterialHandler.gomend).setIconIndex(54).setItemName("gomendHoe");
-		obsidianSword = new ItemHybridSword(hybridcraft.common.handlers.IDHandler.OBSIDIAN_SWORD, hybridcraft.common.handlers.MaterialHandler.obsidian).setIconIndex(55).setItemName("obsidianSword");
-		obsidianPick = new ItemHybridPickaxe(hybridcraft.common.handlers.IDHandler.OBSIDIAN_PICK, hybridcraft.common.handlers.MaterialHandler.obsidian).setIconIndex(56).setItemName("obsidianPick");
-		obsidianAxe = new ItemHybridAxe(hybridcraft.common.handlers.IDHandler.OBSIDIAN_AXE, hybridcraft.common.handlers.MaterialHandler.obsidian).setIconIndex(57).setItemName("obsidianAxe");
-		obsidianShovel = new ItemHybridSpade(hybridcraft.common.handlers.IDHandler.OBSIDIAN_SHOVEL, hybridcraft.common.handlers.MaterialHandler.obsidian).setIconIndex(58).setItemName("obsidianShovel");
-		obsidianHoe = new ItemHybridHoe(hybridcraft.common.handlers.IDHandler.OBSIDIAN_HOE, hybridcraft.common.handlers.MaterialHandler.obsidian).setIconIndex(59).setItemName("obsidianHoe");
-		sandSword = new ItemHybridSword(hybridcraft.common.handlers.IDHandler.SAND_SWORD, hybridcraft.common.handlers.MaterialHandler.sand).setIconIndex(60).setItemName("sandSword");
-		sandPick = new ItemHybridPickaxe(hybridcraft.common.handlers.IDHandler.SAND_PICK, hybridcraft.common.handlers.MaterialHandler.sand).setIconIndex(61).setItemName("sandPick");
-		sandAxe = new ItemHybridAxe(hybridcraft.common.handlers.IDHandler.SAND_AXE, hybridcraft.common.handlers.MaterialHandler.sand).setIconIndex(62).setItemName("sandAxe");
-		sandShovel = new ItemHybridSpade(hybridcraft.common.handlers.IDHandler.SAND_SHOVEL, hybridcraft.common.handlers.MaterialHandler.sand).setIconIndex(63).setItemName("sandShovel");
-		sandHoe = new ItemHybridHoe(hybridcraft.common.handlers.IDHandler.SAND_HOE, hybridcraft.common.handlers.MaterialHandler.sand).setIconIndex(64).setItemName("sandHoe");
-		emeraldSword = new ItemHybridSword(hybridcraft.common.handlers.IDHandler.EMERALD_SWORD, hybridcraft.common.handlers.MaterialHandler.emerald).setIconIndex(70).setItemName("emeraldSword");
-		emeraldPick = new ItemHybridPickaxe(hybridcraft.common.handlers.IDHandler.EMERALD_PICK, hybridcraft.common.handlers.MaterialHandler.emerald).setIconIndex(71).setItemName("emeraldPick");
-		emeraldAxe = new ItemHybridAxe(hybridcraft.common.handlers.IDHandler.EMERALD_AXE, hybridcraft.common.handlers.MaterialHandler.emerald).setIconIndex(72).setItemName("emeraldAxe");
-		emeraldShovel = new ItemHybridSpade(hybridcraft.common.handlers.IDHandler.EMERALD_SHOVEL, hybridcraft.common.handlers.MaterialHandler.emerald).setIconIndex(73).setItemName("emeraldShovel");
-		emeraldHoe = new ItemHybridHoe(hybridcraft.common.handlers.IDHandler.EMERALD_HOE, hybridcraft.common.handlers.MaterialHandler.emerald).setIconIndex(74).setItemName("emeraldHoe");
+		dirtSword = new ItemHybridSword(ConfigHandler.dirtSwordID, MaterialHandler.dirt).setIconIndex(0).setItemName("dirtSword");
+		dirtPick = new ItemHybridPickaxe(ConfigHandler.dirtPickID, MaterialHandler.dirt).setIconIndex(1).setItemName("dirtPick");
+		dirtAxe = new ItemHybridAxe(ConfigHandler.dirtAxeID, MaterialHandler.dirt).setIconIndex(2).setItemName("dirtAxe");
+		dirtShovel = new ItemHybridSpade(ConfigHandler.dirtShovelID, MaterialHandler.dirt).setIconIndex(3).setItemName("dirtShovel");
+		dirtHoe = new ItemHybridHoe(ConfigHandler.dirtHoeID, MaterialHandler.dirt).setIconIndex(4).setItemName("dirtHoe");
+		
+		dirtoneSword = new ItemHybridSword(ConfigHandler.dirtOneSwordID, MaterialHandler.dirtone).setIconIndex(5).setItemName("dirtoneSword");
+		dirtonePick = new ItemHybridPickaxe(ConfigHandler.dirtOnePickID, MaterialHandler.dirtone).setIconIndex(6).setItemName("dirtonePick");
+		dirtoneAxe = new ItemHybridAxe(ConfigHandler.dirtOneAxeID, MaterialHandler.dirtone).setIconIndex(7).setItemName("dirtoneAxe");
+		dirtoneShovel = new ItemHybridSpade(ConfigHandler.dirtOneShovelID, MaterialHandler.dirtone).setIconIndex(8).setItemName("dirtoneShovel");
+		dirtoneHoe = new ItemHybridHoe(ConfigHandler.dirtOneHoeID, MaterialHandler.dirtone).setIconIndex(9).setItemName("dirtoneHoe");
+		
+		dironSword = new ItemHybridSword(ConfigHandler.dironSwordID, MaterialHandler.dirtone).setIconIndex(10).setItemName("dironSword");
+		dironPick = new ItemHybridPickaxe(ConfigHandler.dironPickID, MaterialHandler.diron).setIconIndex(11).setItemName("dironPick");
+		dironAxe = new ItemHybridAxe(ConfigHandler.dironAxeID, MaterialHandler.diron).setIconIndex(12).setItemName("dironAxe");
+		dironShovel = new ItemHybridSpade(ConfigHandler.dironShovelID,MaterialHandler. diron).setIconIndex(13).setItemName("dironShovel");
+		dironHoe = new ItemHybridHoe(ConfigHandler.dironHoeID, MaterialHandler.diron).setIconIndex(14).setItemName("dironHoe");
+		
+		diroldSword = new ItemHybridSword(ConfigHandler.diroldSwordID, MaterialHandler.dirold).setIconIndex(15).setItemName("diroldSword");
+		diroldPick = new ItemHybridPickaxe(ConfigHandler.diroldPickID, MaterialHandler.dirold).setIconIndex(16).setItemName("diroldPick");
+		diroldAxe = new ItemHybridAxe(ConfigHandler.diroldAxeID, MaterialHandler.dirold).setIconIndex(17).setItemName("diroldAxe");
+		diroldShovel = new ItemHybridSpade(ConfigHandler.diroldShovelID, MaterialHandler.dirold).setIconIndex(18).setItemName("diroldShovel");
+		diroldHoe = new ItemHybridHoe(ConfigHandler.diroldHoeID, MaterialHandler.dirold).setIconIndex(19).setItemName("diroldHoe");
+		
+		dirmendSword = new ItemHybridSword(ConfigHandler.dirmendSwordID, MaterialHandler.dirmend).setIconIndex(20).setItemName("dirmendSword");
+		dirmendPick = new ItemHybridPickaxe(ConfigHandler.dirmendPickID, MaterialHandler.dirmend).setIconIndex(21).setItemName("dirmendPick");
+		dirmendAxe = new ItemHybridAxe(ConfigHandler.dirmendAxeID, MaterialHandler.dirmend).setIconIndex(22).setItemName("dirmendAxe");
+		dirmendShovel = new ItemHybridSpade(ConfigHandler.dirmendShovelID, MaterialHandler.dirmend).setIconIndex(23).setItemName("dirmendShovel");
+		dirmendHoe = new ItemHybridHoe(ConfigHandler.dirmendHoeID, MaterialHandler.irmend).setIconIndex(24).setItemName("dirmendHoe");
+		
+		stornSword = new ItemHybridSword(ConfigHandler.stornSwordID, MaterialHandler.storn).setIconIndex(25).setItemName("stornSword");
+		stornPick = new ItemHybridPickaxe(ConfigHandler.stornPickID, MaterialHandler.storn).setIconIndex(26).setItemName("stornPick");
+		stornAxe = new ItemHybridAxe(ConfigHandler.stornAxeID, MaterialHandler.storn).setIconIndex(27).setItemName("stornAxe");
+		stornShovel = new ItemHybridSpade(ConfigHandler.stornShovelID, MaterialHandler.storn).setIconIndex(28).setItemName("stornShovel");
+		stornHoe = new ItemHybridHoe(ConfigHandler.stornHoeID, MaterialHandler.storn).setIconIndex(29).setItemName("stornHoe");
+		
+		stoldSword = new ItemHybridSword(ConfigHandler.stoldSwordID, MaterialHandler.stold).setIconIndex(30).setItemName("stoldSword");
+		stoldPick = new ItemHybridPickaxe(ConfigHandler.stoldPickID, MaterialHandler.stold).setIconIndex(31).setItemName("stoldPick");
+		stoldAxe = new ItemHybridAxe(ConfigHandler.stoldAxeID, MaterialHandler.stold).setIconIndex(32).setItemName("stoldAxe");
+		stoldShovel = new ItemHybridSpade(ConfigHandler.stoldShovelID, MaterialHandler.stold).setIconIndex(33).setItemName("stoldShovel");
+		stoldHoe = new ItemHybridHoe(ConfigHandler.stoldHoeID, MaterialHandler.stold).setIconIndex(34).setItemName("stoldHoe");
+		
+		stomendSword = new ItemHybridSword(ConfigHandler.stomendSwordID, MaterialHandler.stomend).setIconIndex(35).setItemName("stomendSword");
+		stomendPick = new ItemHybridPickaxe(ConfigHandler.stomendPickID, MaterialHandler.stomend).setIconIndex(36).setItemName("stomendPick");
+		stomendAxe = new ItemHybridAxe(ConfigHandler.stomendAxeID, MaterialHandler.stomend).setIconIndex(37).setItemName("stomendAxe");
+		stomendShovel = new ItemHybridSpade(ConfigHandler.stomendShovelID, MaterialHandler.stomend).setIconIndex(38).setItemName("stomendShovel");
+		stomendHoe = new ItemHybridHoe(ConfigHandler.stomendHoeID, MaterialHandler.stomend).setIconIndex(39).setItemName("stomendHoe");
+		
+		iroldSword = new ItemHybridSword(ConfigHandler.iroldSwordID, MaterialHandler.irold).setIconIndex(40).setItemName("iroldSword");
+		iroldPick = new ItemHybridPickaxe(ConfigHandler.iroldPickID, MaterialHandler.irold).setIconIndex(41).setItemName("iroldPick");
+		iroldAxe = new ItemHybridAxe(ConfigHandler.iroldAxeID, MaterialHandler.irold).setIconIndex(42).setItemName("iroldAxe");
+		iroldShovel = new ItemHybridSpade(ConfigHandler.iroldShovelID, MaterialHandler.irold).setIconIndex(43).setItemName("iroldShovel");
+		iroldHoe = new ItemHybridHoe(ConfigHandler.iroldHoeID, MaterialHandler.irold).setIconIndex(44).setItemName("iroldHoe");
+		
+		irmendSword = new ItemHybridSword(ConfigHandler.irmendSwordID, MaterialHandler.irmend).setIconIndex(45).setItemName("irmendSword");
+		irmendPick = new ItemHybridPickaxe(ConfigHandler.irmendPickID, MaterialHandler.irmend).setIconIndex(46).setItemName("irmendPick");
+		irmendAxe = new ItemHybridAxe(ConfigHandler.irmendAxeID, MaterialHandler.irmend).setIconIndex(47).setItemName("irmendAxe");
+		irmendShovel = new ItemHybridSpade(ConfigHandler.irmendShovelID, MaterialHandler.irmend).setIconIndex(48).setItemName("irmendShovel");
+		irmendHoe = new ItemHybridHoe(ConfigHandler.irmendHoeID, MaterialHandler.irmend).setIconIndex(49).setItemName("irmendHoe");
+		
+		gomendSword = new ItemHybridSword(ConfigHandler.gomendSwordID, MaterialHandler.gomend).setIconIndex(50).setItemName("gomendSword");
+		gomendPick = new ItemHybridPickaxe(ConfigHandler.gomendPickID, MaterialHandler.gomend).setIconIndex(51).setItemName("gomendPick");
+		gomendAxe = new ItemHybridAxe(ConfigHandler.gomendAxeID, MaterialHandler.gomend).setIconIndex(52).setItemName("gomendAxe");
+		gomendShovel = new ItemHybridSpade(ConfigHandler.gomendShovelID, MaterialHandler.gomend).setIconIndex(53).setItemName("gomendShovel");
+		gomendHoe = new ItemHybridHoe(ConfigHandler.gomendHoeID, MaterialHandler.gomend).setIconIndex(54).setItemName("gomendHoe");
+		
+		obsidianSword = new ItemHybridSword(ConfigHandler.obsidianSwordID, MaterialHandler.obsidian).setIconIndex(55).setItemName("obsidianSword");
+		obsidianPick = new ItemHybridPickaxe(ConfigHandler.obsidianPickID, MaterialHandler.obsidian).setIconIndex(56).setItemName("obsidianPick");
+		obsidianAxe = new ItemHybridAxe(ConfigHandler.obsidianAxeID, MaterialHandler.obsidian).setIconIndex(57).setItemName("obsidianAxe");
+		obsidianShovel = new ItemHybridSpade(ConfigHandler.obsidianShovelID, MaterialHandler.obsidian).setIconIndex(58).setItemName("obsidianShovel");
+		obsidianHoe = new ItemHybridHoe(ConfigHandler.obsidianHoeID, MaterialHandler.obsidian).setIconIndex(59).setItemName("obsidianHoe");
+		
+		sandSword = new ItemHybridSword(ConfigHandler.sandSwordID, MaterialHandler.sand).setIconIndex(60).setItemName("sandSword");
+		sandPick = new ItemHybridPickaxe(ConfigHandler.sandPickID, MaterialHandler.sand).setIconIndex(61).setItemName("sandPick");
+		sandAxe = new ItemHybridAxe(ConfigHandler.sandAxeID, MaterialHandler.sand).setIconIndex(62).setItemName("sandAxe");
+		sandShovel = new ItemHybridSpade(ConfigHandler.sandShovelID, MaterialHandler.sand).setIconIndex(63).setItemName("sandShovel");
+		sandHoe = new ItemHybridHoe(ConfigHandler.sandHoeID, MaterialHandler.sand).setIconIndex(64).setItemName("sandHoe");
+		
+		emeraldSword = new ItemHybridSword(ConfigHandler.emeraldSwordID, MaterialHandler.emerald).setIconIndex(70).setItemName("emeraldSword");
+		emeraldPick = new ItemHybridPickaxe(ConfigHandler.emeraldPickID, MaterialHandler.emerald).setIconIndex(71).setItemName("emeraldPick");
+		emeraldAxe = new ItemHybridAxe(ConfigHandler.emeraldAxeID, MaterialHandler.emerald).setIconIndex(72).setItemName("emeraldAxe");
+		emeraldShovel = new ItemHybridSpade(ConfigHandler.emeraldShovelID, MaterialHandler.emerald).setIconIndex(73).setItemName("emeraldShovel");
+		emeraldHoe = new ItemHybridHoe(ConfigHandler.emeraldHoeID, MaterialHandler.emerald).setIconIndex(74).setItemName("emeraldHoe");
 		
 		// Tool Registry
 		LanguageRegistry.addName(dirtSword, "Dirt Sword");

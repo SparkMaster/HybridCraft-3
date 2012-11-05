@@ -32,7 +32,7 @@ public class WorldGeneratorHybrid implements IWorldGenerator {
 		}
 		
 		//generate flowers
-		for(int f =0; f<6;f++)
+		for(int f =0; f<1;f++)
 		{
 			int Xcoordf = BlockX+random.nextInt(16);
 			int Zcoordf = BlockZ+random.nextInt(16);
@@ -43,9 +43,10 @@ public class WorldGeneratorHybrid implements IWorldGenerator {
 			(new WorldGenFlowersHybrid(hybridcraft.common.mod.init.Flowers.oreFlower.blockID, 3)).generate(world, random, Xcoordf, Ycoordf, Zcoordf);
 			(new WorldGenFlowersHybrid(hybridcraft.common.mod.init.Flowers.oreFlower.blockID, 4)).generate(world, random, Xcoordf, Ycoordf, Zcoordf);
 			(new WorldGenFlowersHybrid(hybridcraft.common.mod.init.Flowers.oreFlower.blockID, 5)).generate(world, random, Xcoordf, Ycoordf, Zcoordf);
+			(new WorldGenFlowersHybrid(hybridcraft.common.mod.init.Flowers.oreFlower.blockID, 6)).generate(world, random, Xcoordf, Ycoordf, Zcoordf);
 		}
 		
-		for(int o =0; o<10;o++){
+		for(int o =0; o<5;o++){
 		int Xcoordo = BlockX+random.nextInt(16);
 		int Zcoordo = BlockZ+random.nextInt(16);
 		int Ycoordo = random.nextInt(16);

@@ -7,6 +7,7 @@ import hybridcraft.common.core.lib.OrganicCoal;
 import hybridcraft.common.gui.GuiHandlerFood;
 import hybridcraft.common.gui.GuiHandlerMix;
 import hybridcraft.common.handlers.ClientPacketHandler;
+import hybridcraft.common.handlers.ConfigHandler;
 import hybridcraft.common.handlers.CraftingHandler;
 import hybridcraft.common.handlers.HybridFuelHandler;
 import hybridcraft.common.handlers.ServerPacketHandler;
@@ -22,10 +23,12 @@ import hybridcraft.common.mod.lib.CreativeTabHCM;
 import hybridcraft.common.mod.lib.WorldGeneratorHybrid;
 import hybridcraft.common.proxies.CommonProxyHybrid;
 import hybridcraft.common.tile.TileHybrid;
+import net.minecraft.src.BiomeGenBase;
+import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
+import net.minecraft.src.EnumCreatureType;
 import net.minecraft.src.Item;
 import net.minecraftforge.common.Configuration;
-import net.minecraftforge.common.Property;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -36,7 +39,9 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkMod.SidedPacketHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid = CoreRef.HCM_MOD_ID, name = CoreRef.HCM_MOD_NAME, version = CoreRef.HCM_VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false, clientPacketHandlerSpec = @SidedPacketHandler(channels = { "HybridMod" }, packetHandler = ClientPacketHandler.class), serverPacketHandlerSpec = @SidedPacketHandler(channels = { "HybridMod" }, packetHandler = ServerPacketHandler.class))
@@ -57,27 +62,22 @@ public class Hybridcraft {
 
 	// Crafting handler
 	private CraftingHandler craftingHandler = new CraftingHandler();
-
-	// Armors
-
+	
 	// Item List
 	public static Item bioCoal;
 	public static Item organicCoal;
-
-	// Counter/Stove GUIs
-
-	// Config
-
+	
+	//Sparkling Blocks
+	public static Block sparkle;
+	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event) {
 
 		// TODO: Add all of this into config handler
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 		
-		config.load();
+		ConfigHandler.loadConfig(config);
 		
-		Property vernum = config.get("general", "Version", "0.5");
-	
 	}
 
 	@Init
@@ -98,6 +98,9 @@ public class Hybridcraft {
 		bioCoal = new BioCoal(1507).setIconIndex(7).setItemName("bioCoal");
 		organicCoal = new OrganicCoal(1508).setIconIndex(8).setItemName("organicCoal");
 
+		//Sparkle
+		sparkle = new BlockSparkle(2091, 1).setBlockName("Sparklez");
+		
 		// Register combiner GUI
 		NetworkRegistry.instance().registerGuiHandler(this, guiHandlerMix);
 		NetworkRegistry.instance().registerGuiHandler(this, guiHandlerFood);
@@ -111,6 +114,16 @@ public class Hybridcraft {
 
 		// Fuel
 		GameRegistry.registerFuelHandler(new HybridFuelHandler());
+		
+		//Sparkle
+		GameRegistry.registerBlock(sparkle);
+		LanguageRegistry.addName(sparkle, "Sparkz");
+		
+		/**
+		 //Entities
+		 EntityRegistry.registerModEntity(EntityTutorial.class, "Tutorial", 44, this, 40, 1, true);
+		 EntityRegistry.addSpawn(EntityTutorial.class, 10, 2, 4, EnumCreatureType.monster, BiomeGenBase.beach, BiomeGenBase.extremeHills, BiomeGenBase.extremeHillsEdge, BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.jungle, BiomeGenBase.jungleHills, BiomeGenBase.mushroomIsland, BiomeGenBase.mushroomIslandShore, BiomeGenBase.ocean, BiomeGenBase.plains, BiomeGenBase.river, BiomeGenBase.swampland);
+		 */
 
 		proxy.registerRenderThings();
 

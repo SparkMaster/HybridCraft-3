@@ -1,12 +1,11 @@
 package hybridcraft.common.managers;
 
-import net.minecraft.src.*;
-import net.minecraftforge.common.Configuration;
 import hybridcraft.common.core.AbstractCraftingManager;
+import hybridcraft.common.handlers.ConfigHandler;
 import hybridcraft.common.mod.lib.Sandwich;
-import cpw.mods.fml.common.Mod.PreInit;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.*;
+import net.minecraft.src.Item;
+import net.minecraft.src.ItemStack;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class CounterManager extends AbstractCraftingManager {
 
@@ -34,18 +33,18 @@ public class CounterManager extends AbstractCraftingManager {
 	private CounterManager() {
 
 		// Classify Items
-		breadSlice = new Sandwich(hybridcraft.common.handlers.IDHandler.breadSliceID, 1).setIconIndex(0).setItemName("Bread Slice");
-		chickenStrips = new Sandwich(hybridcraft.common.handlers.IDHandler.chickenStripsID, 3).setIconIndex(1).setItemName("Chicken Strips");
-		beefSlices = new Sandwich(hybridcraft.common.handlers.IDHandler.beefSlicesID, 4).setIconIndex(2).setItemName("Beef Slice");
-		bacon = new Sandwich(hybridcraft.common.handlers.IDHandler.baconID, 4).setIconIndex(3).setItemName("Bacon");
-		chickenSandwich = new Sandwich(hybridcraft.common.handlers.IDHandler.chickenSandwichID, 8).setIconIndex(4).setItemName("Chicken Sandwich");
-		chickenSandwichBacon = new Sandwich(hybridcraft.common.handlers.IDHandler.chickenSandwichBaconID, 9).setIconIndex(5).setItemName("Chicken Sandwich");
-		beefSandwich = new Sandwich(hybridcraft.common.handlers.IDHandler.beefSandwichID, 10).setIconIndex(6).setItemName("Beef Sandwich");
-		beefSandwichBacon = new Sandwich(hybridcraft.common.handlers.IDHandler.beefSandwichBaconID, 10).setIconIndex(7).setItemName("Pork Sandwich");
-		meatSandwich = new Sandwich(hybridcraft.common.handlers.IDHandler.meatSandwichID, 9).setIconIndex(8).setItemName("Meat Sandwich");
-		appleSlice = new Sandwich(hybridcraft.common.handlers.IDHandler.appleSliceID, 1).setIconIndex(9).setItemName("Apple Slice");
-		fruitSalad = new Sandwich(hybridcraft.common.handlers.IDHandler.fruitSaladID, 9).setIconIndex(10).setItemName("Fruit Salad");
-		applePie = new Sandwich(hybridcraft.common.handlers.IDHandler.applePieID, 10).setIconIndex(11).setItemName("Apple Pie");
+		breadSlice = new Sandwich(ConfigHandler.breadSliceID, 1).setIconIndex(0).setItemName("Bread Slice");
+		chickenStrips = new Sandwich(ConfigHandler.chickenStripsID, 3).setIconIndex(1).setItemName("Chicken Strips");
+		beefSlices = new Sandwich(ConfigHandler.beefSlicesID, 4).setIconIndex(2).setItemName("Beef Slice");
+		bacon = new Sandwich(ConfigHandler.baconID, 4).setIconIndex(3).setItemName("Bacon");
+		chickenSandwich = new Sandwich(ConfigHandler.chickenSandwichID, 8).setIconIndex(4).setItemName("Chicken Sandwich");
+		chickenSandwichBacon = new Sandwich(ConfigHandler.chickenSandwichBaconID, 9).setIconIndex(5).setItemName("Chicken Sandwich");
+		beefSandwich = new Sandwich(ConfigHandler.beefSandwichID, 10).setIconIndex(6).setItemName("Beef Sandwich");
+		beefSandwichBacon = new Sandwich(ConfigHandler.beefSandwichBaconID, 10).setIconIndex(7).setItemName("Pork Sandwich");
+		meatSandwich = new Sandwich(ConfigHandler.meatSandwichID, 9).setIconIndex(8).setItemName("Meat Sandwich");
+		appleSlice = new Sandwich(ConfigHandler.appleSliceID, 1).setIconIndex(9).setItemName("Apple Slice");
+		fruitSalad = new Sandwich(ConfigHandler.fruitSaladID, 9).setIconIndex(10).setItemName("Fruit Salad");
+		applePie = new Sandwich(ConfigHandler.applePieID, 10).setIconIndex(11).setItemName("Apple Pie");
 
 		// Register Items
 		LanguageRegistry.addName(breadSlice, "Bread Slice");
