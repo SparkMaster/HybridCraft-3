@@ -191,6 +191,8 @@ public class LanguageHandler {
 		LanguageRegistry.addName(Armors.emeraldPlate, "Emerald Chestplate");
 		LanguageRegistry.addName(Armors.emeraldLegs, "Emerald Legs");
 		LanguageRegistry.addName(Armors.emeraldBoots, "Emerald Boots");
+		
+		LanguageRegistry.instance().addStringLocalization("entity.Creleton.name", "Creleton");
 	}
 
 }

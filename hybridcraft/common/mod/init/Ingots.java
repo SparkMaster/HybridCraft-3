@@ -3,6 +3,7 @@ package hybridcraft.common.mod.init;
 import hybridcraft.common.handlers.ConfigHandler;
 import hybridcraft.common.mod.lib.ItemIngot;
 import net.minecraft.src.Block;
+import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -23,5 +24,7 @@ public class Ingots {
 		sandIngot = new ItemIngot(ConfigHandler.sandIngotID).setIconIndex(14).setItemName("sandIngot");
 		dirtIngot = new ItemIngot(ConfigHandler.dirtIngotID).setIconIndex(0).setItemName("dirtIngot");
 	}
+	
+	
 
 }

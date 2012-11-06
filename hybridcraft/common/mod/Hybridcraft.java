@@ -6,6 +6,7 @@ import hybridcraft.common.core.lib.OreCoal;
 import hybridcraft.common.core.lib.OrganicCoal;
 import hybridcraft.common.gui.GuiHandlerFood;
 import hybridcraft.common.gui.GuiHandlerMix;
+import hybridcraft.common.handlers.AchievementHandler;
 import hybridcraft.common.handlers.ClientPacketHandler;
 import hybridcraft.common.handlers.ConfigHandler;
 import hybridcraft.common.handlers.CraftingHandler;
@@ -27,12 +28,13 @@ import hybridcraft.common.mod.lib.CreativeTabHCM;
 import hybridcraft.common.mod.lib.WorldGeneratorHybrid;
 import hybridcraft.common.proxies.CommonProxyHybrid;
 import hybridcraft.common.tile.TileHybrid;
+import net.minecraft.src.Achievement;
 import net.minecraft.src.BiomeGenBase;
 import net.minecraft.src.Block;
 import net.minecraft.src.CreativeTabs;
 import net.minecraft.src.EnumCreatureType;
 import net.minecraft.src.Item;
-import net.minecraft.src.ItemBow;
+import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.Configuration;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -44,7 +46,6 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkMod.SidedPacketHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -64,9 +65,10 @@ public class Hybridcraft {
 	// Proxy
 	@SidedProxy(clientSide = hybridcraft.common.core.CoreRef.CLIENT_PROXY_CLASS, serverSide = hybridcraft.common.core.CoreRef.SERVER_PROXY_CLASS)
 	public static CommonProxyHybrid proxy;
-
+	
 	// Crafting handler
 	private CraftingHandler craftingHandler = new CraftingHandler();
+	
 	
 	// Item List
 	public static Item bioCoal;
@@ -94,6 +96,10 @@ public class Hybridcraft {
 	@Init
 	public void load(FMLInitializationEvent event) {
 
+		//Colors
+		int greenColor = (0x00FF00);
+	    int grayColor = (0x8E8E8E);
+		
 		// init mod items
 		Ingots.initItems();
 		Armors.initItems();
@@ -107,6 +113,7 @@ public class Hybridcraft {
 		GameRegHandler.loadBlocks();
 		LanguageHandler.loadNames();
 		RecipeHandler.loadRecipes();
+		AchievementHandler.loadAchievements();
 
 		
 		// Fuel
@@ -122,10 +129,20 @@ public class Hybridcraft {
 		cobbleTorch = new Torches(825, 80).setHardness(0.0F).setLightValue(0.2174F).setStepSound(Block.soundWoodFootstep).setBlockName("torch").setRequiresSelfNotify();
 		sandTorch = new Torches(826, 80).setHardness(0.0F).setLightValue(0.2405F).setStepSound(Block.soundWoodFootstep).setBlockName("torch").setRequiresSelfNotify();
 		
-		//Mobs
-		EntityRegistry.registerModEntity(EntityCreleton.class, "Creleton", 44, this, 40, 1, true);
-		EntityRegistry.addSpawn(EntityCreleton.class, 10, 2, 4, EnumCreatureType.monster, BiomeGenBase.beach, BiomeGenBase.extremeHills, BiomeGenBase.extremeHillsEdge, BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.jungle, BiomeGenBase.jungleHills, BiomeGenBase.mushroomIsland, BiomeGenBase.mushroomIslandShore, BiomeGenBase.ocean, BiomeGenBase.plains, BiomeGenBase.river, BiomeGenBase.swampland);
+		/** Mobs 
+		 * Entries for Mobs move later...
+		 * */
 		
+		 //Register mob
+	    ModLoader.registerEntityID(EntityCreleton.class,"Creleton",ModLoader.getUniqueEntityId(), grayColor,greenColor);
+
+	    //Localize mob name
+	    LanguageRegistry.instance().addStringLocalization("entity.Creleton.name", "en_US", "Creleton");
+
+	    //Add mob spawn
+	    ModLoader.addSpawn(EntityCreleton.class, 2, 1, 2, EnumCreatureType.monster, BiomeGenBase.plains, BiomeGenBase.extremeHills, BiomeGenBase.forest, BiomeGenBase.desert, BiomeGenBase.forestHills, BiomeGenBase.swampland, BiomeGenBase.taiga);
+		
+	    
 		// Register combiner GUI
 		NetworkRegistry.instance().registerGuiHandler(this, guiHandlerMix);
 		NetworkRegistry.instance().registerGuiHandler(this, guiHandlerFood);
@@ -155,6 +172,5 @@ public class Hybridcraft {
 		LanguageRegistry.addName(stoneTorch, "Stone Torch");
 		
 		proxy.registerRenderThings();
-
 	}
 }

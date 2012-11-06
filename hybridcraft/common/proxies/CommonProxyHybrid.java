@@ -9,4 +9,7 @@ public class CommonProxyHybrid
     public int addArmor(String name) {
     	return 0;
     	}
+    public void init() {
+
+	}
 }

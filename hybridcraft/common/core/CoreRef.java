@@ -13,7 +13,7 @@ public class CoreRef {
     	//Mod information
     	public static final String HCM_MOD_ID = "HybridCraft";
     	public static final String HCM_MOD_NAME = "HybridCraft 3";
-    	public static final String HCM_VERSION = "3.0 Alpha";
+    	public static final String HCM_VERSION = "3.0 Beta";
     	public static final String HCM_CHANNEL_NAME = HCM_MOD_ID;
 	
     	//Resource Locations

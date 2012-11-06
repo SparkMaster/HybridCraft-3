@@ -45,6 +45,7 @@ public class EntityCreleton extends EntityMob implements IRangedAttackMob
         this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityAIRestrictSun(this));
         this.tasks.addTask(3, new EntityAIFleeSun(this, this.moveSpeed));
+        this.tasks.addTask(4, new EntityAIAttackOnCollide(this, this.moveSpeed, false));
         this.tasks.addTask(5, new EntityAIWander(this, this.moveSpeed));
         this.tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
         this.tasks.addTask(6, new EntityAILookIdle(this));
@@ -107,9 +108,9 @@ public class EntityCreleton extends EntityMob implements IRangedAttackMob
     {
         if (super.attackEntityAsMob(par1Entity))
         {
-            if (this.func_82202_m() == 1 && par1Entity instanceof EntityLiving)
+            if (this.getSkeletonType() == 1 && par1Entity instanceof EntityLiving)
             {
-                ((EntityLiving)par1Entity).addPotionEffect(new PotionEffect(Potion.field_82731_v.id, 200));
+                ((EntityLiving)par1Entity).addPotionEffect(new PotionEffect(Potion.wither.id, 200));
             }
 
             return true;
@@ -120,9 +121,12 @@ public class EntityCreleton extends EntityMob implements IRangedAttackMob
         }
     }
 
-    public int func_82193_c(Entity par1Entity)
+    /**
+     * Returns the amount of damage a mob should deal.
+     */
+    public int getAttackStrength(Entity par1Entity)
     {
-        if (this.func_82202_m() == 1)
+        if (this.getSkeletonType() == 1)
         {
             ItemStack var2 = this.getHeldItem();
             int var3 = 4;
@@ -136,7 +140,7 @@ public class EntityCreleton extends EntityMob implements IRangedAttackMob
         }
         else
         {
-            return super.func_82193_c(par1Entity);
+            return super.getAttackStrength(par1Entity);
         }
     }
 
@@ -172,7 +176,7 @@ public class EntityCreleton extends EntityMob implements IRangedAttackMob
                         if (var3.getItemDamageForDisplay() >= var3.getMaxDamage())
                         {
                             this.renderBrokenItemStack(var3);
-                            this.func_70062_b(4, (ItemStack)null);
+                            this.setCurrentItemOrArmor(4, (ItemStack)null);
                         }
                     }
 
@@ -192,22 +196,6 @@ public class EntityCreleton extends EntityMob implements IRangedAttackMob
     /**
      * Called when the mob's health reaches 0.
      */
-    public void onDeath(DamageSource par1DamageSource)
-    {
-        super.onDeath(par1DamageSource);
-
-        if (par1DamageSource.getSourceOfDamage() instanceof EntityArrow && par1DamageSource.getEntity() instanceof EntityPlayer)
-        {
-            EntityPlayer var2 = (EntityPlayer)par1DamageSource.getEntity();
-            double var3 = var2.posX - this.posX;
-            double var5 = var2.posZ - this.posZ;
-
-            if (var3 * var3 + var5 * var5 >= 2500.0D)
-            {
-                var2.triggerAchievement(AchievementList.snipeSkeleton);
-            }
-        }
-    }
 
     /**
      * Returns the item ID for the item the mob drops on death.
@@ -225,13 +213,13 @@ public class EntityCreleton extends EntityMob implements IRangedAttackMob
         int var3;
         int var4;
 
-        if (this.func_82202_m() == 1)
+        if (this.getSkeletonType() == 1)
         {
             var3 = this.rand.nextInt(3 + par2) - 1;
 
             for (var4 = 0; var4 < var3; ++var4)
             {
-                this.dropItem(hybridcraft.common.core.lib.OreCoal.dirtCoal.shiftedIndex, 1);
+                this.dropItem(Item.coal.shiftedIndex, 1);
             }
         }
         else
@@ -241,8 +229,11 @@ public class EntityCreleton extends EntityMob implements IRangedAttackMob
             for (var4 = 0; var4 < var3; ++var4)
             {
                 this.dropItem(Item.arrow.shiftedIndex, 1);
+                this.dropItem(Item.gunpowder.shiftedIndex, 4);
             }
         }
+        
+
 
         var3 = this.rand.nextInt(3 + par2);
 
@@ -250,20 +241,21 @@ public class EntityCreleton extends EntityMob implements IRangedAttackMob
         {
             this.dropItem(Item.bone.shiftedIndex, 1);
         }
+        
     }
 
     protected void dropRareDrop(int par1)
     {
-        if (this.func_82202_m() == 1)
+        if (this.getSkeletonType() == 1)
         {
-            this.entityDropItem(new ItemStack(Item.field_82799_bQ.shiftedIndex, 1, 1), 0.0F);
+            this.entityDropItem(new ItemStack(Item.skull.shiftedIndex, 1, 1), 0.0F);
         }
     }
 
     protected void func_82164_bB()
     {
         super.func_82164_bB();
-        this.func_70062_b(0, new ItemStack(Item.bow));
+        this.setCurrentItemOrArmor(0, new ItemStack(Item.bow));
     }
 
     @SideOnly(Side.CLIENT)
@@ -273,16 +265,19 @@ public class EntityCreleton extends EntityMob implements IRangedAttackMob
      */
     public String getTexture()
     {
-        return this.func_82202_m() == 1 ? "/mob/skeleton_wither.png" : super.getTexture();
+        return this.getSkeletonType() == 1 ? "/mob/skeleton_wither.png" : super.getTexture();
     }
 
-    public void func_82163_bD()
+    /**
+     * Initialize this creature.
+     */
+    public void initCreature()
     {
         if (this.worldObj.provider instanceof WorldProviderHell && this.getRNG().nextInt(5) > 0)
         {
             this.tasks.addTask(4, new EntityAIAttackOnCollide(this, EntityPlayer.class, this.moveSpeed, false));
-            this.func_82201_a(1);
-            this.func_70062_b(0, new ItemStack(Item.swordStone));
+            this.setSkeletonType(1);
+            this.setCurrentItemOrArmor(0, new ItemStack(Item.swordStone));
         }
         else
         {
@@ -291,21 +286,24 @@ public class EntityCreleton extends EntityMob implements IRangedAttackMob
             this.func_82162_bC();
         }
 
-        this.field_82172_bs = this.rand.nextFloat() < field_82181_as[this.worldObj.difficultySetting];
+        this.canPickUpLoot = this.rand.nextFloat() < field_82181_as[this.worldObj.difficultySetting];
 
         if (this.getCurrentItemOrArmor(4) == null)
         {
-            Calendar var1 = this.worldObj.func_83015_S();
+            Calendar var1 = this.worldObj.getCurrentDate();
 
             if (var1.get(2) + 1 == 10 && var1.get(5) == 31 && this.rand.nextFloat() < 0.25F)
             {
-                this.func_70062_b(4, new ItemStack(this.rand.nextFloat() < 0.1F ? Block.pumpkinLantern : Block.pumpkin));
-                this.field_82174_bp[4] = 0.0F;
+                this.setCurrentItemOrArmor(4, new ItemStack(this.rand.nextFloat() < 0.1F ? Block.pumpkinLantern : Block.pumpkin));
+                this.equipmentDropChances[4] = 0.0F;
             }
         }
     }
 
-    public void func_82196_d(EntityLiving par1EntityLiving)
+    /**
+     * Attack the specified entity using a ranged attack.
+     */
+    public void attackEntityWithRangedAttack(EntityLiving par1EntityLiving)
     {
         EntityArrow var2 = new EntityArrow(this.worldObj, this, par1EntityLiving, 1.6F, 12.0F);
         int var3 = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, this.getHeldItem());
@@ -321,7 +319,7 @@ public class EntityCreleton extends EntityMob implements IRangedAttackMob
             var2.setKnockbackStrength(var4);
         }
 
-        if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, this.getHeldItem()) > 0 || this.func_82202_m() == 1)
+        if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, this.getHeldItem()) > 0 || this.getSkeletonType() == 1)
         {
             var2.setFire(100);
         }
@@ -330,12 +328,18 @@ public class EntityCreleton extends EntityMob implements IRangedAttackMob
         this.worldObj.spawnEntityInWorld(var2);
     }
 
-    public int func_82202_m()
+    /**
+     * Return this skeleton's type.
+     */
+    public int getSkeletonType()
     {
         return this.dataWatcher.getWatchableObjectByte(13);
     }
 
-    public void func_82201_a(int par1)
+    /**
+     * Set this skeleton's type.
+     */
+    public void setSkeletonType(int par1)
     {
         this.dataWatcher.updateObject(13, Byte.valueOf((byte)par1));
         this.isImmuneToFire = par1 == 1;
@@ -360,10 +364,10 @@ public class EntityCreleton extends EntityMob implements IRangedAttackMob
         if (par1NBTTagCompound.hasKey("SkeletonType"))
         {
             byte var2 = par1NBTTagCompound.getByte("SkeletonType");
-            this.func_82201_a(var2);
+            this.setSkeletonType(var2);
         }
 
-        if (this.func_82202_m() == 1)
+        if (this.getSkeletonType() == 1)
         {
             this.tasks.addTask(4, new EntityAIAttackOnCollide(this, EntityPlayer.class, this.moveSpeed, false));
         }
@@ -379,6 +383,6 @@ public class EntityCreleton extends EntityMob implements IRangedAttackMob
     public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound)
     {
         super.writeEntityToNBT(par1NBTTagCompound);
-        par1NBTTagCompound.setByte("SkeletonType", (byte)this.func_82202_m());
+        par1NBTTagCompound.setByte("SkeletonType", (byte)this.getSkeletonType());
     }
 }
