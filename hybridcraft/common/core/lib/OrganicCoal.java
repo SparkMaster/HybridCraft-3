@@ -18,27 +18,21 @@ public class OrganicCoal extends Item
         this.setMaxDamage(0);
         this.setCreativeTab(hybridcraft.common.mod.Hybridcraft.tabsHCM);
     }
-
-	@SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT)
 	public EnumRarity getRarity(ItemStack par1){
 		return EnumRarity.uncommon;
-	}		
-
-    public String getItemNameIS(ItemStack par1ItemStack)
-    {
-        return par1ItemStack.getItemDamage() == 1 ? "item.charcoal" : "item.coal";
-    }
-
-    @SideOnly(Side.CLIENT)
-
-    /**
-     * returns a list of items with the same ID, but different meta (eg: dye returns 16 items)
-     */
-    public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List)
-    {
-        par3List.add(new ItemStack(par1, 1, 0));
-    }
+	}
     
+    public int getBurnTime(ItemStack fuel) {
+
+            if(fuel.itemID==hybridcraft.common.mod.Hybridcraft.organicCoal.shiftedIndex){
+
+                    return 1000;
+
+            }else
+
+            return 0;
+    }
     public String getTextureFile(){
     	 return "/hc/coal.png";
     }

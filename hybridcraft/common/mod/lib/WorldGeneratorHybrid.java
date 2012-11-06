@@ -33,17 +33,27 @@ public class WorldGeneratorHybrid implements IWorldGenerator {
 		}
 		
 		//generate flowers
-		for(int f =0; f<1;f++)
+		
+		//Dirt Flower
+		for(int df=0; df<1;df++)
 		{
 			int Xcoordf = BlockX+random.nextInt(16);
 			int Zcoordf = BlockZ+random.nextInt(16);
 			int Ycoordf = random.nextInt(256);
 			(new WorldGenFlowersHybrid(Flowers.oreFlower.blockID, 0)).generate(world, random, Xcoordf, Ycoordf, Zcoordf);
+		}
+		//Stone Flower
+		for(int sf=0; sf<1;sf++)
+		{
+			int Xcoordf = BlockX+random.nextInt(16);
+			int Zcoordf = BlockZ+random.nextInt(16);
+			int Ycoordf = random.nextInt(256);
 			(new WorldGenFlowersHybrid(Flowers.oreFlower.blockID, 1)).generate(world, random, Xcoordf, Ycoordf, Zcoordf);
 			(new WorldGenFlowersHybrid(Flowers.oreFlower.blockID, 2)).generate(world, random, Xcoordf, Ycoordf, Zcoordf);
 			(new WorldGenFlowersHybrid(Flowers.oreFlower.blockID, 3)).generate(world, random, Xcoordf, Ycoordf, Zcoordf);
 			(new WorldGenFlowersHybrid(Flowers.oreFlower.blockID, 4)).generate(world, random, Xcoordf, Ycoordf, Zcoordf);
 			(new WorldGenFlowersHybrid(Flowers.oreFlower.blockID, 5)).generate(world, random, Xcoordf, Ycoordf, Zcoordf);
+			(new WorldGenFlowersHybrid(Flowers.oreFlower.blockID, 6)).generate(world, random, Xcoordf, Ycoordf, Zcoordf);
 		}
 		
 		for(int o =0; o<10;o++){

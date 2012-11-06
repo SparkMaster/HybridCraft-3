@@ -15,6 +15,7 @@ public class IngotBlock extends Block
         super(par1, par2, Material.iron);
         this.setCreativeTab(hybridcraft.common.mod.Hybridcraft.tabsHCM);
     }
+    
 
     @SideOnly(Side.CLIENT)
 	public EnumRarity getRarity(ItemStack par1){

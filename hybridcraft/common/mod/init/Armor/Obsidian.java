@@ -19,7 +19,7 @@ public class Obsidian extends ItemArmor implements IArmorTextureProvider{
 
 	@SideOnly(Side.CLIENT)
 	public EnumRarity getRarity(ItemStack par1){
-		return EnumRarity.uncommon;
+		return EnumRarity.rare;
 	}		
 
  public String getTextureFile(){

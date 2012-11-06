@@ -123,8 +123,8 @@ public class Hybridcraft {
 		sandTorch = new Torches(826, 80).setHardness(0.0F).setLightValue(0.2405F).setStepSound(Block.soundWoodFootstep).setBlockName("torch").setRequiresSelfNotify();
 		
 		//Mobs
-		EntityRegistry.registerModEntity(EntityHybrid.class, "Tutorial", 44, this, 40, 1, true);
-		EntityRegistry.addSpawn(EntityHybrid.class, 10, 2, 4, EnumCreatureType.monster, BiomeGenBase.beach, BiomeGenBase.extremeHills, BiomeGenBase.extremeHillsEdge, BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.jungle, BiomeGenBase.jungleHills, BiomeGenBase.mushroomIsland, BiomeGenBase.mushroomIslandShore, BiomeGenBase.ocean, BiomeGenBase.plains, BiomeGenBase.river, BiomeGenBase.swampland);
+		EntityRegistry.registerModEntity(EntityCreleton.class, "Creleton", 44, this, 40, 1, true);
+		EntityRegistry.addSpawn(EntityCreleton.class, 10, 2, 4, EnumCreatureType.monster, BiomeGenBase.beach, BiomeGenBase.extremeHills, BiomeGenBase.extremeHillsEdge, BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.jungle, BiomeGenBase.jungleHills, BiomeGenBase.mushroomIsland, BiomeGenBase.mushroomIslandShore, BiomeGenBase.ocean, BiomeGenBase.plains, BiomeGenBase.river, BiomeGenBase.swampland);
 		
 		// Register combiner GUI
 		NetworkRegistry.instance().registerGuiHandler(this, guiHandlerMix);
