@@ -386,3 +386,5 @@ public class EntityCreleton extends EntityMob implements IRangedAttackMob
         par1NBTTagCompound.setByte("SkeletonType", (byte)this.getSkeletonType());
     }
 }
+
+
